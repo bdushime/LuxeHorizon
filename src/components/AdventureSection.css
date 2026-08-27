@@ -1,0 +1,163 @@
+.adventure-section {
+  background: var(--parchment);
+  padding: 130px 0 140px;
+}
+.adventure-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+}
+.adventure-head h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--clay);
+  font-size: clamp(34px, 4.2vw, 54px);
+  line-height: 1.02;
+  max-width: 11ch;
+}
+.adventure-head p {
+  max-width: 340px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(33, 29, 23, 0.62);
+}
+.adventure-nav {
+  display: flex;
+  gap: 12px;
+}
+.adventure-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  color: var(--ink);
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  flex: none;
+}
+.adventure-arrow:hover {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: var(--parchment);
+}
+
+.adventure-track {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  margin: 0 -40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  scrollbar-width: none;
+}
+.adventure-track::-webkit-scrollbar {
+  display: none;
+}
+
+.adventure-card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+  display: block;
+}
+.adventure-media {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 4 / 4.6;
+  background: var(--canopy);
+}
+.adventure-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.adventure-card:hover .adventure-media img {
+  transform: scale(1.07);
+}
+.adventure-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  background: rgba(246, 241, 231, 0.92);
+  backdrop-filter: blur(4px);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.adventure-badge .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--clay);
+}
+.adventure-body {
+  padding-top: 20px;
+}
+.adventure-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.adventure-route {
+  font-size: 13px;
+  color: rgba(33, 29, 23, 0.55);
+  margin-bottom: 14px;
+}
+.adventure-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.adventure-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sage);
+  letter-spacing: 0.02em;
+}
+.adventure-link {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+.adventure-card:hover .adventure-link {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: var(--parchment);
+  transform: translateX(3px);
+}
+
+@media (max-width: 980px) {
+  .adventure-track {
+    margin: 0 -22px;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}

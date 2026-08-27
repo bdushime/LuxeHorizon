@@ -1,0 +1,62 @@
+.destinations {
+  padding: 140px 0;
+}
+.dest-head {
+  margin-bottom: 60px;
+  max-width: 600px;
+}
+.dest-head h2 {
+  font-size: clamp(32px, 4vw, 46px);
+  margin-bottom: 20px;
+}
+.dest-head p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(33, 29, 23, 0.7);
+}
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.dest-tile {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+}
+.dest-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.dest-tile:hover img {
+  transform: scale(1.08);
+}
+.dest-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 31, 25, 0) 45%, rgba(15, 20, 17, 0.82) 100%);
+}
+.dest-label {
+  position: absolute;
+  left: 28px;
+  bottom: 28px;
+  z-index: 2;
+  color: var(--parchment);
+}
+.dest-label .eyebrow {
+  color: var(--gold-soft);
+  margin-bottom: 8px;
+}
+.dest-label h3 {
+  font-size: 28px;
+  color: var(--parchment);
+}
+
+@media (max-width: 980px) {
+  .dest-grid {
+    grid-template-columns: 1fr;
+  }
+}
