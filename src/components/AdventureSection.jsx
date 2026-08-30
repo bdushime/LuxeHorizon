@@ -1,18 +1,23 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Reveal from './Reveal.jsx'
 import { adventureCards } from '../data/content.js'
 import './AdventureSection.css'
 
 export default function AdventureSection() {
   const trackRef = useRef(null)
+  const [scrollPct, setScrollPct] = useState(0)
 
-  const scrollByCard = (dir) => {
+  useEffect(() => {
     const track = trackRef.current
     if (!track) return
-    const card = track.querySelector('.adventure-card')
-    const step = card ? card.getBoundingClientRect().width + 22 : 320
-    track.scrollBy({ left: dir * step, behavior: 'smooth' })
-  }
+    const onScroll = () => {
+      const max = track.scrollWidth - track.clientWidth
+      setScrollPct(max > 0 ? track.scrollLeft / max : 0)
+    }
+    onScroll()
+    track.addEventListener('scroll', onScroll, { passive: true })
+    return () => track.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <section className="adventure-section" id="experiences">
@@ -25,44 +30,42 @@ export default function AdventureSection() {
               and route can be redrawn around you.
             </p>
           </Reveal>
-          <div className="adventure-nav">
-            <button className="adventure-arrow" aria-label="Previous" onClick={() => scrollByCard(-1)}>
-              <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-                <path d="M15 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
-            </button>
-            <button className="adventure-arrow" aria-label="Next" onClick={() => scrollByCard(1)}>
-              <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-                <path d="M1 6H15M15 6L10 1M15 6L10 11" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
-            </button>
-          </div>
         </div>
 
         <div className="adventure-track" ref={trackRef}>
-          {adventureCards.map((card) => (
-            <Reveal as="a" key={card.key} href={card.href} className="adventure-card">
-              <div className="adventure-media">
+          {adventureCards.map((card, i) => (
+            <Reveal
+              as="a"
+              key={card.key}
+              href={card.href}
+              className="adv-card"
+              style={{ transitionDelay: `${i * 110}ms` }}
+            >
+              <div className="adv-card-media">
                 <img src={card.image} alt={card.title} />
-                <span className="adventure-badge">
-                  <span className="dot" />
-                  {card.badge}
-                </span>
-              </div>
-              <div className="adventure-body">
-                <div className="adventure-title">{card.title}</div>
-                <div className="adventure-route">{card.route}</div>
-                <div className="adventure-foot">
-                  <span className="adventure-price">{card.price}</span>
-                  <span className="adventure-link">
-                    <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
-                      <path d="M1 5H11M11 5L7 1M11 5L7 9" stroke="currentColor" strokeWidth="1.4" />
-                    </svg>
-                  </span>
+                <div className="adv-card-index">{String(i + 1).padStart(2, '0')}</div>
+                <div className="adv-card-overlay" />
+                <div className="adv-card-info">
+                  <div className="adv-card-route">{card.route}</div>
+                  <h3 className="adv-card-title">{card.title}</h3>
+                  <div className="adv-card-meta">
+                    <span>{card.price}</span>
+                    <span className="adv-card-dot" />
+                    <span>{card.badge}</span>
+                  </div>
                 </div>
+                <span className="adv-card-arrow" aria-hidden="true">
+                  <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                    <path d="M1 6H15M15 6L10 1M15 6L10 11" stroke="currentColor" strokeWidth="1.4" />
+                  </svg>
+                </span>
               </div>
             </Reveal>
           ))}
+        </div>
+
+        <div className="adventure-scrollbar">
+          <div className="adventure-scrollbar-fill" style={{ width: `${Math.max(12, scrollPct * 100)}%` }} />
         </div>
       </div>
     </section>

@@ -1,19 +1,70 @@
 .destinations {
+  position: relative;
   padding: 140px 0;
+  overflow: hidden;
 }
+
+/* ---------- Ambient hover background ---------- */
+.dest-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(180deg, transparent 0px, transparent 260px, black 420px);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0px, transparent 260px, black 420px);
+}
+.dest-bg-layer {
+  position: absolute;
+  inset: -20px;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.02);
+  filter: blur(4px);
+  transition: opacity 1.2s ease;
+}
+.dest-bg-layer.active {
+  opacity: 0.3;
+}
+
+.destinations .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Head ---------- */
 .dest-head {
   margin-bottom: 60px;
-  max-width: 600px;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 50px;
+  align-items: end;
 }
 .dest-head h2 {
   font-size: clamp(32px, 4vw, 46px);
-  margin-bottom: 20px;
 }
 .dest-head p {
   font-size: 16px;
   line-height: 1.7;
   color: rgba(33, 29, 23, 0.7);
 }
+
+/* Directional entrance overrides for the Reveal wrapper used in this section */
+.reveal-left.reveal {
+  transform: translateX(-48px);
+}
+.reveal-left.reveal.in {
+  transform: none;
+}
+.reveal-right.reveal {
+  transform: translateX(48px);
+}
+.reveal-right.reveal.in {
+  transform: none;
+}
+
+/* ---------- Grid ---------- */
 .dest-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -56,6 +107,18 @@
 }
 
 @media (max-width: 980px) {
+  .dest-head {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .reveal-left.reveal,
+  .reveal-right.reveal {
+    transform: translateY(28px);
+  }
+  .reveal-left.reveal.in,
+  .reveal-right.reveal.in {
+    transform: none;
+  }
   .dest-grid {
     grid-template-columns: 1fr;
   }

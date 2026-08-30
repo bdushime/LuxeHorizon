@@ -1,10 +1,16 @@
-import { useEffect, useState } from 'react'
-import { heroSections, heroBaseGradient } from '../data/content.js'
+import { useEffect, useRef, useState } from 'react'
+import { heroSections, heroBaseGradient, heroTaglines } from '../data/content.js'
 import './Hero.css'
+
+const TAGLINE_DISPLAY_MS = 2800 // how long each phrase stays fully visible
+const TAGLINE_TRANSITION_MS = 450 // must match the CSS transition duration below
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false)
   const [activeKey, setActiveKey] = useState(null)
+  const [taglineIndex, setTaglineIndex] = useState(0)
+  const [taglineVisible, setTaglineVisible] = useState(true)
+  const swapTimeoutRef = useRef(null)
 
   // Trigger the staggered entrance once the component has painted.
   useEffect(() => {
@@ -18,6 +24,24 @@ export default function Hero() {
     }
   }, [])
 
+  // Cycle through the hero taglines: fade out, swap text, fade back in.
+  useEffect(() => {
+    if (heroTaglines.length < 2) return undefined
+
+    const interval = setInterval(() => {
+      setTaglineVisible(false)
+      swapTimeoutRef.current = setTimeout(() => {
+        setTaglineIndex((i) => (i + 1) % heroTaglines.length)
+        setTaglineVisible(true)
+      }, TAGLINE_TRANSITION_MS)
+    }, TAGLINE_DISPLAY_MS)
+
+    return () => {
+      clearInterval(interval)
+      clearTimeout(swapTimeoutRef.current)
+    }
+  }, [])
+
   const activate = (key) => () => setActiveKey(key)
   const deactivate = () => setActiveKey(null)
 
@@ -25,13 +49,23 @@ export default function Hero() {
     <section className={`hero ${loaded ? 'loaded' : ''}`}>
       <div className="hero-photo-stack">
         <div className="hero-photo-layer base" style={{ background: heroBaseGradient }} />
-        {heroSections.map((section) => (
-          <div
-            key={section.key}
-            className={`hero-photo-layer wipe ${activeKey === section.key ? 'wipe-in' : ''}`}
-            style={{ background: section.gradient }}
-          />
-        ))}
+        {heroSections.map((section) => {
+          const layerStyle = section.image
+            ? {
+                backgroundImage: `linear-gradient(180deg, rgba(8,16,13,0.42) 0%, rgba(8,16,13,0.68) 100%), url('${section.image}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center 42%'
+              }
+            : { background: section.gradient }
+
+          return (
+            <div
+              key={section.key}
+              className={`hero-photo-layer wipe ${activeKey === section.key ? 'wipe-in' : ''}`}
+              style={layerStyle}
+            />
+          )
+        })}
       </div>
 
       <svg className="hero-horizon" viewBox="0 0 1600 400" preserveAspectRatio="none" aria-hidden="true">
@@ -69,7 +103,11 @@ export default function Hero() {
       </a>
 
       <div className="hero-word-block">
-        <div className="hero-tagline">AFRICA, ON YOUR TERMS</div>
+        <div className="hero-tagline">
+          <span className={`hero-tagline-word ${taglineVisible ? 'is-visible' : ''}`}>
+            {heroTaglines[taglineIndex]}
+          </span>
+        </div>
         <h1 className="hero-giant">HORIZONS</h1>
       </div>
 
@@ -88,11 +126,6 @@ export default function Hero() {
             <span>
               <span className="hbi-eyebrow">{section.eyebrow}</span>
               <span className="hbi-val">{section.label}</span>
-            </span>
-            <span className="hbi-chev">
-              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-                <path d="M1 1L6 6L11 1" stroke="#F6F1E7" strokeWidth="1.4" />
-              </svg>
             </span>
           </a>
         ))}

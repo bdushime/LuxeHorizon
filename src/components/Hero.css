@@ -145,6 +145,7 @@
   letter-spacing: 0.06em;
   color: var(--gold-soft);
   margin-bottom: 6px;
+  min-height: 1.3em;
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
@@ -152,6 +153,16 @@
 .hero.loaded .hero-tagline {
   opacity: 1;
   transform: none;
+}
+.hero-tagline-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.hero-tagline-word.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 .hero-giant {
   font-family: var(--display);
@@ -191,13 +202,12 @@
   bottom: 0;
   z-index: 3;
   display: flex;
+  justify-content: space-between;
+  padding: 0 40px 56px;
 }
 .hero-bar-item {
-  flex: 1;
-  padding: 0 30px 56px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 16px;
   cursor: pointer;
   opacity: 0;
@@ -230,38 +240,17 @@
 }
 .hbi-val {
   font-family: var(--display);
-  font-size: clamp(19px, 2.1vw, 27px);
+  font-size: clamp(24px, 2.8vw, 36px);
   letter-spacing: 0.02em;
   color: var(--parchment);
   white-space: nowrap;
-}
-.hbi-chev {
-  width: 36px;
-  height: 36px;
-  flex: none;
-  border: 1px solid rgba(246, 241, 231, 0.4);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.4s ease, background 0.3s ease, border-color 0.3s ease;
-}
-.hbi-chev svg {
-  transition: stroke 0.3s ease;
-}
-.hero-bar-item:hover .hbi-chev {
-  transform: rotate(180deg);
-  background: var(--gold);
-  border-color: var(--gold);
-}
-.hero-bar-item:hover .hbi-chev svg {
-  stroke: var(--ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-photo-layer,
   .hero-giant,
   .hero-tagline,
+  .hero-tagline-word,
   .hero-bar-item,
   .hero-social,
   .hero-enquire {
@@ -276,10 +265,15 @@
 @media (max-width: 980px) {
   .hero-bar {
     flex-wrap: wrap;
+    row-gap: 32px;
+    padding: 0 30px 40px;
   }
   .hero-bar-item {
     flex: 0 0 50%;
-    padding: 0 20px 40px;
+  }
+  .hero-bar-item:nth-child(2n) {
+    justify-content: flex-end;
+    text-align: right;
   }
 }
 
@@ -288,8 +282,15 @@
   .hero-enquire {
     display: none;
   }
+  .hero-bar {
+    padding: 0 22px 26px;
+    row-gap: 22px;
+  }
   .hero-bar-item {
     flex: 0 0 100%;
-    padding: 0 22px 26px;
+  }
+  .hero-bar-item:nth-child(2n) {
+    justify-content: flex-start;
+    text-align: left;
   }
 }

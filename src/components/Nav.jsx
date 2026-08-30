@@ -14,8 +14,11 @@ export default function Nav({ menuOpen, onToggleMenu }) {
     <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="wrap nav-inner">
         <div className="brand">
-          <span className="mark" />
-          LUXE HORIZONS
+          <img
+            src="/LuxeHorizon-removebg-preview.png"
+            alt="Luxe Horizons Africa"
+            className="brand-logo"
+          />
         </div>
         <div className="nav-right">
           <a href="#plan" className="nav-plan">

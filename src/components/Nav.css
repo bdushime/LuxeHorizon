@@ -13,24 +13,13 @@
   justify-content: space-between;
 }
 .brand {
-  font-family: var(--display);
-  font-size: 22px;
-  letter-spacing: 0.05em;
-  color: var(--parchment);
   display: flex;
   align-items: center;
-  gap: 10px;
-  transition: color 0.4s ease;
 }
-.nav.scrolled .brand {
-  color: var(--ink);
-}
-.brand .mark {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--gold);
-  display: inline-block;
+.brand-logo {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 .nav-right {

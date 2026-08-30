@@ -5,6 +5,7 @@ import Hero from './components/Hero.jsx'
 import AboutSection from './components/AboutSection.jsx'
 import AdventureSection from './components/AdventureSection.jsx'
 import DestinationsSection from './components/DestinationsSection.jsx'
+import VideoSection from './components/VideoSection.jsx'
 import QuoteBand from './components/QuoteBand.jsx'
 import PartnersSection from './components/PartnersSection.jsx'
 import CtaBand from './components/CtaBand.jsx'
@@ -21,6 +22,7 @@ export default function App() {
       <AboutSection />
       <AdventureSection />
       <DestinationsSection />
+      <VideoSection />
       <QuoteBand />
       <PartnersSection />
       <CtaBand />

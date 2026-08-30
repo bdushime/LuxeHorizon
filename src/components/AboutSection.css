@@ -1,15 +1,20 @@
 .intro {
-  padding: 150px 0 120px;
+  padding: 150px 0 100px;
+  overflow-x: hidden;
 }
-.intro-grid {
+
+.intro-grid-v2 {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 80px;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 100px;
 }
-.intro-grid h2 {
+
+.intro-copy-col h2 {
   font-size: clamp(32px, 4vw, 46px);
   color: var(--ink);
+  margin-bottom: 22px;
 }
 .intro-copy p {
   font-size: 17px;
@@ -20,29 +25,166 @@
 .intro-copy p:last-of-type {
   margin-bottom: 0;
 }
-.intro-stats {
+
+.intro-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 34px;
+  padding: 16px 34px;
+  border-radius: 999px;
+  background: var(--clay);
+  color: var(--parchment);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.intro-cta:hover {
+  background: #7f3a26;
+  transform: translateY(-2px);
+}
+
+/* ---------- Directional reveal (shared pattern with other sections) ---------- */
+.reveal-left.reveal {
+  transform: translateX(-48px);
+}
+.reveal-left.reveal.in {
+  transform: none;
+}
+
+/* ---------- Tilted photo pair ---------- */
+.intro-visual {
+  position: relative;
+  height: 460px;
+}
+.intro-photo {
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(20, 31, 25, 0.22);
+  background: var(--canopy);
+}
+.intro-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.intro-photo-main {
+  width: 62%;
+  aspect-ratio: 3 / 3.6;
+  top: 10px;
+  left: 0;
+  z-index: 1;
+}
+.intro-photo-secondary {
+  width: 50%;
+  aspect-ratio: 3 / 3.6;
+  bottom: 10px;
+  right: 0;
+  z-index: 2;
+  border: 6px solid var(--parchment);
+}
+
+.reveal-photo-main.reveal {
+  opacity: 0;
+  transform: translateY(40px) rotate(-15deg) scale(0.9);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal-photo-main.reveal.in {
+  opacity: 1;
+  transform: translateY(0) rotate(-4deg) scale(1);
+}
+.reveal-photo-secondary.reveal {
+  opacity: 0;
+  transform: translateY(50px) rotate(18deg) scale(0.85);
+  transition: opacity 1s ease 0.15s, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s;
+}
+.reveal-photo-secondary.reveal.in {
+  opacity: 1;
+  transform: translateY(0) rotate(5deg) scale(1);
+}
+
+/* ---------- Decorative dashed flourish ---------- */
+.intro-path-wrap.reveal {
+  position: absolute;
+  left: -70px;
+  bottom: -40px;
+  width: 220px;
+  height: 160px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  transform: none;
+  transition: opacity 0.6s ease 0.5s;
+}
+.intro-path-wrap.reveal.in {
+  opacity: 1;
+}
+.intro-path-line {
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.55s;
+}
+.intro-path-wrap.in .intro-path-line {
+  stroke-dashoffset: 0;
+}
+.intro-path-plane {
+  opacity: 0;
+  transition: opacity 0.4s ease 1.7s;
+}
+.intro-path-wrap.in .intro-path-plane {
+  opacity: 1;
+}
+
+/* ---------- Stats ---------- */
+.intro-stats-v2 {
   display: flex;
-  gap: 52px;
-  margin-top: 48px;
-  padding-top: 36px;
+  gap: 60px;
+  flex-wrap: wrap;
+  padding-top: 40px;
   border-top: 1px solid var(--line);
 }
-.stat .num {
+.stat-v2-num {
   font-family: var(--serif);
-  font-size: 34px;
+  font-size: 44px;
+  color: var(--ink);
+  line-height: 1;
+}
+.stat-v2-suffix {
   color: var(--clay);
 }
-.stat .label {
+.stat-v2-label {
   font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--sage);
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 @media (max-width: 980px) {
-  .intro-grid {
+  .intro-grid-v2 {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 70px;
+  }
+  .reveal-left.reveal {
+    transform: translateY(28px);
+  }
+  .reveal-left.reveal.in {
+    transform: none;
+  }
+  .intro-visual {
+    height: 380px;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .intro-path-wrap {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .intro-stats-v2 {
+    gap: 36px;
   }
 }

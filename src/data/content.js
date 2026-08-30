@@ -10,14 +10,25 @@ export const navLinks = [
   { key: 'contact', label: 'Contact', href: '#contact' }
 ]
 
+// Rotating phrases shown above the giant "HORIZONS" wordmark in the hero.
+// Cycled automatically — see Hero.jsx. Add/remove/reorder freely.
+export const heroTaglines = [
+  'Personalised Experiences',
+  'Inspiring Journeys',
+  'Step into the world'
+]
+
 // Each hero section has its own gradient "scene" — self-contained CSS,
-// no external image request required. Swap `image` in for a url() if/when
-// real photography is confirmed to load reliably from the production domain.
+// no external image request required. `image`, when set, is used instead of
+// the gradient (the gradient becomes a dark overlay for text legibility on
+// top of it). All four currently point at the same placeholder photo —
+// swap each one individually once more photos are available.
 export const heroSections = [
   {
     key: 'experiences',
     eyebrow: 'Explore',
     label: 'EXPERIENCES',
+    image: '/Mountain%20Gorilla.jpg.jpeg',
     gradient:
       'radial-gradient(ellipse 70% 55% at 30% 20%, rgba(139,168,120,0.28), transparent 60%), linear-gradient(160deg, #2E4A38 0%, #142019 100%)'
   },
@@ -25,6 +36,7 @@ export const heroSections = [
     key: 'destinations',
     eyebrow: 'Where To',
     label: 'DESTINATIONS',
+    image: '/Mountain%20Gorilla.jpg.jpeg',
     gradient:
       'radial-gradient(ellipse 70% 55% at 70% 20%, rgba(201,161,90,0.30), transparent 60%), linear-gradient(160deg, #4A3A22 0%, #1C150D 100%)'
   },
@@ -32,6 +44,7 @@ export const heroSections = [
     key: 'about',
     eyebrow: 'Who We Are',
     label: 'ABOUT',
+    image: '/Mountain%20Gorilla.jpg.jpeg',
     gradient:
       'radial-gradient(ellipse 70% 55% at 50% 15%, rgba(156,74,50,0.28), transparent 60%), linear-gradient(160deg, #3A2A2A 0%, #16100F 100%)'
   },
@@ -39,6 +52,7 @@ export const heroSections = [
     key: 'contact',
     eyebrow: 'Get In Touch',
     label: 'CONTACT',
+    image: '/Mountain%20Gorilla.jpg.jpeg',
     gradient:
       'radial-gradient(ellipse 70% 55% at 40% 25%, rgba(191,219,214,0.22), transparent 60%), linear-gradient(160deg, #234A44 0%, #0D1F1C 100%)'
   }
@@ -112,13 +126,15 @@ export const destinations = [
 
 // ring: 1 (inner) or 2 (outer) — radius for each is defined in partnerRingRadii below
 // angle: degrees, 0 = right, 90 = straight up, 180 = left (spread across the top arc)
+// Using local /public files here — the previous hotlinked WordPress URLs
+// (ILTM, ITB, OTM) were unreliable and rendered tiny/broken. Add those back
+// with local files if/when available; for now the orbit uses only the four
+// logos that have local, verified-working assets.
 export const partners = [
-  { name: 'Rwanda Development Board', logo: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/RDB-logo-1.jpg', ring: 1, angle: 55 },
-  { name: 'ILTM', logo: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/International-Luxury-Travel-Market-1.png', ring: 1, angle: 125 },
-  { name: 'RTTA', logo: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/RTTA.jpg', ring: 2, angle: 18 },
-  { name: 'East Africa Tourism Platform', logo: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/East-Africa-Tourism-Platform-1.jpg', ring: 2, angle: 68 },
-  { name: 'ITB', logo: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/ITB-Logo.jpg', ring: 2, angle: 112 },
-  { name: 'OTM', logo: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/OTM-Logo.jpg', ring: 2, angle: 162 }
+  { name: 'Rwanda Development Board', logo: '/RwandaDevelopmentBoard-removebg-preview.png', ring: 2, angle: 25 },
+  { name: 'RTTA', logo: '/RTTA-removebg-preview.png', ring: 1, angle: 60 },
+  { name: 'Akagera Aviation', logo: '/AkageraAviation-removebg-preview.png', ring: 1, angle: 120 },
+  { name: 'East Africa Tourism Platform', logo: '/EastAfrica-removebg-preview.png', ring: 2, angle: 155 }
 ]
 
 // Pixel radius for each ring, measured from the center mark at the base of the orbit.
@@ -130,5 +146,14 @@ export const contact = {
   phoneHref: 'tel:+250788615233',
   email: 'info@luxehorizonsafrica.com',
   instagram: 'https://www.instagram.com/luxehorizonsafrica',
-  whatsapp: 'https://api.whatsapp.com/send?phone=250788615233'
+  whatsapp: 'https://api.whatsapp.com/send?phone=250788615233',
+  youtube: 'https://www.youtube.com/@luxehorizonsafrica'
+}
+
+export const videoSection = {
+  src: '/luxe-horizons-video.mp4',
+  eyebrow: 'Watch Our Story',
+  heading: 'Rwanda, the Land of a Thousand Hills',
+  subheading:
+    'A short look at what it feels like to be here — the full film is on our YouTube channel.'
 }
