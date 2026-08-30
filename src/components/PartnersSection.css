@@ -39,8 +39,8 @@
   position: absolute;
   left: 50%;
   top: 100%;
-  width: 84px;
-  height: 84px;
+  width: 92px;
+  height: 92px;
   border-radius: 50%;
   background: var(--canopy);
   display: flex;
@@ -65,8 +65,8 @@
 
 .orbit-logo {
   position: absolute;
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   transform: translate(-50%, -50%) scale(0.3);
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), z-index 0s;
@@ -93,7 +93,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
+  padding: 6px;
   animation: orbit-bob 6s ease-in-out infinite;
   transition: box-shadow 0.3s ease;
 }
