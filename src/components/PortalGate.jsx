@@ -36,23 +36,9 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
 
           {/* Content Box */}
           <div className="relative z-10 flex h-full flex-col justify-between p-8 md:p-14">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] tracking-[0.2em] uppercase font-bold text-[#c6a15b] border border-[#c6a15b]/40 px-3.5 py-1.5 rounded bg-[#0B0C0E]/70 backdrop-blur-md">
-                01 · Private Safaris & Expeditions
-              </span>
-              <span className="text-[11px] uppercase tracking-widest text-[#F8F6F0]/60">
-                Tourism Division
-              </span>
-            </div>
 
             <div className="my-auto py-8">
-              <div className="inline-flex items-center bg-white px-3.5 py-1.5 rounded mb-6 shadow-md">
-                <img
-                  src="/LuxeHorizon-removebg-preview.png"
-                  alt="Luxe Horizons Africa"
-                  className="h-8 w-auto"
-                />
-              </div>
+              
               <h2 className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#F8F6F0] group-hover:text-[#c6a15b] transition-colors duration-500">
                 Tourism
               </h2>
@@ -101,14 +87,6 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
 
           {/* Content Box */}
           <div className="relative z-10 flex h-full flex-col justify-between p-8 md:p-14">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] tracking-[0.2em] uppercase font-bold text-[#c6a15b] border border-[#c6a15b]/40 px-3.5 py-1.5 rounded bg-[#0B0C0E]/70 backdrop-blur-md">
-                02 · Corporate Travel & MICE
-              </span>
-              <span className="text-[11px] uppercase tracking-widest text-[#F8F6F0]/60">
-                Consultancy Division
-              </span>
-            </div>
 
             <div className="my-auto py-8">
               <h2 className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#F8F6F0] group-hover:text-[#c6a15b] transition-colors duration-500">
