@@ -25,12 +25,6 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
           />
         </div>
         <div className="nav-right">
-          <button
-            onClick={onOpenPortal}
-            className="text-[10px] uppercase tracking-widest text-[#c6a15b] border border-[#c6a15b]/40 px-3 py-1.5 rounded hover:bg-[#c6a15b] hover:text-[#0B0C0E] transition-all hidden sm:inline-block"
-          >
-            Divisions ⚡
-          </button>
           <a href="#plan" className="nav-plan">
             Plan Your Trip
           </a>

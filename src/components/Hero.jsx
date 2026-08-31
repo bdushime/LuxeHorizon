@@ -12,6 +12,15 @@ export default function Hero() {
   const [taglineVisible, setTaglineVisible] = useState(true)
   const swapTimeoutRef = useRef(null)
 
+  const [scrolledHero, setScrolledHero] = useState(false)
+
+  // Track page scroll to reveal hero section menu on scroll
+  useEffect(() => {
+    const onScroll = () => setScrolledHero(window.scrollY > 30)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   // Trigger the staggered entrance once the component has painted.
   useEffect(() => {
     let timeoutId
@@ -46,7 +55,7 @@ export default function Hero() {
   const deactivate = () => setActiveKey(null)
 
   return (
-    <section className={`hero ${loaded ? 'loaded' : ''}`}>
+    <section className={`hero ${loaded ? 'loaded' : ''} ${scrolledHero ? 'scrolled-hero' : ''}`}>
       <div className="hero-photo-stack">
         <div
           className="hero-photo-layer base"
@@ -59,7 +68,7 @@ export default function Hero() {
         {heroSections.map((section) => {
           const layerStyle = section.image
             ? {
-                backgroundImage: `linear-gradient(180deg, rgba(8,16,13,0.42) 0%, rgba(8,16,13,0.68) 100%), url('${section.image}')`,
+                backgroundImage: `linear-gradient(180deg, rgba(8,16,13,0.12) 0%, rgba(8,16,13,0.28) 100%), url('${section.image}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center 42%'
               }

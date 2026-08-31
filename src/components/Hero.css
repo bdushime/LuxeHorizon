@@ -61,10 +61,10 @@
   z-index: 1;
   background: linear-gradient(
     180deg,
-    rgba(10, 20, 16, 0.5) 0%,
-    rgba(10, 20, 16, 0.18) 30%,
-    rgba(10, 20, 16, 0.3) 62%,
-    rgba(8, 16, 13, 0.62) 100%
+    rgba(10, 20, 16, 0.15) 0%,
+    rgba(10, 20, 16, 0.02) 30%,
+    rgba(10, 20, 16, 0.05) 62%,
+    rgba(8, 16, 13, 0.18) 100%
   );
 }
 
@@ -209,7 +209,7 @@
   pointer-events: none;
   transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.hero:hover .hero-bar,
+.hero.scrolled-hero .hero-bar,
 .hero:focus-within .hero-bar {
   opacity: 1;
   transform: translateY(0);
@@ -224,21 +224,21 @@
   transform: translateY(16px);
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
-.hero:hover .hero-bar-item,
+.hero.scrolled-hero .hero-bar-item,
 .hero:focus-within .hero-bar-item {
   opacity: 1;
   transform: translateY(0);
 }
-.hero:hover .hero-bar-item:nth-child(1) {
+.hero.scrolled-hero .hero-bar-item:nth-child(1) {
   transition-delay: 0.05s;
 }
-.hero:hover .hero-bar-item:nth-child(2) {
+.hero.scrolled-hero .hero-bar-item:nth-child(2) {
   transition-delay: 0.1s;
 }
-.hero:hover .hero-bar-item:nth-child(3) {
+.hero.scrolled-hero .hero-bar-item:nth-child(3) {
   transition-delay: 0.15s;
 }
-.hero:hover .hero-bar-item:nth-child(4) {
+.hero.scrolled-hero .hero-bar-item:nth-child(4) {
   transition-delay: 0.2s;
 }
 .hbi-eyebrow {

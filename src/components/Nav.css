@@ -15,13 +15,9 @@
 .nav .brand {
   display: inline-flex;
   align-items: center;
-  background: #ffffff;
-  padding: 6px 14px;
-  border-radius: 6px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 .brand-logo {
-  height: 36px;
+  height: 40px;
   width: auto;
   display: block;
 }
