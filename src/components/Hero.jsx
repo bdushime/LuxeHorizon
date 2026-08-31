@@ -87,13 +87,13 @@ export default function Hero() {
       <svg className="hero-horizon" viewBox="0 0 1600 400" preserveAspectRatio="none" aria-hidden="true">
         <path
           d="M0,260 L90,230 L180,255 L280,205 L360,240 L470,180 L560,225 L660,190 L760,235 L880,195 L980,245 L1090,210 L1180,250 L1300,200 L1400,240 L1600,215 L1600,400 L0,400 Z"
-          fill="#0a1712"
-          opacity="0.85"
+          fill="#8ba878"
+          opacity="0.38"
         />
         <path
           d="M0,300 L140,275 L260,305 L400,265 L520,300 L640,255 L760,295 L900,260 L1020,300 L1160,270 L1280,305 L1600,280 L1600,400 L0,400 Z"
-          fill="#08130f"
-          opacity="0.9"
+          fill="#4a6b52"
+          opacity="0.45"
         />
       </svg>
 
