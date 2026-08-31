@@ -1,5 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0B0C0E;
+  --color-canopy: #141f19;
+  --color-gold: #c6a15b;
+  --color-gold-soft: #d9c293;
+  --color-ivory: #F8F6F0;
+  --color-parchment: #f6f1e7;
+}
+
 :root {
-  --ink: #211d17;
+  --ink: #0B0C0E;
   --parchment: #f6f1e7;
   --parchment-dim: #efe8d9;
   --canopy: #141f19;

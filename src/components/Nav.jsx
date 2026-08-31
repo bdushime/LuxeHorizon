@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './Nav.css'
 
-export default function Nav({ menuOpen, onToggleMenu }) {
+export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -13,7 +13,11 @@ export default function Nav({ menuOpen, onToggleMenu }) {
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <div className="wrap nav-inner">
-        <div className="brand">
+        <div
+          className="brand cursor-pointer transition-transform hover:scale-105"
+          onClick={onOpenPortal}
+          title="Switch Brand Division (Portal Gate)"
+        >
           <img
             src="/LuxeHorizon-removebg-preview.png"
             alt="Luxe Horizons Africa"
@@ -21,6 +25,12 @@ export default function Nav({ menuOpen, onToggleMenu }) {
           />
         </div>
         <div className="nav-right">
+          <button
+            onClick={onOpenPortal}
+            className="text-[10px] uppercase tracking-widest text-[#c6a15b] border border-[#c6a15b]/40 px-3 py-1.5 rounded hover:bg-[#c6a15b] hover:text-[#0B0C0E] transition-all hidden sm:inline-block"
+          >
+            Divisions ⚡
+          </button>
           <a href="#plan" className="nav-plan">
             Plan Your Trip
           </a>
