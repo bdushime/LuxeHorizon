@@ -48,7 +48,14 @@ export default function Hero() {
   return (
     <section className={`hero ${loaded ? 'loaded' : ''}`}>
       <div className="hero-photo-stack">
-        <div className="hero-photo-layer base" style={{ background: heroBaseGradient }} />
+        <div
+          className="hero-photo-layer base"
+          style={{
+            backgroundImage: heroBaseGradient,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 42%'
+          }}
+        />
         {heroSections.map((section) => {
           const layerStyle = section.image
             ? {

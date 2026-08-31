@@ -58,8 +58,9 @@ export const heroSections = [
   }
 ]
 
+export const heroBaseImage = '/texp-akagera.jpg'
 export const heroBaseGradient =
-  'radial-gradient(ellipse 80% 60% at 50% 15%, rgba(198,161,91,0.16), transparent 60%), linear-gradient(165deg, #22362B 0%, #0F1B14 60%, #0A130F 100%)'
+  "linear-gradient(180deg, rgba(8,16,13,0.42) 0%, rgba(8,16,13,0.68) 100%), url('/texp-akagera.jpg')"
 
 export const adventureCards = [
   {
