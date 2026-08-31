@@ -12,6 +12,15 @@ export default function Hero() {
   const [taglineVisible, setTaglineVisible] = useState(true)
   const swapTimeoutRef = useRef(null)
 
+  const [scrolledHero, setScrolledHero] = useState(false)
+
+  // Track page scroll to reveal hero section menu on scroll
+  useEffect(() => {
+    const onScroll = () => setScrolledHero(window.scrollY > 30)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   // Trigger the staggered entrance once the component has painted.
   useEffect(() => {
     let timeoutId
@@ -46,13 +55,20 @@ export default function Hero() {
   const deactivate = () => setActiveKey(null)
 
   return (
-    <section className={`hero ${loaded ? 'loaded' : ''}`}>
+    <section className={`hero ${loaded ? 'loaded' : ''} ${scrolledHero ? 'scrolled-hero' : ''}`}>
       <div className="hero-photo-stack">
-        <div className="hero-photo-layer base" style={{ background: heroBaseGradient }} />
+        <div
+          className="hero-photo-layer base"
+          style={{
+            backgroundImage: heroBaseGradient,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 42%'
+          }}
+        />
         {heroSections.map((section) => {
           const layerStyle = section.image
             ? {
-                backgroundImage: `linear-gradient(180deg, rgba(8,16,13,0.42) 0%, rgba(8,16,13,0.68) 100%), url('${section.image}')`,
+                backgroundImage: `linear-gradient(180deg, rgba(8,16,13,0.12) 0%, rgba(8,16,13,0.28) 100%), url('${section.image}')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center 42%'
               }
@@ -71,13 +87,13 @@ export default function Hero() {
       <svg className="hero-horizon" viewBox="0 0 1600 400" preserveAspectRatio="none" aria-hidden="true">
         <path
           d="M0,260 L90,230 L180,255 L280,205 L360,240 L470,180 L560,225 L660,190 L760,235 L880,195 L980,245 L1090,210 L1180,250 L1300,200 L1400,240 L1600,215 L1600,400 L0,400 Z"
-          fill="#0a1712"
-          opacity="0.85"
+          fill="#8BA878"
+          opacity="0.65"
         />
         <path
           d="M0,300 L140,275 L260,305 L400,265 L520,300 L640,255 L760,295 L900,260 L1020,300 L1160,270 L1280,305 L1600,280 L1600,400 L0,400 Z"
-          fill="#08130f"
-          opacity="0.9"
+          fill="#6BB876"
+          opacity="0.85"
         />
       </svg>
 

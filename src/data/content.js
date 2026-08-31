@@ -28,7 +28,7 @@ export const heroSections = [
     key: 'experiences',
     eyebrow: 'Explore',
     label: 'EXPERIENCES',
-    image: '/Mountain%20Gorilla.jpg.jpeg',
+    image: '/exp-primates.jpg',
     gradient:
       'radial-gradient(ellipse 70% 55% at 30% 20%, rgba(139,168,120,0.28), transparent 60%), linear-gradient(160deg, #2E4A38 0%, #142019 100%)'
   },
@@ -36,7 +36,7 @@ export const heroSections = [
     key: 'destinations',
     eyebrow: 'Where To',
     label: 'DESTINATIONS',
-    image: '/Mountain%20Gorilla.jpg.jpeg',
+    image: '/exp-tanzania.jpg',
     gradient:
       'radial-gradient(ellipse 70% 55% at 70% 20%, rgba(201,161,90,0.30), transparent 60%), linear-gradient(160deg, #4A3A22 0%, #1C150D 100%)'
   },
@@ -44,7 +44,7 @@ export const heroSections = [
     key: 'about',
     eyebrow: 'Who We Are',
     label: 'ABOUT',
-    image: '/Mountain%20Gorilla.jpg.jpeg',
+    image: '/story-guide.jpg',
     gradient:
       'radial-gradient(ellipse 70% 55% at 50% 15%, rgba(156,74,50,0.28), transparent 60%), linear-gradient(160deg, #3A2A2A 0%, #16100F 100%)'
   },
@@ -52,14 +52,15 @@ export const heroSections = [
     key: 'contact',
     eyebrow: 'Get In Touch',
     label: 'CONTACT',
-    image: '/Mountain%20Gorilla.jpg.jpeg',
+    image: '/cta-sunset.jpg',
     gradient:
       'radial-gradient(ellipse 70% 55% at 40% 25%, rgba(191,219,214,0.22), transparent 60%), linear-gradient(160deg, #234A44 0%, #0D1F1C 100%)'
   }
 ]
 
+export const heroBaseImage = '/texp-akagera.jpg'
 export const heroBaseGradient =
-  'radial-gradient(ellipse 80% 60% at 50% 15%, rgba(198,161,91,0.16), transparent 60%), linear-gradient(165deg, #22362B 0%, #0F1B14 60%, #0A130F 100%)'
+  "linear-gradient(180deg, rgba(8,16,13,0.12) 0%, rgba(8,16,13,0.28) 100%), url('/texp-akagera.jpg')"
 
 export const adventureCards = [
   {
