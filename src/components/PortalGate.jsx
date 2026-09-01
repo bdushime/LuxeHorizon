@@ -28,30 +28,27 @@ function KineticHeading({ text, className }) {
   )
 }
 
-// Jagged ridge silhouette — the same "thousand hills" line language as the Hero
-// divider, just rotated to run top-to-bottom instead of left-to-right.
-const RIDGE_JITTER_FRONT = [0, -36, 22, -48, 30, -24, 40, 0]
-const RIDGE_JITTER_BACK = [0, -18, 12, -26, 16, -14, 22, 0]
+// Single clean diagonal seam — top point leans one way, bottom point leans
+// the other, so the split reads as one oblique cut rather than a straight line.
+const SLANT = 220
 
-function ridgePoints(baseX, h, jitter) {
-  const n = jitter.length
-  return jitter.map((off, i) => ({ x: baseX + off, y: (h * i) / (n - 1) }))
+function obliquePoints(baseX, h) {
+  return {
+    top: { x: baseX + SLANT / 2, y: 0 },
+    bottom: { x: baseX - SLANT / 2, y: h }
+  }
 }
 
-function ridgePathD(baseX, h, jitter) {
-  const pts = ridgePoints(baseX, h, jitter)
-  return `M${pts[0].x},${pts[0].y} ${pts
-    .slice(1)
-    .map((p) => `L${p.x},${p.y}`)
-    .join(' ')}`
+function obliqueLineD(baseX, h) {
+  const { top, bottom } = obliquePoints(baseX, h)
+  return `M${top.x},${top.y} L${bottom.x},${bottom.y}`
 }
 
-// Clip-path polygon covering everything to the RIGHT of the jagged ridge line —
-// this is what masks the Consultancy layer so it only shows past the ridge.
-function ridgeClipPath(baseX, w, h, jitter) {
-  const pts = ridgePoints(baseX, h, jitter)
-  const left = pts.map((p) => `${p.x}px ${p.y}px`).join(', ')
-  return `polygon(${left}, ${w}px ${h}px, ${w}px 0px)`
+// Clip-path polygon covering everything to the RIGHT of the diagonal seam —
+// this is what masks the Consultancy layer so it only shows past the line.
+function obliqueClipPath(baseX, w, h) {
+  const { top, bottom } = obliquePoints(baseX, h)
+  return `polygon(${top.x}px ${top.y}px, ${w}px 0px, ${w}px ${h}px, ${bottom.x}px ${bottom.y}px)`
 }
 
 export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultancy }) {
@@ -121,9 +118,8 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
   }
 
   const baseX = (dividerX / 100) * size.w
-  const clipPath = ridgeClipPath(baseX, size.w, size.h, RIDGE_JITTER_FRONT)
-  const frontRidgeD = ridgePathD(baseX, size.h, RIDGE_JITTER_FRONT)
-  const backRidgeD = ridgePathD(baseX - 26, size.h, RIDGE_JITTER_BACK)
+  const clipPath = obliqueClipPath(baseX, size.w, size.h)
+  const lineD = obliqueLineD(baseX, size.h)
   const clipTransition = dragging
     ? 'none'
     : `clip-path ${selected ? '1.7s' : '0.6s'} cubic-bezier(0.16,1,0.3,1)`
@@ -173,7 +169,7 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
         </motion.div>
       </div>
 
-      {/* DIVISION 02: CONSULTANCY — clipped by the jagged ridge on desktop, plain stacked block on mobile */}
+      {/* DIVISION 02: CONSULTANCY — clipped by the diagonal seam on desktop, plain stacked block on mobile */}
       <div
         onMouseEnter={() => isDesktop && !dragging && setHovered('consultancy')}
         onMouseLeave={() => isDesktop && setHovered(null)}
@@ -212,7 +208,7 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
         </motion.div>
       </div>
 
-      {/* Ridge outline + drag handle (desktop only) */}
+      {/* Diagonal seam outline + drag handle (desktop only) */}
       {isDesktop && (
         <svg
           className="pointer-events-none absolute inset-0 z-20"
@@ -220,8 +216,7 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
           height={size.h}
           style={{ transition: clipTransition }}
         >
-          <path d={backRidgeD} fill="none" stroke="#c6a15b" strokeOpacity="0.25" strokeWidth="2" />
-          <path d={frontRidgeD} fill="none" stroke="#c6a15b" strokeOpacity="0.7" strokeWidth="1.5" />
+          <path d={lineD} fill="none" stroke="#c6a15b" strokeOpacity="0.7" strokeWidth="1.5" />
         </svg>
       )}
       {isDesktop && (

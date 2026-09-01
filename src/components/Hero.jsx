@@ -1,17 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
-import { heroSections, heroBaseGradient, heroTaglines } from '../data/content.js'
+import { useEffect, useState } from 'react'
+import { heroSections, heroBaseGradient } from '../data/content.js'
 import './Hero.css'
-
-const TAGLINE_DISPLAY_MS = 2800 // how long each phrase stays fully visible
-const TAGLINE_TRANSITION_MS = 450 // must match the CSS transition duration below
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false)
   const [activeKey, setActiveKey] = useState(null)
-  const [taglineIndex, setTaglineIndex] = useState(0)
-  const [taglineVisible, setTaglineVisible] = useState(true)
-  const swapTimeoutRef = useRef(null)
-
   const [scrolledHero, setScrolledHero] = useState(false)
 
   // Track page scroll to reveal hero section menu on scroll
@@ -30,24 +23,6 @@ export default function Hero() {
     return () => {
       cancelAnimationFrame(rafId)
       clearTimeout(timeoutId)
-    }
-  }, [])
-
-  // Cycle through the hero taglines: fade out, swap text, fade back in.
-  useEffect(() => {
-    if (heroTaglines.length < 2) return undefined
-
-    const interval = setInterval(() => {
-      setTaglineVisible(false)
-      swapTimeoutRef.current = setTimeout(() => {
-        setTaglineIndex((i) => (i + 1) % heroTaglines.length)
-        setTaglineVisible(true)
-      }, TAGLINE_TRANSITION_MS)
-    }, TAGLINE_DISPLAY_MS)
-
-    return () => {
-      clearInterval(interval)
-      clearTimeout(swapTimeoutRef.current)
     }
   }, [])
 
@@ -119,12 +94,7 @@ export default function Hero() {
       </a>
 
       <div className="hero-word-block">
-        <div className="hero-tagline">
-          <span className={`hero-tagline-word ${taglineVisible ? 'is-visible' : ''}`}>
-            {heroTaglines[taglineIndex]}
-          </span>
-        </div>
-        <h1 className="hero-giant">HORIZONS</h1>
+        <h1 className="hero-giant">LUXE HORIZONS</h1>
       </div>
 
       <div className="hero-bar">
