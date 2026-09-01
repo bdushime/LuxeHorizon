@@ -149,7 +149,7 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
           transition={{ duration: 1 }}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E] via-[#0B0C0E]/70 to-[#0B0C0E]/40 transition-opacity duration-500 group-hover:opacity-75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E]/45 via-[#0B0C0E]/15 to-transparent transition-opacity duration-500 group-hover:opacity-50" />
 
         <motion.div
           animate={{ opacity: selected === 'tourism' ? 0 : 1 }}
@@ -164,24 +164,11 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
             <p className="mt-3 font-serif text-xl sm:text-2xl text-[#F8F6F0]/90 italic font-light">
               Private Journeys &amp; Primate Expeditions
             </p>
-            <p className="mt-4 text-sm text-[#F8F6F0]/70 leading-relaxed font-sans">
-              Tailor-made luxury safaris across Rwanda, Uganda, Tanzania, Kenya, and Zanzibar. Mountain gorilla
-              trekking and savanna game drives.
-            </p>
-
-            <div className="mt-8">
-              <button
-                type="button"
-                className="inline-flex items-center gap-3 border border-[#c6a15b] bg-[#c6a15b] px-7 py-3.5 text-xs font-bold tracking-widest text-[#0B0C0E] uppercase shadow-xl transition-all duration-300 group-hover:bg-[#F8F6F0] group-hover:border-[#F8F6F0]"
-              >
-                Enter Tourism Website <span>→</span>
-              </button>
-            </div>
           </div>
 
           <div className="flex w-full max-w-md items-center justify-between text-xs text-[#F8F6F0]/50 border-t border-[#F8F6F0]/15 pt-4">
             <span>Rwanda · Uganda · Tanzania · Kenya</span>
-            <span className="text-[#c6a15b]">Explore Safaris</span>
+            <span className="text-[#c6a15b]">Explore Safaris →</span>
           </div>
         </motion.div>
       </div>
@@ -201,7 +188,7 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
           transition={{ duration: 1 }}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E] via-[#0B0C0E]/70 to-[#0B0C0E]/40 transition-opacity duration-500 group-hover:opacity-75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E]/45 via-[#0B0C0E]/15 to-transparent transition-opacity duration-500 group-hover:opacity-50" />
 
         <motion.div
           animate={{ opacity: selected === 'consultancy' ? 0 : 1 }}
@@ -216,24 +203,11 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
             <p className="mt-3 font-serif text-xl sm:text-2xl text-[#F8F6F0]/90 italic font-light">
               Travel Advisory &amp; MICE Management
             </p>
-            <p className="mt-4 text-sm text-[#F8F6F0]/70 leading-relaxed font-sans">
-              Unique Travel Management Services for diplomats, corporate conferences, executive delegates, and
-              MICE incentive trips in Kigali.
-            </p>
-
-            <div className="mt-8">
-              <button
-                type="button"
-                className="inline-flex items-center gap-3 border border-[#F8F6F0]/40 bg-[#0B0C0E]/80 px-7 py-3.5 text-xs font-bold tracking-widest text-[#F8F6F0] uppercase shadow-xl transition-all duration-300 group-hover:bg-[#c6a15b] group-hover:text-[#0B0C0E] group-hover:border-[#c6a15b]"
-              >
-                Enter Consultancy Website <span>→</span>
-              </button>
-            </div>
           </div>
 
           <div className="flex w-full max-w-md items-center justify-between text-xs text-[#F8F6F0]/50 border-t border-[#F8F6F0]/15 pt-4">
             <span>Corporate · MICE · Conferences</span>
-            <span className="text-[#c6a15b]">Explore Advisory</span>
+            <span className="text-[#c6a15b]">Explore Advisory →</span>
           </div>
         </motion.div>
       </div>
