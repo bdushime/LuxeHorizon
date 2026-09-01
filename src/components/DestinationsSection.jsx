@@ -45,6 +45,39 @@ export default function DestinationsSection() {
           <Reveal className="reveal-right">
             <p>From misted volcanoes to golden plains — three countries, each with its own story to tell.</p>
           </Reveal>
+          <Reveal className="reveal-right dest-route">
+            <svg viewBox="0 0 320 140" className="dest-route-svg" aria-hidden="true">
+              <path className="dest-route-line" d="M20,112 Q90,24 160,34 Q232,20 300,96" />
+              {[
+                { key: 'rwanda', x: 20, y: 112 },
+                { key: 'uganda', x: 160, y: 34 },
+                { key: 'tanzania', x: 300, y: 96 }
+              ].map((p) => {
+                const dest = destinations.find((d) => d.key === p.key)
+                return (
+                  <circle
+                    key={p.key}
+                    cx={p.x}
+                    cy={p.y}
+                    r={hoveredKey === p.key ? 7 : 5}
+                    className={`dest-route-dot ${hoveredKey === p.key ? 'active' : ''}`}
+                    style={{ '--accent': dest?.accent }}
+                  />
+                )
+              })}
+            </svg>
+            <div className="dest-route-labels">
+              {destinations.map((dest) => (
+                <span
+                  key={dest.key}
+                  className={`dest-route-label ${hoveredKey === dest.key ? 'active' : ''}`}
+                  style={{ '--accent': dest.accent }}
+                >
+                  {dest.name}
+                </span>
+              ))}
+            </div>
+          </Reveal>
         </div>
 
         <div className="dest-grid">
