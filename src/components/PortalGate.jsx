@@ -149,7 +149,7 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
           transition={{ duration: 1 }}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E] via-[#0B0C0E]/70 to-[#0B0C0E]/40 transition-opacity duration-500 group-hover:opacity-75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E]/45 via-[#0B0C0E]/15 to-transparent transition-opacity duration-500 group-hover:opacity-50" />
 
         <motion.div
           animate={{ opacity: selected === 'tourism' ? 0 : 1 }}
@@ -188,7 +188,7 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
           transition={{ duration: 1 }}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E] via-[#0B0C0E]/70 to-[#0B0C0E]/40 transition-opacity duration-500 group-hover:opacity-75" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E]/45 via-[#0B0C0E]/15 to-transparent transition-opacity duration-500 group-hover:opacity-50" />
 
         <motion.div
           animate={{ opacity: selected === 'consultancy' ? 0 : 1 }}
