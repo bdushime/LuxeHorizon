@@ -105,7 +105,8 @@
   right: 40px;
   top: 50%;
   z-index: 3;
-  transform: translateY(-50%) rotate(180deg);
+  transform: translateY(calc(-50% + 16px)) rotate(180deg);
+  pointer-events: none;
   writing-mode: vertical-rl;
   display: flex;
   align-items: center;
@@ -115,10 +116,13 @@
   text-transform: uppercase;
   color: rgba(246, 241, 231, 0.75);
   opacity: 0;
-  transition: opacity 1s ease 0.9s;
+  transition: opacity 0.4s ease 0.15s, transform 0.4s ease 0.15s;
 }
-.hero.loaded .hero-enquire {
+.hero.scrolled-hero .hero-enquire,
+.hero:focus-within .hero-enquire {
   opacity: 1;
+  transform: translateY(-50%) rotate(180deg);
+  pointer-events: auto;
 }
 .hero-enquire .dot {
   width: 6px;

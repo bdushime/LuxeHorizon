@@ -13,6 +13,7 @@ export const navLinks = [
 // Rotating phrases shown above the giant "HORIZONS" wordmark in the hero.
 // Cycled automatically — see Hero.jsx. Add/remove/reorder freely.
 export const heroTaglines = [
+  'Luxe',
   'Personalised Experiences',
   'Inspiring Journeys',
   'Step into the world'
@@ -71,7 +72,8 @@ export const adventureCards = [
     badge: '7 Nights',
     title: "Rwanda's Primates",
     route: 'Kigali · Nyungwe · Volcanoes NP',
-    price: 'Price on request'
+    price: 'Price on request',
+    accent: '#5c6b4f'
   },
   {
     key: 'uganda',
@@ -80,7 +82,8 @@ export const adventureCards = [
     badge: '10 Days',
     title: 'Pearl of Africa',
     route: 'Bwindi · Queen Elizabeth · Kibale',
-    price: 'Price on request'
+    price: 'Price on request',
+    accent: '#b9772e'
   },
   {
     key: 'tanzania',
@@ -89,7 +92,8 @@ export const adventureCards = [
     badge: '7 Days',
     title: 'Tanzania Classic',
     route: 'Tarangire · Ngorongoro · Serengeti',
-    price: 'Price on request'
+    price: 'Price on request',
+    accent: '#3f6b63'
   },
   {
     key: 'custom',
@@ -99,7 +103,8 @@ export const adventureCards = [
     badge: 'Custom',
     title: 'Build Your Own',
     route: 'Rwanda · Uganda · Tanzania',
-    price: 'Speak to a designer'
+    price: 'Speak to a designer',
+    accent: '#9c4a32'
   }
 ]
 
@@ -109,19 +114,22 @@ export const destinations = [
     eyebrow: '01 — Volcanoes & Nyungwe',
     name: 'Rwanda',
     image:
-      'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Gorilla-Chimp-Trek.jpg'
+      'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Gorilla-Chimp-Trek.jpg',
+    accent: '#5c6b4f'
   },
   {
     key: 'uganda',
     eyebrow: '02 — Bwindi & Queen Elizabeth',
     name: 'Uganda',
-    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Lion-in-Uganda.jpg'
+    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Lion-in-Uganda.jpg',
+    accent: '#b9772e'
   },
   {
     key: 'tanzania',
     eyebrow: '03 — Serengeti & Ngorongoro',
     name: 'Tanzania',
-    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/08/Elephants.jpg'
+    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/08/Elephants.jpg',
+    accent: '#3f6b63'
   }
 ]
 

@@ -6,6 +6,11 @@ import './AdventureSection.css'
 export default function AdventureSection() {
   const trackRef = useRef(null)
   const [scrollPct, setScrollPct] = useState(0)
+  const [hoveredKey, setHoveredKey] = useState(null)
+
+  const activate = (key) => () => setHoveredKey(key)
+  const deactivate = () => setHoveredKey(null)
+  const hoveredAccent = adventureCards.find((c) => c.key === hoveredKey)?.accent
 
   useEffect(() => {
     const track = trackRef.current
@@ -20,11 +25,22 @@ export default function AdventureSection() {
   }, [])
 
   return (
-    <section className="adventure-section" id="experiences">
+    <section
+      className="adventure-section"
+      id="experiences"
+      style={hoveredAccent ? { '--accent': hoveredAccent } : undefined}
+    >
       <div className="wrap">
         <div className="adventure-head">
           <Reveal>
-            <h2>Choose Your Journey</h2>
+            <h2 className="adv-heading">
+              <span className="adv-heading-word">Choose</span>{' '}
+              <span className="adv-heading-word">Your</span>{' '}
+              <span className="adv-heading-word">Journey</span>
+            </h2>
+            <svg className="adv-heading-line" viewBox="0 0 220 12" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M2,8 C40,2 80,10 120,5 C150,1 180,9 218,4" />
+            </svg>
             <p>
               Three starting points across Rwanda, Uganda and Tanzania. Every night, lodge
               and route can be redrawn around you.
@@ -38,8 +54,13 @@ export default function AdventureSection() {
               as="a"
               key={card.key}
               href={card.href}
-              className="adv-card"
+              className={`adv-card ${hoveredKey && hoveredKey !== card.key ? 'dimmed' : ''}`}
               style={{ transitionDelay: `${i * 110}ms` }}
+              onMouseEnter={activate(card.key)}
+              onMouseLeave={deactivate}
+              onFocus={activate(card.key)}
+              onBlur={deactivate}
+              onTouchStart={activate(card.key)}
             >
               <div className="adv-card-media">
                 <img src={card.image} alt={card.title} />

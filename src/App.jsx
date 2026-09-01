@@ -35,10 +35,10 @@ export default function App() {
       />
       <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} />
       <Hero />
-      <AboutSection />
-      <AdventureSection />
       <DestinationsSection />
+      <AdventureSection />
       <VideoSection />
+      <AboutSection />
       <QuoteBand />
       <PartnersSection />
       <CtaBand />
