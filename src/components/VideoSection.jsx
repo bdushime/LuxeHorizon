@@ -7,6 +7,7 @@ export default function VideoSection() {
   const videoRef = useRef(null)
   const [inView, setInView] = useState(false)
   const [muted, setMuted] = useState(true)
+  const [progress, setProgress] = useState(0)
 
   // Play the video (muted) once it's mostly in view; pause when scrolled away
   // so it's not silently running in a background tab forever.
@@ -34,6 +35,17 @@ export default function VideoSection() {
     return () => io.disconnect()
   }, [])
 
+  // Drive the cinematic scrubber bar under the video frame.
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    const onTimeUpdate = () => {
+      setProgress(video.duration ? video.currentTime / video.duration : 0)
+    }
+    video.addEventListener('timeupdate', onTimeUpdate)
+    return () => video.removeEventListener('timeupdate', onTimeUpdate)
+  }, [])
+
   const toggleSound = () => {
     const video = videoRef.current
     if (!video) return
@@ -43,21 +55,9 @@ export default function VideoSection() {
 
   return (
     <section className="video-section">
-      <video
-        ref={videoRef}
-        className="video-section-media"
-        src={videoSection.src}
-        muted
-        loop
-        playsInline
-        preload="metadata"
-      />
-
-      <div className="video-section-overlay" />
-
-      <div className="wrap video-section-content">
-        <Reveal className="video-section-text">
-          <div className="eyebrow on-dark">{videoSection.eyebrow}</div>
+      <div className="wrap video-section-inner">
+        <Reveal className="video-section-text" as="div">
+          <div className="video-chapter-tag">01 — {videoSection.eyebrow}</div>
           <h2>{videoSection.heading}</h2>
           <p>{videoSection.subheading}</p>
 
@@ -86,6 +86,22 @@ export default function VideoSection() {
             <a href={contact.youtube} target="_blank" rel="noreferrer" className="btn btn-light video-cta">
               Watch Full Story on YouTube
             </a>
+          </div>
+        </Reveal>
+
+        <Reveal className="video-frame" as="div">
+          <video
+            ref={videoRef}
+            className="video-section-media"
+            src={videoSection.src}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+          <div className="video-frame-tint" />
+          <div className="video-frame-scrubber">
+            <div className="video-frame-scrubber-fill" style={{ width: `${progress * 100}%` }} />
           </div>
         </Reveal>
       </div>

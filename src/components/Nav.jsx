@@ -3,15 +3,19 @@ import './Nav.css'
 
 export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   const [scrolled, setScrolled] = useState(false)
+  const [revealed, setRevealed] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.85)
+    const onScroll = () => {
+      setScrolled(window.scrollY > window.innerHeight * 0.85)
+      setRevealed(window.scrollY > 30)
+    }
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
-    <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
+    <header className={`nav ${scrolled ? 'scrolled' : ''} ${revealed ? 'revealed' : ''}`}>
       <div className="wrap nav-inner">
         <div
           className="brand cursor-pointer transition-transform hover:scale-105"

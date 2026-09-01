@@ -35,7 +35,16 @@
   color: var(--parchment);
   border-bottom: 1px solid rgba(246, 241, 231, 0.5);
   padding-bottom: 3px;
-  transition: color 0.4s ease, border-color 0.4s ease;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: color 0.4s ease, border-color 0.4s ease, opacity 0.4s ease 0.05s,
+    transform 0.4s ease 0.05s;
+}
+.nav.revealed .nav-plan {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 .nav.scrolled .nav-plan {
   color: var(--ink);
@@ -52,13 +61,24 @@
   justify-content: center;
   background: transparent;
   cursor: pointer;
-  transition: border-color 0.4s ease;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: border-color 0.4s ease, opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+}
+.nav.revealed .menu-toggle {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 .nav.scrolled .menu-toggle {
   border-color: rgba(33, 29, 23, 0.3);
 }
 .menu-toggle.open {
   border-color: rgba(246, 241, 231, 0.5) !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
 }
 .menu-toggle .bars {
   position: relative;
