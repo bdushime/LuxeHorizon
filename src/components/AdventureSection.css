@@ -9,22 +9,24 @@
   font-family: var(--serif);
   font-weight: 600;
   font-size: clamp(44px, 6.8vw, 92px);
-  line-height: 1;
+  line-height: 1.05;
   margin: 0 0 6px;
-  background-image: linear-gradient(100deg, #2c3e1e 0%, #d9c293 48%, #856c4d 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  color: var(--ink);
 }
 .adv-heading-word {
   display: inline-block;
+  background-image: linear-gradient(100deg, #1b2e23 0%, #c6a15b 55%, #856c4d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   opacity: 0;
-  transform: translateY(30px) rotate(2deg);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.in .adv-heading-word {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
 }
 .reveal.in .adv-heading-word:nth-child(1) {
   transition-delay: 0.05s;
