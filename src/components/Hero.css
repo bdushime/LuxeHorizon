@@ -126,6 +126,24 @@
   display: block;
 }
 
+.hero-credit {
+  position: absolute;
+  right: 24px;
+  bottom: 18px;
+  z-index: 3;
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 231, 0.55);
+  opacity: 0;
+  transition: opacity 1s ease 0.9s;
+}
+.hero.loaded .hero-credit {
+  opacity: 1;
+}
+
 .hero-word-block {
   position: relative;
   z-index: 2;
@@ -266,7 +284,8 @@
 
 @media (max-width: 680px) {
   .hero-social,
-  .hero-enquire {
+  .hero-enquire,
+  .hero-credit {
     display: none;
   }
   .hero-bar {

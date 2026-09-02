@@ -83,7 +83,9 @@ export default function Hero({ revealed = true }) {
         <span className="stem" />
       </a>
 
-      <div className="hero-word-block">
+      <div className="hero-credit">Luxe Horizons Africa</div>
+
+      {/* <div className="hero-word-block">
         <h1 className="hero-giant">
           {'LUXE HORIZONS'.split('').map((ch, i) => (
             <span key={i} className="hero-giant-letter" style={{ transitionDelay: `${0.35 + i * 0.07}s` }}>
@@ -91,7 +93,7 @@ export default function Hero({ revealed = true }) {
             </span>
           ))}
         </h1>
-      </div>
+      </div> */}
 
       <div className="hero-bar">
         {heroSections.map((section) => (
