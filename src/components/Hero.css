@@ -159,19 +159,25 @@
   background-clip: text;
   color: var(--gold-soft);
   -webkit-text-fill-color: transparent;
-  opacity: 0;
-  transform: translateY(30px) scale(0.97);
-  transition: opacity 1.1s ease 0.35s, transform 1.1s ease 0.35s;
-}
-.hero.loaded .hero-giant {
-  opacity: 1;
-  transform: none;
 }
 @supports not (background-clip: text) {
   .hero-giant {
     color: var(--gold-soft);
     -webkit-text-fill-color: initial;
   }
+}
+.hero-giant-letter {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(30px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero.loaded .hero-giant-letter {
+  opacity: 1;
+  filter: blur(0px);
+  transform: none;
 }
 
 .hero-bar {
@@ -238,7 +244,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero-photo-layer,
-  .hero-giant,
+  .hero-giant-letter,
   .hero-bar-item,
   .hero-social,
   .hero-enquire {
@@ -247,6 +253,7 @@
     opacity: 1 !important;
     transform: none !important;
     clip-path: none !important;
+    filter: none !important;
   }
 }
 
