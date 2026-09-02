@@ -34,7 +34,7 @@ export default function App() {
         onOpenPortal={() => setPortalOpen(true)}
       />
       <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} />
-      <Hero />
+      <Hero revealed={!portalOpen} />
       <DestinationsSection />
       <AdventureSection />
       <VideoSection />

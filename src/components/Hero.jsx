@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { heroSections, heroBaseGradient } from '../data/content.js'
 import './Hero.css'
 
-export default function Hero() {
+export default function Hero({ revealed = true }) {
   const [loaded, setLoaded] = useState(false)
   const [activeKey, setActiveKey] = useState(null)
   const [scrolledHero, setScrolledHero] = useState(false)
@@ -14,8 +14,11 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Trigger the staggered entrance once the component has painted.
+  // Trigger the staggered entrance once the hero is actually visible — it
+  // mounts immediately behind the Portal Gate, so firing this on mount would
+  // play (and finish) the animation while it's still hidden.
   useEffect(() => {
+    if (!revealed) return undefined
     let timeoutId
     const rafId = requestAnimationFrame(() => {
       timeoutId = setTimeout(() => setLoaded(true), 50)
@@ -24,7 +27,7 @@ export default function Hero() {
       cancelAnimationFrame(rafId)
       clearTimeout(timeoutId)
     }
-  }, [])
+  }, [revealed])
 
   const activate = (key) => () => setActiveKey(key)
   const deactivate = () => setActiveKey(null)
@@ -94,7 +97,13 @@ export default function Hero() {
       </a>
 
       <div className="hero-word-block">
-        <h1 className="hero-giant">LUXE HORIZONS</h1>
+        <h1 className="hero-giant">
+          {'LUXE HORIZONS'.split('').map((ch, i) => (
+            <span key={i} className="hero-giant-letter" style={{ transitionDelay: `${0.35 + i * 0.07}s` }}>
+              {ch === ' ' ? ' ' : ch}
+            </span>
+          ))}
+        </h1>
       </div>
 
       <div className="hero-bar">
