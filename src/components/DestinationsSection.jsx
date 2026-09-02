@@ -46,36 +46,20 @@ export default function DestinationsSection() {
             <p>From misted volcanoes to golden plains — four countries, each with its own story to tell.</p>
           </Reveal>
           <Reveal className="reveal-right dest-route">
-            <svg viewBox="0 0 320 60" className="dest-route-svg" aria-hidden="true">
-              <path className="dest-route-line" d="M20,30 L300,30" />
-              {[
-                { key: 'rwanda', x: 20, y: 30 },
-                { key: 'uganda', x: 113, y: 30 },
-                { key: 'tanzania', x: 207, y: 30 },
-                { key: 'kenya', x: 300, y: 30 }
-              ].map((p) => {
-                const dest = destinations.find((d) => d.key === p.key)
-                return (
-                  <circle
-                    key={p.key}
-                    cx={p.x}
-                    cy={p.y}
-                    r={hoveredKey === p.key ? 7 : 5}
-                    className={`dest-route-dot ${hoveredKey === p.key ? 'active' : ''}`}
-                    style={{ '--accent': dest?.accent }}
-                  />
-                )
-              })}
-            </svg>
-            <div className="dest-route-labels">
+            <div className="dest-route-list">
               {destinations.map((dest) => (
-                <span
-                  key={dest.key}
-                  className={`dest-route-label ${hoveredKey === dest.key ? 'active' : ''}`}
-                  style={{ '--accent': dest.accent }}
-                >
-                  {dest.name}
-                </span>
+                <div key={dest.key} className="dest-route-item">
+                  <span
+                    className={`dest-route-dot ${hoveredKey === dest.key ? 'active' : ''}`}
+                    style={{ '--accent': dest.accent }}
+                  />
+                  <span
+                    className={`dest-route-label ${hoveredKey === dest.key ? 'active' : ''}`}
+                    style={{ '--accent': dest.accent }}
+                  >
+                    {dest.name}
+                  </span>
+                </div>
               ))}
             </div>
           </Reveal>
