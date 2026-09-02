@@ -10,15 +10,6 @@ export const navLinks = [
   { key: 'contact', label: 'Contact', href: '#contact' }
 ]
 
-// Rotating phrases shown above the giant "HORIZONS" wordmark in the hero.
-// Cycled automatically — see Hero.jsx. Add/remove/reorder freely.
-export const heroTaglines = [
-  'Luxe',
-  'Personalised Experiences',
-  'Inspiring Journeys',
-  'Step into the world'
-]
-
 // Each hero section has its own gradient "scene" — self-contained CSS,
 // no external image request required. `image`, when set, is used instead of
 // the gradient (the gradient becomes a dark overlay for text legibility on
@@ -130,6 +121,14 @@ export const destinations = [
     name: 'Tanzania',
     image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/08/Elephants.jpg',
     accent: '#3f6b63'
+  },
+  {
+    key: 'kenya',
+    eyebrow: '04 — Maasai Mara & Amboseli',
+    name: 'Kenya',
+    // Placeholder photo — swap for a real Maasai Mara / Amboseli shot before launch.
+    image: '/exp-akagera.jpg',
+    accent: '#9c4a32'
   }
 ]
 
@@ -151,7 +150,7 @@ export const partnerRingRadii = { 1: 130, 2: 235 }
 
 export const contact = {
   address: 'KN5, Kigali — Rwanda',
-  phone: '+250 788 615 233',
+  phone: '+250 78',
   phoneHref: 'tel:+250788615233',
   email: 'info@luxehorizonsafrica.com',
   instagram: 'https://www.instagram.com/luxehorizonsafrica',

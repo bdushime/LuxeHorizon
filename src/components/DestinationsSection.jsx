@@ -43,15 +43,16 @@ export default function DestinationsSection() {
             </h2>
           </Reveal>
           <Reveal className="reveal-right">
-            <p>From misted volcanoes to golden plains — three countries, each with its own story to tell.</p>
+            <p>From misted volcanoes to golden plains — four countries, each with its own story to tell.</p>
           </Reveal>
           <Reveal className="reveal-right dest-route">
-            <svg viewBox="0 0 320 140" className="dest-route-svg" aria-hidden="true">
-              <path className="dest-route-line" d="M20,112 Q90,24 160,34 Q232,20 300,96" />
+            <svg viewBox="0 0 320 60" className="dest-route-svg" aria-hidden="true">
+              <path className="dest-route-line" d="M20,30 L300,30" />
               {[
-                { key: 'rwanda', x: 20, y: 112 },
-                { key: 'uganda', x: 160, y: 34 },
-                { key: 'tanzania', x: 300, y: 96 }
+                { key: 'rwanda', x: 20, y: 30 },
+                { key: 'uganda', x: 113, y: 30 },
+                { key: 'tanzania', x: 207, y: 30 },
+                { key: 'kenya', x: 300, y: 30 }
               ].map((p) => {
                 const dest = destinations.find((d) => d.key === p.key)
                 return (
