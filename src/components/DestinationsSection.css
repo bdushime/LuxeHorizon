@@ -1,6 +1,6 @@
 .destinations {
   position: relative;
-  padding: 140px 0;
+  padding: 100px 0;
   overflow: hidden;
 }
 
@@ -34,7 +34,7 @@
 .dest-head {
   margin-bottom: 60px;
   display: grid;
-  grid-template-columns: 0.85fr 0.75fr 1fr;
+  grid-template-columns: 1.1fr 1fr 0.5fr;
   gap: 50px;
   align-items: end;
 }
@@ -79,47 +79,60 @@
   color: var(--accent, var(--clay));
 }
 
-/* ---------- Route sketch: Rwanda · Uganda · Tanzania ---------- */
+/* ---------- Route list: Rwanda · Uganda · Tanzania · Kenya (vertical) ---------- */
 .dest-route {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+}
+.dest-route-list {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding-bottom: 4px;
+  gap: 40px;
+  padding-left: 4px;
 }
-.dest-route-svg {
-  width: 100%;
-  height: auto;
-  overflow: visible;
+.dest-route-list::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 9px;
+  bottom: 9px;
+  border-left: 1.5px dashed rgba(33, 29, 23, 0.3);
 }
-.dest-route-line {
-  fill: none;
-  stroke: rgba(33, 29, 23, 0.3);
-  stroke-width: 1.5;
-  stroke-dasharray: 6 7;
-  stroke-linecap: round;
+.dest-route-item {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
 .dest-route-dot {
-  fill: var(--parchment);
-  stroke: var(--clay);
-  stroke-width: 2;
-  transition: r 0.3s ease, stroke 0.4s ease, fill 0.4s ease;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--parchment);
+  border: 2px solid var(--clay);
+  transition: border-color 0.4s ease, background 0.4s ease;
 }
 .dest-route-dot.active {
-  fill: var(--accent, var(--clay));
-  stroke: var(--accent, var(--clay));
+  background: var(--accent, var(--clay));
+  border-color: var(--accent, var(--clay));
 }
-.dest-route-labels {
-  display: flex;
-  justify-content: space-between;
+.dest-route-label {
   font-family: var(--sans);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(33, 29, 23, 0.45);
-}
-.dest-route-label {
   transition: color 0.4s ease;
+}
+.dest-route-label.active {
+  color: var(--accent, var(--clay));
 }
 .dest-route-label.active {
   color: var(--accent, var(--clay));
@@ -185,6 +198,13 @@
   .dest-head {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+  .dest-route {
+    min-height: 0;
+    justify-content: flex-start;
+  }
+  .dest-route-list {
+    gap: 18px;
   }
   .reveal-left.reveal,
   .reveal-right.reveal {
