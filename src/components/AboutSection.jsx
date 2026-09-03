@@ -16,13 +16,20 @@ const STATS = [
 
 const COUNT_DURATION_MS = 1400
 
-function CountUpStat({ stat, active, delayMs }) {
+function CountUpStat({ stat, playToken, delayMs }) {
   const [shown, setShown] = useState(stat.value === null ? stat.display : '0')
 
   useEffect(() => {
-    if (!active || stat.value === null) return
+    if (playToken === 0 || stat.value === null) return
     let raf
     let start
+
+    // Reset to zero immediately so replays (e.g. re-hovering) visibly restart
+    // the count rather than jumping straight back to the final value.
+    const zeroPadded =
+      stat.display.length > String(stat.value).length ? '0'.repeat(stat.display.length) : '0'
+    setShown(zeroPadded)
+
     const startDelay = setTimeout(() => {
       const tick = (t) => {
         if (start === undefined) start = t
@@ -42,7 +49,7 @@ function CountUpStat({ stat, active, delayMs }) {
       clearTimeout(startDelay)
       cancelAnimationFrame(raf)
     }
-  }, [active])
+  }, [playToken])
 
   return (
     <div className="stat-v2">
@@ -57,13 +64,16 @@ function CountUpStat({ stat, active, delayMs }) {
 
 export default function AboutSection() {
   const statsRef = useRef(null)
-  const [statsInView, setStatsInView] = useState(false)
+  // 0 = not yet played. Any increment (first scroll-into-view, then every
+  // re-hover) tells each CountUpStat to reset to zero and count up again.
+  const [playToken, setPlayToken] = useState(0)
+  const replay = () => setPlayToken((t) => t + 1)
 
   useEffect(() => {
     const el = statsRef.current
     if (!el) return
     const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setStatsInView(true)),
+      (entries) => entries.forEach((e) => e.isIntersecting && setPlayToken((t) => (t === 0 ? 1 : t))),
       { threshold: 0.4 }
     )
     io.observe(el)
@@ -128,9 +138,9 @@ export default function AboutSection() {
       </div>
 
       <div className="wrap">
-        <div className="intro-stats-v2" ref={statsRef}>
+        <div className="intro-stats-v2" ref={statsRef} onMouseEnter={replay}>
           {STATS.map((stat, i) => (
-            <CountUpStat key={stat.label} stat={stat} active={statsInView} delayMs={i * 150} />
+            <CountUpStat key={stat.label} stat={stat} playToken={playToken} delayMs={i * 150} />
           ))}
         </div>
       </div>
