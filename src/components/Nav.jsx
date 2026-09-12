@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Nav.css'
 
 export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
@@ -17,19 +18,20 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''} ${revealed ? 'revealed' : ''}`}>
       <div className="wrap nav-inner">
-        <div
+        <Link
+          to="/"
           className="brand cursor-pointer transition-transform hover:scale-105"
-          onClick={onOpenPortal}
-          title="Switch Brand Division (Portal Gate)"
+          onClick={() => onOpenPortal && onOpenPortal()}
+          title="Home - Luxe Horizons Africa"
         >
           <img
             src="/LuxeHorizon-removebg-preview.png"
             alt="Luxe Horizons Africa"
             className="brand-logo"
           />
-        </div>
+        </Link>
         <div className="nav-right">
-          <a href="#plan" className="nav-plan">
+          <a href="/#plan" className="nav-plan">
             Plan Your Trip
           </a>
           <button

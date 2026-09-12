@@ -4,10 +4,10 @@
 // host has hotlink protection enabled.
 
 export const navLinks = [
-  { key: 'experiences', label: 'Experiences', href: '#experiences' },
-  { key: 'destinations', label: 'Destinations', href: '#destinations' },
-  { key: 'about', label: 'About', href: '#about' },
-  { key: 'contact', label: 'Contact', href: '#contact' }
+  { key: 'experiences', label: 'Experiences', href: '/#experiences' },
+  { key: 'destinations', label: 'Destinations', href: '/#destinations' },
+  { key: 'about', label: 'About', href: '/about' },
+  { key: 'contact', label: 'Contact', href: '/#contact' }
 ]
 
 // Each hero section has its own gradient "scene" — self-contained CSS,
@@ -165,3 +165,96 @@ export const videoSection = {
   subheading:
     'A short look at what it feels like to be here — the full film is on our YouTube channel.'
 }
+
+export const aboutMethodology = {
+  eyebrow: 'Our Approach',
+  heading: 'Crafted With Purpose',
+  subheading:
+    'Three pillars defining every expedition we design.',
+  stages: [
+    {
+      num: '01',
+      title: 'Bespoke Design',
+      description:
+        'Tailored from scratch around your specifications, schedule, and budget.'
+    },
+    {
+      num: '02',
+      title: 'Private Guiding',
+      description:
+        'Dedicated specialist guides managing all daily logistics and wildlife encounters.'
+    },
+    {
+      num: '03',
+      title: 'Meaningful Impact',
+      description:
+        'Direct connection with local conservation and community initiatives.'
+    }
+  ]
+}
+
+export const teamMembers = [
+  {
+    id: 'david-rutikanga',
+    name: 'David Rutikanga',
+    title: 'Founder & Managing Director',
+    badge: 'Leadership',
+    image: '/team/david.jpg',
+    summary: '15+ years in luxury East African safaris. Cornell & SITE Africa alumnus.',
+    bio: 'Founder of Luxe Horizon with over 15 years in luxury hospitality. Certified by Cornell University and SITE Africa in incentive travel and safari planning.'
+  },
+  {
+    id: 'emile-gashumba',
+    name: 'Emile Gashumba',
+    title: 'Operations Manager',
+    badge: 'Operations',
+    image: '/team/emile.jpg',
+    summary: 'Master’s in Finance recipient directing daily travel & air logistics.',
+    bio: 'Over a decade of operations management. Holds a Master’s degree in Finance and leads daily ground and aerial travel logistics.'
+  },
+  {
+    id: 'honorine-uwase',
+    name: 'Honorine Uwase',
+    title: 'Accounts Manager',
+    badge: 'Finance',
+    image: '/team/honorine.jpg',
+    summary: 'Senior financial strategist overseeing corporate assets & accounts.',
+    bio: 'Former Senior Accountant at Jibu Corporate with over 5 years of experience in corporate asset management and balance sheet precision.'
+  },
+  {
+    id: 'eduige-mbabazi',
+    name: 'Eduige Mbabazi',
+    title: 'Senior Travel Designer',
+    badge: 'Design',
+    image: '/team/eduige.jpg',
+    summary: 'Decade of hospitality experience crafting custom wilderness journeys.',
+    bio: 'Hospitality veteran with a Bachelor’s in Business Management, specializing in warm, nature-centric safari design.'
+  },
+  {
+    id: 'davinah-uwera',
+    name: 'Davinah Uwera',
+    title: 'Travel Designer',
+    badge: 'Design',
+    image: '/team/davinah.jpg',
+    summary: 'Law graduate delivering precise itinerary execution & consultation.',
+    bio: 'Holds a Bachelor of Laws from Université Libre de Kigali. Combines legal precision with swift travel consultancy.'
+  },
+  {
+    id: 'sheila-tuti-mpairwe',
+    name: 'Sheila Tuti Mpairwe',
+    title: 'Travel & Lifestyle Specialist',
+    badge: 'Sustainability',
+    image: '/team/sheila.png',
+    summary: 'MBA holder advocating sustainable, community-centered travel.',
+    bio: 'Holds an MBA from Makerere University. Focuses on responsible tourism, community engagement, and conservation.'
+  },
+  {
+    id: 'tona-lauria-rutayisire',
+    name: 'Tona Lauria Rutayisire',
+    title: 'Assistant Operations',
+    badge: 'Operations',
+    image: '/team/tona.jpg',
+    summary: 'Field coordinator managing guide communications & supplier liaisons.',
+    bio: 'Coordinates real-time field operations, guide communications, and supplier relationships to ensure smooth travel execution.'
+  }
+]

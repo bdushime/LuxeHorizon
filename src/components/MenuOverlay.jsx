@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { navLinks, contact } from '../data/content.js'
 import './MenuOverlay.css'
 
@@ -6,11 +7,21 @@ export default function MenuOverlay({ open, onClose }) {
     <div className={`menu-overlay ${open ? 'open' : ''}`}>
       <div className="wrap menu-overlay-grid">
         <nav className="menu-links">
-          {navLinks.map((link) => (
-            <a key={link.key} href={link.href} onClick={onClose}>
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isRoute = link.href.startsWith('/')
+            if (isRoute) {
+              return (
+                <Link key={link.key} to={link.href} onClick={onClose}>
+                  {link.label}
+                </Link>
+              )
+            }
+            return (
+              <a key={link.key} href={link.href} onClick={onClose}>
+                {link.label}
+              </a>
+            )
+          })}
         </nav>
         <div className="menu-side">
           <p>
@@ -21,7 +32,7 @@ export default function MenuOverlay({ open, onClose }) {
             Plan Your Trip
           </a>
           <div className="msoc">
-            <a href={contact.instagram}>Instagram</a>
+            <a href={contact.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href={`mailto:${contact.email}`}>Email</a>
             <a href={contact.phoneHref}>Call</a>
           </div>

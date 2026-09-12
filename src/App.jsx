@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import PortalGate from './components/PortalGate.jsx'
 import Nav from './components/Nav.jsx'
 import MenuOverlay from './components/MenuOverlay.jsx'
@@ -11,8 +12,9 @@ import QuoteBand from './components/QuoteBand.jsx'
 import PartnersSection from './components/PartnersSection.jsx'
 import CtaBand from './components/CtaBand.jsx'
 import Footer from './components/Footer.jsx'
+import AboutPage from './pages/AboutPage.jsx'
 
-export default function App() {
+function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [portalOpen, setPortalOpen] = useState(true)
 
@@ -23,7 +25,6 @@ export default function App() {
         onSelectTourism={() => setPortalOpen(false)}
         onSelectConsultancy={() => {
           setPortalOpen(false)
-          // Scroll smoothly to contact section for corporate advisory
           const el = document.getElementById('contact')
           if (el) el.scrollIntoView({ behavior: 'smooth' })
         }}
@@ -44,5 +45,16 @@ export default function App() {
       <CtaBand />
       <Footer />
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
