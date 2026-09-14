@@ -13,6 +13,7 @@ import PartnersSection from './components/PartnersSection.jsx'
 import CtaBand from './components/CtaBand.jsx'
 import Footer from './components/Footer.jsx'
 import AboutPage from './pages/AboutPage.jsx'
+import ExperiencesPage from './pages/ExperiencesPage.jsx'
 
 function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -54,6 +55,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/experiences" element={<ExperiencesPage />} />
       </Routes>
     </BrowserRouter>
   )
