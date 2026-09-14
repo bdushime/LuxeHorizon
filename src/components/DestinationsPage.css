@@ -1,0 +1,79 @@
+.dp-hero {
+  position: relative;
+  height: 100svh;
+  min-height: 720px;
+  overflow: hidden;
+  background: var(--canopy);
+  display: flex;
+  align-items: flex-end;
+}
+
+.dp-hero-photo-stack {
+  position: absolute;
+  inset: 0;
+}
+.dp-hero-photo-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 45%;
+}
+.dp-hero-photo-layer.base {
+  z-index: 1;
+}
+/* Same wipe mechanic as the homepage Hero's bottom nav-bar photo swap —
+   the picked destination's photo grows in from a zero-area clip-path. */
+.dp-hero-photo-layer.wipe {
+  z-index: 2;
+  clip-path: polygon(0% 100%, 0% 100%, 0% 100%, 0% 100%);
+  transform: scale(1.15);
+  transition: clip-path 1.15s cubic-bezier(0.65, 0, 0.35, 1), transform 1.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.dp-hero-photo-layer.wipe.wipe-in {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  transform: scale(1);
+}
+
+.dp-hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 40px 70px;
+  max-width: 720px;
+}
+.dp-hero-content h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(48px, 6vw, 84px);
+  line-height: 1.02;
+  color: var(--parchment);
+  margin: 12px 0 18px;
+}
+.dp-hero-content p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(16px, 1.6vw, 20px);
+  color: rgba(246, 241, 231, 0.8);
+  max-width: 520px;
+  margin: 0;
+}
+
+.dp-cards {
+  background: var(--parchment);
+  padding: 100px 0;
+}
+.dp-cards-head {
+  margin-bottom: 40px;
+}
+.dp-cards-head h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(34px, 4vw, 52px);
+  color: var(--ink);
+  margin: 10px 0 0;
+}
+
+@media (max-width: 680px) {
+  .dp-hero-content {
+    padding: 0 22px 50px;
+  }
+}

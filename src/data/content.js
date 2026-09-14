@@ -5,8 +5,9 @@
 
 export const navLinks = [
   { key: 'experiences', label: 'Experiences', href: '#experiences' },
-  { key: 'destinations', label: 'Destinations', href: '#destinations' },
+  { key: 'destinations', label: 'Destinations', href: '/destinations' },
   { key: 'about', label: 'About', href: '#about' },
+  { key: 'testimonials', label: 'Testimonials', href: '/testimonials' },
   { key: 'contact', label: 'Contact', href: '#contact' }
 ]
 
@@ -165,3 +166,58 @@ export const videoSection = {
   subheading:
     'A short look at what it feels like to be here — the full film is on our YouTube channel.'
 }
+
+// Placeholder client stories — swap in real guest names, quotes and photos
+// (their own trip snapshots, not marketing stock shots) before launch.
+export const testimonials = [
+  {
+    key: 't1',
+    name: 'Emily Carter',
+    origin: 'Traveled from London',
+    quote:
+      'We spent forty minutes six feet from a silverback and nobody said a word. Our guide read the family like he’d grown up beside them.',
+    rating: 5,
+    photo: '/Mountain Gorilla.jpg.jpeg',
+    rotate: -6
+  },
+  {
+    key: 't2',
+    name: 'James Okoro',
+    origin: 'Traveled from Lagos',
+    quote:
+      'Every lodge, every transfer, every small detail was arranged before we even thought to ask. It felt less like a tour and more like being hosted.',
+    rating: 5,
+    photo: '/Bird.jpg.jpeg',
+    rotate: 5
+  },
+  {
+    key: 't3',
+    name: 'Sofia Alvarez',
+    origin: 'Traveled from Madrid',
+    quote:
+      'Our guide noticed I loved birdlife more than the big cats and quietly rebuilt two days of the itinerary around it. Nobody made me feel like an inconvenience.',
+    rating: 5,
+    photo: '/story-guide.jpg',
+    rotate: -3
+  },
+  {
+    key: 't4',
+    name: 'Daniel Kim',
+    origin: 'Traveled from Seoul',
+    quote:
+      'The kind of trip you replay in your head for months afterward. Kigali to the volcanoes felt effortless, and every night ended with a view worth the drive.',
+    rating: 5,
+    photo: '/cta-sunset.jpg',
+    rotate: 7
+  },
+  {
+    key: 't5',
+    name: 'Amara Diallo',
+    origin: 'Traveled from Dakar',
+    quote:
+      'They designed the whole trip around my grandmother joining us at seventy-eight. Slower mornings, softer roads, and she still talks about the chimps.',
+    rating: 5,
+    photo: '/exp-primates.jpg',
+    rotate: -8
+  }
+]

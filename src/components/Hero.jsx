@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { heroSections, heroBaseGradient } from '../data/content.js'
 import './Hero.css'
 
@@ -96,23 +97,32 @@ export default function Hero({ revealed = true }) {
       </div> */}
 
       <div className="hero-bar">
-        {heroSections.map((section) => (
-          <a
-            key={section.key}
-            href={`#${section.key}`}
-            className="hero-bar-item"
-            onMouseEnter={activate(section.key)}
-            onMouseLeave={deactivate}
-            onFocus={activate(section.key)}
-            onBlur={deactivate}
-            onTouchStart={activate(section.key)}
-          >
+        {heroSections.map((section) => {
+          const itemProps = {
+            className: 'hero-bar-item',
+            onMouseEnter: activate(section.key),
+            onMouseLeave: deactivate,
+            onFocus: activate(section.key),
+            onBlur: deactivate,
+            onTouchStart: activate(section.key)
+          }
+          const content = (
             <span>
               <span className="hbi-eyebrow">{section.eyebrow}</span>
               <span className="hbi-val">{section.label}</span>
             </span>
-          </a>
-        ))}
+          )
+
+          return section.key === 'destinations' ? (
+            <Link key={section.key} to="/destinations" {...itemProps}>
+              {content}
+            </Link>
+          ) : (
+            <a key={section.key} href={`#${section.key}`} {...itemProps}>
+              {content}
+            </a>
+          )
+        })}
       </div>
     </section>
   )
