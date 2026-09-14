@@ -200,11 +200,30 @@
   box-shadow: 0 6px 20px rgba(20, 32, 25, 0.25);
 }
 
-/* Experience Cards Grid using Homepage (.adv-card) design */
+/* Experience Cards Grid using Homepage (.adv-card) design - 4 Column Layout */
 .exp-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1200px) {
+  .exp-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .exp-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .exp-cards-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .exp-adv-card.adv-card {
