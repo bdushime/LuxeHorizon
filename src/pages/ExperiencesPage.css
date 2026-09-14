@@ -35,9 +35,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(8, 16, 13, 0.45) 0%,
-    rgba(8, 16, 13, 0.7) 50%,
-    rgba(8, 16, 13, 0.92) 100%
+    rgba(8, 16, 13, 0.12) 0%,
+    rgba(8, 16, 13, 0.22) 50%,
+    rgba(8, 16, 13, 0.45) 100%
   );
   z-index: 2;
 }
@@ -79,6 +79,7 @@
   margin-bottom: 20px;
   color: #ffffff;
   letter-spacing: -0.01em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.75);
 }
 
 .exp-hero-headline .gold-text {
@@ -90,9 +91,10 @@
 .exp-hero-tagline {
   font-size: clamp(1rem, 1.8vw, 1.25rem);
   line-height: 1.6;
-  color: rgba(251, 249, 244, 0.88);
+  color: rgba(251, 249, 244, 0.95);
   font-weight: 300;
   max-width: 680px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
 }
 
 .exp-hero-scroll-btn {
