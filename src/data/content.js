@@ -57,9 +57,8 @@ export const heroBaseGradient =
 export const adventureCards = [
   {
     key: 'rwanda',
-    href: 'https://luxehorizonsafrica.com/tours/rwandas-primates/',
-    image:
-      'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Gorilla-Chimp-Trek.jpg',
+    href: '/experiences?exp=rwandas-primates',
+    image: '/experiences/featured/rwandas-primates.jpg',
     badge: '7 Nights',
     title: "Rwanda's Primates",
     route: 'Kigali · Nyungwe · Volcanoes NP',
@@ -68,8 +67,8 @@ export const adventureCards = [
   },
   {
     key: 'uganda',
-    href: 'https://luxehorizonsafrica.com/tours/best-of-the-pearl-of-africa/',
-    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Lion-in-Uganda.jpg',
+    href: '/experiences?exp=best-of-the-pearl-of-africa',
+    image: '/experiences/featured/best-of-the-pearl-of-africa.jpg',
     badge: '10 Days',
     title: 'Pearl of Africa',
     route: 'Bwindi · Queen Elizabeth · Kibale',
@@ -78,8 +77,8 @@ export const adventureCards = [
   },
   {
     key: 'tanzania',
-    href: 'https://luxehorizonsafrica.com/tours/tanzania-classic/',
-    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/08/Elephants.jpg',
+    href: '/experiences?exp=tanzania-classic',
+    image: '/experiences/featured/tanzania-classic.jpg',
     badge: '7 Days',
     title: 'Tanzania Classic',
     route: 'Tarangire · Ngorongoro · Serengeti',
@@ -88,9 +87,8 @@ export const adventureCards = [
   },
   {
     key: 'custom',
-    href: 'https://luxehorizonsafrica.com/destinations/',
-    image:
-      'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Step-into-a-world.jpg',
+    href: '/experiences',
+    image: '/experiences/featured/rwanda-discovery.jpg',
     badge: 'Custom',
     title: 'Build Your Own',
     route: 'Rwanda · Uganda · Tanzania',
