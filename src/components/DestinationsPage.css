@@ -1,79 +1,182 @@
-.dp-hero {
+.dpx-page {
   position: relative;
   height: 100svh;
   min-height: 720px;
   overflow: hidden;
-  background: var(--canopy);
-  display: flex;
-  align-items: flex-end;
+  background: #0d1310;
 }
 
-.dp-hero-photo-stack {
+.dpx-head {
   position: absolute;
-  inset: 0;
+  top: 150px;
+  left: 40px;
+  right: 40px;
+  z-index: 5;
+  pointer-events: none;
+  max-width: 620px;
 }
-.dp-hero-photo-layer {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center 45%;
-}
-.dp-hero-photo-layer.base {
-  z-index: 1;
-}
-/* Same wipe mechanic as the homepage Hero's bottom nav-bar photo swap —
-   the picked destination's photo grows in from a zero-area clip-path. */
-.dp-hero-photo-layer.wipe {
-  z-index: 2;
-  clip-path: polygon(0% 100%, 0% 100%, 0% 100%, 0% 100%);
-  transform: scale(1.15);
-  transition: clip-path 1.15s cubic-bezier(0.65, 0, 0.35, 1), transform 1.5s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-.dp-hero-photo-layer.wipe.wipe-in {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-  transform: scale(1);
-}
-
-.dp-hero-content {
-  position: relative;
-  z-index: 3;
-  padding: 0 40px 70px;
-  max-width: 720px;
-}
-.dp-hero-content h1 {
+.dpx-head h1 {
   font-family: var(--serif);
   font-weight: 600;
-  font-size: clamp(48px, 6vw, 84px);
-  line-height: 1.02;
+  font-size: clamp(34px, 4.2vw, 58px);
+  line-height: 1.05;
   color: var(--parchment);
-  margin: 12px 0 18px;
+  margin: 12px 0 14px;
 }
-.dp-hero-content p {
+.dpx-head p {
   font-family: var(--serif);
   font-style: italic;
-  font-size: clamp(16px, 1.6vw, 20px);
-  color: rgba(246, 241, 231, 0.8);
-  max-width: 520px;
+  font-size: 16px;
+  color: rgba(246, 241, 231, 0.75);
   margin: 0;
 }
 
-.dp-cards {
-  background: var(--parchment);
-  padding: 100px 0;
-}
-.dp-cards-head {
-  margin-bottom: 40px;
-}
-.dp-cards-head h2 {
-  font-family: var(--serif);
-  font-weight: 600;
-  font-size: clamp(34px, 4vw, 52px);
-  color: var(--ink);
-  margin: 10px 0 0;
+/* ---------- The mural: four edge-to-edge panels, one interactive photo ---------- */
+.dpx-panels {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
 }
 
-@media (max-width: 680px) {
-  .dp-hero-content {
-    padding: 0 22px 50px;
+.dpx-panel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  cursor: pointer;
+  outline: none;
+  isolation: isolate;
+  transform: translateZ(0);
+  transition: flex-grow 0.7s cubic-bezier(0.22, 0.9, 0.24, 1);
+}
+.dpx-panel + .dpx-panel {
+  border-left: 1px solid rgba(246, 241, 231, 0.12);
+}
+.dpx-panel:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(246, 241, 231, 0.7);
+}
+
+.dpx-panel-media {
+  position: absolute;
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  object-position: center 42%;
+  transform: scale(1.06);
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.7s ease;
+}
+.dpx-panel.active .dpx-panel-media {
+  transform: scale(1.1);
+}
+.dpx-panels.has-active .dpx-panel:not(.active) .dpx-panel-media {
+  filter: grayscale(0.4) brightness(0.55);
+}
+
+.dpx-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 14, 11, 0.08) 0%, rgba(8, 12, 10, 0.32) 55%, rgba(6, 9, 7, 0.86) 100%);
+  transition: background 0.6s ease;
+}
+.dpx-panels.has-active .dpx-panel:not(.active) .dpx-panel-overlay {
+  background: rgba(6, 9, 7, 0.58);
+}
+
+.dpx-panel-index {
+  position: absolute;
+  top: 112px;
+  left: 26px;
+  z-index: 2;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(246, 241, 231, 0.55);
+}
+
+.dpx-panel-vertical {
+  position: absolute;
+  left: 26px;
+  bottom: 30px;
+  z-index: 2;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--parchment);
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.dpx-panel.active .dpx-panel-vertical {
+  opacity: 0;
+}
+
+.dpx-panel-detail {
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  bottom: 34px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s;
+}
+.dpx-panel.active .dpx-panel-detail {
+  opacity: 1;
+  transform: translateY(0);
+}
+.dpx-panel-detail h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(26px, 2.6vw, 40px);
+  color: var(--parchment);
+  margin: 8px 0 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 780px) {
+  .dpx-page {
+    height: auto;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+  .dpx-head {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 150px 22px 24px;
+    max-width: 100%;
+  }
+  .dpx-panels {
+    position: relative;
+    inset: auto;
+    flex-direction: column;
+    height: 560px;
+    flex: 1;
+  }
+  .dpx-panel + .dpx-panel {
+    border-left: none;
+    border-top: 1px solid rgba(246, 241, 231, 0.12);
+  }
+  .dpx-panel-vertical {
+    writing-mode: horizontal-tb;
+    transform: none;
+    left: 22px;
+    bottom: 18px;
+    font-size: 19px;
+  }
+  .dpx-panel-detail {
+    left: 22px;
+    right: 22px;
+    bottom: 18px;
+  }
+  .dpx-panel-detail h3 {
+    white-space: normal;
   }
 }
