@@ -35,7 +35,11 @@ export default function Hero({ revealed = true }) {
 
   return (
     <section className={`hero ${loaded ? 'loaded' : ''} ${scrolledHero ? 'scrolled-hero' : ''}`}>
-      <div className="hero-photo-stack">
+      <div
+        className="hero-photo-stack"
+        role="img"
+        aria-label="Giraffes and zebras at golden hour in Akagera National Park, Rwanda"
+      >
         <div
           className="hero-photo-layer base"
           style={{
@@ -85,6 +89,13 @@ export default function Hero({ revealed = true }) {
       </a>
 
       <div className="hero-credit">Luxe Horizons Africa</div>
+
+      {/* The visible wordmark is switched off below, but every page still
+          needs exactly one real <h1> for SEO/accessibility — this carries
+          the actual keyword-rich page title without changing how it looks. */}
+      <h1 className="sr-only">
+        Luxe Horizons Africa — Luxury Rwanda, Uganda &amp; Tanzania Safari Tourism
+      </h1>
 
       {/* <div className="hero-word-block">
         <h1 className="hero-giant">

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { destinations, heroBaseGradient } from '../data/content.js'
 import DestinationCardGrid from './DestinationCardGrid.jsx'
+import Seo from './Seo.jsx'
 import './DestinationsPage.css'
 
 export default function DestinationsPage() {
@@ -9,8 +10,16 @@ export default function DestinationsPage() {
 
   return (
     <>
+      <Seo
+        title="Safari Destinations — Rwanda, Uganda, Tanzania & Kenya | Luxe Horizons Africa"
+        description="Explore our East Africa safari destinations: gorilla trekking in Rwanda, wildlife safaris in Uganda and Tanzania, and Kenya's Maasai Mara."
+      />
       <section className="dp-hero">
-        <div className="dp-hero-photo-stack">
+        <div
+          className="dp-hero-photo-stack"
+          role="img"
+          aria-label={hoveredDest ? `Safari scene from ${hoveredDest.name}` : 'Safari landscape across Rwanda, Uganda, Tanzania and Kenya'}
+        >
           <div
             className="dp-hero-photo-layer base"
             style={{ backgroundImage: heroBaseGradient, backgroundSize: 'cover', backgroundPosition: 'center 42%' }}

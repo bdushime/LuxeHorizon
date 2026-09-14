@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './Nav.css'
 
-// Only "/" and "/destinations" open on a full-bleed dark photo hero, so only
-// those two should start with light, on-dark nav styling and wait for scroll
-// to darken. Every other page (e.g. "/testimonials") has a light background
-// from the very top, so the nav needs to be dark and visible immediately.
-const DARK_HERO_ROUTES = new Set(['/', '/destinations'])
+// Only routes that open on a full-bleed dark photo hero should start with
+// light, on-dark nav styling and wait for scroll to darken. Every other page
+// (e.g. "/testimonials") has a light background from the very top, so the
+// nav needs to be dark and legible immediately.
+const DARK_HERO_ROUTES = new Set(['/', '/destinations', '/about'])
 
 export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   const { pathname } = useLocation()
-  const navigate = useNavigate()
   const isHome = pathname === '/'
   const hasDarkHero = DARK_HERO_ROUTES.has(pathname)
 
@@ -33,27 +32,30 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   const revealed = isHome ? revealedState : true
   const scrolled = hasDarkHero ? scrolledState : true
 
+  // The brand is a real <Link to="/">, so it already navigates home on its
+  // own — this only needs to additionally reopen the Portal Gate when we're
+  // already on the home page (its original "switch division" purpose).
   const handleBrandClick = () => {
     if (isHome) onOpenPortal()
-    else navigate('/')
   }
 
   return (
     <header className={`nav ${scrolled ? 'scrolled' : ''} ${revealed ? 'revealed' : ''}`}>
       <div className="wrap nav-inner">
-        <div
+        <Link
+          to="/"
           className="brand cursor-pointer transition-transform hover:scale-105"
           onClick={handleBrandClick}
-          title={isHome ? 'Switch Brand Division (Portal Gate)' : 'Back to Home'}
+          title={isHome ? 'Switch Brand Division (Portal Gate)' : 'Home - Luxe Horizons Africa'}
         >
           <img
             src="/LuxeHorizon-removebg-preview.png"
             alt="Luxe Horizons Africa"
             className="brand-logo"
           />
-        </div>
+        </Link>
         <div className="nav-right">
-          <a href="#plan" className="nav-plan">
+          <a href="/#plan" className="nav-plan">
             Plan Your Trip
           </a>
           <button

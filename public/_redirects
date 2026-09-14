@@ -1,0 +1,5 @@
+# Single-page app fallback for Netlify — without this, direct links or
+# crawler requests to routes like /destinations, /about, /testimonials
+# 404 instead of loading the app (Netlify's static host has no idea those
+# paths exist; only React Router does, client-side).
+/*  /index.html  200

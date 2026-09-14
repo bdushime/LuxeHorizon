@@ -4,11 +4,12 @@
 // host has hotlink protection enabled.
 
 export const navLinks = [
-  { key: 'experiences', label: 'Experiences', href: '#experiences' },
+  { key: 'experiences', label: 'Experiences', href: '/#experiences' },
   { key: 'destinations', label: 'Destinations', href: '/destinations' },
-  { key: 'about', label: 'About', href: '#about' },
+  { key: 'blog', label: 'Blog', href: '/blog' },
+  { key: 'about', label: 'About', href: '/about' },
   { key: 'testimonials', label: 'Testimonials', href: '/testimonials' },
-  { key: 'contact', label: 'Contact', href: '#contact' }
+  { key: 'contact', label: 'Contact', href: '/#contact' }
 ]
 
 // Each hero section has its own gradient "scene" — self-contained CSS,
@@ -167,6 +168,81 @@ export const videoSection = {
     'A short look at what it feels like to be here — the full film is on our YouTube channel.'
 }
 
+// Placeholder blog posts — swap in real articles, dates and cover photos
+// before launch.
+export const blogPosts = [
+  {
+    key: 'gorilla-etiquette',
+    category: 'Gorilla Trekking',
+    date: 'March 2026',
+    title: 'What Nobody Tells You Before Your First Gorilla Trek',
+    excerpt:
+      'The permit is the easy part. Here is what actually matters on the day — from altitude to the seven-metre rule.',
+    image: '/Mountain Gorilla.jpg.jpeg',
+    accent: '#5c6b4f'
+  },
+  {
+    key: 'best-time-safari',
+    category: 'Travel Tips',
+    date: 'February 2026',
+    title: 'The Best Time to Visit Rwanda, Uganda and Tanzania',
+    excerpt:
+      'Peak season means peak crowds. We break down what each month actually looks like on the ground.',
+    image: '/story-guide.jpg',
+    accent: '#b9772e'
+  },
+  {
+    key: 'community-conservation',
+    category: 'Conservation',
+    date: 'January 2026',
+    title: 'Inside the Community Projects Funded by Your Park Fees',
+    excerpt:
+      'Where the money from your trekking permit actually goes, and the villages you can visit to see it firsthand.',
+    image: '/Bird.jpg.jpeg',
+    accent: '#3f6b63'
+  },
+  {
+    key: 'packing-list',
+    category: 'Travel Tips',
+    date: 'December 2025',
+    title: 'The Only Packing List You Need for a Gorilla Trek',
+    excerpt:
+      'What actually earns a place in your daypack for the trailhead, and what to leave at the lodge.',
+    image: '/exp-primates.jpg',
+    accent: '#b9772e'
+  },
+  {
+    key: 'silverback-families',
+    category: 'Gorilla Trekking',
+    date: 'November 2025',
+    title: 'Meet the Habituated Families of Volcanoes National Park',
+    excerpt:
+      'A field guide to the named troops you might spend an hour with, and the rangers who know them by name.',
+    image: '/exp-akagera.jpg',
+    accent: '#5c6b4f'
+  },
+  {
+    key: 'ranger-diaries',
+    category: 'Conservation',
+    date: 'October 2025',
+    title: 'A Day With the Rangers Who Guard the Volcanoes',
+    excerpt:
+      'Before dawn patrols, snare removal, and the quiet work that keeps the parks standing for the next generation.',
+    image: '/cta-sunset.jpg',
+    accent: '#3f6b63'
+  },
+  {
+    key: 'visa-permits',
+    category: 'Travel Tips',
+    date: 'September 2025',
+    title: 'Visas, Permits and Paperwork: A No-Stress Guide',
+    excerpt:
+      'Everything to sort before you fly, laid out in the order you actually need to do it.',
+    image: '/story-guide.jpg',
+    accent: '#b9772e'
+  }
+]
+
 // Placeholder client stories — swap in real guest names, quotes and photos
 // (their own trip snapshots, not marketing stock shots) before launch.
 export const testimonials = [
@@ -219,5 +295,98 @@ export const testimonials = [
     rating: 5,
     photo: '/exp-primates.jpg',
     rotate: -8
+  }
+]
+
+export const aboutMethodology = {
+  eyebrow: 'Our Approach',
+  heading: 'Crafted With Purpose',
+  subheading:
+    'Three pillars defining every expedition we design.',
+  stages: [
+    {
+      num: '01',
+      title: 'Bespoke Design',
+      description:
+        'Tailored from scratch around your specifications, schedule, and budget.'
+    },
+    {
+      num: '02',
+      title: 'Private Guiding',
+      description:
+        'Dedicated specialist guides managing all daily logistics and wildlife encounters.'
+    },
+    {
+      num: '03',
+      title: 'Meaningful Impact',
+      description:
+        'Direct connection with local conservation and community initiatives.'
+    }
+  ]
+}
+
+export const teamMembers = [
+  {
+    id: 'david-rutikanga',
+    name: 'David Rutikanga',
+    title: 'Founder & Managing Director',
+    badge: 'Leadership',
+    image: '/team/david.jpg',
+    summary: '15+ years in luxury East African safaris. Cornell & SITE Africa alumnus.',
+    bio: 'Founder of Luxe Horizon with over 15 years in luxury hospitality. Certified by Cornell University and SITE Africa in incentive travel and safari planning.'
+  },
+  {
+    id: 'emile-gashumba',
+    name: 'Emile Gashumba',
+    title: 'Operations Manager',
+    badge: 'Operations',
+    image: '/team/emile.jpg',
+    summary: 'Master’s in Finance recipient directing daily travel & air logistics.',
+    bio: 'Over a decade of operations management. Holds a Master’s degree in Finance and leads daily ground and aerial travel logistics.'
+  },
+  {
+    id: 'honorine-uwase',
+    name: 'Honorine Uwase',
+    title: 'Accounts Manager',
+    badge: 'Finance',
+    image: '/team/honorine.jpg',
+    summary: 'Senior financial strategist overseeing corporate assets & accounts.',
+    bio: 'Former Senior Accountant at Jibu Corporate with over 5 years of experience in corporate asset management and balance sheet precision.'
+  },
+  {
+    id: 'eduige-mbabazi',
+    name: 'Eduige Mbabazi',
+    title: 'Senior Travel Designer',
+    badge: 'Design',
+    image: '/team/eduige.jpg',
+    summary: 'Decade of hospitality experience crafting custom wilderness journeys.',
+    bio: 'Hospitality veteran with a Bachelor’s in Business Management, specializing in warm, nature-centric safari design.'
+  },
+  {
+    id: 'davinah-uwera',
+    name: 'Davinah Uwera',
+    title: 'Travel Designer',
+    badge: 'Design',
+    image: '/team/davinah.jpg',
+    summary: 'Law graduate delivering precise itinerary execution & consultation.',
+    bio: 'Holds a Bachelor of Laws from Université Libre de Kigali. Combines legal precision with swift travel consultancy.'
+  },
+  {
+    id: 'sheila-tuti-mpairwe',
+    name: 'Sheila Tuti Mpairwe',
+    title: 'Travel & Lifestyle Specialist',
+    badge: 'Sustainability',
+    image: '/team/sheila.png',
+    summary: 'MBA holder advocating sustainable, community-centered travel.',
+    bio: 'Holds an MBA from Makerere University. Focuses on responsible tourism, community engagement, and conservation.'
+  },
+  {
+    id: 'tona-lauria-rutayisire',
+    name: 'Tona Lauria Rutayisire',
+    title: 'Assistant Operations',
+    badge: 'Operations',
+    image: '/team/tona.jpg',
+    summary: 'Field coordinator managing guide communications & supplier liaisons.',
+    bio: 'Coordinates real-time field operations, guide communications, and supplier relationships to ensure smooth travel execution.'
   }
 ]

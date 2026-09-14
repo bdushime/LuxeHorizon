@@ -6,7 +6,9 @@ import MenuOverlay from './components/MenuOverlay.jsx'
 import ScrollToHash from './components/ScrollToHash.jsx'
 import HomePage from './components/HomePage.jsx'
 import DestinationsPage from './components/DestinationsPage.jsx'
+import BlogPage from './components/BlogPage.jsx'
 import TestimonialsPage from './components/TestimonialsPage.jsx'
+import AboutPage from './pages/AboutPage.jsx'
 import Footer from './components/Footer.jsx'
 
 export default function App() {
@@ -35,7 +37,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage heroRevealed={!portalOpen} />} />
         <Route path="/destinations" element={<DestinationsPage />} />
+        <Route path="/blog" element={<BlogPage />} />
         <Route path="/testimonials" element={<TestimonialsPage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

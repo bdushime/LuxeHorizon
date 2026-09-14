@@ -1,10 +1,15 @@
 import Reveal from './Reveal.jsx'
 import { testimonials } from '../data/content.js'
+import Seo from './Seo.jsx'
 import './TestimonialsPage.css'
 
 export default function TestimonialsPage() {
   return (
     <section className="tm-page">
+      <Seo
+        title="Client Stories & Safari Reviews | Luxe Horizons Africa"
+        description="Real stories from travelers who booked bespoke Rwanda, Uganda and Tanzania safaris with Luxe Horizons Africa."
+      />
       <div className="wrap">
         <div className="tm-head">
           <div className="eyebrow">Testimonials</div>
