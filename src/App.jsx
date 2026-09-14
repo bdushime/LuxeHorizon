@@ -9,6 +9,7 @@ import DestinationsPage from './components/DestinationsPage.jsx'
 import BlogPage from './components/BlogPage.jsx'
 import TestimonialsPage from './components/TestimonialsPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
+import ExperiencesPage from './pages/ExperiencesPage.jsx'
 import Footer from './components/Footer.jsx'
 
 export default function App() {
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/experiences" element={<ExperiencesPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
