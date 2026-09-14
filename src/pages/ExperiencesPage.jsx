@@ -7,6 +7,7 @@ import PartnersSection from '../components/PartnersSection.jsx'
 import CtaBand from '../components/CtaBand.jsx'
 import Footer from '../components/Footer.jsx'
 import { experiencesData } from '../data/experiencesData.js'
+import '../components/AdventureSection.css'
 import './ExperiencesPage.css'
 
 const CATEGORIES = [
@@ -23,6 +24,7 @@ export default function ExperiencesPage() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [selectedExperience, setSelectedExperience] = useState(null)
   const [activeGalleryImg, setActiveGalleryImg] = useState('')
+  const [hoveredKey, setHoveredKey] = useState(null)
   const [searchParams, setSearchParams] = useSearchParams()
 
   useEffect(() => {
@@ -170,11 +172,19 @@ export default function ExperiencesPage() {
             ))}
           </div>
 
-          {/* Cards Grid */}
+          {/* Cards Grid using exact Homepage Card Design (.adv-card) */}
           <div className="exp-cards-grid">
-            {filteredExperiences.map((exp) => (
-              <Reveal key={exp.id} className="exp-card">
-                <div className="exp-card-media" onClick={() => openExperience(exp)}>
+            {filteredExperiences.map((exp, i) => (
+              <Reveal
+                key={exp.id}
+                className={`adv-card exp-adv-card ${
+                  hoveredKey && hoveredKey !== exp.id ? 'dimmed' : ''
+                }`}
+                onClick={() => openExperience(exp)}
+                onMouseEnter={() => setHoveredKey(exp.id)}
+                onMouseLeave={() => setHoveredKey(null)}
+              >
+                <div className="adv-card-media">
                   <img
                     src={exp.image}
                     alt={exp.title}
@@ -183,34 +193,30 @@ export default function ExperiencesPage() {
                       e.target.src = '/exp-primates.jpg'
                     }}
                   />
-                  <div className="exp-card-badges">
-                    <span className="exp-badge duration">{exp.duration}</span>
-                    <span className="exp-badge category">{exp.category}</span>
+                  <div className="adv-card-index">
+                    {String(i + 1).padStart(2, '0')}
                   </div>
-                </div>
-
-                <div className="exp-card-body">
-                  <div className="exp-card-location">{exp.location}</div>
-                  <h3 className="exp-card-title">{exp.title}</h3>
-                  <p className="exp-card-summary">{exp.summary}</p>
-
-                  <button
-                    type="button"
-                    className="exp-card-action"
-                    onClick={() => openExperience(exp)}
-                  >
-                    View Experience
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
+                  <div className="adv-card-overlay" />
+                  <div className="adv-card-info">
+                    <div className="adv-card-route">
+                      {exp.location || exp.category}
+                    </div>
+                    <h3 className="adv-card-title">{exp.title}</h3>
+                    <div className="adv-card-meta">
+                      <span>{exp.duration}</span>
+                      <span className="adv-card-dot" />
+                      <span>{exp.category}</span>
+                    </div>
+                  </div>
+                  <span className="adv-card-arrow" aria-hidden="true">
+                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                      <path
+                        d="M1 6H15M15 6L10 1M15 6L10 11"
+                        stroke="currentColor"
+                        strokeWidth="1.4"
+                      />
                     </svg>
-                  </button>
+                  </span>
                 </div>
               </Reveal>
             ))}
