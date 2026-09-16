@@ -4,11 +4,11 @@
 // host has hotlink protection enabled.
 
 export const navLinks = [
-  { key: 'experiences', label: 'Experiences', href: '/experiences' },
   { key: 'destinations', label: 'Destinations', href: '/destinations' },
-  { key: 'blog', label: 'Blog', href: '/blog' },
+  { key: 'experiences', label: 'Experiences', href: '/experiences' },
   { key: 'about', label: 'About', href: '/about' },
   { key: 'testimonials', label: 'Testimonials', href: '/testimonials' },
+  { key: 'blog', label: 'Blog', href: '/blog' },
   { key: 'contact', label: 'Contact', href: '/contact' }
 ]
 
