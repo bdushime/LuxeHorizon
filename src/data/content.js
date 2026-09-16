@@ -241,6 +241,83 @@ export const blogPosts = [
   }
 ]
 
+export const faqCategories = [
+  { key: 'before-you-go', label: 'Before You Go' },
+  { key: 'trip-design', label: 'Trip Design' },
+  { key: 'families-groups', label: 'Families & Groups' },
+  { key: 'health-logistics', label: 'Health & Logistics' }
+]
+
+// FAQ copy — "When is the best time to travel?" is the real answer carried
+// over from the client's existing WordPress FAQ page. Every other answer is
+// a reasonable placeholder and should be swapped for the client's actual
+// wording before launch.
+export const faqs = [
+  {
+    key: 'best-time',
+    category: 'before-you-go',
+    question: 'When is the best time to travel?',
+    answer:
+      'Ideally, the best time to visit Africa should consider more than just the weather. Your journey could be culture-focused or to partake in a specific traditional festival. You might be looking for a particular occasion to see the savannah animals, tracking gorillas, hiking a mountain or chimpanzee trekking in the rainforest. Whatever the "why" of your safari, Luxe Horizons Africa will guide you through every step of the way.\n\nGenerally speaking, an East African safari can be enjoyed all year round. There are, however, distinct seasons that suit some travelers more than others — we will always share specific weather conditions by month for the areas or country you wish to visit.'
+  },
+  {
+    key: 'luggage',
+    category: 'before-you-go',
+    question: 'What luggage should I take?',
+    answer:
+      'A soft-sided duffel packs down easier than a hard-shell case, especially for light-aircraft transfers between parks where hold space is limited. We will confirm the exact weight allowance for your itinerary once internal flights are booked.'
+  },
+  {
+    key: 'essentials',
+    category: 'before-you-go',
+    question: 'What are essential items and clothes for a safari?',
+    answer:
+      'Neutral-toned clothing, a warm layer for early morning game drives, sturdy closed shoes for forest treks, and a good pair of binoculars. We send every guest a tailored packing list once their itinerary is confirmed.'
+  },
+  {
+    key: 'laundry',
+    category: 'before-you-go',
+    question: 'Will I have laundry facilities?',
+    answer:
+      'Most of our partner lodges offer same-day or next-day laundry, which means you can comfortably pack lighter than you might expect for a multi-day trip.'
+  },
+  {
+    key: 'private-guided',
+    category: 'trip-design',
+    question: 'What is a Private Guided Tour?',
+    answer:
+      'Your own vehicle, driver-guide and pace — no joining a shared group. Every stop, detour and late start is entirely up to you and whoever you are traveling with.'
+  },
+  {
+    key: 'why-luxe-horizons',
+    category: 'trip-design',
+    question: 'Why choose to travel with Luxe Horizons Africa?',
+    answer:
+      'Every itinerary is designed from scratch around you, not chosen from a catalogue, and a dedicated specialist guide stays with you throughout — not a rotating cast of drivers.'
+  },
+  {
+    key: 'families',
+    category: 'families-groups',
+    question: 'Is Rwanda / East Africa a good destination for families and how old must children be?',
+    answer:
+      'Yes — with the right itinerary. Gorilla trekking permits require a minimum age of 15, but plenty of other experiences (game drives, cultural visits, lake excursions) suit younger children. We will help you build a trip around your family\'s ages and pace.'
+  },
+  {
+    key: 'insurance',
+    category: 'health-logistics',
+    question: 'Do I need travel insurance or vaccinations?',
+    answer:
+      'Comprehensive travel insurance covering medical evacuation is required for all our itineraries, and Yellow Fever vaccination is mandatory for entry to Rwanda, Uganda and Tanzania. We will send a full pre-departure health checklist once your trip is booked.'
+  },
+  {
+    key: 'wifi',
+    category: 'health-logistics',
+    question: 'Is Wi-Fi available at the lodges?',
+    answer:
+      'Most lodges offer Wi-Fi in communal areas, though it can be slow or intermittent in more remote locations — part of what makes a safari a genuine break.'
+  }
+]
+
 // Placeholder client stories — swap in real guest names, quotes and photos
 // (their own trip snapshots, not marketing stock shots) before launch.
 export const testimonials = [

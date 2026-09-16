@@ -6,7 +6,7 @@
 
 /* ---------- Head: title + a small standing deck, echoing the "deal a
    new story" stack from the homepage blog section. ---------- */
-.bp-head {
+.bp-page .bp-head {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;

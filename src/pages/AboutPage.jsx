@@ -1,87 +1,18 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal.jsx'
 import PartnersSection from '../components/PartnersSection.jsx'
 import CtaBand from '../components/CtaBand.jsx'
 import Seo from '../components/Seo.jsx'
-import { aboutMethodology, teamMembers } from '../data/content.js'
+import AboutReel from './AboutReel.jsx'
+import { teamMembers } from '../data/content.js'
 import './AboutPage.css'
 
-const PHOTO_MAIN = '/Mountain Gorilla.jpg.jpeg'
-const PHOTO_SECONDARY = '/Bird.jpg.jpeg'
-
-const STATS = [
-  { value: 3, display: '03', suffix: '', label: 'Countries Covered' },
-  { value: 100, display: '100', suffix: '%', label: 'Bespoke Journeys' },
-  { value: null, display: '1:1', suffix: '', label: 'Private Specialist Guide' }
-]
-
-const COUNT_DURATION_MS = 1400
-
-function CountUpStat({ stat, playToken, delayMs }) {
-  const [shown, setShown] = useState(stat.value === null ? stat.display : '0')
-
-  useEffect(() => {
-    if (playToken === 0 || stat.value === null) return
-    let raf
-    let start
-
-    const zeroPadded =
-      stat.display.length > String(stat.value).length ? '0'.repeat(stat.display.length) : '0'
-    setShown(zeroPadded)
-
-    const startDelay = setTimeout(() => {
-      const tick = (t) => {
-        if (start === undefined) start = t
-        const progress = Math.min(1, (t - start) / COUNT_DURATION_MS)
-        const eased = 1 - Math.pow(1 - progress, 3)
-        const current = Math.round(eased * stat.value)
-        const padded =
-          stat.display.length > String(stat.value).length
-            ? String(current).padStart(stat.display.length, '0')
-            : String(current)
-        setShown(padded)
-        if (progress < 1) raf = requestAnimationFrame(tick)
-      }
-      raf = requestAnimationFrame(tick)
-    }, delayMs)
-    return () => {
-      clearTimeout(startDelay)
-      cancelAnimationFrame(raf)
-    }
-  }, [playToken])
-
-  return (
-    <div className="about-stat">
-      <div className="about-stat-num">
-        {shown}
-        {stat.suffix && <span className="about-stat-suffix">{stat.suffix}</span>}
-      </div>
-      <div className="about-stat-label">{stat.label}</div>
-    </div>
-  )
-}
-
 export default function AboutPage() {
-  const statsRef = useRef(null)
-  const [playToken, setPlayToken] = useState(0)
   const [activeBio, setActiveBio] = useState(null)
-
-  const replay = () => setPlayToken((t) => t + 1)
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
-
-  useEffect(() => {
-    const el = statsRef.current
-    if (!el) return
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setPlayToken((t) => (t === 0 ? 1 : t))),
-      { threshold: 0.3 }
-    )
-    io.observe(el)
-    return () => io.disconnect()
   }, [])
 
   useEffect(() => {
@@ -100,101 +31,14 @@ export default function AboutPage() {
     }
   }, [activeBio])
 
-  const scrollToStory = () => {
-    const el = document.getElementById('story')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <div className="about-page">
       <Seo
         title="About Us — Our Safari Travel Team | Luxe Horizons Africa"
         description="Meet the Kigali-based team behind Luxe Horizons Africa's bespoke safari tourism across Rwanda, Uganda and Tanzania."
       />
-      {/* Full-Screen Immersive Hero Header */}
-      <section className="about-fullscreen-hero">
-        <div className="about-hero-bg-visible" />
-        <div className="about-hero-overlay-gradient" />
 
-        <div className="wrap about-hero-center-content text-center">
-          <div className="about-hero-badge">
-            ABOUT LUXE HORIZONS
-          </div>
-          <h1 className="about-hero-headline">
-            Architects of <br className="hero-br" />
-            <span className="gold-text">African Expeditions</span>
-          </h1>
-          <p className="about-hero-tagline">
-            Privately guided safaris, gorilla treks, and bespoke travel across Rwanda, Uganda & Tanzania.
-          </p>
-        </div>
-
-        {/* Floating Scroll Prompt */}
-        <button
-          type="button"
-          className="about-hero-scroll-btn"
-          onClick={scrollToStory}
-          aria-label="Scroll to discover"
-        >
-          <div className="scroll-arrow-wrap">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 5v14M19 12l-7 7-7-7" />
-            </svg>
-          </div>
-        </button>
-      </section>
-
-      {/* Minimal Ethos & Story Section */}
-      <section className="about-story-section" id="story">
-        <div className="wrap about-story-grid">
-          <Reveal className="about-story-copy">
-            <div className="eyebrow">Our Philosophy</div>
-            <h2>Unhurried. Private. Considered.</h2>
-            <p className="about-story-lead">
-              We design custom luxury safaris and gorilla treks tailored entirely to your version of luxury — with handpicked lodges and dedicated specialist guides throughout.
-            </p>
-          </Reveal>
-
-          <div className="about-story-visual">
-            <div className="about-photo-card photo-card-1">
-              <img src={PHOTO_MAIN} alt="Mountain Gorilla, Rwanda" />
-            </div>
-            <div className="about-photo-card photo-card-2">
-              <img src={PHOTO_SECONDARY} alt="East African Wildlife" />
-            </div>
-          </div>
-        </div>
-
-        {/* Animated Statistics */}
-        <div className="wrap">
-          <div className="about-stats-row" ref={statsRef} onMouseEnter={replay}>
-            {STATS.map((stat, i) => (
-              <CountUpStat key={stat.label} stat={stat} playToken={playToken} delayMs={i * 150} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Minimal Methodology Section */}
-      <section className="about-methodology-section">
-        <div className="wrap">
-          <Reveal className="about-section-header text-center">
-            <div className="eyebrow">{aboutMethodology.eyebrow}</div>
-            <h2>{aboutMethodology.heading}</h2>
-            <p className="about-section-sub">{aboutMethodology.subheading}</p>
-          </Reveal>
-
-          <div className="about-methodology-grid">
-            {aboutMethodology.stages.map((stage) => (
-              <Reveal key={stage.num} className="about-methodology-card">
-                <div className="about-stage-num">{stage.num}</div>
-                <h3 className="about-stage-title">{stage.title}</h3>
-                <p className="about-stage-desc">{stage.description}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AboutReel />
 
       {/* Minimal Team Section */}
       <section className="about-team-section">
