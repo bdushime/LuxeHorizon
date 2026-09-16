@@ -1,15 +1,17 @@
+import { Link } from 'react-router-dom'
 import Reveal from './Reveal.jsx'
 import { destinations } from '../data/content.js'
 import './DestinationCardGrid.css'
 
-// The country tiles used by both the homepage Destinations section and the
-// standalone Destinations page — kept as one component so the two never drift.
+// The country tiles used on the homepage Destinations teaser — each links
+// through to the full, interactive Destinations page.
 export default function DestinationCardGrid({ onHover, onLeave }) {
   return (
     <div className="dest-grid">
       {destinations.map((dest) => (
         <Reveal
-          as="div"
+          as={Link}
+          to="/destinations"
           key={dest.key}
           className="dest-tile"
           onMouseEnter={() => onHover?.(dest.key)}

@@ -9,7 +9,7 @@ export const navLinks = [
   { key: 'blog', label: 'Blog', href: '/blog' },
   { key: 'about', label: 'About', href: '/about' },
   { key: 'testimonials', label: 'Testimonials', href: '/testimonials' },
-  { key: 'contact', label: 'Contact', href: '/#contact' }
+  { key: 'contact', label: 'Contact', href: '/contact' }
 ]
 
 // Each hero section has its own gradient "scene" — self-contained CSS,

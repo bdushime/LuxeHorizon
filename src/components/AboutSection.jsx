@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Reveal from './Reveal.jsx'
 import './AboutSection.css'
 
@@ -105,9 +106,9 @@ export default function AboutSection() {
               project worth detouring for. Nothing is templated; nothing is rushed.
             </p>
           </div>
-          <a href="#experiences" className="intro-cta">
+          <Link to="/about" className="intro-cta">
             Discover More
-          </a>
+          </Link>
         </Reveal>
 
         <div className="intro-visual">

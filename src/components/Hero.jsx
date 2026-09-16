@@ -82,11 +82,11 @@ export default function Hero({ revealed = true }) {
         </a>
       </div>
 
-      <a href="#contact" className="hero-enquire">
+      <Link to="/contact" className="hero-enquire">
         <span className="dot" />
         Enquire
         <span className="stem" />
-      </a>
+      </Link>
 
       <div className="hero-credit">Luxe Horizons Africa</div>
 

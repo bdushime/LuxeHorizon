@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Reveal from './Reveal.jsx'
 import './CtaBand.css'
 
@@ -14,9 +15,9 @@ export default function CtaBand() {
       <Reveal as="div" className="wrap cta-inner">
         <div className="eyebrow">Start Planning</div>
         <h2>Your itinerary starts with a conversation, not a form.</h2>
-        <a href="https://luxehorizonsafrica.com/plan-trip/" className="btn btn-light">
+        <Link to="/contact" className="btn btn-light">
           Plan Your Trip
-        </a>
+        </Link>
       </Reveal>
     </section>
   )

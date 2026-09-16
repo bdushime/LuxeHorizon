@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Reveal from './Reveal.jsx'
 import './QuoteBand.css'
 
@@ -10,6 +11,9 @@ export default function QuoteBand() {
           trip, then built the whole thing around the answer."
         </blockquote>
         <cite>Guest, Rwanda's Primates Itinerary</cite>
+        <Link to="/testimonials" className="quote-band-link">
+          Read more stories →
+        </Link>
       </Reveal>
     </section>
   )

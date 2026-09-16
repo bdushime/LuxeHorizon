@@ -6,7 +6,7 @@ import './Nav.css'
 // light, on-dark nav styling and wait for scroll to darken. Every other page
 // (e.g. "/testimonials") has a light background from the very top, so the
 // nav needs to be dark and legible immediately.
-const DARK_HERO_ROUTES = new Set(['/', '/destinations', '/about'])
+const DARK_HERO_ROUTES = new Set(['/', '/destinations', '/about', '/contact'])
 
 export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   const { pathname } = useLocation()
