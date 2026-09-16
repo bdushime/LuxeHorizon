@@ -1,4 +1,5 @@
 import { navLinks, contact } from '../data/content.js'
+import SiteLink from './SiteLink.jsx'
 import './MenuOverlay.css'
 
 export default function MenuOverlay({ open, onClose }) {
@@ -7,9 +8,9 @@ export default function MenuOverlay({ open, onClose }) {
       <div className="wrap menu-overlay-grid">
         <nav className="menu-links">
           {navLinks.map((link) => (
-            <a key={link.key} href={link.href} onClick={onClose}>
+            <SiteLink key={link.key} href={link.href} onClick={onClose}>
               {link.label}
-            </a>
+            </SiteLink>
           ))}
         </nav>
         <div className="menu-side">
@@ -21,7 +22,7 @@ export default function MenuOverlay({ open, onClose }) {
             Plan Your Trip
           </a>
           <div className="msoc">
-            <a href={contact.instagram}>Instagram</a>
+            <a href={contact.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href={`mailto:${contact.email}`}>Email</a>
             <a href={contact.phoneHref}>Call</a>
           </div>

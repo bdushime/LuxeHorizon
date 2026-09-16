@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Reveal from './Reveal.jsx'
+import DestinationCardGrid from './DestinationCardGrid.jsx'
 import { destinations } from '../data/content.js'
 import './DestinationsSection.css'
 
@@ -7,7 +8,6 @@ export default function DestinationsSection() {
   const [hoveredKey, setHoveredKey] = useState(null)
   const [displayDest, setDisplayDest] = useState(null)
 
-  const activate = (key) => () => setHoveredKey(key)
   const deactivate = () => setHoveredKey(null)
 
   const hoveredDest = destinations.find((d) => d.key === hoveredKey)
@@ -65,26 +65,7 @@ export default function DestinationsSection() {
           </Reveal>
         </div>
 
-        <div className="dest-grid">
-          {destinations.map((dest) => (
-            <Reveal
-              as="div"
-              key={dest.key}
-              className="dest-tile"
-              onMouseEnter={activate(dest.key)}
-              onMouseLeave={deactivate}
-              onFocus={activate(dest.key)}
-              onBlur={deactivate}
-              onTouchStart={activate(dest.key)}
-            >
-              <img src={dest.image} alt={dest.name} />
-              <div className="dest-label">
-                <div className="eyebrow">{dest.eyebrow}</div>
-                <h3>{dest.name}</h3>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <DestinationCardGrid onHover={setHoveredKey} onLeave={deactivate} />
       </div>
     </section>
   )

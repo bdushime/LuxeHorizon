@@ -3,8 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luxe Horizons Africa</title>
-    <meta name="description" content="Bespoke safaris and gorilla treks across Rwanda, Uganda and Tanzania." />
+
+    <!-- This is the fallback every crawler that doesn't execute JavaScript
+         sees (this app has no server-side rendering). Seo.jsx overwrites
+         title/description per page for crawlers that DO run JS. Keep this
+         one accurate for the home page specifically. -->
+    <title>Luxe Horizons Africa | Luxury Rwanda, Uganda & Tanzania Safari Tourism</title>
+    <meta
+      name="description"
+      content="Bespoke safari tourism across Rwanda, Uganda and Tanzania — private gorilla trekking, tailor-made itineraries, and a dedicated trip designer for every journey."
+    />
+    <meta name="robots" content="index, follow" />
+    <!-- TODO: replace once the production domain is confirmed (also update
+         src/components/Seo.jsx's SITE_URL, robots.txt and sitemap.xml). -->
+    <link rel="canonical" href="https://YOUR-DOMAIN-HERE.com/" />
+
+    <link rel="icon" type="image/png" href="/LuxeHorizon-removebg-preview.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Luxe Horizons Africa" />
+    <meta property="og:title" content="Luxe Horizons Africa | Luxury Rwanda, Uganda & Tanzania Safari Tourism" />
+    <meta
+      property="og:description"
+      content="Bespoke safari tourism across Rwanda, Uganda and Tanzania — private gorilla trekking, tailor-made itineraries, and a dedicated trip designer for every journey."
+    />
+    <meta property="og:image" content="https://YOUR-DOMAIN-HERE.com/texp-akagera.jpg" />
+    <meta property="og:url" content="https://YOUR-DOMAIN-HERE.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Luxe Horizons Africa | Luxury Rwanda, Uganda & Tanzania Safari Tourism" />
+    <meta
+      name="twitter:description"
+      content="Bespoke safari tourism across Rwanda, Uganda and Tanzania — private gorilla trekking, tailor-made itineraries, and a dedicated trip designer for every journey."
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,6 +42,30 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Structured data: tells Google this is a real travel business, not
+         just a page of text — can enable richer search results (address,
+         phone, links). Fill in real values (address/phone already match
+         src/data/content.js; keep them in sync if those ever change). -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "name": "Luxe Horizons Africa",
+        "description": "Bespoke safari tourism across Rwanda, Uganda and Tanzania — private gorilla trekking, tailor-made itineraries, and a dedicated trip designer for every journey.",
+        "url": "https://YOUR-DOMAIN-HERE.com/",
+        "telephone": "+250788615233",
+        "email": "info@luxehorizonsafrica.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "KN5",
+          "addressLocality": "Kigali",
+          "addressCountry": "RW"
+        },
+        "areaServed": ["Rwanda", "Uganda", "Tanzania", "Kenya"],
+        "sameAs": ["https://www.instagram.com/luxehorizonsafrica"]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -1,23 +1,28 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import PortalGate from './components/PortalGate.jsx'
 import Nav from './components/Nav.jsx'
 import MenuOverlay from './components/MenuOverlay.jsx'
-import Hero from './components/Hero.jsx'
-import AboutSection from './components/AboutSection.jsx'
-import AdventureSection from './components/AdventureSection.jsx'
-import DestinationsSection from './components/DestinationsSection.jsx'
-import VideoSection from './components/VideoSection.jsx'
-import QuoteBand from './components/QuoteBand.jsx'
-import PartnersSection from './components/PartnersSection.jsx'
-import CtaBand from './components/CtaBand.jsx'
+import ScrollToHash from './components/ScrollToHash.jsx'
+import HomePage from './components/HomePage.jsx'
+import DestinationsPage from './components/DestinationsPage.jsx'
+import BlogPage from './components/BlogPage.jsx'
+import FaqPage from './components/FaqPage.jsx'
+import ContactPage from './components/ContactPage.jsx'
+import TestimonialsPage from './components/TestimonialsPage.jsx'
+import AboutPage from './pages/AboutPage.jsx'
+import ExperiencesPage from './pages/ExperiencesPage.jsx'
 import Footer from './components/Footer.jsx'
 
-export default function App() {
+function AppRoutes() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [portalOpen, setPortalOpen] = useState(true)
+  const location = useLocation()
+  const isDestinations = location.pathname === '/destinations'
 
   return (
     <>
+      <ScrollToHash />
       <PortalGate
         isOpen={portalOpen}
         onSelectTourism={() => setPortalOpen(false)}
@@ -34,15 +39,26 @@ export default function App() {
         onOpenPortal={() => setPortalOpen(true)}
       />
       <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} />
-      <Hero revealed={!portalOpen} />
-      <DestinationsSection />
-      <AdventureSection />
-      <VideoSection />
-      <AboutSection />
-      <QuoteBand />
-      <PartnersSection />
-      <CtaBand />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage heroRevealed={!portalOpen} />} />
+        <Route path="/destinations" element={<DestinationsPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/faq" element={<FaqPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/testimonials" element={<TestimonialsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/experiences" element={<ExperiencesPage />} />
+      </Routes>
+      {!isDestinations && <Footer />}
     </>
   )
 }
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  )
+}
+

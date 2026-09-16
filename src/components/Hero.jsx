@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { heroSections, heroBaseGradient } from '../data/content.js'
 import './Hero.css'
 
@@ -34,7 +35,11 @@ export default function Hero({ revealed = true }) {
 
   return (
     <section className={`hero ${loaded ? 'loaded' : ''} ${scrolledHero ? 'scrolled-hero' : ''}`}>
-      <div className="hero-photo-stack">
+      <div
+        className="hero-photo-stack"
+        role="img"
+        aria-label="Giraffes and zebras at golden hour in Akagera National Park, Rwanda"
+      >
         <div
           className="hero-photo-layer base"
           style={{
@@ -77,13 +82,20 @@ export default function Hero({ revealed = true }) {
         </a>
       </div>
 
-      <a href="#contact" className="hero-enquire">
+      <Link to="/contact" className="hero-enquire">
         <span className="dot" />
         Enquire
         <span className="stem" />
-      </a>
+      </Link>
 
       <div className="hero-credit">Luxe Horizons Africa</div>
+
+      {/* The visible wordmark is switched off below, but every page still
+          needs exactly one real <h1> for SEO/accessibility — this carries
+          the actual keyword-rich page title without changing how it looks. */}
+      <h1 className="sr-only">
+        Luxe Horizons Africa — Luxury Rwanda, Uganda &amp; Tanzania Safari Tourism
+      </h1>
 
       {/* <div className="hero-word-block">
         <h1 className="hero-giant">
@@ -96,23 +108,32 @@ export default function Hero({ revealed = true }) {
       </div> */}
 
       <div className="hero-bar">
-        {heroSections.map((section) => (
-          <a
-            key={section.key}
-            href={`#${section.key}`}
-            className="hero-bar-item"
-            onMouseEnter={activate(section.key)}
-            onMouseLeave={deactivate}
-            onFocus={activate(section.key)}
-            onBlur={deactivate}
-            onTouchStart={activate(section.key)}
-          >
+        {heroSections.map((section) => {
+          const itemProps = {
+            className: 'hero-bar-item',
+            onMouseEnter: activate(section.key),
+            onMouseLeave: deactivate,
+            onFocus: activate(section.key),
+            onBlur: deactivate,
+            onTouchStart: activate(section.key)
+          }
+          const content = (
             <span>
               <span className="hbi-eyebrow">{section.eyebrow}</span>
               <span className="hbi-val">{section.label}</span>
             </span>
-          </a>
-        ))}
+          )
+
+          return section.key === 'destinations' ? (
+            <Link key={section.key} to="/destinations" {...itemProps}>
+              {content}
+            </Link>
+          ) : (
+            <a key={section.key} href={`#${section.key}`} {...itemProps}>
+              {content}
+            </a>
+          )
+        })}
       </div>
     </section>
   )

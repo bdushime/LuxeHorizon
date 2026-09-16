@@ -4,10 +4,12 @@
 // host has hotlink protection enabled.
 
 export const navLinks = [
-  { key: 'experiences', label: 'Experiences', href: '#experiences' },
-  { key: 'destinations', label: 'Destinations', href: '#destinations' },
-  { key: 'about', label: 'About', href: '#about' },
-  { key: 'contact', label: 'Contact', href: '#contact' }
+  { key: 'destinations', label: 'Destinations', href: '/destinations' },
+  { key: 'experiences', label: 'Experiences', href: '/experiences' },
+  { key: 'about', label: 'About', href: '/about' },
+  { key: 'testimonials', label: 'Testimonials', href: '/testimonials' },
+  { key: 'blog', label: 'Blog', href: '/blog' },
+  { key: 'contact', label: 'Contact', href: '/contact' }
 ]
 
 // Each hero section has its own gradient "scene" — self-contained CSS,
@@ -57,9 +59,8 @@ export const heroBaseGradient =
 export const adventureCards = [
   {
     key: 'rwanda',
-    href: 'https://luxehorizonsafrica.com/tours/rwandas-primates/',
-    image:
-      'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Gorilla-Chimp-Trek.jpg',
+    href: '/experiences?exp=rwandas-primates',
+    image: '/experiences/featured/rwandas-primates.jpg',
     badge: '7 Nights',
     title: "Rwanda's Primates",
     route: 'Kigali · Nyungwe · Volcanoes NP',
@@ -68,8 +69,8 @@ export const adventureCards = [
   },
   {
     key: 'uganda',
-    href: 'https://luxehorizonsafrica.com/tours/best-of-the-pearl-of-africa/',
-    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Lion-in-Uganda.jpg',
+    href: '/experiences?exp=best-of-the-pearl-of-africa',
+    image: '/experiences/featured/best-of-the-pearl-of-africa.jpg',
     badge: '10 Days',
     title: 'Pearl of Africa',
     route: 'Bwindi · Queen Elizabeth · Kibale',
@@ -78,8 +79,8 @@ export const adventureCards = [
   },
   {
     key: 'tanzania',
-    href: 'https://luxehorizonsafrica.com/tours/tanzania-classic/',
-    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/08/Elephants.jpg',
+    href: '/experiences?exp=tanzania-classic',
+    image: '/experiences/featured/tanzania-classic.jpg',
     badge: '7 Days',
     title: 'Tanzania Classic',
     route: 'Tarangire · Ngorongoro · Serengeti',
@@ -88,9 +89,8 @@ export const adventureCards = [
   },
   {
     key: 'custom',
-    href: 'https://luxehorizonsafrica.com/destinations/',
-    image:
-      'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Step-into-a-world.jpg',
+    href: '/experiences',
+    image: '/experiences/featured/rwanda-discovery.jpg',
     badge: 'Custom',
     title: 'Build Your Own',
     route: 'Rwanda · Uganda · Tanzania',
@@ -165,3 +165,408 @@ export const videoSection = {
   subheading:
     'A short look at what it feels like to be here — the full film is on our YouTube channel.'
 }
+
+// Placeholder blog posts — swap in real articles, dates and cover photos
+// before launch.
+export const blogPosts = [
+  {
+    key: 'gorilla-etiquette',
+    category: 'Gorilla Trekking',
+    date: 'March 2026',
+    readTime: '6 min read',
+    author: 'Jean-Luc Habimana',
+    authorRole: 'Head Safari Specialist & Trek Leader',
+    title: 'What Nobody Tells You Before Your First Gorilla Trek',
+    excerpt:
+      'The permit is the easy part. Here is what actually matters on the day — from altitude to the seven-metre rule.',
+    image: '/Mountain Gorilla.jpg.jpeg',
+    accent: '#5c6b4f',
+    quote: 'The moment you break through the bamboo thicket and lock eyes with a 200-kilogram Silverback, every step up the volcano fades into background noise.',
+    takeaway: 'Key Takeaway: Hire a local porter at Kinigi headquarters. Beyond lightening your load, it directly supports the local agricultural community surrounding Volcanoes National Park.',
+    paragraphs: [
+      'Standing at Kinigi headquarters as misty dawn light rolls over the peaks of Mount Sabyinyo, the anticipation is palpable. Most travelers focus on securing their permit months in advance—and rightfully so—but few realize how much the actual experience hinges on preparation during the final 48 hours.',
+      'The trail in Volcanoes National Park is rarely a smooth walking path. You are trekking through dense bamboo forests, stinging nettles, and thick volcanic mud at altitudes starting at 2,400 meters. Proper gardening gloves, waterproof gaiters, and layered breathable clothing aren’t just recommended—they transform your trek from an endurance test into a joyful adventure.',
+      'Rangers uphold a strict seven-metre observation rule to protect the gorillas from human respiratory illnesses. Yet, habituated gorilla families are curious beings; infants will frequently roll toward your feet or peer through the bamboo. The golden rule is simple: remain completely calm, avoid direct eye contact if a silverback chest-beats, and follow your head ranger’s low guttural vocalizations.'
+    ],
+    highlights: [
+      'Layer up for temperature shifts between 12°C at dawn to 24°C under jungle canopy.',
+      'Pack a waterproof dry bag for camera equipment—mountain showers arrive without warning.',
+      'Keep your voice at a quiet whisper; gorillas respond directly to human vocal tones.'
+    ]
+  },
+  {
+    key: 'best-time-safari',
+    category: 'Travel Tips',
+    date: 'February 2026',
+    readTime: '5 min read',
+    author: 'Claire Mukamana',
+    authorRole: 'Lead Itinerary Architect',
+    title: 'The Best Time to Visit Rwanda, Uganda and Tanzania',
+    excerpt:
+      'Peak season means peak crowds. We break down what each month actually looks like on the ground.',
+    image: '/story-guide.jpg',
+    accent: '#b9772e',
+    quote: 'Green season is East Africa’s best-kept secret—dramatic skies, newborn wildlife, and empty luxury lodges.',
+    takeaway: 'Insider Tip: June through September offers optimal dry conditions for gorilla trekking and the Serengeti river crossings, but November and April offer lush photography and uncrowded parks.',
+    paragraphs: [
+      'When planning an East African itinerary spanning Rwanda, Uganda, and Tanzania, timing is everything. While peak dry season (June to September) draws high demand for good reason, shoulder months offer extraordinary wildlife encounters with intimate luxury.',
+      'In Rwanda’s Volcanoes and Nyungwe forests, the short dry spell from December to February brings clear mornings and crisp trekking conditions. In Tanzania, January to March marks the calving season in the Southern Serengeti, where thousands of wildebeest calves are born daily against a backdrop of apex predator action.',
+      'If your goal is birdwatching or photographing emerald landscapes, the rains of April and November transform Akagera and Queen Elizabeth National Parks into vibrant ecosystems filled with migratory species.'
+    ],
+    highlights: [
+      'Dry Season (Jun–Sep): Easiest trekking footings and prime river crossing sightings.',
+      'Calving Season (Jan–Mar): High predator activity in Southern Serengeti.',
+      'Green Season (Apr–May & Nov): Exceptional value, dramatic light, and solitude.'
+    ]
+  },
+  {
+    key: 'community-conservation',
+    category: 'Conservation',
+    date: 'January 2026',
+    readTime: '7 min read',
+    author: 'Dr. Emmanuel Ndayisaba',
+    authorRole: 'Conservation & Community Liaison',
+    title: 'Inside the Community Projects Funded by Your Park Fees',
+    excerpt:
+      'Where the money from your trekking permit actually goes, and the villages you can visit to see it firsthand.',
+    image: '/Bird.jpg.jpeg',
+    accent: '#3f6b63',
+    quote: 'Conservation only succeeds when local communities are its primary beneficiaries and proud custodians.',
+    takeaway: 'Impact Notice: 10% of all Rwanda park entry fee revenue is reinvested into community infrastructure, funding over 800 local schools, health clinics, and clean water points.',
+    paragraphs: [
+      'Every gorilla permit purchased for Volcanoes National Park contributes directly to one of Africa’s most successful conservation revenue-sharing models. Ten percent of total revenue goes straight to the revenue-share scheme managed by the Rwanda Development Board.',
+      'Visiting the SACOLA community cultural village near Kinigi reveals how former poachers have become celebrated guardians of the forest. Income generated from eco-tourism funds modern healthcare clinics, solar power initiatives, and agricultural co-operatives.',
+      'By choosing low-impact, high-value tourism, guests ensure that wild gorilla populations continue to thrive alongside flourishing rural communities.'
+    ],
+    highlights: [
+      'Over 800 community infrastructure projects built across Rwanda since 2005.',
+      'Former poachers retrained as certified park rangers and organic farmers.',
+      'Direct guest interactions that honor indigenous culture without commercialization.'
+    ]
+  },
+  {
+    key: 'packing-list',
+    category: 'Travel Tips',
+    date: 'December 2025',
+    readTime: '4 min read',
+    author: 'Jean-Luc Habimana',
+    authorRole: 'Head Safari Specialist',
+    title: 'The Only Packing List You Need for a Gorilla Trek',
+    excerpt:
+      'What actually earns a place in your daypack for the trailhead, and what to leave at the lodge.',
+    image: '/exp-primates.jpg',
+    accent: '#b9772e',
+    quote: 'Pack light, pack smart, and remember: neutral tones keep you cool while respecting wild animal instincts.',
+    takeaway: 'Must-Have Item: Sturdy leather or suede gardening gloves protect your hands when pulling through thick stinging nettles on steep inclines.',
+    paragraphs: [
+      'Packing for a gorilla safari requires balancing strict bush planes’ weight limits with specialized gear needed for jungle terrain. Luggage allowances on regional flights are strictly 15–20 kg soft duffels.',
+      'Focus on technical layering: moisture-wicking base tops, lightweight fleece mid-layers, and a breathable, 100% waterproof shell jacket. Quick-dry trousers tucked into tall socks keep fire ants and nettles at bay.',
+      'Leave bright colors and animal prints behind—earth tones (khaki, olive green, beige, taupe) blend seamlessly into the forest aesthetic and avoid drawing unwanted insect attention.'
+    ],
+    highlights: [
+      'Lightweight waterproof hiking boots with broken-in ankle support.',
+      'Gardening gloves for nettle defense & high-energy trail snacks.',
+      'Re-usable stainless water flask (single-use plastic is banned in Rwanda).'
+    ]
+  },
+  {
+    key: 'silverback-families',
+    category: 'Gorilla Trekking',
+    date: 'November 2025',
+    readTime: '8 min read',
+    author: 'Aline Umutoni',
+    authorRole: 'Wildlife Researcher & Photographer',
+    title: 'Meet the Habituated Families of Volcanoes National Park',
+    excerpt:
+      'A field guide to the named troops you might spend an hour with, and the rangers who know them by name.',
+    image: '/exp-akagera.jpg',
+    accent: '#5c6b4f',
+    quote: 'Each gorilla family possesses a distinct social culture—from gentle playful troops to powerful multi-silverback dynasties.',
+    takeaway: 'Family Highlight: The Sabyinyo group is known for Guhonda, one of the largest silverbacks ever recorded in the Virungas.',
+    paragraphs: [
+      'Volcanoes National Park is home to 12 fully habituated gorilla families reserved for eco-tourism. Each group has a unique lineage, led by formidable silverbacks whose individual personalities shape troop dynamics.',
+      'The Susa group, famously researched by Dian Fossey, is renowned for its high altitude ranges and historical twin births. Meanwhile, the Amahoro group ("Peace") lives up to its name under the calm leadership of silverback Gahinga.',
+      'During your morning briefing at Kinigi, park wardens match your physical fitness and interests with the appropriate family location, ensuring a safe and exhilarating encounter.'
+    ],
+    highlights: [
+      'Susa Group: Historical troop with rare twin gorilla births.',
+      'Amahoro Group: Gentle, peaceful troop residing on Mount Bisoke.',
+      'Sabyinyo Group: Easy-access family featuring colossal silverbacks.'
+    ]
+  },
+  {
+    key: 'ranger-diaries',
+    category: 'Conservation',
+    date: 'October 2025',
+    readTime: '6 min read',
+    author: 'Patrick Bizimana',
+    authorRole: 'Senior Park Ranger',
+    title: 'A Day With the Rangers Who Guard the Volcanoes',
+    excerpt:
+      'Before dawn patrols, snare removal, and the quiet work that keeps the parks standing for the next generation.',
+    image: '/cta-sunset.jpg',
+    accent: '#3f6b63',
+    quote: 'We don’t just guard animals; we protect our national inheritance and the future of African wilderness.',
+    takeaway: 'Daily Duty: Rangers track each gorilla family 365 days a year from sunrise to sunset, recording health metrics and maintaining 24/7 security.',
+    paragraphs: [
+      'Long before safari vehicles arrive at Kinigi, teams of dedicated rangers step into the mist of the Virunga mountains. Armed with GPS units, water flasks, and deep respect for the forest, their dawn patrols ensure total security.',
+      'Rangers locate gorilla family nests constructed the previous evening, verifying every individual’s health before guiding guest groups. Snare sweeps along buffer zones have dramatically reduced illegal poaching threats.',
+      'Their tireless dedication has enabled mountain gorilla populations to rise above 1,000 individuals—making them the only wild ape species currently increasing in population globally.'
+    ],
+    highlights: [
+      '365-day tracking ensures 99.9% guest sighting success rate.',
+      'Continuous veterinary monitoring by Gorilla Doctors partners.',
+      'Decisive anti-poaching operations securing the Virunga Massif.'
+    ]
+  },
+  {
+    key: 'visa-permits',
+    category: 'Travel Tips',
+    date: 'September 2025',
+    readTime: '5 min read',
+    author: 'Claire Mukamana',
+    authorRole: 'Lead Itinerary Architect',
+    title: 'Visas, Permits and Paperwork: A No-Stress Guide',
+    excerpt:
+      'Everything to sort before you fly, laid out in the order you actually need to do it.',
+    image: '/story-guide.jpg',
+    accent: '#b9772e',
+    quote: 'Seamless logistics transform travel from a stressful puzzle into a smooth, unforgettable sanctuary experience.',
+    takeaway: 'Pro Tip: The East Africa Tourist Visa ($100 USD) permits multi-entry travel between Rwanda, Uganda, and Kenya for up to 90 days.',
+    paragraphs: [
+      'International travel to East Africa is straightforward when guided by expert planning. Securing gorilla permits ($1,500 USD per person in Rwanda) is step number one, as daily permits are strictly capped to prevent environmental impact.',
+      'Citizens of all countries receive a 30-day visa on arrival in Rwanda. If your safari spans neighboring borders, the joint East Africa Tourist Visa simplifies entry across Rwanda, Uganda, and Kenya.',
+      'Our dedicated concierge team handles permit acquisition, health clearance forms, and seamless private transfers directly from Kigali International Airport to your luxury lodge.'
+    ],
+    highlights: [
+      'Gorilla permits booked 3–6 months in advance for peak season.',
+      'Yellow fever vaccination required when crossing regional land borders.',
+      'Complimentary airport meet-and-greet service included in all Luxe itineraries.'
+    ]
+  }
+]
+
+export const faqCategories = [
+  { key: 'before-you-go', label: 'Before You Go' },
+  { key: 'trip-design', label: 'Trip Design' },
+  { key: 'families-groups', label: 'Families & Groups' },
+  { key: 'health-logistics', label: 'Health & Logistics' }
+]
+
+// FAQ copy — "When is the best time to travel?" is the real answer carried
+// over from the client's existing WordPress FAQ page. Every other answer is
+// a reasonable placeholder and should be swapped for the client's actual
+// wording before launch.
+export const faqs = [
+  {
+    key: 'best-time',
+    category: 'before-you-go',
+    question: 'When is the best time to travel?',
+    answer:
+      'Ideally, the best time to visit Africa should consider more than just the weather. Your journey could be culture-focused or to partake in a specific traditional festival. You might be looking for a particular occasion to see the savannah animals, tracking gorillas, hiking a mountain or chimpanzee trekking in the rainforest. Whatever the "why" of your safari, Luxe Horizons Africa will guide you through every step of the way.\n\nGenerally speaking, an East African safari can be enjoyed all year round. There are, however, distinct seasons that suit some travelers more than others — we will always share specific weather conditions by month for the areas or country you wish to visit.'
+  },
+  {
+    key: 'luggage',
+    category: 'before-you-go',
+    question: 'What luggage should I take?',
+    answer:
+      'A soft-sided duffel packs down easier than a hard-shell case, especially for light-aircraft transfers between parks where hold space is limited. We will confirm the exact weight allowance for your itinerary once internal flights are booked.'
+  },
+  {
+    key: 'essentials',
+    category: 'before-you-go',
+    question: 'What are essential items and clothes for a safari?',
+    answer:
+      'Neutral-toned clothing, a warm layer for early morning game drives, sturdy closed shoes for forest treks, and a good pair of binoculars. We send every guest a tailored packing list once their itinerary is confirmed.'
+  },
+  {
+    key: 'laundry',
+    category: 'before-you-go',
+    question: 'Will I have laundry facilities?',
+    answer:
+      'Most of our partner lodges offer same-day or next-day laundry, which means you can comfortably pack lighter than you might expect for a multi-day trip.'
+  },
+  {
+    key: 'private-guided',
+    category: 'trip-design',
+    question: 'What is a Private Guided Tour?',
+    answer:
+      'Your own vehicle, driver-guide and pace — no joining a shared group. Every stop, detour and late start is entirely up to you and whoever you are traveling with.'
+  },
+  {
+    key: 'why-luxe-horizons',
+    category: 'trip-design',
+    question: 'Why choose to travel with Luxe Horizons Africa?',
+    answer:
+      'Every itinerary is designed from scratch around you, not chosen from a catalogue, and a dedicated specialist guide stays with you throughout — not a rotating cast of drivers.'
+  },
+  {
+    key: 'families',
+    category: 'families-groups',
+    question: 'Is Rwanda / East Africa a good destination for families and how old must children be?',
+    answer:
+      'Yes — with the right itinerary. Gorilla trekking permits require a minimum age of 15, but plenty of other experiences (game drives, cultural visits, lake excursions) suit younger children. We will help you build a trip around your family\'s ages and pace.'
+  },
+  {
+    key: 'insurance',
+    category: 'health-logistics',
+    question: 'Do I need travel insurance or vaccinations?',
+    answer:
+      'Comprehensive travel insurance covering medical evacuation is required for all our itineraries, and Yellow Fever vaccination is mandatory for entry to Rwanda, Uganda and Tanzania. We will send a full pre-departure health checklist once your trip is booked.'
+  },
+  {
+    key: 'wifi',
+    category: 'health-logistics',
+    question: 'Is Wi-Fi available at the lodges?',
+    answer:
+      'Most lodges offer Wi-Fi in communal areas, though it can be slow or intermittent in more remote locations — part of what makes a safari a genuine break.'
+  }
+]
+
+// Placeholder client stories — swap in real guest names, quotes and photos
+// (their own trip snapshots, not marketing stock shots) before launch.
+export const testimonials = [
+  {
+    key: 't1',
+    name: 'Emily Carter',
+    origin: 'Traveled from London',
+    quote:
+      'We spent forty minutes six feet from a silverback and nobody said a word. Our guide read the family like he’d grown up beside them.',
+    rating: 5,
+    photo: '/Mountain Gorilla.jpg.jpeg',
+    rotate: -6
+  },
+  {
+    key: 't2',
+    name: 'James Okoro',
+    origin: 'Traveled from Lagos',
+    quote:
+      'Every lodge, every transfer, every small detail was arranged before we even thought to ask. It felt less like a tour and more like being hosted.',
+    rating: 5,
+    photo: '/Bird.jpg.jpeg',
+    rotate: 5
+  },
+  {
+    key: 't3',
+    name: 'Sofia Alvarez',
+    origin: 'Traveled from Madrid',
+    quote:
+      'Our guide noticed I loved birdlife more than the big cats and quietly rebuilt two days of the itinerary around it. Nobody made me feel like an inconvenience.',
+    rating: 5,
+    photo: '/story-guide.jpg',
+    rotate: -3
+  },
+  {
+    key: 't4',
+    name: 'Daniel Kim',
+    origin: 'Traveled from Seoul',
+    quote:
+      'The kind of trip you replay in your head for months afterward. Kigali to the volcanoes felt effortless, and every night ended with a view worth the drive.',
+    rating: 5,
+    photo: '/cta-sunset.jpg',
+    rotate: 7
+  },
+  {
+    key: 't5',
+    name: 'Amara Diallo',
+    origin: 'Traveled from Dakar',
+    quote:
+      'They designed the whole trip around my grandmother joining us at seventy-eight. Slower mornings, softer roads, and she still talks about the chimps.',
+    rating: 5,
+    photo: '/exp-primates.jpg',
+    rotate: -8
+  }
+]
+
+export const aboutMethodology = {
+  eyebrow: 'Our Approach',
+  heading: 'Crafted With Purpose',
+  subheading:
+    'Three pillars defining every expedition we design.',
+  stages: [
+    {
+      num: '01',
+      title: 'Bespoke Design',
+      description:
+        'Tailored from scratch around your specifications, schedule, and budget.'
+    },
+    {
+      num: '02',
+      title: 'Private Guiding',
+      description:
+        'Dedicated specialist guides managing all daily logistics and wildlife encounters.'
+    },
+    {
+      num: '03',
+      title: 'Meaningful Impact',
+      description:
+        'Direct connection with local conservation and community initiatives.'
+    }
+  ]
+}
+
+export const teamMembers = [
+  {
+    id: 'david-rutikanga',
+    name: 'David Rutikanga',
+    title: 'Founder & Managing Director',
+    badge: 'Leadership',
+    image: '/team/david.jpg',
+    summary: '15+ years in luxury East African safaris. Cornell & SITE Africa alumnus.',
+    bio: 'Founder of Luxe Horizon with over 15 years in luxury hospitality. Certified by Cornell University and SITE Africa in incentive travel and safari planning.'
+  },
+  {
+    id: 'emile-gashumba',
+    name: 'Emile Gashumba',
+    title: 'Operations Manager',
+    badge: 'Operations',
+    image: '/team/emile.jpg',
+    summary: 'Master’s in Finance recipient directing daily travel & air logistics.',
+    bio: 'Over a decade of operations management. Holds a Master’s degree in Finance and leads daily ground and aerial travel logistics.'
+  },
+  {
+    id: 'honorine-uwase',
+    name: 'Honorine Uwase',
+    title: 'Accounts Manager',
+    badge: 'Finance',
+    image: '/team/honorine.jpg',
+    summary: 'Senior financial strategist overseeing corporate assets & accounts.',
+    bio: 'Former Senior Accountant at Jibu Corporate with over 5 years of experience in corporate asset management and balance sheet precision.'
+  },
+  {
+    id: 'eduige-mbabazi',
+    name: 'Eduige Mbabazi',
+    title: 'Senior Travel Designer',
+    badge: 'Design',
+    image: '/team/eduige.jpg',
+    summary: 'Decade of hospitality experience crafting custom wilderness journeys.',
+    bio: 'Hospitality veteran with a Bachelor’s in Business Management, specializing in warm, nature-centric safari design.'
+  },
+  {
+    id: 'davinah-uwera',
+    name: 'Davinah Uwera',
+    title: 'Travel Designer',
+    badge: 'Design',
+    image: '/team/davinah.jpg',
+    summary: 'Law graduate delivering precise itinerary execution & consultation.',
+    bio: 'Holds a Bachelor of Laws from Université Libre de Kigali. Combines legal precision with swift travel consultancy.'
+  },
+  {
+    id: 'sheila-tuti-mpairwe',
+    name: 'Sheila Tuti Mpairwe',
+    title: 'Travel & Lifestyle Specialist',
+    badge: 'Sustainability',
+    image: '/team/sheila.png',
+    summary: 'MBA holder advocating sustainable, community-centered travel.',
+    bio: 'Holds an MBA from Makerere University. Focuses on responsible tourism, community engagement, and conservation.'
+  },
+  {
+    id: 'tona-lauria-rutayisire',
+    name: 'Tona Lauria Rutayisire',
+    title: 'Assistant Operations',
+    badge: 'Operations',
+    image: '/team/tona.jpg',
+    summary: 'Field coordinator managing guide communications & supplier liaisons.',
+    bio: 'Coordinates real-time field operations, guide communications, and supplier relationships to ensure smooth travel execution.'
+  }
+]

@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+/* Visually hidden but still readable by screen readers and search-engine
+   crawlers — use for real headings/labels that the visual design omits. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @theme {
   --color-ink: #0B0C0E;
   --color-canopy: #141f19;

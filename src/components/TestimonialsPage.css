@@ -1,0 +1,119 @@
+.tm-page {
+  background: var(--parchment);
+  padding: 160px 0 160px;
+  min-height: 100vh;
+}
+
+.tm-head {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 90px;
+}
+.tm-head h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(38px, 5vw, 60px);
+  color: var(--ink);
+  margin: 14px 0 16px;
+  line-height: 1.05;
+}
+.tm-head p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: rgba(33, 29, 23, 0.6);
+  margin: 0;
+}
+
+/* ---------- Scatter layout ---------- */
+.tm-scatter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 56px 34px;
+  max-width: 1220px;
+  margin: 0 auto;
+}
+.tm-reveal:nth-child(even) {
+  margin-top: 46px;
+}
+.tm-reveal:nth-child(3n) {
+  margin-top: 14px;
+}
+
+/* ---------- Polaroid card ---------- */
+.tm-card {
+  width: 260px;
+  background: #fff;
+  padding: 14px 14px 22px;
+  box-shadow: 0 14px 30px rgba(20, 20, 15, 0.16);
+  transform: rotate(var(--rotate));
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+  cursor: pointer;
+}
+.tm-card:hover {
+  transform: rotate(0deg) translateY(-10px) scale(1.04);
+  box-shadow: 0 28px 48px rgba(20, 20, 15, 0.26);
+  z-index: 5;
+  position: relative;
+}
+.tm-card-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--canopy);
+}
+.tm-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.92);
+}
+.tm-card-caption {
+  padding-top: 16px;
+}
+.tm-card-stars {
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.tm-card-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: rgba(20, 20, 15, 0.82);
+  margin: 0 0 14px;
+}
+.tm-card-name {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+}
+.tm-card-origin {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(33, 29, 23, 0.5);
+  margin-top: 2px;
+}
+
+@media (max-width: 680px) {
+  .tm-page {
+    padding: 110px 0 100px;
+  }
+  .tm-scatter {
+    gap: 40px 20px;
+  }
+  .tm-reveal:nth-child(even),
+  .tm-reveal:nth-child(3n) {
+    margin-top: 0;
+  }
+  .tm-card {
+    width: 78vw;
+    max-width: 300px;
+  }
+}

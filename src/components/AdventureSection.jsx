@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Reveal from './Reveal.jsx'
 import { adventureCards } from '../data/content.js'
 import './AdventureSection.css'
@@ -51,9 +52,9 @@ export default function AdventureSection() {
         <div className="adventure-track" ref={trackRef}>
           {adventureCards.map((card, i) => (
             <Reveal
-              as="a"
+              as={Link}
               key={card.key}
-              href={card.href}
+              to={card.href}
               className={`adv-card ${hoveredKey && hoveredKey !== card.key ? 'dimmed' : ''}`}
               style={{ transitionDelay: `${i * 110}ms` }}
               onMouseEnter={activate(card.key)}

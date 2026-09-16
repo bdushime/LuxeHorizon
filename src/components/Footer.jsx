@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import { navLinks, contact } from '../data/content.js'
+import SiteLink from './SiteLink.jsx'
 import './Footer.css'
 
 export default function Footer() {
@@ -21,7 +23,7 @@ export default function Footer() {
             <ul>
               {navLinks.map((link) => (
                 <li key={link.key}>
-                  <a href={link.href}>{link.label}</a>
+                  <SiteLink href={link.href}>{link.label}</SiteLink>
                 </li>
               ))}
             </ul>
@@ -30,7 +32,7 @@ export default function Footer() {
             <h4>Company</h4>
             <ul>
               <li>
-                <a href="#">FAQ</a>
+                <Link to="/faq">FAQ</Link>
               </li>
               <li>
                 <a href="#plan">Plan Your Trip</a>
