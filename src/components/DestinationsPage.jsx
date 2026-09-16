@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { destinations } from '../data/content.js'
 import Seo from './Seo.jsx'
 import './DestinationsPage.css'
@@ -9,6 +9,13 @@ import './DestinationsPage.css'
 // the page.
 export default function DestinationsPage() {
   const [activeKey, setActiveKey] = useState(null)
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [])
 
   return (
     <section className="dpx-page">
@@ -50,6 +57,9 @@ export default function DestinationsPage() {
               <div className="dpx-panel-detail">
                 <div className="eyebrow on-dark">{dest.eyebrow}</div>
                 <h3>{dest.name}</h3>
+                <a href={`/experiences?exp=${dest.key}`} className="dpx-panel-link">
+                  Explore {dest.name} &rarr;
+                </a>
               </div>
             </div>
           )
@@ -58,3 +68,4 @@ export default function DestinationsPage() {
     </section>
   )
 }
+

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import PortalGate from './components/PortalGate.jsx'
 import Nav from './components/Nav.jsx'
 import MenuOverlay from './components/MenuOverlay.jsx'
@@ -14,12 +14,14 @@ import AboutPage from './pages/AboutPage.jsx'
 import ExperiencesPage from './pages/ExperiencesPage.jsx'
 import Footer from './components/Footer.jsx'
 
-export default function App() {
+function AppRoutes() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [portalOpen, setPortalOpen] = useState(true)
+  const location = useLocation()
+  const isDestinations = location.pathname === '/destinations'
 
   return (
-    <BrowserRouter>
+    <>
       <ScrollToHash />
       <PortalGate
         isOpen={portalOpen}
@@ -47,7 +49,16 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/experiences" element={<ExperiencesPage />} />
       </Routes>
-      <Footer />
+      {!isDestinations && <Footer />}
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
     </BrowserRouter>
   )
 }
+
