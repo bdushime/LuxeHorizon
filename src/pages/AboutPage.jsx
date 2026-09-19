@@ -114,7 +114,7 @@ export default function AboutPage() {
                 <div className="about-modal-role">{activeBio.title}</div>
                 <p className="about-modal-bio">{activeBio.bio}</p>
                 <div className="about-modal-actions">
-                  <Link to="/#contact" className="btn-about-cta" onClick={() => setActiveBio(null)}>
+                  <Link to="/contact" className="btn-about-cta" onClick={() => setActiveBio(null)}>
                     Plan Your Journey
                   </Link>
                 </div>

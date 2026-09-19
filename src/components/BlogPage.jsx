@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { blogPosts } from '../data/content.js'
 import Seo from './Seo.jsx'
 import './BlogPage.css'
@@ -264,9 +264,9 @@ export default function BlogPage() {
                         <h4>Inspired by this story?</h4>
                         <p>Speak to our trip designers to customize your tailored East Africa itinerary.</p>
                       </div>
-                      <a href="/contact" className="bpm-cta-btn">
+                      <Link to="/contact" className="bpm-cta-btn" onClick={closeModal}>
                         Plan Your Journey &rarr;
-                      </a>
+                      </Link>
                     </div>
 
                     <div className="bpm-nav">
