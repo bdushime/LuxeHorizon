@@ -22,7 +22,7 @@ export const experiencesData = [
       "4-Day Gorilla trekking includes: 1 night in Kigali, 2 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges."
     ],
     "location": "Rwanda",
-    "url": "https://luxehorizonsafrica.com/tours/rwandas-primates/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=rwandas-primates",
     "heroImage": "/experiences/featured/rwandas-primates.jpg",
     "gallery": [
       "/experiences/featured/rwandas-primates.jpg",
@@ -76,7 +76,7 @@ export const experiencesData = [
       "Experience Rwanda\u2019s capital from Kigali Marriott Hotel, conveniently located near the Nyarugenge financial district and the Kigali City Hall. This impeccable luxury hotel provides spacious, modern accommodations with deluxe amenities and premium services"
     ],
     "location": "Rwanda",
-    "url": "https://luxehorizonsafrica.com/tours/7-day-rwanda-primates-adventure/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=7-day-rwanda-primates-adventure",
     "heroImage": "/experiences/featured/7-day-rwanda-primates-adventure.png",
     "gallery": [
       "/experiences/featured/7-day-rwanda-primates-adventure.png",
@@ -111,7 +111,7 @@ export const experiencesData = [
       "After the trek, you will have time for your Lunch by the foothills of the Volcanoes before hitting the road back to Kigali for a drop off."
     ],
     "location": "Special Expeditions",
-    "url": "https://luxehorizonsafrica.com/tours/pre-post-conference-gorilla-experience/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=pre-post-conference-gorilla-experience",
     "heroImage": "/experiences/featured/pre-post-conference-gorilla-experience.jpeg",
     "gallery": [
       "/experiences/featured/pre-post-conference-gorilla-experience.jpeg",
@@ -143,7 +143,7 @@ export const experiencesData = [
       "4-Day Gorilla trekking includes: 1 night in Kigali, 2 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges."
     ],
     "location": "Tanzania",
-    "url": "https://luxehorizonsafrica.com/tours/the-great-migration-adventure/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=the-great-migration-adventure",
     "heroImage": "/experiences/featured/the-great-migration-adventure.webp",
     "gallery": [
       "/experiences/featured/the-great-migration-adventure.webp",
@@ -191,7 +191,7 @@ export const experiencesData = [
       "After breakfast, you will check out and be picked up from your hotel at 9am, and drive to the Genocide Memorial, an important historical component of your trip and have a chance to understand what really happened in 1994 during the Genocide against the Tutsi and the journey of Hope and reconstruction of Rwanda till today."
     ],
     "location": "Rwanda",
-    "url": "https://luxehorizonsafrica.com/tours/5-day-rwanda-trekking-experience/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=5-day-rwanda-trekking-experience",
     "heroImage": "/experiences/featured/5-day-rwanda-trekking-experience.png",
     "gallery": [
       "/experiences/featured/5-day-rwanda-trekking-experience.png",
@@ -226,7 +226,7 @@ export const experiencesData = [
       "You will have the opportunity to view many large mammals such as elephant, buffalo, giraffe, zebra and antelope that frequent the open plains within the park with the chance to spot the big 5 of the Park. Picnic snacks and a bush packed lunch will be served on your drives before exiting the Park heading back to Kigali City for a drop off in the evening."
     ],
     "location": "Special Expeditions",
-    "url": "https://luxehorizonsafrica.com/tours/pre-post-conference-safari-experience/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=pre-post-conference-safari-experience",
     "heroImage": "/experiences/featured/pre-post-conference-safari-experience.jpg",
     "gallery": [
       "/experiences/featured/pre-post-conference-safari-experience.jpg",
@@ -277,7 +277,7 @@ export const experiencesData = [
       "The next morning you will embark on an approx 3hrs scenic drive to Akagera National Park where you will spend your next 2 nights with animal sightings in the wild at Magashi Classic Camp or Ruzizi Tented Lodge"
     ],
     "location": "Rwanda",
-    "url": "https://luxehorizonsafrica.com/tours/7-day-rwandas-big-5-gorillas/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=7-day-rwandas-big-5-gorillas",
     "heroImage": "/experiences/featured/7-day-rwandas-big-5-gorillas.png",
     "gallery": [
       "/experiences/featured/7-day-rwandas-big-5-gorillas.png",
@@ -309,7 +309,7 @@ export const experiencesData = [
       "4-Day Gorilla trekking includes: 1 night in Kigali, 2 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges."
     ],
     "location": "Tanzania",
-    "url": "https://luxehorizonsafrica.com/tours/tanzania-classic/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=tanzania-classic",
     "heroImage": "/experiences/featured/tanzania-classic.jpg",
     "gallery": [
       "/experiences/featured/tanzania-classic.jpg",
@@ -341,7 +341,7 @@ export const experiencesData = [
       "4-Day Gorilla trekking includes: 1 night in Kigali, 2 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges."
     ],
     "location": "Uganda",
-    "url": "https://luxehorizonsafrica.com/tours/best-of-the-pearl-of-africa/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=best-of-the-pearl-of-africa",
     "heroImage": "/experiences/featured/best-of-the-pearl-of-africa.jpg",
     "gallery": [
       "/experiences/featured/best-of-the-pearl-of-africa.jpg",
@@ -373,7 +373,7 @@ export const experiencesData = [
       "2 nights in Kigali, 2 nights by Nyungwe National Park, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels"
     ],
     "location": "Rwanda",
-    "url": "https://luxehorizonsafrica.com/tours/rwanda-discovery/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=rwanda-discovery",
     "heroImage": "/experiences/featured/rwanda-discovery.jpg",
     "gallery": [
       "/experiences/featured/rwanda-discovery.jpg",
@@ -405,7 +405,7 @@ export const experiencesData = [
       "2 nights in Kigali, 2 nights by Nyungwe National Park, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels"
     ],
     "location": "Special Expeditions",
-    "url": "https://luxehorizonsafrica.com/tours/gorillas-in-the-mist/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=gorillas-in-the-mist",
     "heroImage": "/experiences/featured/gorillas-in-the-mist.jpg",
     "gallery": [
       "/experiences/featured/gorillas-in-the-mist.jpg",
@@ -470,7 +470,7 @@ export const experiencesData = [
       "Experience Rwanda\u2019s capital from Kigali Marriott Hotel, conveniently located near the Nyarugenge financial district and the Kigali City Hall. This impeccable luxury hotel provides spacious, modern accommodations with deluxe amenities and premium services."
     ],
     "location": "Rwanda",
-    "url": "https://luxehorizonsafrica.com/tours/11-day-rwanda-holiday-experience/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=11-day-rwanda-holiday-experience",
     "heroImage": "/experiences/featured/11-day-rwanda-holiday-experience.png",
     "gallery": [
       "/experiences/featured/11-day-rwanda-holiday-experience.png",
@@ -517,7 +517,7 @@ export const experiencesData = [
       "Experience Rwanda\u2019s capital from Kigali Marriott Hotel, conveniently located near the Nyarugenge financial district and the Kigali Convention Center. Set in the vibrant heart of Kigali, our impeccable luxury hotel provides spacious, modern accommodations with deluxe amenities and premium services."
     ],
     "location": "Special Expeditions",
-    "url": "https://luxehorizonsafrica.com/tours/pre-colonial-era-the-big-5-the-city/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=pre-colonial-era-the-big-5-the-city",
     "heroImage": "/experiences/featured/pre-colonial-era-the-big-5-the-city.jpg",
     "gallery": [
       "/experiences/featured/pre-colonial-era-the-big-5-the-city.jpg",
@@ -552,7 +552,7 @@ export const experiencesData = [
       "Please do connect, exchange and enjoy your Lunch at the Repub Lounge known on Rwandan Cuisine or the Milles Collines known for the Hotel Rwanda movie (Recommended not included), renowned on their exceptional Rwandan Local cuisine delicacies! After Lunch you have an option of carrying on with another Half day Kigali City Tour, driving through the cleanest, safest but also one of the most Innovative and Digitalized Cities in Africa & then Drop off at the Hotel."
     ],
     "location": "Rwanda",
-    "url": "https://luxehorizonsafrica.com/tours/city-tour-vibrant-hopeful-kigali/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=city-tour-vibrant-hopeful-kigali",
     "heroImage": "/experiences/featured/city-tour-vibrant-hopeful-kigali.png",
     "gallery": [
       "/experiences/featured/city-tour-vibrant-hopeful-kigali.png",
@@ -597,7 +597,7 @@ export const experiencesData = [
       "Experience Rwanda\u2019s capital from Kigali Marriott Hotel, conveniently located near the Nyarugenge financial district and the Kigali Convention Center. Set in the vibrant heart of Kigali, our impeccable luxury hotel provides spacious, modern accommodations with deluxe amenities and premium services."
     ],
     "location": "Rwanda",
-    "url": "https://luxehorizonsafrica.com/tours/kigalis-golf-experience-the-safari-the-city/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=kigalis-golf-experience-the-safari-the-city",
     "heroImage": "/experiences/featured/kigalis-golf-experience-the-safari-the-city.jpg",
     "gallery": [
       "/experiences/featured/kigalis-golf-experience-the-safari-the-city.jpg",
@@ -632,7 +632,7 @@ export const experiencesData = [
       "You will have an occasion with a live performance of the Traditional Dancing Troupe. Don\u2019t shy away, you can join in a dance; it might be difficult for a beginner but worth a try. Your lunch will be served from the Heritage Hotel. After a Cultural busy day in the south, you will head back to Kigali and Drop off."
     ],
     "location": "Special Expeditions",
-    "url": "https://luxehorizonsafrica.com/tours/ancient-history-culture/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=ancient-history-culture",
     "heroImage": "/experiences/featured/ancient-history-culture.png",
     "gallery": [
       "/experiences/featured/ancient-history-culture.png",
@@ -664,7 +664,7 @@ export const experiencesData = [
       "2 nights in Kigali, 2 nights by Nyungwe National Park, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels"
     ],
     "location": "Special Expeditions",
-    "url": "https://luxehorizonsafrica.com/tours/gorilla-trekking-golden-monkeys/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=gorilla-trekking-golden-monkeys",
     "heroImage": "/experiences/featured/gorilla-trekking-golden-monkeys.jpg",
     "gallery": [
       "/experiences/featured/gorilla-trekking-golden-monkeys.jpg",
@@ -696,7 +696,7 @@ export const experiencesData = [
       "4-Day Gorilla trekking includes: 1 night in Kigali, 2 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges."
     ],
     "location": "Kenya",
-    "url": "https://luxehorizonsafrica.com/tours/magical-kenya/",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=magical-kenya",
     "heroImage": "/experiences/featured/magical-kenya.png",
     "gallery": [
       "/experiences/featured/magical-kenya.png",

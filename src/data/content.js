@@ -105,30 +105,28 @@ export const destinations = [
     key: 'rwanda',
     eyebrow: '01 — Volcanoes & Nyungwe',
     name: 'Rwanda',
-    image:
-      'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Gorilla-Chimp-Trek.jpg',
+    image: '/experiences/featured/gorillas-in-the-mist.jpg',
     accent: '#5c6b4f'
   },
   {
     key: 'uganda',
     eyebrow: '02 — Bwindi & Queen Elizabeth',
     name: 'Uganda',
-    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Lion-in-Uganda.jpg',
+    image: '/experiences/featured/best-of-the-pearl-of-africa.jpg',
     accent: '#b9772e'
   },
   {
     key: 'tanzania',
     eyebrow: '03 — Serengeti & Ngorongoro',
     name: 'Tanzania',
-    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/08/Elephants.jpg',
+    image: '/experiences/featured/tanzania-classic.jpg',
     accent: '#3f6b63'
   },
   {
     key: 'kenya',
     eyebrow: '04 — Maasai Mara & Amboseli',
     name: 'Kenya',
-    // Placeholder photo — swap for a real Maasai Mara / Amboseli shot before launch.
-    image: '/exp-akagera.jpg',
+    image: '/experiences/featured/magical-kenya.png',
     accent: '#9c4a32'
   }
 ]

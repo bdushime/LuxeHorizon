@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: replace once the production domain is confirmed.
-Sitemap: https://YOUR-DOMAIN-HERE.com/sitemap.xml
+Sitemap: https://luxehorizonsafrica.com/sitemap.xml

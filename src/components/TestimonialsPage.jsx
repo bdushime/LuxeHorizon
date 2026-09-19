@@ -1,14 +1,22 @@
 import Reveal from './Reveal.jsx'
 import { testimonials } from '../data/content.js'
 import Seo from './Seo.jsx'
+import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
 import './TestimonialsPage.css'
 
 export default function TestimonialsPage() {
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Testimonials', url: '/testimonials' }
+  ]
+
   return (
     <section className="tm-page">
       <Seo
-        title="Client Stories & Safari Reviews | Luxe Horizons Africa"
-        description="Real stories from travelers who booked bespoke Rwanda, Uganda and Tanzania safaris with Luxe Horizons Africa."
+        title={PAGE_SEO.testimonials.title}
+        description={PAGE_SEO.testimonials.description}
+        image={PAGE_SEO.testimonials.ogImage}
+        schema={generateBreadcrumbSchema(breadcrumbs)}
       />
       <div className="wrap">
         <div className="tm-head">

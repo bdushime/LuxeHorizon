@@ -4,6 +4,7 @@ import Reveal from '../components/Reveal.jsx'
 import PartnersSection from '../components/PartnersSection.jsx'
 import CtaBand from '../components/CtaBand.jsx'
 import Seo from '../components/Seo.jsx'
+import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
 import AboutReel from './AboutReel.jsx'
 import { teamMembers } from '../data/content.js'
 import './AboutPage.css'
@@ -31,11 +32,18 @@ export default function AboutPage() {
     }
   }, [activeBio])
 
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'About Us', url: '/about' }
+  ]
+
   return (
     <div className="about-page">
       <Seo
-        title="About Us — Our Safari Travel Team | Luxe Horizons Africa"
-        description="Meet the Kigali-based team behind Luxe Horizons Africa's bespoke safari tourism across Rwanda, Uganda and Tanzania."
+        title={PAGE_SEO.about.title}
+        description={PAGE_SEO.about.description}
+        image={PAGE_SEO.about.ogImage}
+        schema={generateBreadcrumbSchema(breadcrumbs)}
       />
 
       <AboutReel />
