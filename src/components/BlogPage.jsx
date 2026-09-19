@@ -1,5 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useSearchParams } from 'react-router-dom'
 import { blogPosts } from '../data/content.js'
 import Seo from './Seo.jsx'
 import './BlogPage.css'
@@ -9,11 +10,64 @@ import './BlogPage.css'
 const ROTATIONS = [-7, 5, -3, 8, -5, 4, -8, 6]
 
 export default function BlogPage() {
+  const [searchParams, setSearchParams] = useSearchParams()
   const categories = useMemo(() => Array.from(new Set(blogPosts.map((p) => p.category))), [])
   const [activeCategory, setActiveCategory] = useState('All')
+  const [selectedPost, setSelectedPost] = useState(null)
+
+  // Open modal if story key is passed in URL query param ?story=key
+  useEffect(() => {
+    const storyKey = searchParams.get('story')
+    if (storyKey) {
+      const match = blogPosts.find((p) => p.key === storyKey)
+      if (match) setSelectedPost(match)
+    }
+  }, [searchParams])
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedPost) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [selectedPost])
+
+  // Close modal on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        closeModal()
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
+  const openStory = (post, e) => {
+    if (e) e.preventDefault()
+    setSelectedPost(post)
+    setSearchParams({ story: post.key }, { replace: true })
+  }
+
+  const closeModal = () => {
+    setSelectedPost(null)
+    setSearchParams({}, { replace: true })
+  }
 
   const filteredPosts =
     activeCategory === 'All' ? blogPosts : blogPosts.filter((p) => p.category === activeCategory)
+
+  // Prev / Next story navigation inside modal
+  const currentIndex = selectedPost ? blogPosts.findIndex((p) => p.key === selectedPost.key) : -1
+  const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : blogPosts[blogPosts.length - 1]
+  const nextPost =
+    currentIndex >= 0 && currentIndex < blogPosts.length - 1
+      ? blogPosts[currentIndex + 1]
+      : blogPosts[0]
 
   return (
     <section className="bp-page">
@@ -73,9 +127,10 @@ export default function BlogPage() {
             {filteredPosts.map((post, i) => (
               <motion.a
                 key={post.key}
-                href="#"
+                href={`?story=${post.key}`}
+                onClick={(e) => openStory(post, e)}
                 layout
-                className="bp-card"
+                className="bp-card cursor-pointer"
                 initial={{ opacity: 0, y: -70, scale: 0.4, rotate: ROTATIONS[i % ROTATIONS.length] }}
                 animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
                 exit={{ opacity: 0, y: 50, scale: 0.55, rotate: ROTATIONS[i % ROTATIONS.length] }}
@@ -103,6 +158,147 @@ export default function BlogPage() {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Full Article Story Modal */}
+      <AnimatePresence>
+        {selectedPost && (
+          <div className="bpm-overlay" onClick={closeModal}>
+            <motion.div
+              className="bpm-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            />
+
+            <div className="bpm-wrapper">
+              <motion.div
+                className="bpm-dialog"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="bpm-title"
+                initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 30, scale: 0.96 }}
+                transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  type="button"
+                  className="bpm-close"
+                  onClick={closeModal}
+                  aria-label="Close story"
+                >
+                  ✕
+                </button>
+
+                <div className="bpm-hero">
+                  <img src={selectedPost.image} alt={selectedPost.title} className="bpm-hero-img" />
+                  <div className="bpm-hero-overlay" />
+                  <div className="bpm-hero-content">
+                    <div className="bpm-meta">
+                      <span className="bpm-category" style={{ backgroundColor: selectedPost.accent }}>
+                        {selectedPost.category}
+                      </span>
+                      <span className="bpm-dot" />
+                      <span className="bpm-date">{selectedPost.date}</span>
+                      <span className="bpm-dot" />
+                      <span className="bpm-time">{selectedPost.readTime || '5 min read'}</span>
+                    </div>
+                    <h2 id="bpm-title">{selectedPost.title}</h2>
+                  </div>
+                </div>
+
+                <div className="bpm-body">
+                  {selectedPost.author && (
+                    <div className="bpm-author-bar">
+                      <div className="bpm-author-avatar" style={{ backgroundColor: selectedPost.accent }}>
+                        {selectedPost.author.charAt(0)}
+                      </div>
+                      <div className="bpm-author-info">
+                        <span className="bpm-author-name">{selectedPost.author}</span>
+                        <span className="bpm-author-role">{selectedPost.authorRole}</span>
+                      </div>
+                    </div>
+                  )}
+
+                  <p className="bpm-lead">{selectedPost.excerpt}</p>
+
+                  {selectedPost.quote && (
+                    <blockquote className="bpm-quote" style={{ borderLeftColor: selectedPost.accent }}>
+                      <p>“{selectedPost.quote}”</p>
+                    </blockquote>
+                  )}
+
+                  {selectedPost.paragraphs?.map((p, idx) => (
+                    <p key={idx} className="bpm-paragraph">
+                      {p}
+                    </p>
+                  ))}
+
+                  {selectedPost.takeaway && (
+                    <div className="bpm-takeaway" style={{ '--accent': selectedPost.accent }}>
+                      <div className="bpm-takeaway-header">
+                        <span className="bpm-takeaway-badge">Field Note</span>
+                      </div>
+                      <div className="bpm-takeaway-text">{selectedPost.takeaway}</div>
+                    </div>
+                  )}
+
+                  {selectedPost.highlights && (
+                    <div className="bpm-highlights">
+                      <h4>Essential Tips &amp; Checklist</h4>
+                      <ul>
+                        {selectedPost.highlights.map((h, i) => (
+                          <li key={i}>{h}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div className="bpm-divider" />
+
+                  <div className="bpm-footer">
+                    <div className="bpm-footer-cta">
+                      <div>
+                        <h4>Inspired by this story?</h4>
+                        <p>Speak to our trip designers to customize your tailored East Africa itinerary.</p>
+                      </div>
+                      <a href="/contact" className="bpm-cta-btn">
+                        Plan Your Journey &rarr;
+                      </a>
+                    </div>
+
+                    <div className="bpm-nav">
+                      {prevPost && (
+                        <button
+                          type="button"
+                          className="bpm-nav-btn prev"
+                          onClick={() => openStory(prevPost)}
+                        >
+                          <span className="bpm-nav-label">&larr; Previous Story</span>
+                          <span className="bpm-nav-title">{prevPost.title}</span>
+                        </button>
+                      )}
+                      {nextPost && (
+                        <button
+                          type="button"
+                          className="bpm-nav-btn next"
+                          onClick={() => openStory(nextPost)}
+                        >
+                          <span className="bpm-nav-label">Next Story &rarr;</span>
+                          <span className="bpm-nav-title">{nextPost.title}</span>
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
+

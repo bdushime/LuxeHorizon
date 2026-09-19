@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { destinations } from '../data/content.js'
 import Seo from './Seo.jsx'
@@ -12,6 +12,13 @@ import './DestinationsPage.css'
 export default function DestinationsPage() {
   const [activeKey, setActiveKey] = useState(null)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [])
 
   return (
     <section className="dpx-page">
@@ -64,3 +71,4 @@ export default function DestinationsPage() {
     </section>
   )
 }
+
