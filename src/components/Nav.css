@@ -27,7 +27,8 @@
   align-items: center;
   gap: 22px;
 }
-.nav-plan {
+.nav-plan,
+.nav-home {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -41,12 +42,14 @@
   transition: color 0.4s ease, border-color 0.4s ease, opacity 0.4s ease 0.05s,
     transform 0.4s ease 0.05s;
 }
-.nav.revealed .nav-plan {
+.nav.revealed .nav-plan,
+.nav.revealed .nav-home {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
-.nav.scrolled .nav-plan {
+.nav.scrolled .nav-plan,
+.nav.scrolled .nav-home {
   color: var(--ink);
   border-color: rgba(33, 29, 23, 0.4);
 }
@@ -116,6 +119,12 @@
 
 @media (max-width: 680px) {
   .nav-plan {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-home {
     display: none;
   }
 }

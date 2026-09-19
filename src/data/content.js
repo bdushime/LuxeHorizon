@@ -4,6 +4,7 @@
 // host has hotlink protection enabled.
 
 export const navLinks = [
+  { key: 'home', label: 'Home', href: '/' },
   { key: 'experiences', label: 'Experiences', href: '/experiences' },
   { key: 'destinations', label: 'Destinations', href: '/destinations' },
   { key: 'blog', label: 'Blog', href: '/blog' },
@@ -131,6 +132,73 @@ export const destinations = [
     accent: '#9c4a32'
   }
 ]
+
+// Long-form per-country content for the individual destination pages
+// (/destinations/:key). Rwanda, Uganda and Tanzania are the client's real
+// copy carried over from the old WordPress site; Kenya is a placeholder
+// (the country itself was already a placeholder — swap in real copy and a
+// real photo before launch).
+export const destinationDetails = {
+  rwanda: {
+    paragraphs: [
+      "Endless emerald-green hills and soaring mountainsides, Rwanda is the phoenix that has risen from the ashes after great suffering. It is now this peaceful little country that has so much to offer. Also known as the land of a thousand hills, Rwanda's stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. Rwanda is famous for being home to almost a half of the world's mountain gorillas, these amazing animals are greatly endangered and a visit with them will leave an impression on any traveler fortunate enough to snag one of the highly demanded tracking permits dispensed by the Rwanda government each day.",
+      "The dramatic rainforested mountains also count volcanoes, several primate species and incredible birdlife among their inhabitants, and all this is easily accessed from the capital, Kigali. In addition to its natural beauty, Rwanda is a country with a rich culture and history that goes beyond the tragic 1994 Genocide against the Tutsi. This tiny but yet ambitious country offers a unique experience with its vibrant cities, villages, and fascinating landmarks."
+    ],
+    pullQuote: 'Rwanda is famous for being home to almost half of the world\'s mountain gorillas.',
+    facts: [
+      { label: 'Capital', value: 'Kigali' },
+      { label: 'Known As', value: 'Land of a Thousand Hills' },
+      { label: 'Signature Wildlife', value: 'Mountain Gorillas' },
+      { label: 'Best Known For', value: 'Gorilla Trekking Permits' }
+    ],
+    secondaryPhoto: '/experiences/featured/gorillas-in-the-mist.jpg'
+  },
+  uganda: {
+    paragraphs: [
+      "Also known as the pearl of Africa, Uganda is a unique experience with a culture that is remarkably diverse. Outside the Uganda gorilla safaris in Bwindi, other major draws of Uganda include birding, trekking the forest reserves, and visiting the Nile's source at Lake Victoria in the southern part of the country. Other areas which are famous are the Queen Elizabeth National Park and the Ruwenzori mountain ranges.",
+      'The main access point is Kampala/Entebbe overlooking Lake Victoria. The smoky urban bustle of Kampala bursts at the seams then gives way to lush subsistence farming and small villages full of friendly locals.'
+    ],
+    pullQuote: 'Also known as the Pearl of Africa, Uganda is a unique experience with a culture that is remarkably diverse.',
+    facts: [
+      { label: 'Known As', value: 'Pearl of Africa' },
+      { label: 'Gateway', value: 'Kampala / Entebbe' },
+      { label: 'Signature Wildlife', value: 'Bwindi Gorillas' },
+      { label: 'Also Notable', value: 'Source of the Nile' }
+    ],
+    secondaryPhoto: '/experiences/featured/best-of-the-pearl-of-africa.jpg'
+  },
+  tanzania: {
+    paragraphs: [
+      'A country that deserves a number of visits to even begin to appreciate it. Some say Tanzania is one of the last great places left on earth. The spectacle of the migration in the Serengeti and enigmatic places such as Lake Manyara and the Ngorongoro Crater are complimented by the vast wildlife packed wilderness areas of the south and the shores of Lake Tanganyika.',
+      'The famous Great Migration happens between July and September, and it is up to date the biggest wildlife migration in the world hence attracting a huge number of travellers from all around the world as they witness huger herds of wildebeest and zebras crossing the Mara River in full panic mode as they escape falling prey to crocodiles and other predators in the river. The best time to visit Tanzania is majorly dependent on the activities you are interested in. For travellers who love wildlife, game drives and safaris are done all year round.',
+      "Tanzania's varied cultures define the country, with tribal influences playing a vital role in its essential flavor. There is nothing quite like joining in song and dance with the red-cloaked Maasai."
+    ],
+    pullQuote: 'Some say Tanzania is one of the last great places left on earth.',
+    facts: [
+      { label: 'Great Migration', value: 'July – September' },
+      { label: 'Key Parks', value: 'Serengeti & Ngorongoro' },
+      { label: 'Also Notable', value: 'Lake Tanganyika' },
+      { label: 'Culture', value: 'Maasai Communities' }
+    ],
+    secondaryPhoto: '/experiences/featured/tanzania-classic.jpg'
+  },
+  // Placeholder — Kenya was already a placeholder destination (see the note
+  // on its image above); replace this copy with the client's real text.
+  kenya: {
+    paragraphs: [
+      "Kenya is where the safari story began — vast golden plains, endless horizons, and the kind of wildlife encounters that first put East Africa on the traveler's map. The Maasai Mara's rolling grasslands host one of the greatest wildlife spectacles on the continent, while Amboseli offers herds of elephant framed against the snows of Kilimanjaro.",
+      "Beyond the plains, Kenya's Maasai communities, Rift Valley lakes and coastal reefs add depth to a country that rewards both first-time safari-goers and seasoned travelers alike."
+    ],
+    pullQuote: "Kenya is where the safari story began.",
+    facts: [
+      { label: 'Known As', value: 'Cradle of the Safari' },
+      { label: 'Signature Wildlife', value: 'Big Five & Migration' },
+      { label: 'Key Parks', value: 'Maasai Mara & Amboseli' },
+      { label: 'Best Known For', value: 'Classic Savanna Safaris' }
+    ],
+    secondaryPhoto: '/experiences/featured/magical-kenya.png'
+  }
+}
 
 // ring: 1 (inner) or 2 (outer) — radius for each is defined in partnerRingRadii below
 // angle: degrees, 0 = right, 90 = straight up, 180 = left (spread across the top arc)

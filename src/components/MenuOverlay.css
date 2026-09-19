@@ -61,6 +61,9 @@
 .menu-overlay.open .menu-links a:nth-child(6) {
   transition-delay: 0.43s;
 }
+.menu-overlay.open .menu-links a:nth-child(7) {
+  transition-delay: 0.5s;
+}
 .menu-side {
   opacity: 0;
   transform: translateY(16px);

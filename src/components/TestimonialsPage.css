@@ -14,15 +14,8 @@
   font-weight: 600;
   font-size: clamp(38px, 5vw, 60px);
   color: var(--ink);
-  margin: 14px 0 16px;
+  margin: 14px 0 0;
   line-height: 1.05;
-}
-.tm-head p {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 17px;
-  color: rgba(33, 29, 23, 0.6);
-  margin: 0;
 }
 
 /* ---------- Scatter layout ---------- */
@@ -41,11 +34,11 @@
   margin-top: 14px;
 }
 
-/* ---------- Polaroid card ---------- */
+/* ---------- Card ---------- */
 .tm-card {
   width: 260px;
   background: #fff;
-  padding: 14px 14px 22px;
+  padding: 28px 24px 26px;
   box-shadow: 0 14px 30px rgba(20, 20, 15, 0.16);
   transform: rotate(var(--rotate));
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
@@ -56,21 +49,6 @@
   box-shadow: 0 28px 48px rgba(20, 20, 15, 0.26);
   z-index: 5;
   position: relative;
-}
-.tm-card-photo {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background: var(--canopy);
-}
-.tm-card-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.92);
-}
-.tm-card-caption {
-  padding-top: 16px;
 }
 .tm-card-stars {
   color: var(--gold);
