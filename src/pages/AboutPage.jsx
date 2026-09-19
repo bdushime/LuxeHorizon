@@ -11,6 +11,7 @@ import './AboutPage.css'
 
 export default function AboutPage() {
   const [activeBio, setActiveBio] = useState(null)
+  const [isBioExpanded, setIsBioExpanded] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -31,6 +32,11 @@ export default function AboutPage() {
       document.body.style.overflow = ''
     }
   }, [activeBio])
+
+  const openBioModal = (member) => {
+    setActiveBio(member)
+    setIsBioExpanded(false)
+  }
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
@@ -80,7 +86,7 @@ export default function AboutPage() {
                   <button
                     type="button"
                     className="about-bio-btn"
-                    onClick={() => setActiveBio(member)}
+                    onClick={() => openBioModal(member)}
                   >
                     Read Bio
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -97,7 +103,7 @@ export default function AboutPage() {
       {/* Interactive Team Bio Modal */}
       {activeBio && (
         <div className="about-modal-backdrop" onClick={() => setActiveBio(null)}>
-          <div className="about-modal-content" onClick={(e) => e.stopPropagation()}>
+          <div className={`about-modal-content ${isBioExpanded ? 'is-expanded' : ''}`} onClick={(e) => e.stopPropagation()}>
             <button
               type="button"
               className="about-modal-close"
@@ -120,7 +126,47 @@ export default function AboutPage() {
               <div className="about-modal-info">
                 <h2>{activeBio.name}</h2>
                 <div className="about-modal-role">{activeBio.title}</div>
-                <p className="about-modal-bio">{activeBio.bio}</p>
+                
+                <div className="about-modal-text-wrap">
+                  {!isBioExpanded ? (
+                    <p className="about-modal-bio">{activeBio.bio}</p>
+                  ) : (
+                    <div className="about-modal-fullbio">
+                      {activeBio.fullBio ? (
+                        activeBio.fullBio.map((paragraph, index) => (
+                          <p key={index}>{paragraph}</p>
+                        ))
+                      ) : (
+                        <p>{activeBio.bio}</p>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                <div className="about-modal-controls">
+                  <button
+                    type="button"
+                    className="about-modal-expand-btn"
+                    onClick={() => setIsBioExpanded(!isBioExpanded)}
+                  >
+                    <span>{isBioExpanded ? 'Read Less' : 'Read More'}</span>
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      style={{
+                        transform: isBioExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.3s ease'
+                      }}
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </button>
+                </div>
+
                 <div className="about-modal-actions">
                   <Link to="/contact" className="btn-about-cta" onClick={() => setActiveBio(null)}>
                     Plan Your Journey
@@ -137,3 +183,4 @@ export default function AboutPage() {
     </div>
   )
 }
+
