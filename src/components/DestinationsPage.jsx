@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { destinations } from '../data/content.js'
 import Seo from './Seo.jsx'
 import './DestinationsPage.css'
@@ -6,9 +7,11 @@ import './DestinationsPage.css'
 // Idea #1 — "Expanding Panels": the whole page is one edge-to-edge photo
 // mural. Hovering a country flexes it wide while the others compress to
 // narrow strips, so there's no separate hero + grid — the interaction IS
-// the page.
+// the page. Clicking an already-expanded panel goes to that country's
+// full detail page.
 export default function DestinationsPage() {
   const [activeKey, setActiveKey] = useState(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -27,7 +30,6 @@ export default function DestinationsPage() {
       <div className="dpx-head">
         <div className="eyebrow on-dark">Where To</div>
         <h1>Four Countries, One Extraordinary Story</h1>
-        <p>Hover a country to step inside it.</p>
       </div>
 
       <div className={`dpx-panels ${activeKey ? 'has-active' : ''}`}>
@@ -44,6 +46,9 @@ export default function DestinationsPage() {
               onFocus={() => setActiveKey(dest.key)}
               onBlur={() => setActiveKey(null)}
               onTouchStart={() => setActiveKey((k) => (k === dest.key ? null : dest.key))}
+              onClick={() => {
+                if (isActive) navigate(`/destinations/${dest.key}`)
+              }}
             >
               <img className="dpx-panel-media" src={dest.image} alt={dest.name} />
               <div className="dpx-panel-overlay" />
@@ -57,9 +62,7 @@ export default function DestinationsPage() {
               <div className="dpx-panel-detail">
                 <div className="eyebrow on-dark">{dest.eyebrow}</div>
                 <h3>{dest.name}</h3>
-                <a href={`/experiences?exp=${dest.key}`} className="dpx-panel-link">
-                  Explore {dest.name} &rarr;
-                </a>
+                <span className="dpx-panel-cta">View Full Guide →</span>
               </div>
             </div>
           )

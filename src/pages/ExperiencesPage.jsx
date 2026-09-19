@@ -311,7 +311,7 @@ export default function ExperiencesPage() {
 
               <div className="exp-modal-cta-row">
                 <Link
-                  to="/#contact"
+                  to="/contact"
                   className="btn-exp-cta"
                   onClick={closeModal}
                 >

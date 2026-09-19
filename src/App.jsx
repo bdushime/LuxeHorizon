@@ -6,6 +6,7 @@ import MenuOverlay from './components/MenuOverlay.jsx'
 import ScrollToHash from './components/ScrollToHash.jsx'
 import HomePage from './components/HomePage.jsx'
 import DestinationsPage from './components/DestinationsPage.jsx'
+import DestinationDetailPage from './components/DestinationDetailPage.jsx'
 import BlogPage from './components/BlogPage.jsx'
 import FaqPage from './components/FaqPage.jsx'
 import ContactPage from './components/ContactPage.jsx'
@@ -42,6 +43,7 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<HomePage heroRevealed={!portalOpen} />} />
         <Route path="/destinations" element={<DestinationsPage />} />
+        <Route path="/destinations/:key" element={<DestinationDetailPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<ContactPage />} />

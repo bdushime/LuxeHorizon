@@ -26,7 +26,6 @@ const DEMO_POST = {
 const featuredPosts = blogPosts.slice(0, 3)
 
 export default function BlogSection() {
-  const [hoveredKey, setHoveredKey] = useState(null)
   const [dealt, setDealt] = useState(false)
 
   const visiblePosts = dealt ? [...featuredPosts, DEMO_POST] : featuredPosts
@@ -55,10 +54,6 @@ export default function BlogSection() {
                 exit={{ opacity: 0, x: 70, scale: 0.92 }}
                 transition={{ type: 'spring', stiffness: 260, damping: 26 }}
                 className="blog-trail-col"
-                onMouseEnter={() => setHoveredKey(post.key)}
-                onMouseLeave={() => setHoveredKey(null)}
-                onFocus={() => setHoveredKey(post.key)}
-                onBlur={() => setHoveredKey(null)}
               >
                 <Link className="blog-trail-card" to="/blog">
                   <div className="blog-trail-card-media">
@@ -98,32 +93,6 @@ export default function BlogSection() {
               <span className="blog-trail-stack-label">{dealt ? 'Put Back' : 'More Stories'}</span>
             </span>
           </motion.button>
-        </div>
-
-        <div className="blog-trail-dots">
-          <AnimatePresence initial={false}>
-            {visiblePosts.map((post) => (
-              <motion.div
-                key={post.key}
-                layout
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="blog-trail-dot-item"
-              >
-                <span
-                  className={`blog-trail-dot ${hoveredKey === post.key ? 'active' : ''}`}
-                  style={{ '--accent': post.accent }}
-                />
-                <span
-                  className={`blog-trail-label ${hoveredKey === post.key ? 'active' : ''}`}
-                  style={{ '--accent': post.accent }}
-                >
-                  {post.category}
-                </span>
-              </motion.div>
-            ))}
-          </AnimatePresence>
         </div>
       </div>
     </section>

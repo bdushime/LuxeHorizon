@@ -1,0 +1,205 @@
+.ddp-page {
+  background: var(--parchment);
+}
+
+/* ---------- Hero ---------- */
+.ddp-hero {
+  position: relative;
+  height: 85vh;
+  min-height: 560px;
+  overflow: hidden;
+}
+.ddp-hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ddp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 16, 13, 0.15) 0%, rgba(8, 16, 13, 0.35) 60%, rgba(8, 16, 13, 0.7) 100%);
+}
+.ddp-hero-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 44px;
+  z-index: 2;
+  text-align: center;
+}
+.ddp-hero-content h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(42px, 6vw, 76px);
+  color: var(--parchment);
+  margin: 10px 0 0;
+}
+
+/* ---------- Layout: sticky fact stamps + story column ---------- */
+.ddp-page .ddp-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
+  padding: 140px 0 40px;
+  align-items: start;
+}
+
+.ddp-facts-inner {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ddp-facts-label {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(33, 29, 23, 0.4);
+  margin-bottom: 4px;
+}
+.ddp-stamp {
+  border: 1.5px dashed var(--accent, var(--clay));
+  border-radius: 10px;
+  padding: 14px 16px;
+  transform: rotate(-1.2deg);
+}
+.ddp-stamp:nth-child(even) {
+  transform: rotate(1.2deg);
+}
+.ddp-stamp-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent, var(--clay));
+  margin-bottom: 4px;
+}
+.ddp-stamp-value {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+/* ---------- Story ---------- */
+.ddp-story {
+  max-width: 720px;
+}
+.ddp-story-text p {
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: rgba(33, 29, 23, 0.75);
+  margin: 0 0 26px;
+}
+.ddp-pullquote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.35;
+  margin: 40px 0;
+  padding-left: 26px;
+  border-left: 3px solid currentColor;
+}
+
+.ddp-pinned-photo {
+  margin: 50px 0 10px;
+  max-width: 380px;
+  transform: rotate(-2deg);
+}
+.ddp-pinned-photo img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(20, 20, 15, 0.2);
+  border: 8px solid #fff;
+  display: block;
+}
+
+/* ---------- Continue the journey ---------- */
+.ddp-continue {
+  background: var(--canopy);
+  margin-top: 60px;
+}
+.ddp-continue-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 80px 40px;
+}
+.ddp-continue-copy h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(28px, 3.4vw, 42px);
+  color: var(--parchment);
+  margin: 12px 0 28px;
+  line-height: 1.15;
+}
+.ddp-continue-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.ddp-continue-link {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 231, 0.7);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.ddp-continue-link:hover {
+  color: var(--gold-soft);
+  border-color: var(--gold-soft);
+}
+.ddp-continue-media {
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+.ddp-continue-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .ddp-hero {
+    height: 44vh;
+    min-height: 320px;
+  }
+  .ddp-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 0 20px;
+  }
+  .ddp-facts-inner {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .ddp-stamp {
+    flex: 1 1 45%;
+  }
+  .ddp-pinned-photo {
+    max-width: 100%;
+  }
+  .ddp-continue-inner {
+    grid-template-columns: 1fr;
+    padding: 60px 26px;
+  }
+  .ddp-continue-media {
+    order: -1;
+  }
+}

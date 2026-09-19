@@ -63,7 +63,6 @@ export default function AboutPage() {
                       e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=2E4A38&color=D4AF37&size=256`
                     }}
                   />
-                  <span className="about-team-badge">{member.badge}</span>
                 </div>
 
                 <div className="about-team-body">
@@ -111,12 +110,11 @@ export default function AboutPage() {
                 />
               </div>
               <div className="about-modal-info">
-                <span className="about-team-badge modal-badge">{activeBio.badge}</span>
                 <h2>{activeBio.name}</h2>
                 <div className="about-modal-role">{activeBio.title}</div>
                 <p className="about-modal-bio">{activeBio.bio}</p>
                 <div className="about-modal-actions">
-                  <Link to="/#contact" className="btn-about-cta" onClick={() => setActiveBio(null)}>
+                  <Link to="/contact" className="btn-about-cta" onClick={() => setActiveBio(null)}>
                     Plan Your Journey
                   </Link>
                 </div>

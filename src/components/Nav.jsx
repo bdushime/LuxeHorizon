@@ -11,7 +11,7 @@ const DARK_HERO_ROUTES = new Set(['/', '/destinations', '/about', '/contact'])
 export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   const { pathname } = useLocation()
   const isHome = pathname === '/'
-  const hasDarkHero = DARK_HERO_ROUTES.has(pathname)
+  const hasDarkHero = DARK_HERO_ROUTES.has(pathname) || pathname.startsWith('/destinations/')
 
   const [scrolledState, setScrolledState] = useState(false)
   const [revealedState, setRevealedState] = useState(false)
@@ -55,6 +55,11 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
           />
         </Link>
         <div className="nav-right">
+          {!isHome && (
+            <Link to="/" className="nav-home">
+              Home
+            </Link>
+          )}
           <a href="/#plan" className="nav-plan">
             Plan Your Trip
           </a>
