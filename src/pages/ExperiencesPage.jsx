@@ -6,6 +6,8 @@ import Reveal from '../components/Reveal.jsx'
 import PartnersSection from '../components/PartnersSection.jsx'
 import CtaBand from '../components/CtaBand.jsx'
 import Footer from '../components/Footer.jsx'
+import Seo from '../components/Seo.jsx'
+import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
 import { experiencesData } from '../data/experiencesData.js'
 import '../components/AdventureSection.css'
 import './ExperiencesPage.css'
@@ -85,14 +87,12 @@ export default function ExperiencesPage() {
   // Related pages calculation for modal
   const getRelatedExperiences = (current) => {
     if (!current) return []
-    // First try explicitly relatedSlugs
     if (current.relatedSlugs && current.relatedSlugs.length > 0) {
       const explicit = experiencesData.filter((e) =>
         current.relatedSlugs.includes(e.slug) && e.id !== current.id
       )
       if (explicit.length >= 3) return explicit.slice(0, 3)
     }
-    // Fallback: same category or other items
     const sameCat = experiencesData.filter(
       (e) => e.category === current.category && e.id !== current.id
     )
@@ -101,8 +101,32 @@ export default function ExperiencesPage() {
     return others.slice(0, 3)
   }
 
+  // Dynamic SEO calculation
+  const seoTitle = selectedExperience
+    ? `${selectedExperience.title} — ${selectedExperience.duration} | Luxe Horizons Africa`
+    : PAGE_SEO.experiences.title
+  const seoDescription = selectedExperience
+    ? (selectedExperience.summary || selectedExperience.description).slice(0, 160)
+    : PAGE_SEO.experiences.description
+  const seoImage = selectedExperience ? selectedExperience.image : PAGE_SEO.experiences.ogImage
+
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Experiences', url: '/experiences' }
+  ]
+  if (selectedExperience) {
+    breadcrumbs.push({ name: selectedExperience.title, url: `/experiences?exp=${selectedExperience.slug}` })
+  }
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs)
+
   return (
     <div className="experiences-page">
+      <Seo
+        title={seoTitle}
+        description={seoDescription}
+        image={seoImage}
+        schema={breadcrumbSchema}
+      />
       <Nav
         menuOpen={menuOpen}
         onToggleMenu={() => setMenuOpen((v) => !v)}

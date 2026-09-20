@@ -6,6 +6,7 @@
 .board-hero {
   padding: 160px 0 50px;
 }
+
 .board-hero h1 {
   font-family: var(--serif);
   font-weight: 600;
@@ -13,6 +14,7 @@
   color: var(--parchment);
   margin: 12px 0 14px;
 }
+
 .board-hero p {
   font-family: var(--sans);
   font-size: 15px;
@@ -24,6 +26,7 @@
 .board-panel-section {
   padding-bottom: 70px;
 }
+
 .board-panel {
   background: rgba(198, 161, 91, 0.06);
   border: 1px solid rgba(198, 161, 91, 0.25);
@@ -31,6 +34,7 @@
   overflow: hidden;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25), inset 0 0 60px rgba(198, 161, 91, 0.04);
 }
+
 .board-row {
   display: grid;
   grid-template-columns: 90px 1.1fr 2fr 1fr;
@@ -40,9 +44,11 @@
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace;
 }
+
 .board-row:last-child {
   border-bottom: none;
 }
+
 .board-row-header {
   font-family: var(--sans);
   font-size: 10.5px;
@@ -53,17 +59,21 @@
   padding-top: 16px;
   padding-bottom: 16px;
 }
+
 a.board-row {
   cursor: pointer;
   transition: background 0.25s ease;
 }
+
 a.board-row:hover {
   background: rgba(198, 161, 91, 0.08);
 }
+
 .board-cell-gate {
   color: rgba(198, 161, 91, 0.55);
   font-size: 13px;
 }
+
 .flap-text {
   color: var(--gold-soft);
   font-size: 16px;
@@ -71,6 +81,7 @@ a.board-row:hover {
   text-shadow: 0 0 10px rgba(198, 161, 91, 0.25);
   white-space: pre;
 }
+
 .board-cell-status .flap-text {
   color: #a9b89c;
   text-shadow: 0 0 10px rgba(92, 107, 79, 0.3);
@@ -80,6 +91,7 @@ a.board-row:hover {
 .board-form-section {
   padding-bottom: 110px;
 }
+
 .boarding-pass {
   display: grid;
   grid-template-columns: 1fr 240px;
@@ -89,6 +101,7 @@ a.board-row:hover {
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
   position: relative;
 }
+
 .boarding-pass::before {
   content: '';
   position: absolute;
@@ -98,6 +111,7 @@ a.board-row:hover {
   width: 0;
   border-left: 2px dashed rgba(33, 29, 23, 0.2);
 }
+
 .boarding-pass::after {
   content: '';
   position: absolute;
@@ -114,6 +128,7 @@ a.board-row:hover {
 .pass-main {
   padding: 44px 48px;
 }
+
 .pass-eyebrow {
   font-family: var(--sans);
   font-size: 11px;
@@ -123,6 +138,7 @@ a.board-row:hover {
   color: var(--clay);
   margin-bottom: 18px;
 }
+
 .pass-main h2 {
   font-family: var(--serif);
   font-weight: 600;
@@ -130,6 +146,7 @@ a.board-row:hover {
   color: var(--ink);
   margin: 0 0 14px;
 }
+
 .pass-main p {
   font-size: 15px;
   color: rgba(33, 29, 23, 0.65);
@@ -142,14 +159,17 @@ a.board-row:hover {
   grid-template-columns: 1fr 1fr;
   gap: 20px 24px;
 }
+
 .pass-grid label {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
+
 .pass-field-wide {
   grid-column: 1 / -1;
 }
+
 .pass-grid span {
   font-family: var(--sans);
   font-size: 10.5px;
@@ -158,6 +178,7 @@ a.board-row:hover {
   text-transform: uppercase;
   color: rgba(33, 29, 23, 0.45);
 }
+
 .pass-grid input,
 .pass-grid textarea {
   border: none;
@@ -171,6 +192,7 @@ a.board-row:hover {
   resize: vertical;
   transition: border-color 0.25s ease;
 }
+
 .pass-grid input:focus,
 .pass-grid textarea:focus {
   border-color: var(--clay);
@@ -183,11 +205,13 @@ a.board-row:hover {
   flex-direction: column;
   gap: 16px;
 }
+
 .pass-stub-row {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
+
 .pass-stub-row span {
   font-family: var(--sans);
   font-size: 9.5px;
@@ -196,12 +220,14 @@ a.board-row:hover {
   text-transform: uppercase;
   color: rgba(246, 241, 231, 0.4);
 }
+
 .pass-stub-row strong {
   font-family: var(--serif);
   font-size: 16px;
   font-weight: 600;
   color: var(--parchment);
 }
+
 .pass-submit {
   margin-top: auto;
   background: var(--gold, #c6a15b);
@@ -217,6 +243,7 @@ a.board-row:hover {
   cursor: pointer;
   transition: background 0.25s ease;
 }
+
 .pass-submit:hover {
   background: var(--gold-soft, #d9c293);
 }
@@ -225,10 +252,12 @@ a.board-row:hover {
   display: block;
   padding: 20px 0;
 }
+
 .boarding-pass-success::before,
 .boarding-pass-success::after {
   display: none;
 }
+
 .boarding-pass-success .pass-main {
   max-width: 480px;
 }
@@ -241,30 +270,38 @@ a.board-row:hover {
     gap: 6px;
     padding: 18px 20px;
   }
+
   .board-row-header {
     display: none;
   }
+
   .flap-text {
     font-size: 14px;
   }
+
   .boarding-pass {
     grid-template-columns: 1fr;
   }
+
   .boarding-pass::before,
   .boarding-pass::after {
     display: none;
   }
+
   .pass-main {
     padding: 32px 26px;
   }
+
   .pass-grid {
     grid-template-columns: 1fr;
   }
+
   .pass-stub {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 24px 26px;
   }
+
   .pass-submit {
     width: 100%;
     margin-top: 10px;

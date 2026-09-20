@@ -60,9 +60,9 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
               Home
             </Link>
           )}
-          <a href="/#plan" className="nav-plan">
+          <Link to="/#plan" className="nav-plan">
             Plan Your Trip
-          </a>
+          </Link>
           <button
             className={`menu-toggle ${menuOpen ? 'open' : ''}`}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}

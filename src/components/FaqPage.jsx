@@ -1,12 +1,10 @@
 import { useMemo, useState } from 'react'
 import { faqCategories, faqs } from '../data/content.js'
 import Seo from './Seo.jsx'
+import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
 import CtaBand from './CtaBand.jsx'
 import './FaqPage.css'
 
-// Ideas #1 + #4 — "Field Guide Index" (sticky category sidebar) combined
-// with "Search & Suggest" (live text search) — the sidebar and the search
-// box filter the same accordion list together.
 export default function FaqPage() {
   const [activeCategory, setActiveCategory] = useState('all')
   const [query, setQuery] = useState('')
@@ -30,11 +28,33 @@ export default function FaqPage() {
     })
   }, [activeCategory, query])
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.answer
+      }
+    }))
+  }
+
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'FAQ & Travel Tips', url: '/faq' }
+  ]
+
+  const schemas = [faqSchema, generateBreadcrumbSchema(breadcrumbs)]
+
   return (
     <div className="faq-page">
       <Seo
-        title="Travel Tips & FAQ — Planning Your Safari | Luxe Horizons Africa"
-        description="Answers to common questions about planning a bespoke safari with Luxe Horizons Africa — best time to travel, packing, families, health and logistics."
+        title={PAGE_SEO.faq.title}
+        description={PAGE_SEO.faq.description}
+        image={PAGE_SEO.faq.ogImage}
+        schema={schemas}
       />
 
       <div className="wrap faq-head">

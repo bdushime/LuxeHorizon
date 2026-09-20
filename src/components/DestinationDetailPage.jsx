@@ -2,11 +2,9 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import Reveal from './Reveal.jsx'
 import Seo from './Seo.jsx'
 import { destinations, destinationDetails, adventureCards } from '../data/content.js'
+import { PAGE_SEO, generateDestinationSchema, generateBreadcrumbSchema } from '../config/seo.js'
 import './DestinationDetailPage.css'
 
-// Idea #2 — "The Explorer's Dossier": a sticky column of quick-fact stamps
-// beside the long-form story, with a pinned second photo, closing in a
-// "Continue The Journey" strip pointing at that country's real itinerary.
 export default function DestinationDetailPage() {
   const { key } = useParams()
   const dest = destinations.find((d) => d.key === key)
@@ -15,12 +13,33 @@ export default function DestinationDetailPage() {
   if (!dest || !detail) return <Navigate to="/destinations" replace />
 
   const relatedCard = adventureCards.find((c) => c.key === key) || adventureCards.find((c) => c.key === 'custom')
+  const specificSeo = PAGE_SEO.destinationDetail[key] || {}
+
+  const title = specificSeo.title || `${dest.name} Safari Guide — Luxe Horizons Africa`
+  const description = specificSeo.description || detail.paragraphs[0].slice(0, 155)
+  const image = dest.image
+
+  const schemas = [
+    generateDestinationSchema({
+      name: dest.name,
+      description,
+      image,
+      url: `/destinations/${dest.key}`
+    }),
+    generateBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Destinations', url: '/destinations' },
+      { name: dest.name, url: `/destinations/${dest.key}` }
+    ])
+  ]
 
   return (
     <div className="ddp-page">
       <Seo
-        title={`${dest.name} Safari Guide — Luxe Horizons Africa`}
-        description={detail.paragraphs[0].slice(0, 155)}
+        title={title}
+        description={description}
+        image={image}
+        schema={schemas}
       />
 
       <section className="ddp-hero">

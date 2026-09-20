@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useSearchParams } from 'react-router-dom'
 import { blogPosts } from '../data/content.js'
 import Seo from './Seo.jsx'
+import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
 import './BlogPage.css'
 
 // Deterministic little tilts so the "deal" reads like cards fanning out of a
@@ -69,11 +70,29 @@ export default function BlogPage() {
       ? blogPosts[currentIndex + 1]
       : blogPosts[0]
 
+  const seoTitle = selectedPost
+    ? `${selectedPost.title} — ${selectedPost.category} | Luxe Horizons Africa`
+    : PAGE_SEO.blog.title
+  const seoDescription = selectedPost
+    ? selectedPost.excerpt
+    : PAGE_SEO.blog.description
+  const seoImage = selectedPost ? selectedPost.image : PAGE_SEO.blog.ogImage
+
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Blog', url: '/blog' }
+  ]
+  if (selectedPost) {
+    breadcrumbs.push({ name: selectedPost.title, url: `/blog?story=${selectedPost.key}` })
+  }
+
   return (
     <section className="bp-page">
       <Seo
-        title="Stories & Field Notes — Safari Blog | Luxe Horizons Africa"
-        description="Guides, culture and conservation dispatches from Rwanda, Uganda and Tanzania — from the Luxe Horizons Africa trip design team."
+        title={seoTitle}
+        description={seoDescription}
+        image={seoImage}
+        schema={generateBreadcrumbSchema(breadcrumbs)}
       />
 
       <div className="wrap bp-head">

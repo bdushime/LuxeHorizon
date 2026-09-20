@@ -18,9 +18,9 @@ export default function MenuOverlay({ open, onClose }) {
             A Kigali-based studio designing bespoke safaris and gorilla treks across
             Rwanda, Uganda and Tanzania.
           </p>
-          <a href="#plan" className="btn btn-light" onClick={onClose}>
+          <SiteLink href="#plan" className="btn btn-light" onClick={onClose}>
             Plan Your Trip
-          </a>
+          </SiteLink>
           <div className="msoc">
             <a href={contact.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href={`mailto:${contact.email}`}>Email</a>

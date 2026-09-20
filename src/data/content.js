@@ -105,30 +105,28 @@ export const destinations = [
     key: 'rwanda',
     eyebrow: '01 — Volcanoes & Nyungwe',
     name: 'Rwanda',
-    image:
-      'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Gorilla-Chimp-Trek.jpg',
+    image: '/experiences/featured/gorillas-in-the-mist.jpg',
     accent: '#5c6b4f'
   },
   {
     key: 'uganda',
     eyebrow: '02 — Bwindi & Queen Elizabeth',
     name: 'Uganda',
-    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/07/Lion-in-Uganda.jpg',
+    image: '/experiences/featured/best-of-the-pearl-of-africa.jpg',
     accent: '#b9772e'
   },
   {
     key: 'tanzania',
     eyebrow: '03 — Serengeti & Ngorongoro',
     name: 'Tanzania',
-    image: 'https://luxehorizonsafrica.com/wp-content/uploads/2023/08/Elephants.jpg',
+    image: '/experiences/featured/tanzania-classic.jpg',
     accent: '#3f6b63'
   },
   {
     key: 'kenya',
     eyebrow: '04 — Maasai Mara & Amboseli',
     name: 'Kenya',
-    // Placeholder photo — swap for a real Maasai Mara / Amboseli shot before launch.
-    image: '/exp-akagera.jpg',
+    image: '/experiences/featured/magical-kenya.png',
     accent: '#9c4a32'
   }
 ]
@@ -581,7 +579,13 @@ export const teamMembers = [
     badge: 'Leadership',
     image: '/team/david.jpg',
     summary: '15+ years in luxury East African safaris. Cornell & SITE Africa alumnus.',
-    bio: 'Founder of Luxe Horizon with over 15 years in luxury hospitality. Certified by Cornell University and SITE Africa in incentive travel and safari planning.'
+    bio: 'David boasts a comprehensive background in tourism and hospitality, accumulating over 15 years of invaluable experience in the field. Certified by Cornell University and SITE Africa in incentive travel and safari planning.',
+    fullBio: [
+      'David boasts a comprehensive background in tourism and hospitality, accumulating over 15 years of invaluable experience in the field. His dedication to excellence is underscored by a Special Honors Certificate of Master Class in Incentive Travel Planning and Operations from SITE Africa, a distinguished South African organization specializing in Incentive Travel Excellence. Furthermore, he holds a Diploma in Hospitality Management, with a focus on Tourism and Service Excellence, earned from Cornell University in the United States.',
+      'Renowned for his travel expertise and captivating personality, David has garnered the trust and recognition of prestigious local and international tourism brands and organizations. His standing in the industry was further solidified when he was invited to participate at the esteemed ‘We Are Africa’ Live Webinars in August 2021, as a Panelist in discussions about new tourism trends, sustainable tourism, and the industry\'s response during and post COVID-19.',
+      'David\'s unique skill set shines, particularly in East Africa\'s safaris. Proficient in French, English, and Swahili, and as a well-traveled and experienced Tour Guide, he not only possesses extensive knowledge about African wildlife and cultures but also a delightful sense of humor. His storytelling abilities are remarkably captivating, ensuring that embarking on a safari with David is a guaranteed inspiration for a lifetime. For David, travel planning is not just a job; it is a way of life. His exceptional skills extend beyond his love for travel, enabling him to establish a vital network and lasting business relationships throughout his illustrious career.',
+      'With outstanding know-how, David excels in recommending tailor-made itineraries meticulously curated to suit your specific needs and interests. His commitment to delivering unparalleled travel experiences makes him a true maestro in the art of travel planning.'
+    ]
   },
   {
     id: 'emile-gashumba',
@@ -590,7 +594,12 @@ export const teamMembers = [
     badge: 'Operations',
     image: '/team/emile.jpg',
     summary: 'Master’s in Finance recipient directing daily travel & air logistics.',
-    bio: 'Over a decade of operations management. Holds a Master’s degree in Finance and leads daily ground and aerial travel logistics.'
+    bio: 'Emile, with over a decade of experience in banking operations and finances, has a remarkable journey that echoes resilience and triumph over adversity.',
+    fullBio: [
+      'Emile, with over a decade of experience in banking operations and finances, has a remarkable journey that echoes resilience and triumph over adversity. Born and raised in Rwanda, his life took a tragic turn in 1994 when he had to flee to Tanzania, surviving a genocide that claimed both of his parents and five of his siblings. Despite this harrowing past, Emile returned to Rwanda 20 years ago, determined to overcome the wounds of his dark history. His past sorrow has only fueled his relentless pursuit of inner peace and authentic joy, a journey that led him to discover his passion for travel.',
+      'Married to Esther Gashumba, with whom he shares four children, Emile\'s transformative journey began seven years ago when he started exploring Rwanda and East Africa, especially Tanzania. What began as an adventure has evolved into a profound passion. With a Master\'s degree in Finance, Emile has served as the head of operations at various banks in Rwanda before joining the Luxe Horizons Africa team. Currently, he oversees the company\'s daily travel operations and logistics.',
+      'Emile\'s attention to detail and mastery of travel logistics set him apart, making him an invaluable treasure to the team and a significant asset for any client.'
+    ]
   },
   {
     id: 'honorine-uwase',
@@ -599,7 +608,12 @@ export const teamMembers = [
     badge: 'Finance',
     image: '/team/honorine.jpg',
     summary: 'Senior financial strategist overseeing corporate assets & accounts.',
-    bio: 'Former Senior Accountant at Jibu Corporate with over 5 years of experience in corporate asset management and balance sheet precision.'
+    bio: 'A mother of two, Honorine Uwase has always harbored a passion for numbers, ensuring accounts are meticulously balanced and transparent.',
+    fullBio: [
+      'A mother of two, Honorine Uwase, has always harbored a passion for numbers, ensuring that accounts are not only meticulously balanced but also presented in an easily comprehensible manner for all of us. Her primary focus revolves around managing the company\'s assets & finances and meticulously handling balance sheets, a task she undertakes with dedication when she\'s not busy raising her children. In her precious moments of free time, she delights in beach outings with her husband, David, and close friends.',
+      'With a commendable track record, she has served as the Senior Accountant at the esteemed global firm, Jibu Corporate, for over five years. While Honorine may not frequently grace the halls of Luxe Horizons Africa\' offices, her occasional visits never fail to elicit smiles from everyone. Her infectious warmth and sense of humor create a positive atmosphere, making her a cherished presence.',
+      'She is a repository of intriguing stories, and everyone eagerly shares their latest office updates with her. Even Deo, our watchman and gatekeeper, knows the drill – a bag of chocolate or biscuits is the customary entry pass for Honorine.'
+    ]
   },
   {
     id: 'eduige-mbabazi',
@@ -608,7 +622,12 @@ export const teamMembers = [
     badge: 'Design',
     image: '/team/eduige.jpg',
     summary: 'Decade of hospitality experience crafting custom wilderness journeys.',
-    bio: 'Hospitality veteran with a Bachelor’s in Business Management, specializing in warm, nature-centric safari design.'
+    bio: 'Meet Eduige, the heart and soul of our social activities and the epitome of kindness at the Luxe Horizons Africa family.',
+    fullBio: [
+      'Meet Eduige, the heart and soul of our social activities and the epitome of kindness at the Luxe Horizons Africa family. Renowned as the kindest person around, Eduige has an unparalleled ability to make you consider a tour package solely through the remarkable warmth in her emails or, better yet, the cheerful resonance of her voice during a phone call. Her infectious laughter and radiant smile speak volumes about her personality.',
+      'Interestingly, Eduige finds solace in solo travel, considering it her best way to connect with nature. Her love for people and nurturing spirit make her an exceptional travel designer. With almost a decade of experience in hospitality, Eduige\'s caring approach and exceptional handling of trip details make her a cherished treasure, not just within the Luxe Horizons Africa family but for every guest seeking a once-in-a-lifetime travel experience.',
+      'Armed with a Bachelor\'s degree in Business Management and Entrepreneurship, Eduige\'s expertise goes beyond creating memorable journeys – she crafts personalized experiences that linger in the hearts of our guests. So, if you\'re fortunate enough to have Eduige design your travel, be prepared for an adventure infused with warmth, care, and excellence.'
+    ]
   },
   {
     id: 'davinah-uwera',
@@ -617,7 +636,12 @@ export const teamMembers = [
     badge: 'Design',
     image: '/team/davinah.jpg',
     summary: 'Law graduate delivering precise itinerary execution & consultation.',
-    bio: 'Holds a Bachelor of Laws from Université Libre de Kigali. Combines legal precision with swift travel consultancy.'
+    bio: 'Meet Davinah, the epitome of boundless energy in the realm of travel consultancy and designated proofreader for travel itineraries.',
+    fullBio: [
+      'Meet Davinah, the epitome of boundless energy in the realm of travel consultancy. A dynamo in her field, she takes pride in providing swift and precise responses to your inquiries, offering the most accurate information for all your travel needs. Davinah\'s meticulous attention to detail has not only garnered trust within the office but has also positioned her as the designated proofreader for most travel documents and itinerary descriptions before they are shared.',
+      'She possesses the uncanny ability to read between the lines, effortlessly spotting even the minutest errors that might escape notice, ensuring a flawlessly crafted travel experience. Davinah’s dedication to perfection is unmatched.',
+      'She discovered her passion for the travel business at a young age. During her time as a Front Desk Coordinator in a city hotel, she concurrently engaged in travel consultancy for a renowned tour company. Both roles not only fueled her love for travel but also provided the means to finance her education in Law School at the Université Libre de Kigali from where she obtained a Bachelor’s Degree. Davinah\'s unique blend of legal acumen and travel expertise makes her an invaluable asset to the Luxe Horizons Africa team.'
+    ]
   },
   {
     id: 'sheila-tuti-mpairwe',
@@ -626,7 +650,11 @@ export const teamMembers = [
     badge: 'Sustainability',
     image: '/team/sheila.png',
     summary: 'MBA holder advocating sustainable, community-centered travel.',
-    bio: 'Holds an MBA from Makerere University. Focuses on responsible tourism, community engagement, and conservation.'
+    bio: 'Also known as "Doctor," Sheila has an extraordinary ability to turn the seemingly impossible into a reality with a focus on responsible travel.',
+    fullBio: [
+      'Also known as "Doctor," Sheila has an extraordinary ability to turn the seemingly impossible into a reality in ways that few could conceive. She possesses a unique talent for weaving captivating stories around travel experiences, adding her own special blend of spices, as she likes to call them. For Sheila, an itinerary is not truly complete unless it incorporates a community engagement aspect. "Each of our guests should become a part of our community\'s lifestyle; it must inspire both the guest and our people," she emphasizes. Sheila is the embodiment of responsible travel and sustainability within the Luxe Horizons Africa family.',
+      'Armed with an MBA from Makerere University, Uganda, Sheila dedicates the majority of her time to fam trips, capturing moments through photography, documenting insights, and developing new tourism products. She is equally committed to enhancing the quality of our existing travel experiences. Sheila\'s intellectual curiosity knows no bounds, and her extensive knowledge is reflected in her impressive reading repertoire. If you ask her about any book, chances are she has either read it or knows its core message.'
+    ]
   },
   {
     id: 'tona-lauria-rutayisire',
@@ -635,6 +663,11 @@ export const teamMembers = [
     badge: 'Operations',
     image: '/team/tona.jpg',
     summary: 'Field coordinator managing guide communications & supplier liaisons.',
-    bio: 'Coordinates real-time field operations, guide communications, and supplier relationships to ensure smooth travel execution.'
+    bio: 'We call her, baby girl! Always after a soft life, Tona loves to travel and connects effortlessly with people and nature everywhere she goes.',
+    fullBio: [
+      'We call her, baby girl! Always after a soft life as she claims, Tona loves to travel and everywhere she goes, she enjoys connecting with people and nature! With an exceptional warmth and an ever smiling face, Tona is an invaluable member of the team.',
+      'Naturally the planner of office events and social gatherings, her remarkable planning skills are spiced by her love for people and attention to detail. Always liaising with guides on field and in constant communication with the suppliers, she would never rest until she’s aware every ongoing trip is happening as per plan.',
+      'Very resourceful, she would have all the necessary contacts on her fingertips and once she reaches out to any of our suppliers for any query, it’s almost impossible to say no to Tona.'
+    ]
   }
 ]

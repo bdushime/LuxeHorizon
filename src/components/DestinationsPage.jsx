@@ -2,13 +2,8 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { destinations } from '../data/content.js'
 import Seo from './Seo.jsx'
-import './DestinationsPage.css'
+import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
 
-// Idea #1 — "Expanding Panels": the whole page is one edge-to-edge photo
-// mural. Hovering a country flexes it wide while the others compress to
-// narrow strips, so there's no separate hero + grid — the interaction IS
-// the page. Clicking an already-expanded panel goes to that country's
-// full detail page.
 export default function DestinationsPage() {
   const [activeKey, setActiveKey] = useState(null)
   const navigate = useNavigate()
@@ -20,11 +15,18 @@ export default function DestinationsPage() {
     }
   }, [])
 
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Destinations', url: '/destinations' }
+  ]
+
   return (
     <section className="dpx-page">
       <Seo
-        title="Safari Destinations — Rwanda, Uganda, Tanzania & Kenya | Luxe Horizons Africa"
-        description="Explore our East Africa safari destinations: gorilla trekking in Rwanda, wildlife safaris in Uganda and Tanzania, and Kenya's Maasai Mara."
+        title={PAGE_SEO.destinations.title}
+        description={PAGE_SEO.destinations.description}
+        image={PAGE_SEO.destinations.ogImage}
+        schema={generateBreadcrumbSchema(breadcrumbs)}
       />
 
       <div className="dpx-head">
