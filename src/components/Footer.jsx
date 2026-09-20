@@ -35,10 +35,10 @@ export default function Footer() {
                 <Link to="/faq">FAQ</Link>
               </li>
               <li>
-                <a href="#plan">Plan Your Trip</a>
+                <SiteLink href="#plan">Plan Your Trip</SiteLink>
               </li>
               <li>
-                <a href="#">Consultancy &amp; MICE</a>
+                <Link to="/contact">Consultancy &amp; MICE</Link>
               </li>
             </ul>
           </div>

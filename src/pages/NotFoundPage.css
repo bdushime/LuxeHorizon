@@ -1,0 +1,85 @@
+.not-found-page {
+  background-color: var(--bg, #0B0C0E);
+  color: var(--fg, #F8F6F0);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.nf-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 0 80px;
+}
+
+.nf-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.nf-title {
+  font-family: var(--font-serif, 'Fraunces', serif);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.15;
+  margin: 16px 0 24px;
+}
+
+.gold-text {
+  color: #c6a15b;
+}
+
+.nf-lead {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(248, 246, 240, 0.75);
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.nf-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+
+.nf-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(248, 246, 240, 0.12);
+  border-radius: 8px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nf-card:hover {
+  background: rgba(198, 161, 91, 0.08);
+  border-color: rgba(198, 161, 91, 0.4);
+  transform: translateY(-3px);
+}
+
+.nf-card-eyebrow {
+  display: block;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: #c6a15b;
+  margin-bottom: 8px;
+}
+
+.nf-card h3 {
+  font-family: var(--font-serif, 'Fraunces', serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.nf-card p {
+  font-size: 0.85rem;
+  color: rgba(248, 246, 240, 0.6);
+  line-height: 1.4;
+  margin: 0;
+}

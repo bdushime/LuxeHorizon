@@ -1,7 +1,7 @@
 {
   "name": "luxe-horizons-africa",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "framer-motion": "^13.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

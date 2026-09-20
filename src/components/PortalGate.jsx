@@ -57,6 +57,7 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
   const [dividerX, setDividerX] = useState(50)
   const [selected, setSelected] = useState(null)
   const [exiting, setExiting] = useState(false)
+  const [flash, setFlash] = useState(false)
   const [isDesktop, setIsDesktop] = useState(false)
   const [size, setSize] = useState({ w: 1440, h: 900 })
   const containerRef = useRef(null)
@@ -108,6 +109,8 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
 
   const handleSelect = (key) => {
     if (dragging || selected) return
+    setFlash(true)
+    setTimeout(() => setFlash(false), 400)
     setSelected(key)
     setDividerX(key === 'tourism' ? 100 : 0)
     setTimeout(() => setExiting(true), 1700)
@@ -131,6 +134,16 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
       transition={{ duration: 0.6 }}
       className="fixed inset-0 z-[200] flex flex-col md:block select-none bg-[#0B0C0E] text-[#F8F6F0] overflow-hidden"
     >
+      {/* Shutter flash on selection, right before the wipe-open transition */}
+      {flash && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.85, 0] }}
+          transition={{ duration: 0.4 }}
+          className="pointer-events-none absolute inset-0 z-[205] bg-white"
+        />
+      )}
+
       {/* DIVISION 01: TOURISM — full-bleed base layer (mobile: normal stacked block) */}
       <div
         onMouseEnter={() => isDesktop && !dragging && setHovered('tourism')}
@@ -140,21 +153,27 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
       >
         <motion.img
           src="/texp-akagera.jpg"
-          alt="Luxe Horizons Tourism"
-          animate={{ scale: hovered === 'tourism' ? 1.08 : 1 }}
-          transition={{ duration: 1 }}
+          alt="Luxe Horizons Travel"
+          animate={{
+            scale: !hovered && !selected ? [1, 1.1, 1] : hovered === 'tourism' ? 1.08 : hovered === 'consultancy' ? 0.96 : 1,
+            filter: hovered === 'consultancy' ? 'brightness(0.5) saturate(0.55)' : 'brightness(1) saturate(1)'
+          }}
+          transition={{
+            scale: !hovered && !selected ? { duration: 18, repeat: Infinity, ease: 'easeInOut' } : { duration: 1 },
+            filter: { duration: 1 }
+          }}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E]/45 via-[#0B0C0E]/15 to-transparent transition-opacity duration-500 group-hover:opacity-50" />
 
         <motion.div
-          animate={{ opacity: selected === 'tourism' ? 0 : 1 }}
-          transition={{ duration: selected ? 0.9 : 0.45 }}
+          animate={{ opacity: selected === 'tourism' ? 0 : hovered === 'consultancy' ? 0.55 : 1 }}
+          transition={{ duration: selected ? 0.9 : 0.4 }}
           className="relative z-10 flex h-full flex-col justify-between p-8 md:p-14"
         >
           <div className="my-auto py-8 max-w-md">
             <KineticHeading
-              text="Tourism"
+              text="Travel"
               className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#F8F6F0] group-hover:text-[#c6a15b] transition-colors duration-500"
             />
             <p className="mt-3 font-serif text-xl sm:text-2xl text-[#F8F6F0]/90 italic font-light">
@@ -180,15 +199,21 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
         <motion.img
           src="/exp-tanzania.jpg"
           alt="Luxe Horizons Consultancy & MICE"
-          animate={{ scale: hovered === 'consultancy' ? 1.08 : 1 }}
-          transition={{ duration: 1 }}
+          animate={{
+            scale: !hovered && !selected ? [1, 1.1, 1] : hovered === 'consultancy' ? 1.08 : hovered === 'tourism' ? 0.96 : 1,
+            filter: hovered === 'tourism' ? 'brightness(0.5) saturate(0.55)' : 'brightness(1) saturate(1)'
+          }}
+          transition={{
+            scale: !hovered && !selected ? { duration: 18, repeat: Infinity, ease: 'easeInOut' } : { duration: 1 },
+            filter: { duration: 1 }
+          }}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E]/45 via-[#0B0C0E]/15 to-transparent transition-opacity duration-500 group-hover:opacity-50" />
 
         <motion.div
-          animate={{ opacity: selected === 'consultancy' ? 0 : 1 }}
-          transition={{ duration: selected ? 0.9 : 0.45 }}
+          animate={{ opacity: selected === 'consultancy' ? 0 : hovered === 'tourism' ? 0.55 : 1 }}
+          transition={{ duration: selected ? 0.9 : 0.4 }}
           className="relative z-10 flex h-full flex-col justify-between p-8 md:p-14 md:items-end md:text-right"
         >
           <div className="my-auto py-8 max-w-md">

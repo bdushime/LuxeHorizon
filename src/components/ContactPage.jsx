@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import { contact } from '../data/content.js'
 import Seo from './Seo.jsx'
+import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
 import './ContactPage.css'
-
-// "The Departure Board" — contact info renders like an airport split-flap
-// display, and the enquiry form is styled as a boarding pass.
 
 const FLAP_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,—@:/'
 
@@ -16,9 +14,6 @@ function SplitFlap({ text, playToken }) {
     const maxFrame = 16 + text.length
     const id = setInterval(() => {
       frame++
-      // Force the exact source text on the final tick — guarantees the
-      // animation always lands correctly regardless of the per-character
-      // settle math above, instead of risking a frozen scrambled frame.
       if (frame >= maxFrame) {
         setDisplay(text)
         clearInterval(id)
@@ -76,19 +71,33 @@ export default function ContactPage() {
 
   const replay = (key) => setPlayTokens((prev) => ({ ...prev, [key]: (prev[key] || 0) + 1 }))
 
-  // No backend wired up yet — this just gives a real "sent" moment in the
-  // UI. Before launch, point this at whatever the client wants (email
-  // service, CRM webhook, etc.) instead of only setting local state.
   const handleSubmit = (e) => {
     e.preventDefault()
     setSubmitted(true)
   }
 
+  const breadcrumbs = [
+    { name: 'Home', url: '/' },
+    { name: 'Contact Us', url: '/contact' }
+  ]
+
+  const contactSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact Luxe Horizons Africa',
+    description: PAGE_SEO.contact.description,
+    url: PAGE_SEO.contact.canonical
+  }
+
+  const schemas = [contactSchema, generateBreadcrumbSchema(breadcrumbs)]
+
   return (
     <div className="board-page">
       <Seo
-        title="Contact Us — Plan Your Safari | Luxe Horizons Africa"
-        description="Get in touch with Luxe Horizons Africa to start planning your bespoke safari across Rwanda, Uganda and Tanzania."
+        title={PAGE_SEO.contact.title}
+        description={PAGE_SEO.contact.description}
+        image={PAGE_SEO.contact.ogImage}
+        schema={schemas}
       />
 
       <section className="board-hero">
