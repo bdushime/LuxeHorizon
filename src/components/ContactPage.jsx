@@ -275,16 +275,9 @@ export default function ContactPage() {
                   <span>To</span>
                   <strong>Luxe Horizons</strong>
                 </div>
-                <div className="pass-stub-row">
-                  <span>Gate</span>
-                  <strong>01</strong>
-                </div>
-                <div className="pass-stub-row">
-                  <span>Seat</span>
-                  <strong>Tailor-made</strong>
-                </div>
+                
                 <button type="submit" className="pass-submit" disabled={sending}>
-                  {sending ? 'Boarding...' : 'Board Now'}
+                  {sending ? 'Sending...' : 'Send Now'}
                 </button>
               </div>
             </form>
