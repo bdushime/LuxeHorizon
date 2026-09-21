@@ -96,15 +96,44 @@ export default function ContactPage() {
 
     setSending(true)
     try {
-      // Dispatch admin notification email (template_hr433rf -> gasana.shema.250@gmail.com)
-      const adminPromise = emailjs.sendForm(serviceId, adminTemplateId, formRef.current, publicKey)
+      const formData = new FormData(formRef.current)
+      const userEmail = formData.get('email')
+      const userName = formData.get('name')
+      const userPhone = formData.get('phone')
+      const userCountry = formData.get('country')
+      const userMessage = formData.get('message')
 
-      // Dispatch client auto-reply confirmation email (template_eujwlvn -> client email)
-      const clientPromise = emailjs.sendForm(serviceId, clientTemplateId, formRef.current, publicKey)
+      const baseParams = {
+        name: userName,
+        email: userEmail,
+        to_email: userEmail,
+        reply_to: userEmail,
+        phone: userPhone || 'Not provided',
+        country: userCountry || 'Not provided',
+        message: userMessage || 'No message provided',
+        admin_email: 'gasana.shema.250@gmail.com'
+      }
+
+      const adminParams = {
+        ...baseParams,
+        subject: `New Boarding Pass Enquiry from ${userName} — Luxe Horizons Africa`,
+        email_subject: `New Boarding Pass Enquiry from ${userName} — Luxe Horizons Africa`
+      }
+
+      const clientParams = {
+        ...baseParams,
+        subject: `Message Received — Luxe Horizons Africa`,
+        email_subject: `Message Received — Luxe Horizons Africa`
+      }
+
+      // Dispatch admin notification email (template_hr433rf)
+      const adminPromise = emailjs.send(serviceId, adminTemplateId, adminParams, publicKey)
+
+      // Dispatch client auto-reply confirmation email (template_eujwlvn)
+      const clientPromise = emailjs.send(serviceId, clientTemplateId, clientParams, publicKey)
 
       const results = await Promise.allSettled([adminPromise, clientPromise])
-      
-      // Check if at least one request succeeded
+
       const hasSuccess = results.some((r) => r.status === 'fulfilled')
       if (hasSuccess) {
         setSubmitted(true)
