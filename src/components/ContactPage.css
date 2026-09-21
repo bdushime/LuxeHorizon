@@ -244,8 +244,42 @@ a.board-row:hover {
   transition: background 0.25s ease;
 }
 
-.pass-submit:hover {
-  background: var(--gold-soft, #d9c293);
+.pass-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.pass-error-alert {
+  background: rgba(185, 119, 46, 0.12);
+  border: 1px solid rgba(185, 119, 46, 0.4);
+  color: #a34827;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 13px;
+  grid-column: 1 / -1;
+  margin-bottom: 8px;
+}
+
+.pass-reset-btn {
+  margin-top: 20px;
+  background: none;
+  border: 1px solid var(--clay);
+  color: var(--clay);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pass-reset-btn:hover {
+  background: var(--clay);
+  color: var(--parchment);
 }
 
 .boarding-pass-success {
