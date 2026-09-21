@@ -27,8 +27,7 @@
   align-items: center;
   gap: 22px;
 }
-.nav-plan,
-.nav-home {
+.nav-plan {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -42,16 +41,94 @@
   transition: color 0.4s ease, border-color 0.4s ease, opacity 0.4s ease 0.05s,
     transform 0.4s ease 0.05s;
 }
-.nav.revealed .nav-plan,
-.nav.revealed .nav-home {
+.nav.revealed .nav-plan {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
-.nav.scrolled .nav-plan,
-.nav.scrolled .nav-home {
+.nav.scrolled .nav-plan {
   color: var(--ink);
   border-color: rgba(33, 29, 23, 0.4);
+}
+
+/* ---------- Division switch: a physical-feeling toggle between the
+   Travel and Consultancy divisions, replacing the old plain text link. ---------- */
+.division-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid rgba(246, 241, 231, 0.3);
+  background: rgba(246, 241, 231, 0.06);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: border-color 0.4s ease, background 0.4s ease, opacity 0.4s ease 0.05s,
+    transform 0.4s ease 0.05s;
+}
+.nav.revealed .division-switch {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.nav.scrolled .division-switch {
+  border-color: rgba(33, 29, 23, 0.18);
+  background: rgba(33, 29, 23, 0.04);
+}
+
+.ds-indicator {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  bottom: 3px;
+  width: calc(50% - 3px);
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold-soft, #d9c293), var(--gold, #c6a15b));
+  box-shadow: 0 2px 8px rgba(198, 161, 91, 0.35);
+  transition: transform 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 0;
+}
+.division-switch.is-consultancy .ds-indicator {
+  transform: translateX(100%);
+}
+
+.ds-option {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  padding: 0 14px;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: none;
+  color: rgba(246, 241, 231, 0.55);
+  transition: color 0.4s ease;
+}
+.nav.scrolled .ds-option {
+  color: rgba(33, 29, 23, 0.5);
+}
+.ds-option:hover {
+  color: var(--parchment);
+}
+.nav.scrolled .ds-option:hover {
+  color: var(--ink);
+}
+.ds-option.active {
+  color: var(--ink);
+  cursor: default;
+}
+.nav.scrolled .ds-option.active {
+  color: var(--ink);
 }
 
 .menu-toggle {
@@ -123,8 +200,9 @@
   }
 }
 
-@media (max-width: 420px) {
-  .nav-home {
+
+@media (max-width: 560px) {
+  .division-switch {
     display: none;
   }
 }
