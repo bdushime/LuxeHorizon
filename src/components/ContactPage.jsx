@@ -116,14 +116,14 @@ export default function ContactPage() {
 
       const adminParams = {
         ...baseParams,
-        subject: `New Boarding Pass Enquiry from ${userName} — Luxe Horizons Africa`,
-        email_subject: `New Boarding Pass Enquiry from ${userName} — Luxe Horizons Africa`
+        subject: `New Boarding Pass Enquiry from ${userName} - Luxe Horizons Africa`,
+        email_subject: `New Boarding Pass Enquiry from ${userName} - Luxe Horizons Africa`
       }
 
       const clientParams = {
         ...baseParams,
-        subject: `Message Received — Luxe Horizons Africa`,
-        email_subject: `Message Received — Luxe Horizons Africa`
+        subject: `Message Received - Luxe Horizons Africa`,
+        email_subject: `Message Received - Luxe Horizons Africa`
       }
 
       // Dispatch admin notification email (template_hr433rf)
@@ -232,7 +232,7 @@ export default function ContactPage() {
               <div className="pass-main">
                 <div className="pass-eyebrow">Boarding Confirmed</div>
                 <h2>Your enquiry is in.</h2>
-                <p>A trip designer will be in touch shortly — usually within a day.</p>
+                <p>A trip designer will be in touch shortly - usually within a day.</p>
                 <button type="button" onClick={handleReset} className="pass-reset-btn">
                   Send Another Enquiry
                 </button>
@@ -241,7 +241,7 @@ export default function ContactPage() {
           ) : (
             <form ref={formRef} className="boarding-pass" onSubmit={handleSubmit}>
               <div className="pass-main">
-                <div className="pass-eyebrow">Boarding Pass — Full Enquiry</div>
+                <div className="pass-eyebrow">Boarding Pass - Full Enquiry</div>
                 {errorMessage && <div className="pass-error-alert">{errorMessage}</div>}
                 <div className="pass-grid">
                   <label>
