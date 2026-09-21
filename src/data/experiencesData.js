@@ -91,7 +91,7 @@ export const experiencesData = [
     "title": "Pre/Post Conference Gorilla Experience",
     "category": "Special Expeditions",
     "duration": "3 Days",
-    "image": "/experiences/featured/pre-post-conference-gorilla-experience.jpeg",
+    "image": "/experiences/featured/kigalis-golf-experience-the-safari-the-city.jpg",
     "summary": "The Gorilla Experience, a must-do for avid travelers, starts with a 4:30 AM pick-up from Kigali. Upon arrival at the Park Headquarters at 7:00 AM, guests receive a briefing from the Park Guide and trackers before embarking on the Gorilla trek. The highlight is spending an hour observing these peaceful giants in their natural habitat, engaging in daily activities like feeding, playing, and caring for their young. Visitors also learn to communicate with the gorillas in their language, ensuring a unique and immersive experience. After the trek, lunch is served at the foothills of the Volcanoes before returning to Kigali.",
     "description": "The Gorilla Experience, a must-do for avid travelers, starts with a 4:30 AM pick-up from Kigali. Upon arrival at the Park Headquarters at 7:00 AM, guests receive a briefing from the Park Guide and trackers before embarking on the Gorilla trek. The highlight is spending an hour observing these peaceful giants in their natural habitat, engaging in daily activities like feeding, playing, and caring for their young. Visitors also learn to communicate with the gorillas in their language, ensuring a unique and immersive experience. After the trek, lunch is served at the foothills of the Volcanoes before returning to Kigali.",
     "fullStory": [
@@ -112,9 +112,9 @@ export const experiencesData = [
     ],
     "location": "Special Expeditions",
     "url": "https://luxehorizonsafrica.com/experiences?exp=pre-post-conference-gorilla-experience",
-    "heroImage": "/experiences/featured/pre-post-conference-gorilla-experience.jpeg",
+    "heroImage": "/experiences/featured/kigalis-golf-experience-the-safari-the-city.jpg",
     "gallery": [
-      "/experiences/featured/pre-post-conference-gorilla-experience.jpeg",
+      "/experiences/featured/kigalis-golf-experience-the-safari-the-city.jpg",
       "/experiences/pre-post-conference-gorilla-experience-4.jpg",
       "/experiences/pre-post-conference-gorilla-experience-5.jpg",
       "/experiences/pre-post-conference-gorilla-experience-6.jpeg"
@@ -567,7 +567,7 @@ export const experiencesData = [
     "title": "Kigali\u2019s Golf Experience, The Safari & The City",
     "category": "Rwanda",
     "duration": "1 Day",
-    "image": "/experiences/featured/kigalis-golf-experience-the-safari-the-city.jpg",
+    "image": "/experiences/featured/pre-post-conference-gorilla-experience.jpeg",
     "summary": "5 Day Rwanda\u2019s Golf Experience, The Safari & The City: Begin with VIP Airport Welcome and two nights in Kigali. Explore the city and Genocide Memorial, then embark on thrilling safari in Akagera National Park for a Game Drive Experience. Play Gold At The Kigali 18 Hole Golf Course and enjoy the land of a thousand hills.",
     "description": "5 Day Rwanda\u2019s Golf Experience, The Safari & The City: Begin with VIP Airport Welcome and two nights in Kigali. Explore the city and Genocide Memorial, then embark on thrilling safari in Akagera National Park for a Game Drive Experience. Play Gold At The Kigali 18 Hole Golf Course and enjoy the land of a thousand hills.",
     "fullStory": [
@@ -598,9 +598,9 @@ export const experiencesData = [
     ],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=kigalis-golf-experience-the-safari-the-city",
-    "heroImage": "/experiences/featured/kigalis-golf-experience-the-safari-the-city.jpg",
+    "heroImage": "/experiences/featured/pre-post-conference-gorilla-experience.jpeg",
     "gallery": [
-      "/experiences/featured/kigalis-golf-experience-the-safari-the-city.jpg",
+      "/experiences/featured/pre-post-conference-gorilla-experience.jpeg",
       "/experiences/kigalis-golf-experience-the-safari-the-city-4.jpg",
       "/experiences/kigalis-golf-experience-the-safari-the-city-5.jpg",
       "/experiences/kigalis-golf-experience-the-safari-the-city-6.jpg"

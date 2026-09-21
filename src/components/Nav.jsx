@@ -6,11 +6,12 @@ import './Nav.css'
 // light, on-dark nav styling and wait for scroll to darken. Every other page
 // (e.g. "/testimonials") has a light background from the very top, so the
 // nav needs to be dark and legible immediately.
-const DARK_HERO_ROUTES = new Set(['/', '/destinations', '/about', '/contact'])
+const DARK_HERO_ROUTES = new Set(['/', '/destinations', '/about', '/contact', '/consultancy'])
 
 export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   const { pathname } = useLocation()
   const isHome = pathname === '/'
+  const isConsultancy = pathname.startsWith('/consultancy')
   const hasDarkHero = DARK_HERO_ROUTES.has(pathname) || pathname.startsWith('/destinations/')
 
   const [scrolledState, setScrolledState] = useState(false)
@@ -55,11 +56,19 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
           />
         </Link>
         <div className="nav-right">
-          {!isHome && (
-            <Link to="/" className="nav-home">
-              Home
+          <div className={`division-switch ${isConsultancy ? 'is-consultancy' : ''}`}>
+            <span className="ds-indicator" />
+            <Link to="/" className={`ds-option ${!isConsultancy ? 'active' : ''}`} title="Travel division">
+              Travel
             </Link>
-          )}
+            <Link
+              to="/consultancy"
+              className={`ds-option ${isConsultancy ? 'active' : ''}`}
+              title="Consultancy division"
+            >
+              Consultancy
+            </Link>
+          </div>
           <Link to="/#plan" className="nav-plan">
             Plan Your Trip
           </Link>

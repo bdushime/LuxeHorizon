@@ -10,7 +10,8 @@ export const navLinks = [
   { key: 'about', label: 'About', href: '/about' },
   { key: 'testimonials', label: 'Testimonials', href: '/testimonials' },
   { key: 'blog', label: 'Blog', href: '/blog' },
-  { key: 'contact', label: 'Contact', href: '/contact' }
+  { key: 'contact', label: 'Contact', href: '/contact' },
+  { key: 'consultancy', label: 'Consultancy & MICE', href: '/consultancy' }
 ]
 
 // Each hero section has its own gradient "scene" — self-contained CSS,
@@ -198,6 +199,42 @@ export const destinationDetails = {
     secondaryPhoto: '/experiences/magical-kenya-4.jpg'
   }
 }
+
+// Consultancy & MICE homepage content — real copy carried over from the old
+// WordPress site's Consultancy division. Photos are existing site placeholders
+// (no real conference/office photography is in the asset library yet).
+export const consultancyIntro =
+  "We make it possible through innovation by leveraging our extended network of contacts, being mindful of our local communities and paying attention to detail. It's all done as sustainably as possible and it begins with you telling us what you want!"
+
+export const consultancyPillars = [
+  {
+    key: 'advisory',
+    title: 'Consultancy & Advisory',
+    tagline: 'Strategic guidance from a team who knows the region.',
+    description:
+      "We believe that each trip is as unique as each client, we will therefore guide you every step of the way as we craft together one-of-a-kind experiences that will bring your specific travel dreams to life and make your memories last a lifetime.",
+    image: '/story-guide.jpg',
+    accent: '#5c6b4f'
+  },
+  {
+    key: 'mice',
+    title: 'Conferences, Incentives & Educational Trips',
+    tagline: 'Full-service MICE planning, from Kigali and beyond.',
+    description:
+      "What are you traveling for? Is it a business trip or do you want to meet in Rwanda? Whether it's a conference space to brainstorm from, an Incentive trip designed to re-energize and motivate the team or even a travel initiative to educate and inspire, we'll organise something that's guaranteed to exactly respond to your wishes.",
+    image: '/experiences/featured/city-tour-vibrant-hopeful-kigali.png',
+    accent: '#b9772e'
+  },
+  {
+    key: 'inspire',
+    title: 'Get Inspired',
+    tagline: 'Ideas and case studies from journeys we have designed.',
+    description:
+      'Not sure where to start? Explore ideas and case studies from journeys we have designed for past clients — a starting point for shaping the trip or event that is right for you.',
+    image: '/cta-sunset.jpg',
+    accent: '#9c4a32'
+  }
+]
 
 // ring: 1 (inner) or 2 (outer) — radius for each is defined in partnerRingRadii below
 // angle: degrees, 0 = right, 90 = straight up, 180 = left (spread across the top arc)
