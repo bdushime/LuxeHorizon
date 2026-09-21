@@ -103,6 +103,8 @@ export default function ContactPage() {
       const userCountry = formData.get('country')
       const userMessage = formData.get('message')
 
+      const adminEmailAddress = import.meta.env.VITE_ADMIN_EMAIL || 'gasana.shema.250@gmail.com'
+
       const baseParams = {
         name: userName,
         email: userEmail,
@@ -111,7 +113,9 @@ export default function ContactPage() {
         phone: userPhone || 'Not provided',
         country: userCountry || 'Not provided',
         message: userMessage || 'No message provided',
-        admin_email: 'gasana.shema.250@gmail.com'
+        myemail: adminEmailAddress,
+        my_email: adminEmailAddress,
+        admin_email: adminEmailAddress
       }
 
       const adminParams = {
