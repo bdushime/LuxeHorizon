@@ -19,10 +19,10 @@ import NotFoundPage from './pages/NotFoundPage.jsx'
 import Footer from './components/Footer.jsx'
 
 function AppRoutes() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [portalOpen, setPortalOpen] = useState(true)
   const location = useLocation()
   const navigate = useNavigate()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [portalOpen, setPortalOpen] = useState(() => location.pathname === '/')
   const isDestinations = location.pathname === '/destinations'
   const isNotFound = ['/destinations', '/about', '/contact', '/consultancy', '/faq', '/testimonials', '/blog', '/experiences', '/'].includes(location.pathname) === false && !location.pathname.startsWith('/destinations/')
 
