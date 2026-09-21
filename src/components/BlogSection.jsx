@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Reveal from './Reveal.jsx'
-import { blogPosts } from '../data/content.js'
+import { blogPosts as initialPosts } from '../data/content.js'
+import { supabase } from '../lib/supabase.js'
 import './BlogSection.css'
 
 // Loosely staggered heights so the cards read as sitting along an
@@ -21,13 +22,48 @@ const DEMO_POST = {
   accent: '#9c4a32'
 }
 
-// The homepage teaser only ever features a curated 3 — the full list (which
-// has grown to fit the /blog filter page) lives on the dedicated blog page.
-const featuredPosts = blogPosts.slice(0, 3)
-
 export default function BlogSection() {
   const [dealt, setDealt] = useState(false)
+  const [posts, setPosts] = useState(initialPosts)
 
+  useEffect(() => {
+    async function loadPosts() {
+      try {
+        const { data, error } = await supabase
+          .from('posts')
+          .select('*')
+          .eq('published', true)
+          .order('created_at', { ascending: false })
+          .limit(3)
+
+        if (!error && data && data.length > 0) {
+          const formatted = data.map((p) => ({
+            id: p.id,
+            key: p.key,
+            title: p.title,
+            category: p.category,
+            date: p.date,
+            readTime: p.read_time || p.readTime || '5 min read',
+            author: p.author,
+            authorRole: p.author_role || p.authorRole || '',
+            excerpt: p.excerpt,
+            image: p.image,
+            accent: p.accent || '#5c6b4f',
+            quote: p.quote,
+            takeaway: p.takeaway,
+            paragraphs: p.paragraphs || [],
+            highlights: p.highlights || []
+          }))
+          setPosts(formatted)
+        }
+      } catch (err) {
+        console.warn('Supabase fetch error in BlogSection:', err)
+      }
+    }
+    loadPosts()
+  }, [])
+
+  const featuredPosts = posts.slice(0, 3)
   const visiblePosts = dealt ? [...featuredPosts, DEMO_POST] : featuredPosts
 
   return (
