@@ -116,12 +116,14 @@ export default function ContactPage() {
 
       const adminParams = {
         ...baseParams,
+        title: `New Boarding Pass Enquiry from ${userName} - Luxe Horizons Africa`,
         subject: `New Boarding Pass Enquiry from ${userName} - Luxe Horizons Africa`,
         email_subject: `New Boarding Pass Enquiry from ${userName} - Luxe Horizons Africa`
       }
 
       const clientParams = {
         ...baseParams,
+        title: `Message Received - Luxe Horizons Africa`,
         subject: `Message Received - Luxe Horizons Africa`,
         email_subject: `Message Received - Luxe Horizons Africa`
       }
