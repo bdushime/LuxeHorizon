@@ -1,15 +1,17 @@
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import PortalGate from './components/PortalGate.jsx'
 import Nav from './components/Nav.jsx'
 import MenuOverlay from './components/MenuOverlay.jsx'
 import ScrollToHash from './components/ScrollToHash.jsx'
+import BackHomeButton from './components/BackHomeButton.jsx'
 import HomePage from './components/HomePage.jsx'
 import DestinationsPage from './components/DestinationsPage.jsx'
 import DestinationDetailPage from './components/DestinationDetailPage.jsx'
 import BlogPage from './components/BlogPage.jsx'
 import FaqPage from './components/FaqPage.jsx'
 import ContactPage from './components/ContactPage.jsx'
+import ConsultancyPage from './components/ConsultancyPage.jsx'
 import TestimonialsPage from './components/TestimonialsPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import ExperiencesPage from './pages/ExperiencesPage.jsx'
@@ -20,21 +22,21 @@ function AppRoutes() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [portalOpen, setPortalOpen] = useState(true)
   const location = useLocation()
+  const navigate = useNavigate()
   const isDestinations = location.pathname === '/destinations'
-  const isNotFound = ['/destinations', '/about', '/contact', '/faq', '/testimonials', '/blog', '/experiences', '/'].includes(location.pathname) === false && !location.pathname.startsWith('/destinations/')
+  const isNotFound = ['/destinations', '/about', '/contact', '/consultancy', '/faq', '/testimonials', '/blog', '/experiences', '/'].includes(location.pathname) === false && !location.pathname.startsWith('/destinations/')
 
   return (
     <>
       <ScrollToHash />
+      <BackHomeButton />
       {!isNotFound && (
         <PortalGate
           isOpen={portalOpen}
           onSelectTourism={() => setPortalOpen(false)}
           onSelectConsultancy={() => {
             setPortalOpen(false)
-            // Scroll smoothly to contact section for corporate advisory
-            const el = document.getElementById('contact')
-            if (el) el.scrollIntoView({ behavior: 'smooth' })
+            navigate('/consultancy')
           }}
         />
       )}
@@ -53,6 +55,7 @@ function AppRoutes() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/consultancy" element={<ConsultancyPage />} />
         <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/experiences" element={<ExperiencesPage />} />
