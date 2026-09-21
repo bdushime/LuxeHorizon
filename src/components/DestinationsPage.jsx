@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { destinations } from '../data/content.js'
 import Seo from './Seo.jsx'
 import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
+import './DestinationsPage.css'
 
 export default function DestinationsPage() {
   const [activeKey, setActiveKey] = useState(null)
