@@ -79,13 +79,14 @@ export default function ContactPage() {
     e.preventDefault()
     setErrorMessage('')
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_iz2y3de'
-    const adminTemplateId = import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID || 'template_hr433rf'
-    const clientTemplateId = import.meta.env.VITE_EMAILJS_CLIENT_TEMPLATE_ID || 'template_eujwlvn'
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'mGQF_7nmKeQBnP0vK'
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const adminTemplateId = import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID
+    const clientTemplateId = import.meta.env.VITE_EMAILJS_CLIENT_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    const adminEmailAddress = import.meta.env.VITE_ADMIN_EMAIL
 
-    if (!publicKey || !serviceId) {
-      console.warn('EmailJS environment variables are not populated. Simulating submission.')
+    if (!publicKey || !serviceId || !adminTemplateId) {
+      console.warn('EmailJS environment variables (VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_ADMIN_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY) are missing in .env.')
       setSending(true)
       setTimeout(() => {
         setSending(false)
@@ -102,8 +103,6 @@ export default function ContactPage() {
       const userPhone = formData.get('phone')
       const userCountry = formData.get('country')
       const userMessage = formData.get('message')
-
-      const adminEmailAddress = import.meta.env.VITE_ADMIN_EMAIL || 'gasana.shema.250@gmail.com'
 
       const baseParams = {
         name: userName,
