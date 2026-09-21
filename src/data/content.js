@@ -126,16 +126,19 @@ export const destinations = [
     key: 'kenya',
     eyebrow: '04 — Maasai Mara & Amboseli',
     name: 'Kenya',
-    image: '/experiences/featured/magical-kenya.png',
+    // Placeholder photo — the "magical-kenya" featured/hero asset is
+    // mislabeled (that file is actually a partner logo); this uses a real,
+    // on-topic photo already in the Kenya tour's own gallery instead, until
+    // the client supplies final imagery.
+    image: '/experiences/magical-kenya-5.jpg',
     accent: '#9c4a32'
   }
 ]
 
 // Long-form per-country content for the individual destination pages
-// (/destinations/:key). Rwanda, Uganda and Tanzania are the client's real
-// copy carried over from the old WordPress site; Kenya is a placeholder
-// (the country itself was already a placeholder — swap in real copy and a
-// real photo before launch).
+// (/destinations/:key). All four countries now use the client's real copy.
+// Kenya's photos are still local placeholders — swap in real images once
+// the client supplies them.
 export const destinationDetails = {
   rwanda: {
     paragraphs: [
@@ -180,21 +183,19 @@ export const destinationDetails = {
     ],
     secondaryPhoto: '/experiences/featured/tanzania-classic.jpg'
   },
-  // Placeholder — Kenya was already a placeholder destination (see the note
-  // on its image above); replace this copy with the client's real text.
   kenya: {
     paragraphs: [
-      "Kenya is where the safari story began — vast golden plains, endless horizons, and the kind of wildlife encounters that first put East Africa on the traveler's map. The Maasai Mara's rolling grasslands host one of the greatest wildlife spectacles on the continent, while Amboseli offers herds of elephant framed against the snows of Kilimanjaro.",
-      "Beyond the plains, Kenya's Maasai communities, Rift Valley lakes and coastal reefs add depth to a country that rewards both first-time safari-goers and seasoned travelers alike."
+      "Located on the equator, Kenya offers plains teeming with game, cultures as old as time and unchanged by the modern world, and vast African horizons stretching into eternity. Kenya remains one of the premier East African safari destinations, most notably because of its iconic 56 national parks and reserves endowed with incredible natural beauty. The capital city of Nairobi plays host to famous hotels like Giraffe House and Hemingways, and famous restaurants like the Carnivore. This hub serves as the feeder to a host of national parks and private reserves. The most famous is the Maasai Mara, home to the Kenyan side of the great migration, which reaches its peak in this park between August and October — it's certainly the biggest name on the Kenyan safari circuit.",
+      "Kenya is also home to Amboseli and the giant elephant families roaming through the shadows of Mt. Kilimanjaro. It boasts vast stretches of savannah plains dotted with singular acacia trees. It also clings tightly to the Great Rift Valley, where pink flamingos flock to its many lakes. To the southeast, Kenya's palm-fringed coastline along the Indian Ocean is an unsung paradise, starkly contrasting the game-rich plains. Meanwhile, Hemingway's beloved \"Green Hills of Africa\" extend through the volcanic craters of the Chyulu Hills."
     ],
-    pullQuote: "Kenya is where the safari story began.",
+    pullQuote: 'The Maasai Mara is home to the Kenyan side of the great migration.',
     facts: [
-      { label: 'Known As', value: 'Cradle of the Safari' },
-      { label: 'Signature Wildlife', value: 'Big Five & Migration' },
+      { label: 'Capital', value: 'Nairobi' },
+      { label: 'National Parks', value: '56 Parks & Reserves' },
       { label: 'Key Parks', value: 'Maasai Mara & Amboseli' },
-      { label: 'Best Known For', value: 'Classic Savanna Safaris' }
+      { label: 'Great Migration', value: 'Peaks August – October' }
     ],
-    secondaryPhoto: '/experiences/featured/magical-kenya.png'
+    secondaryPhoto: '/experiences/magical-kenya-4.jpg'
   }
 }
 

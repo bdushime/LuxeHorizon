@@ -679,7 +679,7 @@ export const experiencesData = [
     "title": "Magical Kenya",
     "category": "Kenya",
     "duration": "Custom Duration",
-    "image": "/experiences/featured/magical-kenya.png",
+    "image": "/experiences/magical-kenya-5.jpg",
     "summary": "On a Magical Kenya adventure encounter the Big Five on safari, marvel at the Great Rift Valley's beauty & embrace Nairobi's vibrant culture.",
     "description": "7-Day safari includes: 1 night Karen, 2 nights Amboseli National Park, 2 nights Meru National Park, 2 nights Maasai Mara National Reserve, Nairobi tour, Game drives, recommended Luxury tented camps and lodges.",
     "fullStory": [
@@ -697,11 +697,9 @@ export const experiencesData = [
     ],
     "location": "Kenya",
     "url": "https://luxehorizonsafrica.com/experiences?exp=magical-kenya",
-    "heroImage": "/experiences/featured/magical-kenya.png",
+    "heroImage": "/experiences/magical-kenya-5.jpg",
     "gallery": [
-      "/experiences/featured/magical-kenya.png",
       "/experiences/magical-kenya-4.jpg",
-      "/experiences/magical-kenya-5.jpg",
       "/experiences/magical-kenya-6.jpg"
     ]
   }
