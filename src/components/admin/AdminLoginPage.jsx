@@ -8,6 +8,9 @@ export default function AdminLoginPage() {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
   const [mode, setMode] = useState('login') // 'login' | 'signup' | 'forgot'
@@ -26,6 +29,12 @@ export default function AdminLoginPage() {
     e.preventDefault()
     setErrorMsg('')
     setInfoMsg('')
+
+    if (mode === 'signup' && password !== confirmPassword) {
+      setErrorMsg('Passwords do not match. Please verify your passwords.')
+      return
+    }
+
     setLoading(true)
 
     try {
@@ -52,6 +61,8 @@ export default function AdminLoginPage() {
         } else if (data?.user) {
           setInfoMsg('Account created successfully! Check your email to confirm registration or sign in.')
           setMode('login')
+          setPassword('')
+          setConfirmPassword('')
         }
       } else if (mode === 'forgot') {
         // Forgot Password Mode
@@ -126,36 +137,102 @@ export default function AdminLoginPage() {
           </div>
 
           {mode !== 'forgot' && (
-            <div className="admin-form-group">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                <label className="admin-label" htmlFor="admin-password" style={{ margin: 0 }}>
-                  Password
-                </label>
-                {mode === 'login' && (
+            <>
+              <div className="admin-form-group">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <label className="admin-label" htmlFor="admin-password" style={{ margin: 0 }}>
+                    Password
+                  </label>
+                  {mode === 'login' && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMode('forgot')
+                        setErrorMsg('')
+                        setInfoMsg('')
+                      }}
+                      style={{ background: 'none', border: 'none', color: '#c6a15b', fontSize: '12px', cursor: 'pointer', textDecoration: 'underline' }}
+                    >
+                      Forgot password?
+                    </button>
+                  )}
+                </div>
+                <div style={{ position: 'relative' }}>
+                  <input
+                    id="admin-password"
+                    type={showPassword ? 'text' : 'password'}
+                    required
+                    minLength={6}
+                    className="admin-input"
+                    placeholder="••••••••••••"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    style={{ paddingRight: '40px' }}
+                  />
                   <button
                     type="button"
-                    onClick={() => {
-                      setMode('forgot')
-                      setErrorMsg('')
-                      setInfoMsg('')
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    style={{
+                      position: 'absolute',
+                      right: '12px',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      background: 'none',
+                      border: 'none',
+                      color: 'rgba(246, 241, 231, 0.6)',
+                      cursor: 'pointer',
+                      padding: '4px',
+                      fontSize: '15px'
                     }}
-                    style={{ background: 'none', border: 'none', color: '#c6a15b', fontSize: '12px', cursor: 'pointer', textDecoration: 'underline' }}
+                    title={showPassword ? 'Hide password' : 'Show password'}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
                   >
-                    Forgot password?
+                    {showPassword ? '👁️' : '🙈'}
                   </button>
-                )}
+                </div>
               </div>
-              <input
-                id="admin-password"
-                type="password"
-                required
-                minLength={6}
-                className="admin-input"
-                placeholder="••••••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
+
+              {mode === 'signup' && (
+                <div className="admin-form-group">
+                  <label className="admin-label" htmlFor="admin-confirm-password">
+                    Confirm Password
+                  </label>
+                  <div style={{ position: 'relative' }}>
+                    <input
+                      id="admin-confirm-password"
+                      type={showConfirmPassword ? 'text' : 'password'}
+                      required
+                      minLength={6}
+                      className="admin-input"
+                      placeholder="••••••••••••"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      style={{ paddingRight: '40px' }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword((prev) => !prev)}
+                      style={{
+                        position: 'absolute',
+                        right: '12px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        background: 'none',
+                        border: 'none',
+                        color: 'rgba(246, 241, 231, 0.6)',
+                        cursor: 'pointer',
+                        padding: '4px',
+                        fontSize: '15px'
+                      }}
+                      title={showConfirmPassword ? 'Hide password' : 'Show password'}
+                      aria-label={showConfirmPassword ? 'Hide password' : 'Show password'}
+                    >
+                      {showConfirmPassword ? '👁️' : '🙈'}
+                    </button>
+                  </div>
+                </div>
+              )}
+            </>
           )}
 
           <button

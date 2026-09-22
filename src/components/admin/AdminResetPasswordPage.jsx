@@ -12,6 +12,9 @@ export default function AdminResetPasswordPage() {
   const [errorMsg, setErrorMsg] = useState('')
   const [successMsg, setSuccessMsg] = useState('')
 
+  const [showNewPw, setShowNewPw] = useState(false)
+  const [showConfirmPw, setShowConfirmPw] = useState(false)
+
   useEffect(() => {
     // Listen for auth state change or recovery token from Supabase URL hash
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
@@ -99,32 +102,76 @@ export default function AdminResetPasswordPage() {
             <label className="admin-label" htmlFor="new-password">
               New Password
             </label>
-            <input
-              id="new-password"
-              type="password"
-              required
-              minLength={6}
-              className="admin-input"
-              placeholder="••••••••••••"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-            />
+            <div style={{ position: 'relative' }}>
+              <input
+                id="new-password"
+                type={showNewPw ? 'text' : 'password'}
+                required
+                minLength={6}
+                className="admin-input"
+                placeholder="••••••••••••"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                style={{ paddingRight: '40px' }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowNewPw((prev) => !prev)}
+                style={{
+                  position: 'absolute',
+                  right: '12px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  color: 'rgba(246, 241, 231, 0.6)',
+                  cursor: 'pointer',
+                  padding: '4px',
+                  fontSize: '15px'
+                }}
+                title={showNewPw ? 'Hide password' : 'Show password'}
+              >
+                {showNewPw ? '👁️' : '🙈'}
+              </button>
+            </div>
           </div>
 
           <div className="admin-form-group">
             <label className="admin-label" htmlFor="confirm-password">
               Confirm New Password
             </label>
-            <input
-              id="confirm-password"
-              type="password"
-              required
-              minLength={6}
-              className="admin-input"
-              placeholder="••••••••••••"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
+            <div style={{ position: 'relative' }}>
+              <input
+                id="confirm-password"
+                type={showConfirmPw ? 'text' : 'password'}
+                required
+                minLength={6}
+                className="admin-input"
+                placeholder="••••••••••••"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                style={{ paddingRight: '40px' }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowConfirmPw((prev) => !prev)}
+                style={{
+                  position: 'absolute',
+                  right: '12px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  color: 'rgba(246, 241, 231, 0.6)',
+                  cursor: 'pointer',
+                  padding: '4px',
+                  fontSize: '15px'
+                }}
+                title={showConfirmPw ? 'Hide password' : 'Show password'}
+              >
+                {showConfirmPw ? '👁️' : '🙈'}
+              </button>
+            </div>
           </div>
 
           <button
