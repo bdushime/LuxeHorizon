@@ -8,6 +8,7 @@ import {
 } from '../../services/blogService.js'
 import Seo from '../Seo.jsx'
 import './AdminLayout.css'
+import '../BlogPage.css'
 
 const CATEGORY_OPTIONS = [
   'Safari',
@@ -36,6 +37,10 @@ export default function AdminPostEditor() {
   const [uploadingImage, setUploadingImage] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
   const [successMsg, setSuccessMsg] = useState('')
+
+  // Preview State
+  const [showPreview, setShowPreview] = useState(false)
+  const [previewMode, setPreviewMode] = useState('modal') // 'modal' | 'card'
 
   // Form State
   const [title, setTitle] = useState('')
@@ -211,6 +216,14 @@ export default function AdminPostEditor() {
         </div>
 
         <div style={{ display: 'flex', gap: '12px' }}>
+          <button
+            type="button"
+            onClick={() => setShowPreview(true)}
+            className="admin-btn-secondary"
+            style={{ color: '#c6a15b', borderColor: 'rgba(198, 161, 91, 0.4)' }}
+          >
+            👁️ Preview Article
+          </button>
           <button
             type="button"
             onClick={() => navigate('/admin')}
@@ -607,6 +620,14 @@ export default function AdminPostEditor() {
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', marginTop: '12px' }}>
           <button
             type="button"
+            onClick={() => setShowPreview(true)}
+            className="admin-btn-secondary"
+            style={{ color: '#c6a15b', borderColor: 'rgba(198, 161, 91, 0.4)' }}
+          >
+            👁️ Preview Article
+          </button>
+          <button
+            type="button"
             onClick={() => navigate('/admin')}
             className="admin-btn-secondary"
           >
@@ -622,6 +643,199 @@ export default function AdminPostEditor() {
           </button>
         </div>
       </form>
+
+      {/* Article Live Preview Overlay */}
+      {showPreview && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 1100,
+            background: 'rgba(11, 12, 14, 0.92)',
+            backdropFilter: 'blur(12px)',
+            overflowY: 'auto',
+            padding: '40px 20px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}
+        >
+          {/* Controls Header Bar */}
+          <div
+            style={{
+              maxWidth: '900px',
+              width: '100%',
+              display: 'flex',
+              justify: 'space-between',
+              alignItems: 'center',
+              marginBottom: '24px',
+              background: 'rgba(20, 31, 25, 0.9)',
+              padding: '16px 24px',
+              borderRadius: '16px',
+              border: '1px solid rgba(246, 241, 231, 0.15)',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+              flexWrap: 'wrap',
+              gap: '12px'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <span style={{ fontFamily: 'var(--serif)', fontSize: '20px', fontWeight: '600', color: '#c6a15b' }}>
+                Article Live Preview
+              </span>
+              <div style={{ display: 'flex', gap: '6px', background: 'rgba(11,12,14,0.6)', padding: '4px', borderRadius: '8px' }}>
+                <button
+                  type="button"
+                  style={{
+                    padding: '6px 14px',
+                    fontSize: '12px',
+                    borderRadius: '6px',
+                    border: '1px solid',
+                    cursor: 'pointer',
+                    background: previewMode === 'modal' ? 'rgba(198, 161, 91, 0.2)' : 'transparent',
+                    borderColor: previewMode === 'modal' ? '#c6a15b' : 'transparent',
+                    color: previewMode === 'modal' ? '#c6a15b' : 'rgba(246,241,231,0.7)'
+                  }}
+                  onClick={() => setPreviewMode('modal')}
+                >
+                  Full Story View
+                </button>
+                <button
+                  type="button"
+                  style={{
+                    padding: '6px 14px',
+                    fontSize: '12px',
+                    borderRadius: '6px',
+                    border: '1px solid',
+                    cursor: 'pointer',
+                    background: previewMode === 'card' ? 'rgba(198, 161, 91, 0.2)' : 'transparent',
+                    borderColor: previewMode === 'card' ? '#c6a15b' : 'transparent',
+                    color: previewMode === 'card' ? '#c6a15b' : 'rgba(246,241,231,0.7)'
+                  }}
+                  onClick={() => setPreviewMode('card')}
+                >
+                  Journal Card View
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setShowPreview(false)}
+              className="admin-btn-secondary"
+              style={{ padding: '8px 16px', fontSize: '13px' }}
+            >
+              Close Preview ✕
+            </button>
+          </div>
+
+          {/* Preview Container */}
+          {previewMode === 'card' ? (
+            <div style={{ maxWidth: '420px', width: '100%', marginTop: '20px' }}>
+              <div className="bp-card cursor-pointer" style={{ background: '#141f19', borderRadius: '16px', border: '1px solid rgba(246,241,231,0.1)', overflow: 'hidden' }}>
+                <div className="bp-card-media" style={{ height: '220px', position: 'relative' }}>
+                  <img
+                    src={image || 'https://images.unsplash.com/photo-1516426122078-c23e76319801'}
+                    alt={title || 'Preview'}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+                <div className="bp-card-body" style={{ padding: '24px' }}>
+                  <div className="bp-card-meta" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', marginBottom: '10px' }}>
+                    <span className="bp-card-category" style={{ color: accent, fontWeight: '600' }}>
+                      {category}
+                    </span>
+                    <span className="bp-card-dot" style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'currentColor', opacity: 0.5 }} />
+                    <span className="bp-card-date" style={{ color: 'rgba(246,241,231,0.6)' }}>{date}</span>
+                  </div>
+                  <h3 style={{ fontFamily: 'var(--serif)', fontSize: '20px', color: '#f6f1e7', marginBottom: '10px', lineHeight: 1.3 }}>
+                    {title || 'Untitled Article'}
+                  </h3>
+                  <p style={{ fontSize: '14px', color: 'rgba(246,241,231,0.7)', lineHeight: 1.6, marginBottom: '16px' }}>
+                    {excerpt || 'Article summary excerpt teaser will appear here.'}
+                  </p>
+                  <span className="bp-card-link" style={{ color: accent, fontWeight: '600', fontSize: '13px' }}>
+                    Read the story →
+                  </span>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="bpm-dialog" style={{ maxWidth: '780px', width: '100%', position: 'relative', margin: '0 auto', background: '#121815', borderRadius: '20px', overflow: 'hidden', border: '1px solid rgba(246,241,231,0.15)', boxShadow: '0 20px 50px rgba(0,0,0,0.6)' }}>
+              <div className="bpm-hero" style={{ position: 'relative', height: '320px', overflow: 'hidden' }}>
+                <img
+                  src={image || 'https://images.unsplash.com/photo-1516426122078-c23e76319801'}
+                  alt={title}
+                  className="bpm-hero-img"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+                <div className="bpm-hero-overlay" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #121815 0%, rgba(18,24,21,0.4) 60%, transparent 100%)' }} />
+                <div className="bpm-hero-content" style={{ position: 'absolute', bottom: '24px', left: '32px', right: '32px' }}>
+                  <div className="bpm-meta" style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                    <span className="bpm-category" style={{ backgroundColor: accent, padding: '4px 12px', borderRadius: '12px', fontSize: '11px', fontWeight: '700', color: '#0b0c0e', textTransform: 'uppercase' }}>
+                      {category}
+                    </span>
+                    <span className="bpm-dot" />
+                    <span className="bpm-date" style={{ color: 'rgba(246,241,231,0.7)', fontSize: '13px' }}>{date}</span>
+                    <span className="bpm-dot" />
+                    <span className="bpm-time" style={{ color: 'rgba(246,241,231,0.7)', fontSize: '13px' }}>{readTime || '5 min read'}</span>
+                  </div>
+                  <h2 id="bpm-title" style={{ fontFamily: 'var(--serif)', fontSize: '30px', color: '#f6f1e7', margin: 0, lineHeight: 1.2 }}>
+                    {title || 'Untitled Article'}
+                  </h2>
+                </div>
+              </div>
+
+              <div className="bpm-body" style={{ padding: '36px 32px' }}>
+                {author && (
+                  <div className="bpm-author-bar" style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '28px' }}>
+                    <div className="bpm-author-avatar" style={{ backgroundColor: accent, width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', color: '#0b0c0e' }}>
+                      {author.charAt(0)}
+                    </div>
+                    <div className="bpm-author-info">
+                      <span className="bpm-author-name" style={{ display: 'block', fontWeight: '600', color: '#f6f1e7' }}>{author}</span>
+                      <span className="bpm-author-role" style={{ fontSize: '12px', color: 'rgba(246,241,231,0.6)' }}>{authorRole}</span>
+                    </div>
+                  </div>
+                )}
+
+                {excerpt && <p className="bpm-lead" style={{ fontSize: '18px', lineHeight: 1.6, color: 'rgba(246,241,231,0.9)', marginBottom: '24px', fontWeight: '500' }}>{excerpt}</p>}
+
+                {quote && (
+                  <blockquote className="bpm-quote" style={{ borderLeft: `3px solid ${accent}`, paddingLeft: '20px', fontStyle: 'italic', margin: '24px 0', fontSize: '17px', color: '#c6a15b' }}>
+                    <p>“{quote}”</p>
+                  </blockquote>
+                )}
+
+                {paragraphs.filter(p => p.trim()).map((p, idx) => (
+                  <p key={idx} className="bpm-paragraph" style={{ fontSize: '15px', lineHeight: 1.8, color: 'rgba(246,241,231,0.8)', marginBottom: '18px' }}>
+                    {p}
+                  </p>
+                ))}
+
+                {takeaway && (
+                  <div className="bpm-takeaway" style={{ '--accent': accent, background: 'rgba(246,241,231,0.04)', padding: '20px', borderRadius: '12px', borderLeft: `3px solid ${accent}`, margin: '28px 0' }}>
+                    <div className="bpm-takeaway-header" style={{ marginBottom: '8px' }}>
+                      <span className="bpm-takeaway-badge" style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.1em', color: accent, fontWeight: '700' }}>Field Note</span>
+                    </div>
+                    <div className="bpm-takeaway-text" style={{ fontSize: '14px', color: 'rgba(246,241,231,0.85)' }}>{takeaway}</div>
+                  </div>
+                )}
+
+                {highlights.filter(h => h.trim()).length > 0 && (
+                  <div className="bpm-highlights" style={{ marginTop: '28px' }}>
+                    <h4 style={{ fontFamily: 'var(--serif)', fontSize: '18px', color: '#c6a15b', marginBottom: '12px' }}>Essential Tips &amp; Checklist</h4>
+                    <ul style={{ paddingLeft: '20px', color: 'rgba(246,241,231,0.8)', lineHeight: 1.7, fontSize: '14px' }}>
+                      {highlights.filter(h => h.trim()).map((h, i) => (
+                        <li key={i} style={{ marginBottom: '6px' }}>{h}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   )
 }
