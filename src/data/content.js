@@ -54,9 +54,9 @@ export const heroSections = [
   }
 ]
 
-export const heroBaseImage = '/texp-akagera.jpg'
+export const heroBaseImage = '/Travel.jpeg'
 export const heroBaseGradient =
-  "linear-gradient(180deg, rgba(8,16,13,0.12) 0%, rgba(8,16,13,0.28) 100%), url('/texp-akagera.jpg')"
+  "linear-gradient(180deg, rgba(8,16,13,0.12) 0%, rgba(8,16,13,0.28) 100%), url('/Travel.jpeg')"
 
 export const adventureCards = [
   {
@@ -113,33 +113,30 @@ export const destinations = [
     key: 'uganda',
     eyebrow: '02 — Bwindi & Queen Elizabeth',
     name: 'Uganda',
-    image: '/experiences/featured/best-of-the-pearl-of-africa.jpg',
+    image: '/Uganda.jpeg',
     accent: '#b9772e'
   },
   {
     key: 'tanzania',
     eyebrow: '03 — Serengeti & Ngorongoro',
     name: 'Tanzania',
-    image: '/experiences/featured/tanzania-classic.jpg',
+    image: '/Tanzania.jpeg',
     accent: '#3f6b63'
   },
   {
     key: 'kenya',
     eyebrow: '04 — Maasai Mara & Amboseli',
     name: 'Kenya',
-    // Placeholder photo — the "magical-kenya" featured/hero asset is
-    // mislabeled (that file is actually a partner logo); this uses a real,
-    // on-topic photo already in the Kenya tour's own gallery instead, until
-    // the client supplies final imagery.
-    image: '/experiences/magical-kenya-5.jpg',
+    image: '/Kenya.jpeg',
     accent: '#9c4a32'
   }
 ]
 
 // Long-form per-country content for the individual destination pages
 // (/destinations/:key). All four countries now use the client's real copy.
-// Kenya's photos are still local placeholders — swap in real images once
-// the client supplies them.
+// Kenya, Tanzania and Uganda use the client's real photos. Rwanda's client
+// photo was supplied as a .HEIC file, which browsers can't render, so it's
+// still on the old placeholder until a JPG/PNG version is provided.
 export const destinationDetails = {
   rwanda: {
     paragraphs: [
@@ -167,7 +164,7 @@ export const destinationDetails = {
       { label: 'Signature Wildlife', value: 'Bwindi Gorillas' },
       { label: 'Also Notable', value: 'Source of the Nile' }
     ],
-    secondaryPhoto: '/experiences/featured/best-of-the-pearl-of-africa.jpg'
+    secondaryPhoto: '/Uganda.jpeg'
   },
   tanzania: {
     paragraphs: [
@@ -182,7 +179,7 @@ export const destinationDetails = {
       { label: 'Also Notable', value: 'Lake Tanganyika' },
       { label: 'Culture', value: 'Maasai Communities' }
     ],
-    secondaryPhoto: '/experiences/featured/tanzania-classic.jpg'
+    secondaryPhoto: '/Tanzania.jpeg'
   },
   kenya: {
     paragraphs: [
@@ -196,7 +193,7 @@ export const destinationDetails = {
       { label: 'Key Parks', value: 'Maasai Mara & Amboseli' },
       { label: 'Great Migration', value: 'Peaks August – October' }
     ],
-    secondaryPhoto: '/experiences/magical-kenya-4.jpg'
+    secondaryPhoto: '/Kenya.jpeg'
   }
 }
 
