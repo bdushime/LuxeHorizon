@@ -38,7 +38,7 @@ export default function Hero({ revealed = true }) {
       <div
         className="hero-photo-stack"
         role="img"
-        aria-label="Giraffes and zebras at golden hour in Akagera National Park, Rwanda"
+        aria-label="Luxe Horizons Africa guests and guides walking beside a safari vehicle"
       >
         <div
           className="hero-photo-layer base"
