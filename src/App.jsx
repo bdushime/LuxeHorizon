@@ -19,6 +19,7 @@ import NotFoundPage from './pages/NotFoundPage.jsx'
 import Footer from './components/Footer.jsx'
 
 import AdminLoginPage from './components/admin/AdminLoginPage.jsx'
+import AdminResetPasswordPage from './components/admin/AdminResetPasswordPage.jsx'
 import AdminProtectedRoute from './components/admin/AdminProtectedRoute.jsx'
 import AdminDashboard from './components/admin/AdminDashboard.jsx'
 import AdminPostEditor from './components/admin/AdminPostEditor.jsx'
@@ -73,6 +74,7 @@ function AppRoutes() {
 
         {/* Protected Admin Routes */}
         <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route path="/admin/reset-password" element={<AdminResetPasswordPage />} />
         <Route
           path="/admin"
           element={

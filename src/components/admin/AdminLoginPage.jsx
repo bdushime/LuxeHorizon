@@ -10,7 +10,7 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
-  const [mode, setMode] = useState('login') // 'login' | 'signup'
+  const [mode, setMode] = useState('login') // 'login' | 'signup' | 'forgot'
   const [infoMsg, setInfoMsg] = useState('')
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
         } else if (data?.user) {
           navigate('/admin', { replace: true })
         }
-      } else {
+      } else if (mode === 'signup') {
         // Sign Up Mode
         const { data, error } = await supabase.auth.signUp({
           email: email.trim(),
@@ -52,6 +52,18 @@ export default function AdminLoginPage() {
         } else if (data?.user) {
           setInfoMsg('Account created successfully! Check your email to confirm registration or sign in.')
           setMode('login')
+        }
+      } else if (mode === 'forgot') {
+        // Forgot Password Mode
+        const redirectUrl = `${window.location.origin}/admin/reset-password`
+        const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+          redirectTo: redirectUrl
+        })
+
+        if (error) {
+          setErrorMsg(error.message)
+        } else {
+          setInfoMsg(`Password reset instructions sent to ${email.trim()}. Please check your email inbox.`)
         }
       }
     } catch (err) {
@@ -74,12 +86,14 @@ export default function AdminLoginPage() {
             L
           </div>
           <h1 className="admin-heading" style={{ fontSize: '26px' }}>
-            {mode === 'login' ? 'Admin Portal' : 'Create Admin Account'}
+            {mode === 'login' ? 'Admin Portal' : mode === 'signup' ? 'Create Admin Account' : 'Reset Password'}
           </h1>
           <p className="admin-subheading">
             {mode === 'login'
               ? 'Sign in to manage blog posts and journal content'
-              : 'Register administrator credentials for Supabase'}
+              : mode === 'signup'
+              ? 'Register administrator credentials for Supabase'
+              : 'Enter your account email to receive a password reset link'}
           </p>
         </div>
 
@@ -111,21 +125,38 @@ export default function AdminLoginPage() {
             />
           </div>
 
-          <div className="admin-form-group">
-            <label className="admin-label" htmlFor="admin-password">
-              Password
-            </label>
-            <input
-              id="admin-password"
-              type="password"
-              required
-              minLength={6}
-              className="admin-input"
-              placeholder="••••••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
+          {mode !== 'forgot' && (
+            <div className="admin-form-group">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                <label className="admin-label" htmlFor="admin-password" style={{ margin: 0 }}>
+                  Password
+                </label>
+                {mode === 'login' && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMode('forgot')
+                      setErrorMsg('')
+                      setInfoMsg('')
+                    }}
+                    style={{ background: 'none', border: 'none', color: '#c6a15b', fontSize: '12px', cursor: 'pointer', textDecoration: 'underline' }}
+                  >
+                    Forgot password?
+                  </button>
+                )}
+              </div>
+              <input
+                id="admin-password"
+                type="password"
+                required
+                minLength={6}
+                className="admin-input"
+                placeholder="••••••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+          )}
 
           <button
             type="submit"
@@ -133,12 +164,18 @@ export default function AdminLoginPage() {
             className="admin-btn-primary"
             style={{ width: '100%', padding: '14px', marginTop: '12px' }}
           >
-            {loading ? 'Authenticating...' : mode === 'login' ? 'Sign In to Dashboard' : 'Register Account'}
+            {loading
+              ? 'Processing...'
+              : mode === 'login'
+              ? 'Sign In to Dashboard'
+              : mode === 'signup'
+              ? 'Register Account'
+              : 'Send Reset Email'}
           </button>
         </form>
 
         <div style={{ marginTop: '24px', textAlign: 'center', fontSize: '13px', color: 'rgba(246,241,231,0.6)' }}>
-          {mode === 'login' ? (
+          {mode === 'login' && (
             <p>
               Need an admin account?{' '}
               <button
@@ -146,13 +183,16 @@ export default function AdminLoginPage() {
                 onClick={() => {
                   setMode('signup')
                   setErrorMsg('')
+                  setInfoMsg('')
                 }}
                 style={{ background: 'none', border: 'none', color: '#c6a15b', cursor: 'pointer', textDecoration: 'underline' }}
               >
                 Sign up here
               </button>
             </p>
-          ) : (
+          )}
+
+          {mode === 'signup' && (
             <p>
               Already registered?{' '}
               <button
@@ -160,10 +200,28 @@ export default function AdminLoginPage() {
                 onClick={() => {
                   setMode('login')
                   setErrorMsg('')
+                  setInfoMsg('')
                 }}
                 style={{ background: 'none', border: 'none', color: '#c6a15b', cursor: 'pointer', textDecoration: 'underline' }}
               >
                 Sign in here
+              </button>
+            </p>
+          )}
+
+          {mode === 'forgot' && (
+            <p>
+              Remembered your password?{' '}
+              <button
+                type="button"
+                onClick={() => {
+                  setMode('login')
+                  setErrorMsg('')
+                  setInfoMsg('')
+                }}
+                style={{ background: 'none', border: 'none', color: '#c6a15b', cursor: 'pointer', textDecoration: 'underline' }}
+              >
+                Return to Sign In
               </button>
             </p>
           )}
