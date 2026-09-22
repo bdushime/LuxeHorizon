@@ -10,6 +10,25 @@ import Seo from '../Seo.jsx'
 import './AdminLayout.css'
 import '../BlogPage.css'
 
+function EyeIcon({ size = 16 }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{ display: 'inline-block', verticalAlign: 'middle' }}
+    >
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  )
+}
+
 const CATEGORY_OPTIONS = [
   'Safari',
   'Gorilla Trekking',
@@ -220,9 +239,10 @@ export default function AdminPostEditor() {
             type="button"
             onClick={() => setShowPreview(true)}
             className="admin-btn-secondary"
-            style={{ color: '#c6a15b', borderColor: 'rgba(198, 161, 91, 0.4)' }}
+            style={{ color: '#c6a15b', borderColor: 'rgba(198, 161, 91, 0.4)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            👁️ Preview Article
+            <EyeIcon size={16} />
+            <span>Preview Article</span>
           </button>
           <button
             type="button"
@@ -622,9 +642,10 @@ export default function AdminPostEditor() {
             type="button"
             onClick={() => setShowPreview(true)}
             className="admin-btn-secondary"
-            style={{ color: '#c6a15b', borderColor: 'rgba(198, 161, 91, 0.4)' }}
+            style={{ color: '#c6a15b', borderColor: 'rgba(198, 161, 91, 0.4)', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
           >
-            👁️ Preview Article
+            <EyeIcon size={16} />
+            <span>Preview Article</span>
           </button>
           <button
             type="button"
