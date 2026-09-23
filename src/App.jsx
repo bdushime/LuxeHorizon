@@ -18,19 +18,31 @@ import ExperiencesPage from './pages/ExperiencesPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import Footer from './components/Footer.jsx'
 
+import AdminLoginPage from './components/admin/AdminLoginPage.jsx'
+import AdminResetPasswordPage from './components/admin/AdminResetPasswordPage.jsx'
+import AdminProtectedRoute from './components/admin/AdminProtectedRoute.jsx'
+import AdminDashboard from './components/admin/AdminDashboard.jsx'
+import AdminPostEditor from './components/admin/AdminPostEditor.jsx'
+
 function AppRoutes() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [portalOpen, setPortalOpen] = useState(true)
   const location = useLocation()
   const navigate = useNavigate()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [portalOpen, setPortalOpen] = useState(() => location.pathname === '/')
   const isDestinations = location.pathname === '/destinations'
-  const isNotFound = ['/destinations', '/about', '/contact', '/consultancy', '/faq', '/testimonials', '/blog', '/experiences', '/'].includes(location.pathname) === false && !location.pathname.startsWith('/destinations/')
+  const isAdmin = location.pathname.startsWith('/admin')
+  const isNotFound =
+    ['/destinations', '/about', '/contact', '/consultancy', '/faq', '/testimonials', '/blog', '/experiences', '/'].includes(
+      location.pathname
+    ) === false &&
+    !location.pathname.startsWith('/destinations/') &&
+    !isAdmin
 
   return (
     <>
       <ScrollToHash />
-      <BackHomeButton />
-      {!isNotFound && (
+      {!isAdmin && <BackHomeButton />}
+      {!isNotFound && !isAdmin && (
         <PortalGate
           isOpen={portalOpen}
           onSelectTourism={() => setPortalOpen(false)}
@@ -40,14 +52,14 @@ function AppRoutes() {
           }}
         />
       )}
-      {!isNotFound && (
+      {!isNotFound && !isAdmin && (
         <Nav
           menuOpen={menuOpen}
           onToggleMenu={() => setMenuOpen((v) => !v)}
           onOpenPortal={() => setPortalOpen(true)}
         />
       )}
-      {!isNotFound && <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} />}
+      {!isNotFound && !isAdmin && <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} />}
       <Routes>
         <Route path="/" element={<HomePage heroRevealed={!portalOpen} />} />
         <Route path="/destinations" element={<DestinationsPage />} />
@@ -59,9 +71,38 @@ function AppRoutes() {
         <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/experiences" element={<ExperiencesPage />} />
+
+        {/* Protected Admin Routes */}
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route path="/admin/reset-password" element={<AdminResetPasswordPage />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminProtectedRoute>
+              <AdminDashboard />
+            </AdminProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/posts/new"
+          element={
+            <AdminProtectedRoute>
+              <AdminPostEditor />
+            </AdminProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/posts/edit/:id"
+          element={
+            <AdminProtectedRoute>
+              <AdminPostEditor />
+            </AdminProtectedRoute>
+          }
+        />
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      {!isDestinations && !isNotFound && <Footer />}
+      {!isDestinations && !isNotFound && !isAdmin && <Footer />}
     </>
   )
 }

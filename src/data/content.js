@@ -267,8 +267,7 @@ export const videoSection = {
     'A short look at what it feels like to be here — the full film is on our YouTube channel.'
 }
 
-// Placeholder blog posts — swap in real articles, dates and cover photos
-// before launch.
+// Fallback blog posts array used if Supabase is offline or unreachable.
 export const blogPosts = [
   {
     key: 'gorilla-etiquette',

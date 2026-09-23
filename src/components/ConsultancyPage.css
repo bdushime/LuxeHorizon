@@ -5,8 +5,9 @@
 /* ---------- Hero ---------- */
 .con-hero {
   position: relative;
-  height: 92vh;
-  min-height: 620px;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;

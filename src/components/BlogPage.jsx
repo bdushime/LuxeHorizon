@@ -1,7 +1,8 @@
 import { useMemo, useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useSearchParams } from 'react-router-dom'
-import { blogPosts } from '../data/content.js'
+import { blogPosts as initialPosts } from '../data/content.js'
+import { supabase } from '../lib/supabase.js'
 import Seo from './Seo.jsx'
 import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
 import './BlogPage.css'
@@ -12,7 +13,57 @@ const ROTATIONS = [-7, 5, -3, 8, -5, 4, -8, 6]
 
 export default function BlogPage() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const categories = useMemo(() => Array.from(new Set(blogPosts.map((p) => p.category))), [])
+  const [posts, setPosts] = useState(initialPosts)
+  const [loading, setLoading] = useState(true)
+
+  // Fetch blog posts from Supabase Database with local fallback
+  useEffect(() => {
+    async function loadPostsFromSupabase() {
+      try {
+        const { data, error } = await supabase
+          .from('posts')
+          .select('*')
+          .eq('published', true)
+          .order('created_at', { ascending: false })
+
+        if (error) {
+          console.warn('Supabase fetch error, using local fallback:', error.message)
+          return
+        }
+
+        if (data && data.length > 0) {
+          // Map database snake_case fields to camelCase used in React component
+          const formatted = data.map((p) => ({
+            id: p.id,
+            key: p.key,
+            title: p.title,
+            category: p.category,
+            date: p.date,
+            readTime: p.read_time || p.readTime || '5 min read',
+            author: p.author,
+            authorRole: p.author_role || p.authorRole || '',
+            excerpt: p.excerpt,
+            image: p.image,
+            accent: p.accent || '#5c6b4f',
+            quote: p.quote,
+            takeaway: p.takeaway,
+            paragraphs: p.paragraphs || [],
+            highlights: p.highlights || []
+          }))
+          setPosts(formatted)
+          console.log(`[Supabase] Successfully fetched ${formatted.length} posts from Supabase database.`)
+        }
+      } catch (err) {
+        console.warn('Could not connect to Supabase, using local fallback:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadPostsFromSupabase()
+  }, [])
+
+  const categories = useMemo(() => Array.from(new Set(posts.map((p) => p.category))), [posts])
   const [activeCategory, setActiveCategory] = useState('All')
   const [selectedPost, setSelectedPost] = useState(null)
 
@@ -20,10 +71,10 @@ export default function BlogPage() {
   useEffect(() => {
     const storyKey = searchParams.get('story')
     if (storyKey) {
-      const match = blogPosts.find((p) => p.key === storyKey)
+      const match = posts.find((p) => p.key === storyKey)
       if (match) setSelectedPost(match)
     }
-  }, [searchParams])
+  }, [searchParams, posts])
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -60,15 +111,16 @@ export default function BlogPage() {
   }
 
   const filteredPosts =
-    activeCategory === 'All' ? blogPosts : blogPosts.filter((p) => p.category === activeCategory)
+    activeCategory === 'All' ? posts : posts.filter((p) => p.category === activeCategory)
 
   // Prev / Next story navigation inside modal
-  const currentIndex = selectedPost ? blogPosts.findIndex((p) => p.key === selectedPost.key) : -1
-  const prevPost = currentIndex > 0 ? blogPosts[currentIndex - 1] : blogPosts[blogPosts.length - 1]
+  const currentIndex = selectedPost ? posts.findIndex((p) => p.key === selectedPost.key) : -1
+  const prevPost = currentIndex > 0 ? posts[currentIndex - 1] : posts[posts.length - 1]
   const nextPost =
-    currentIndex >= 0 && currentIndex < blogPosts.length - 1
-      ? blogPosts[currentIndex + 1]
-      : blogPosts[0]
+    currentIndex >= 0 && currentIndex < posts.length - 1
+      ? posts[currentIndex + 1]
+      : posts[0]
+
 
   const seoTitle = selectedPost
     ? `${selectedPost.title} — ${selectedPost.category} | Luxe Horizons Africa`
@@ -104,7 +156,7 @@ export default function BlogPage() {
         <div className="bp-head-deck" aria-hidden="true">
           <span className="bp-deck-card back2" />
           <span className="bp-deck-card back1" />
-          <span className="bp-deck-card front">{blogPosts.length}</span>
+          <span className="bp-deck-card front">{posts.length}</span>
         </div>
       </div>
 
@@ -119,11 +171,11 @@ export default function BlogPage() {
             >
               <span className="bp-filter-dot all" />
               <span className="bp-filter-name">All Stories</span>
-              <span className="bp-filter-count">{blogPosts.length}</span>
+              <span className="bp-filter-count">{posts.length}</span>
             </button>
             {categories.map((cat) => {
-              const match = blogPosts.find((p) => p.category === cat)
-              const count = blogPosts.filter((p) => p.category === cat).length
+              const match = posts.find((p) => p.category === cat)
+              const count = posts.filter((p) => p.category === cat).length
               return (
                 <button
                   key={cat}

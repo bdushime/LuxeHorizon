@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import { contact } from '../data/content.js'
 import Seo from './Seo.jsx'
 import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
@@ -66,14 +67,98 @@ const ROWS = [
 ]
 
 export default function ContactPage() {
+  const formRef = useRef(null)
   const [playTokens, setPlayTokens] = useState({})
+  const [sending, setSending] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const replay = (key) => setPlayTokens((prev) => ({ ...prev, [key]: (prev[key] || 0) + 1 }))
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setErrorMessage('')
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const adminTemplateId = import.meta.env.VITE_EMAILJS_ADMIN_TEMPLATE_ID
+    const clientTemplateId = import.meta.env.VITE_EMAILJS_CLIENT_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    const adminEmailAddress = import.meta.env.VITE_ADMIN_EMAIL
+
+    if (!publicKey || !serviceId || !adminTemplateId) {
+      console.warn('EmailJS environment variables (VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_ADMIN_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY) are missing in .env.')
+      setSending(true)
+      setTimeout(() => {
+        setSending(false)
+        setSubmitted(true)
+      }, 700)
+      return
+    }
+
+    setSending(true)
+    try {
+      const formData = new FormData(formRef.current)
+      const userEmail = formData.get('email')
+      const userName = formData.get('name')
+      const userPhone = formData.get('phone')
+      const userCountry = formData.get('country')
+      const userMessage = formData.get('message')
+
+      const baseParams = {
+        name: userName,
+        email: userEmail,
+        to_email: userEmail,
+        reply_to: userEmail,
+        phone: userPhone || 'Not provided',
+        country: userCountry || 'Not provided',
+        message: userMessage || 'No message provided',
+        myemail: adminEmailAddress,
+        my_email: adminEmailAddress,
+        admin_email: adminEmailAddress
+      }
+
+      const adminParams = {
+        ...baseParams,
+        title: `New Boarding Pass Enquiry from ${userName} - Luxe Horizons Africa`,
+        subject: `New Boarding Pass Enquiry from ${userName} - Luxe Horizons Africa`,
+        email_subject: `New Boarding Pass Enquiry from ${userName} - Luxe Horizons Africa`
+      }
+
+      const clientParams = {
+        ...baseParams,
+        title: `Message Received - Luxe Horizons Africa`,
+        subject: `Message Received - Luxe Horizons Africa`,
+        email_subject: `Message Received - Luxe Horizons Africa`
+      }
+
+      // Dispatch admin notification email (template_hr433rf)
+      const adminPromise = emailjs.send(serviceId, adminTemplateId, adminParams, publicKey)
+
+      // Dispatch client auto-reply confirmation email (template_eujwlvn)
+      const clientPromise = emailjs.send(serviceId, clientTemplateId, clientParams, publicKey)
+
+      const results = await Promise.allSettled([adminPromise, clientPromise])
+
+      const hasSuccess = results.some((r) => r.status === 'fulfilled')
+      if (hasSuccess) {
+        setSubmitted(true)
+      } else {
+        const rejected = results.find((r) => r.status === 'rejected')
+        throw rejected?.reason || new Error('EmailJS submission failed.')
+      }
+    } catch (err) {
+      console.error('EmailJS submission error:', err)
+      setErrorMessage(
+        err?.text || err?.message || 'Could not send message via EmailJS. Please try again.'
+      )
+    } finally {
+      setSending(false)
+    }
+  }
+
+  const handleReset = () => {
+    setSubmitted(false)
+    setErrorMessage('')
   }
 
   const breadcrumbs = [
@@ -152,13 +237,17 @@ export default function ContactPage() {
               <div className="pass-main">
                 <div className="pass-eyebrow">Boarding Confirmed</div>
                 <h2>Your enquiry is in.</h2>
-                <p>A trip designer will be in touch shortly — usually within a day.</p>
+                <p>A trip designer will be in touch shortly - usually within a day.</p>
+                <button type="button" onClick={handleReset} className="pass-reset-btn">
+                  Send Another Enquiry
+                </button>
               </div>
             </div>
           ) : (
-            <form className="boarding-pass" onSubmit={handleSubmit}>
+            <form ref={formRef} className="boarding-pass" onSubmit={handleSubmit}>
               <div className="pass-main">
-                <div className="pass-eyebrow">Boarding Pass — Full Enquiry</div>
+                <div className="pass-eyebrow">Boarding Pass - Full Enquiry</div>
+                {errorMessage && <div className="pass-error-alert">{errorMessage}</div>}
                 <div className="pass-grid">
                   <label>
                     <span>Passenger Name</span>
@@ -191,16 +280,9 @@ export default function ContactPage() {
                   <span>To</span>
                   <strong>Luxe Horizons</strong>
                 </div>
-                <div className="pass-stub-row">
-                  <span>Gate</span>
-                  <strong>01</strong>
-                </div>
-                <div className="pass-stub-row">
-                  <span>Seat</span>
-                  <strong>Tailor-made</strong>
-                </div>
-                <button type="submit" className="pass-submit">
-                  Board Now
+                
+                <button type="submit" className="pass-submit" disabled={sending}>
+                  {sending ? 'Sending...' : 'Send Now'}
                 </button>
               </div>
             </form>

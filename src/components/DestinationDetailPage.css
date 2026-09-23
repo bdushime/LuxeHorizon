@@ -44,6 +44,9 @@
   gap: 64px;
   padding: 140px 0 40px;
   align-items: start;
+  justify-content: center;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .ddp-facts-inner {
@@ -91,6 +94,7 @@
 /* ---------- Story ---------- */
 .ddp-story {
   max-width: 720px;
+  margin: 0 auto;
 }
 .ddp-story-text p {
   font-size: 16.5px;
@@ -110,8 +114,8 @@
 }
 
 .ddp-pinned-photo {
-  margin: 50px 0 10px;
-  max-width: 380px;
+  margin: 50px auto 10px;
+  max-width: 420px;
   transform: rotate(-2deg);
 }
 .ddp-pinned-photo img {
@@ -133,6 +137,8 @@
   align-items: center;
   gap: 40px;
   padding: 80px 40px;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 .ddp-continue-copy h2 {
   font-family: var(--serif);
