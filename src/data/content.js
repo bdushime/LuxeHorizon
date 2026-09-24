@@ -61,37 +61,37 @@ export const heroBaseGradient =
 export const adventureCards = [
   {
     key: 'rwanda',
-    href: '/experiences?exp=rwandas-primates',
-    image: '/experiences/featured/rwandas-primates.jpg',
-    badge: '7 Nights',
-    title: "Rwanda's Primates",
+    href: '/experiences?exp=rwanda-primates-corner-premium',
+    image: '/mountain-gorilla-1.jpg',
+    badge: '6 Days',
+    title: 'Rwanda Primates Corner, Premium',
     route: 'Kigali · Nyungwe · Volcanoes NP',
     price: 'Price on request',
     accent: '#5c6b4f'
   },
   {
     key: 'uganda',
-    href: '/experiences?exp=best-of-the-pearl-of-africa',
-    image: '/experiences/featured/best-of-the-pearl-of-africa.jpg',
-    badge: '10 Days',
-    title: 'Pearl of Africa',
-    route: 'Bwindi · Queen Elizabeth · Kibale',
+    href: '/experiences?exp=9-day-uganda-wildlife-adventure',
+    image: '/leopard-tree.jpg',
+    badge: '9 Days',
+    title: 'Uganda Wildlife Adventure',
+    route: 'Bwindi · Queen Elizabeth · Murchison Falls',
     price: 'Price on request',
     accent: '#b9772e'
   },
   {
     key: 'tanzania',
-    href: '/experiences?exp=tanzania-classic',
-    image: '/experiences/featured/tanzania-classic.jpg',
-    badge: '7 Days',
-    title: 'Tanzania Classic',
-    route: 'Tarangire · Ngorongoro · Serengeti',
+    href: '/experiences?exp=11-day-tanzania-rwanda-premium',
+    image: '/experiences/featured/the-great-migration-adventure.webp',
+    badge: '11 Days',
+    title: 'Tanzania & Rwanda, Premium',
+    route: 'Serengeti · Ngorongoro · Volcanoes NP',
     price: 'Price on request',
     accent: '#3f6b63'
   },
   {
     key: 'custom',
-    href: '/experiences',
+    href: '/contact',
     image: '/experiences/featured/rwanda-discovery.jpg',
     badge: 'Custom',
     title: 'Build Your Own',
@@ -260,7 +260,7 @@ export const contact = {
 }
 
 export const videoSection = {
-  src: '/luxe-horizons-video.mp4',
+  src: '/IMG_6548.mp4',
   eyebrow: 'Watch Our Story',
   heading: 'Rwanda, the Land of a Thousand Hills',
   subheading:

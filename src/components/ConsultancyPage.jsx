@@ -115,7 +115,7 @@ export default function ConsultancyPage() {
 
       <section className="con-hero">
         <div className="con-hero-parallax" style={{ transform: `translateY(${scrollY * 0.22}px)` }}>
-          <img className="con-hero-media" src="/texp-akagera.jpg" alt="Luxe Horizons Africa" />
+          <img className="con-hero-media" src="/Consultancy.jpeg" alt="Luxe Horizons Africa Consultancy" />
         </div>
         <div className="con-hero-overlay" />
         <div className="con-hero-content">
