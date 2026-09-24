@@ -12,12 +12,14 @@ import { experiencesData } from '../data/experiencesData.js'
 import '../components/AdventureSection.css'
 import './ExperiencesPage.css'
 
+// Kenya is deliberately left out until there's a real Kenya tour to back it —
+// an empty filter tab looks broken to a visitor, not "coming soon". Add it
+// back once experiencesData.js has a real Kenya-category entry.
 const CATEGORIES = [
   'All',
   'Rwanda',
   'Uganda',
   'Tanzania',
-  'Kenya',
   'Special Expeditions'
 ]
 
