@@ -1,4 +1,5 @@
 export const experiencesData = [
+  /*
   {
     "id": "rwandas-primates",
     "slug": "rwandas-primates",
@@ -31,6 +32,8 @@ export const experiencesData = [
       "/experiences/rwandas-primates-6.jpg"
     ]
   },
+  */
+  /*
   {
     "id": "7-day-rwanda-primates-adventure",
     "slug": "7-day-rwanda-primates-adventure",
@@ -85,6 +88,7 @@ export const experiencesData = [
       "/experiences/7-day-rwanda-primates-adventure-6.png"
     ]
   },
+  */
   {
     "id": "pre-post-conference-gorilla-experience",
     "slug": "pre-post-conference-gorilla-experience",
@@ -120,6 +124,7 @@ export const experiencesData = [
       "/experiences/pre-post-conference-gorilla-experience-6.jpeg"
     ]
   },
+  /*
   {
     "id": "the-great-migration-adventure",
     "slug": "the-great-migration-adventure",
@@ -152,6 +157,8 @@ export const experiencesData = [
       "/experiences/the-great-migration-adventure-6.jpg"
     ]
   },
+  */
+  /*
   {
     "id": "5-day-rwanda-trekking-experience",
     "slug": "5-day-rwanda-trekking-experience",
@@ -200,6 +207,7 @@ export const experiencesData = [
       "/experiences/5-day-rwanda-trekking-experience-6.png"
     ]
   },
+  */
   {
     "id": "pre-post-conference-safari-experience",
     "slug": "pre-post-conference-safari-experience",
@@ -235,6 +243,7 @@ export const experiencesData = [
       "/experiences/pre-post-conference-safari-experience-6.jpg"
     ]
   },
+  /*
   {
     "id": "7-day-rwandas-big-5-gorillas",
     "slug": "7-day-rwandas-big-5-gorillas",
@@ -286,6 +295,8 @@ export const experiencesData = [
       "/experiences/7-day-rwandas-big-5-gorillas-6.png"
     ]
   },
+  */
+  /*
   {
     "id": "tanzania-classic",
     "slug": "tanzania-classic",
@@ -318,6 +329,8 @@ export const experiencesData = [
       "/experiences/tanzania-classic-6.jpg"
     ]
   },
+  */
+  /*
   {
     "id": "best-of-the-pearl-of-africa",
     "slug": "best-of-the-pearl-of-africa",
@@ -350,6 +363,8 @@ export const experiencesData = [
       "/experiences/best-of-the-pearl-of-africa-6.jpg"
     ]
   },
+  */
+  /*
   {
     "id": "rwanda-discovery",
     "slug": "rwanda-discovery",
@@ -382,6 +397,8 @@ export const experiencesData = [
       "/experiences/rwanda-discovery-6.jpg"
     ]
   },
+  */
+  /*
   {
     "id": "gorillas-in-the-mist",
     "slug": "gorillas-in-the-mist",
@@ -414,6 +431,8 @@ export const experiencesData = [
       "/experiences/gorillas-in-the-mist-6.jpg"
     ]
   },
+  */
+  /*
   {
     "id": "11-day-rwanda-holiday-experience",
     "slug": "11-day-rwanda-holiday-experience",
@@ -479,48 +498,37 @@ export const experiencesData = [
       "/experiences/11-day-rwanda-holiday-experience-6.png"
     ]
   },
+  */
   {
     "id": "pre-colonial-era-the-big-5-the-city",
     "slug": "pre-colonial-era-the-big-5-the-city",
-    "title": "Pre-colonial era, The Big 5 & The City",
+    "title": "5 Day Rwanda Incentive Group Trip",
     "category": "Special Expeditions",
-    "duration": "Custom Duration",
+    "duration": "5 Days",
     "image": "/experiences/featured/pre-colonial-era-the-big-5-the-city.jpg",
-    "summary": "This 5 day tour of Rwanda offers a combination of city exploration, wildlife viewing, and cultural immersion.",
-    "description": "This 5 day tour of Rwanda offers a combination of city exploration, wildlife viewing, and cultural immersion.",
+    "summary": "A 5-day Rwanda incentive group trip beyond the gorillas: Akagera's Big Five game drives, a Kigali city tour with the Genocide Memorial, and a cultural day at Nyanza's King's Palace with the royal Inyambo cattle and traditional dance.",
+    "description": "A 5-day Rwanda incentive group trip beyond the gorillas: Akagera's Big Five game drives, a Kigali city tour with the Genocide Memorial, and a cultural day at Nyanza's King's Palace with the royal Inyambo cattle and traditional dance.",
     "fullStory": [
-      "This 5 day tour of Rwanda offers a combination of city exploration, wildlife viewing, and cultural immersion.",
-      "Notes: The Group Leader is on FOC (only one pax) Optional arrangement of the Gorilla trip extension",
-      "On arrival at Kigali International Airport, you will be welcomed upon exit where you will be met by your dedicated guide for a short introductory briefing, learn a few key words in our local language as you embark on a short 20min drive to the Kigali Marriott Hotel.",
-      "Experience Rwanda\u2019s capital from Kigali Marriott Hotel, conveniently located near the Nyarugenge financial district and the Kigali Convention Center. Set in the vibrant heart of Kigali, our impeccable luxury hotel provides spacious, modern accommodations with deluxe amenities and premium services.",
-      "THAT VERY OR NEXT DAY AFTERNOON MEETING AT THE HOTEL DEPENDING ON YOUR ARRIVAL TIME. Conference room and all facilities, Coffee-break, Lunch & Dinner are included with soft drinks ONLY.",
-      "After your breakfast, you will first visit the Kigali Genocide Memorial as a Historical component of your trip and then carry on Nyamirambo vibrant suburb visit as well as an exploration to various corners of the city for some of the most panoramic city view points.",
-      "With about 1.3million people on a surface of 730 km square, Kigali City is small but yet one of the friendliest, greenest, cleanest and safest of Africa\u2019s cities attracting numerous visitors and investors to the capital. The rapidly growing City is becoming the biggest MICE and sports hub with signature Conference and sports venues with a track record as the fastest growing in Africa. A culinary experience and a nightlife in Kigali will never disappoint with vibrant and a wide range of various restaurants with India specialties, among others. Lunch & Dinner included with soft drinks ONLY",
-      "The next morning you will embark on an approx 2.5hrs scenic drive to Akagera National Park where you will spend your full day on game drives with animal sightings in the wild. You will stop-over for Included Packed Picnic Bush Lunch in the middle of the Park & carry on with the game drive.",
-      "Lunch will be packed to be consumed later in the Park. Dinner (included, with soft drinks ONLY)",
-      "Next morning after your breakfast at the Hotel, you will check out and embark on a 2.5 hrs cultural drive to Nyanza at the King\u2019s Palace, home of Rwanda\u2019s last Monarch with a rich history on the country\u2019s ancient traditions and practices. You will experience the real daily life of Rwanda\u2019s Ancient Monarchy and Royalty Rules and Practices. Along with trained parading Royal long-horned Cattle breed, also known as \u201cInyambo\u201d Cows as you enjoy the Shepherds who sing for the parading cows. Don\u2019t be afraid of posing for a photo with these actually gentle and friendly Royal cows!",
-      "You will have an occasion with a live performance of the Traditional Dancing Troupe. Don\u2019t shy away, you can join in a dance; it might be difficult for a beginner but worth a try. Your traditional local lunch will be organized from around the King\u2019s Palace Hotel (dietary requirements put into consideration). Lunch included with soft drinks ONLY.",
-      "After a Cultural & Community busy day in the south, you will head back to Kigali.",
-      "Go freshen up and come for a Night Entertainment with some of the most prominent Music Mix by renowned DJ\u2019s.",
-      "Dinner at the Venue included; Meals with soft drinks ONLY.",
-      "No rush, have a morning at leisure, allowing yourselves to rest from a possible previous long night. Go for a late breakfast and enjoy a lazy morning by the hotel\u2019s Swimming Pool & more. The transport & guides will remain at your disposal for any possible souvenir shopping expeditions, City further sightings, enjoy the dedicated Kigali Car-free Zones & Kigali recreational Parks.",
-      "And that will mark the end of your eye-opening & memorable trip to Rwanda!",
-      "Explore the city and Genocide Memorial, then embark on thrilling safaris in Akagera National Park for a Game Drive Experience. Play Gold At The Kigali 18 Hole Golf Course and enjoy the land of a thousand hills.",
-      "5-Day Volcanoes Experience includes: 1 night in Kigali, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels.",
-      "4-Day Gorilla trekking includes: 1 night in Kigali, 2 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges.",
-      "2 nights in Kigali, 2 nights by Nyungwe National Park, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels",
-      "Follow us for travel experiences and updates"
+      "Murakaza neza! Welcome to Rwanda, a magical landscape of a thousand hills and a million smiling faces. Etched into global consciousness by the brutality of the 1994 genocide, the social and economic repair that has occurred since is nothing short of miraculous - the country is stable and tourism is once again a key contributor to the economy. Primate safaris may be the primary drawcard for the country, but it's not all monkey business - go beyond the gorillas, step into an adventure playground waiting to be discovered by the active traveler, and experience a country breathtaking in its beauty and graced by a people generous in their welcome.",
+      "This Rwanda Experience itinerary encompasses some of the country's main iconic attractions: from the contemporary city vibe of Kigali - the sparkling streets of the rapidly growing capital, now becoming the biggest MICE and sports hub in Africa with signature conference and sports venues - into the sweeping savannahs and lakes of Akagera National Park, Rwanda's only home of the Big Five: lions, leopards, buffalo, elephants, rhinos and more.",
+      "Arrival in Kigali - please advise your flight details. On arrival at Kigali International Airport, you're welcomed upon exit and met by your dedicated guide for a short introductory briefing, learning a few key words of the local language on the short 20-minute private drive to your hotel. The afternoon is for relaxing and refreshing ahead of an afternoon or next-morning indoor meeting, with a Welcome Group Dinner and trip briefing at the hotel or a recommended Kigali restaurant, depending on arrival time.",
+      "The next morning brings an approximately 2.5-hour scenic drive to Akagera National Park for a full day of game drives and wildlife sightings, with an included packed picnic bush lunch consumed in the middle of the park before continuing the drive. Dinner is back at your Kigali hotel in the evening on return.",
+      "After breakfast, visit the Kigali Genocide Memorial - a historical component of the trip - followed by a visit to the vibrant Nyamirambo suburb and an exploration of some of the city's most panoramic viewpoints. With about 1.3 million people on 730 square kilometres, Kigali is small but among the friendliest, greenest, cleanest and safest cities in Africa, rapidly growing into the continent's biggest MICE and sports hub, with a culinary scene and nightlife spanning a wide range of specialities.",
+      "The next morning, check out and embark on a 2.5-hour cultural drive to Nyanza and the King's Palace, home to Rwanda's last monarch and a rich history of the country's ancient traditions and practices. Experience the real daily life of Rwanda's ancient monarchy and royalty, alongside the trained, parading royal long-horned Inyambo cattle and the shepherds who sing for them as they parade - gentle, friendly animals happy to pose for a photo. A live performance from the Traditional Dancing Troupe follows, with an open invitation to join in, and a traditional local lunch organized around the King's Palace Hotel (dietary requirements accommodated). After a busy cultural and community day in the south, head back to Kigali, freshen up, and enjoy a night of entertainment with some of the city's most prominent DJs.",
+      "No rush on the final morning - rest from the previous night, enjoy a late breakfast and a lazy morning by the hotel's swimming pool, with transport and guides remaining at your disposal for any souvenir shopping, further city sightseeing, or a visit to Kigali's car-free zones and recreational parks. An evening private transfer to the airport marks your departure - please advise your flight details. This marks the end of your eye-opening and memorable trip to Rwanda."
     ],
     "highlights": [
-      "Notes: The Group Leader is on FOC (only one pax) Optional arrangement of the Gorilla trip extension",
-      "On arrival at Kigali International Airport, you will be welcomed upon exit where you will be met by your dedicated guide for a short introductory briefing, learn a few key words in our local language as you embark on a short 20min drive to the Kigali Marriott Hotel.",
-      "Experience Rwanda\u2019s capital from Kigali Marriott Hotel, conveniently located near the Nyarugenge financial district and the Kigali Convention Center. Set in the vibrant heart of Kigali, our impeccable luxury hotel provides spacious, modern accommodations with deluxe amenities and premium services."
+      "A day of game drives in Akagera National Park, Rwanda's only home of the Big Five: lions, leopards, buffalo, elephants and rhinos.",
+      "The Kigali Genocide Memorial is paired with a visit to the vibrant Nyamirambo suburb and the city's most panoramic viewpoints.",
+      "A cultural day at Nyanza's King's Palace includes the parading Inyambo royal cattle, a live Traditional Dancing Troupe performance, and a traditional local lunch.",
+      "The trip closes with a night of entertainment from some of Kigali's most prominent DJs."
     ],
     "location": "Special Expeditions",
     "url": "https://luxehorizonsafrica.com/experiences?exp=pre-colonial-era-the-big-5-the-city",
     "heroImage": "/experiences/featured/pre-colonial-era-the-big-5-the-city.jpg",
     "gallery": [
       "/experiences/featured/pre-colonial-era-the-big-5-the-city.jpg",
+      "/kob-antelope-savannah.jpg",
       "/experiences/pre-colonial-era-the-big-5-the-city-4.jpg",
       "/experiences/pre-colonial-era-the-big-5-the-city-5.jpg",
       "/experiences/pre-colonial-era-the-big-5-the-city-6.png"
@@ -641,6 +649,7 @@ export const experiencesData = [
       "/experiences/ancient-history-culture-6.jpeg"
     ]
   },
+  /*
   {
     "id": "gorilla-trekking-golden-monkeys",
     "slug": "gorilla-trekking-golden-monkeys",
@@ -673,27 +682,24 @@ export const experiencesData = [
       "/experiences/gorilla-trekking-golden-monkeys-6.jpg"
     ]
   },
+  */
+  /*
   {
     "id": "magical-kenya",
     "slug": "magical-kenya",
     "title": "Magical Kenya",
     "category": "Kenya",
-    "duration": "Custom Duration",
+    "duration": "7 Days",
     "image": "/experiences/magical-kenya-5.jpg",
     "summary": "On a Magical Kenya adventure encounter the Big Five on safari, marvel at the Great Rift Valley's beauty & embrace Nairobi's vibrant culture.",
     "description": "7-Day safari includes: 1 night Karen, 2 nights Amboseli National Park, 2 nights Meru National Park, 2 nights Maasai Mara National Reserve, Nairobi tour, Game drives, recommended Luxury tented camps and lodges.",
     "fullStory": [
-      "7-Day safari includes: 1 night Karen, 2 nights Amboseli National Park, 2 nights Meru National Park, 2 nights Maasai Mara National Reserve, Nairobi tour, Game drives, recommended Luxury tented camps and lodges.",
-      "Explore the city and Genocide Memorial, then embark on thrilling safaris in Akagera National Park for a Game Drive Experience. Play Gold At The Kigali 18 Hole Golf Course and enjoy the land of a thousand hills.",
-      "5-Day Volcanoes Experience includes: 1 night in Kigali, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels.",
-      "4-Day Gorilla trekking includes: 1 night in Kigali, 2 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges.",
-      "2 nights in Kigali, 2 nights by Nyungwe National Park, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels",
-      "Follow us for travel experiences and updates"
+      "7-Day safari includes: 1 night Karen, 2 nights Amboseli National Park, 2 nights Meru National Park, 2 nights Maasai Mara National Reserve, Nairobi tour, Game drives, recommended Luxury tented camps and lodges."
     ],
     "highlights": [
-      "Explore the city and Genocide Memorial, then embark on thrilling safaris in Akagera National Park for a Game Drive Experience. Play Gold At The Kigali 18 Hole Golf Course and enjoy the land of a thousand hills.",
-      "5-Day Volcanoes Experience includes: 1 night in Kigali, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels.",
-      "4-Day Gorilla trekking includes: 1 night in Kigali, 2 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges."
+      "Two nights in Amboseli National Park, in the shadow of Mount Kilimanjaro's giant elephant families.",
+      "Two nights in Meru National Park, one of Kenya's lesser-visited but wildlife-rich reserves.",
+      "Two nights in the Maasai Mara National Reserve, with game drives across the Kenyan side of the Great Migration."
     ],
     "location": "Kenya",
     "url": "https://luxehorizonsafrica.com/experiences?exp=magical-kenya",
@@ -701,6 +707,265 @@ export const experiencesData = [
     "gallery": [
       "/experiences/magical-kenya-4.jpg",
       "/experiences/magical-kenya-6.jpg"
+    ]
+  },
+  */
+  {
+    "id": "15-day-rwanda-kenya-classic-trip",
+    "slug": "15-day-rwanda-kenya-classic-trip",
+    "title": "15 Day Rwanda - Kenya Classic Trip",
+    "category": "Special Expeditions",
+    "duration": "15 Days",
+    "image": "/experiences/featured/gorillas-in-the-mist.jpg",
+    "summary": "A 15-day East African classic linking Rwanda and Kenya: Nyungwe chimpanzee trekking and a Lake Kivu boat ride, gorilla trekking in the Volcanoes, the Great Migration in the Maasai Mara, resident wildlife at Lake Naivasha, and a closing stay on Diani Beach.",
+    "description": "A 15-day East African classic linking Rwanda and Kenya: Nyungwe chimpanzee trekking and a Lake Kivu boat ride, gorilla trekking in the Volcanoes, the Great Migration in the Maasai Mara, resident wildlife at Lake Naivasha, and a closing stay on Diani Beach.",
+    "fullStory": [
+      "Your Rwanda-Kenya Classic Trip begins on arrival in Kigali - please advise your flight details in advance. You'll be met and greeted at the airport, assisted through immigration and luggage, and escorted to your guide for a private transfer to the hotel (approx. 20 minutes). Overnight at the Kigali Marriott Hotel (Bed & Breakfast) in a Deluxe Room.",
+      "After breakfast and check-out, a brief Kigali city tour includes a visit to the Genocide Memorial - a historical component of the trip, learning Rwanda's dark past and its journey to present-day unity and reconciliation. You'll then embark on a 6-hour cultural drive en route to Nyungwe Forest National Park, with lunch included along the way (excluding drinks), before resuming the drive and settling in for an evening of leisure amidst the rainforest. Overnight at Munazi Lodge (Full Board) in a Standard A-Frame Cottage.",
+      "An early breakfast by 5:00am precedes a chimpanzee trekking experience in Nyungwe Forest, followed by lunch at the resort. In the afternoon, take on the Canopy Walk - a suspended bridge walkway 70 metres above the forest floor - before an evening of leisure at the property. Overnight at Munazi Lodge (Full Board) in a Standard A-Frame Cottage.",
+      "Following breakfast, morning leisure and check-out, a 3.5-hour panoramic drive follows the tranquil shores of Lake Kivu. The day continues with an adventurous sunset boat ride on the lake, watching fishermen at their daily work and spotting the famous Rwandan swimming cows and Napoleon Island, home to the lake's resident bats, before an evening of leisure at the beach with views over the water. Overnight at Umurobyi Lodge (Full Board) in a Standard Room.",
+      "After breakfast and check-out, a scenic 3-hour drive brings you to the foothills of the Volcanoes. Along the way, visit the Dian Fossey Campus - established with support from Ellen DeGeneres - to learn about gorilla conservation, before an evening of leisure at the foothills. Overnight at Farmhouse Rwanda (Full Board) in a Standard Suite.",
+      "An early breakfast is followed by a briefing and group assignment at the park office ahead of the day's Gorilla Trek - the trip's signature experience. The full trek takes 3 to 7 hours, including a full hour spent with the gorilla family, watching the alpha silverback lead the way, mothers caring for their young, and the black-backs play-fighting like any other set of siblings. Optional activities are available back at the lodge, from massage to bird watching by the outdoor fireplace. Overnight at Farmhouse Rwanda (Full Board) in a Standard Suite.",
+      "Breakfast and check-out are followed by a scenic 3-hour drive back to Kigali for a scheduled mid-morning or early-afternoon regional flight to Nairobi (approx. 1hr 40min). On arrival, your guide meets you for a private transfer to the hotel (approx. 30 minutes), with the evening open for a taste of Nairobi's night life. Overnight at Sarova Panafric Hotel (Bed & Breakfast) in a Deluxe Room.",
+      "After an early breakfast and check-out, an optional brief Nairobi city tour and a visit to the Giraffe Centre are available before the 6-hour drive to the Maasai Mara National Reserve. Overnight at Pearl Mara Camp (Full Board) in a Luxury Tent.",
+      "A full day dedicated to the Maasai Mara: scheduled safari game drives bring you into the heart of the Great Migration experience, before an evening of leisure back at camp. Overnight at Pearl Mara Camp (Full Board) in a Luxury Tent.",
+      "Breakfast and check-out are followed by a scenic 4-hour tarmac transfer to Lake Naivasha National Park. From the security of your lodge deck, spot resident wildlife - elegant giraffes and grazing zebras among others - both during the day and after dark. Overnight at Lake Naivasha Sopa Resort (Full Board) in a Deluxe Room.",
+      "An adventurous boat ride on Lake Naivasha takes in the surrounding landscapes and wildlife, with chances to spot hippos, crocodiles and birdlife, followed by a visit to Crescent Island for a unique walking safari among free-roaming animals and diverse birdlife. The evening continues the lodge's resident-wildlife views from your deck. Overnight at Lake Naivasha Sopa Resort (Full Board) in a Deluxe Room.",
+      "Breakfast and check-out are followed by a scenic 2.5-hour drive to Nairobi's Wilson Airport for a Safarilink flight to Diani's Ukunda Airport (approx. 1hr 15min), then a short transfer to the property. Three nights are spent at Neptune Beach Resort & Spa (Full Board) in a Deluxe Room, with optional water activities available at Diamonds - golf, boat cruises, coral reef snorkeling, deep-sea fishing excursions and relaxed dips in the Indian Ocean along Diani Beach.",
+      "Breakfast and check-out are followed by a transfer back to Ukunda Airport for a Safarilink flight to Nairobi's Wilson Airport (approx. 1hr 15min). On arrival, an optional souvenir-shopping stop is available, subject to your outbound flight timing, before a final transfer to Jomo Kenyatta International Airport for departure - please advise your outbound flight details. This marks the end of your East African tour."
+    ],
+    "highlights": [
+      "The Gorilla Trek in Volcanoes National Park is the trip's centerpiece: 3 to 7 hours on the mountain, including a full hour with a wild gorilla family as the alpha silverback leads, mothers tend their young, and juveniles play-fight.",
+      "Scheduled safari game drives in the Maasai Mara put you right inside the Great Migration experience, from Pearl Mara Camp's luxury tents.",
+      "An adventurous sunset boat ride on Lake Kivu takes in the famous Rwandan swimming cows and Napoleon Island, home to the lake's resident bats.",
+      "The trip closes with three nights at Neptune Beach Resort & Spa on Diani Beach, with optional golf, snorkeling, deep-sea fishing and Indian Ocean water sports."
+    ],
+    "location": "Special Expeditions",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=15-day-rwanda-kenya-classic-trip",
+    "heroImage": "/experiences/featured/gorillas-in-the-mist.jpg",
+    "gallery": [
+      "/experiences/featured/gorillas-in-the-mist.jpg",
+      "/mountain-gorilla-2.jpg",
+      "/kayaking-lake-kivu.jpg",
+      "/experiences/city-tour-vibrant-hopeful-kigali-4.png",
+      "/experiences/magical-kenya-4.jpg",
+      "/experiences/magical-kenya-6.jpg"
+    ]
+  },
+  {
+    "id": "15-day-uganda-kenya-premium",
+    "slug": "15-day-uganda-kenya-premium",
+    "title": "15 Day Uganda - Kenya Premium",
+    "category": "Special Expeditions",
+    "duration": "15 Days",
+    "image": "/experiences/featured/best-of-the-pearl-of-africa.jpg",
+    "summary": "A 15-day premium journey linking Uganda and Kenya: gorilla trekking in Bwindi, Nairobi's city highlights, a rhino sanctuary stay at Ol Pejeta, three nights in the Mara Triangle with an optional hot air balloon safari, and a closing private-villa stay on Diani Beach.",
+    "description": "A 15-day premium journey linking Uganda and Kenya: gorilla trekking in Bwindi, Nairobi's city highlights, a rhino sanctuary stay at Ol Pejeta, three nights in the Mara Triangle with an optional hot air balloon safari, and a closing private-villa stay on Diani Beach.",
+    "fullStory": [
+      "Your Uganda-Kenya Premium journey begins on arrival in Kampala, Entebbe - please advise your flight details in advance. You'll be met and greeted at the airport, assisted through immigration and luggage, and escorted to your guide for a private transfer to the hotel (approx. 10 minutes). Overnight at Entebbe Forest Lodge (Bed & Breakfast) in a Deluxe Room.",
+      "After breakfast and check-out, transfer to the airport for a flight to Kihihi, where you're met and transferred to the property for check-in and an afternoon of leisure. Overnight at Clouds Bwindi Lodge (Full Board) in a Luxury Cottage.",
+      "An early breakfast precedes a briefing and group assignment at the park office ahead of the day's Gorilla Trekking Experience in Bwindi - the trip's signature encounter. The afternoon is open for leisure or optional onsite community-based activities. Overnight at Clouds Bwindi Lodge (Full Board) in a Luxury Cottage.",
+      "Breakfast is followed by check-out and a transfer to Kihihi Airstrip for a flight to Entebbe, connecting onto a Kenya Airways flight to Nairobi's Jomo Kenyatta International Airport (approx. 1hr). On arrival, you're met and transferred to Hemingways Nairobi for an afternoon of leisure. Overnight at Hemingways Nairobi (Full Board) in a Suite Deluxe.",
+      "After breakfast, check-out is followed by a Nairobi city tour taking in the Sheldrick Elephant Orphanage, the Karen Blixen Museum and the Giraffe Centre (payable direct), among other stops, with the afternoon left free for leisure. Overnight at Hemingways Nairobi (Full Board) in a Suite Deluxe.",
+      "Breakfast and check-out are followed by a transfer to Wilson Airport for an early-afternoon flight to Ol Pejeta. On arrival, a private game-viewing transfer brings you to Sanctuary Tambarare, where two nights include a sundowner, private game drives, a visit to the rhino sanctuary and local community engagement. Overnight at Sanctuary Tambarare (Full Board) in a Suite Deluxe.",
+      "Breakfast and check-out are followed by a private transfer to Nanyuki Airstrip for a flight to Mara Kicwatembo, where you're met and transferred on a game-viewing drive to Pearl Mara in the Mara Triangle. Three nights here bring sundowners, chances at the Great Migration, private game drives, on-property walking safaris, a Maasai archery experience with the local community, a private bush lunch, and an optional hot air balloon safari. Overnight at Pearl Mara (Full Board) in a Luxury Tent.",
+      "Breakfast and check-out are followed by a private transfer to Wilson Airport for a flight to Diani, where you're met and transferred to the Fisherman's House Private Villa. Four nights here include full board with tailored cuisine, plus optional extras such as the Nomad Boat Experience, watersports adventures and community experiences. Overnight at Fisherman's House Private Villa (Full Board, Tailored Cuisine).",
+      "Breakfast and check-out are followed by a private transfer to Diani Airstrip for a flight back to Nairobi's Wilson Airport, then a private transfer to Jomo Kenyatta International Airport for your outbound flight - with optional city excursions available depending on departure timing. Please advise your outbound flight details. This marks the end of your East African tour."
+    ],
+    "highlights": [
+      "Gorilla Trekking in Bwindi Impenetrable Forest is the trip's opening highlight, preceded by a full briefing and group assignment at the park office.",
+      "A stay at Sanctuary Tambarare in Ol Pejeta includes private game drives, a visit to the rhino sanctuary and local community engagement.",
+      "Three nights at Pearl Mara in the Mara Triangle bring sundowners, walking safaris, a Maasai archery experience and an optional hot air balloon safari over the Great Migration.",
+      "The trip closes with four nights at the Fisherman's House Private Villa on Diani Beach, with tailored full-board cuisine and optional watersports."
+    ],
+    "location": "Special Expeditions",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=15-day-uganda-kenya-premium",
+    "heroImage": "/experiences/featured/best-of-the-pearl-of-africa.jpg",
+    "gallery": [
+      "/experiences/featured/best-of-the-pearl-of-africa.jpg",
+      "/experiences/featured/gorilla-trekking-golden-monkeys.jpg",
+      "/experiences/magical-kenya-4.jpg",
+      "/experiences/magical-kenya-6.jpg"
+    ]
+  },
+  {
+    "id": "rwanda-primates-corner-premium",
+    "slug": "rwanda-primates-corner-premium",
+    "title": "Rwanda Primates Corner, Premium",
+    "category": "Rwanda",
+    "duration": "6 Days",
+    "image": "/mountain-gorilla-1.jpg",
+    "summary": "A 6-day premium Rwanda primates journey: Kigali, the Canopy Walk and chimpanzee trekking in Nyungwe Forest, and two separate mountain gorilla treks in the Volcanoes, connected by helicopter transfers throughout.",
+    "description": "Murakaza neza! Welcome to Rwanda, a magical landscape of a thousand hills and a million smiling faces. With a size of 26,338 sq km and close to 14 million people, of which 70% are below 30 years of age, Rwanda is known to be one of the safest and cleanest countries in the world, ranked second by the World Bank in ease of doing business, where a business can be registered in 48 hours. The local language is Kinyarwanda, with English and French as official languages. Etched into global consciousness by the brutality of the 1994 genocide against the Tutsi, the social and economic repair that has occurred since is nothing short of miraculous - the country is stable, and tourism is now a key contributor to its economy.",
+    "fullStory": [
+      "Murakaza neza! Welcome to Rwanda, a magical landscape of a thousand hills and a million smiling faces. With a size of 26,338 sq km and close to 14 million people, of which 70% are below 30 years of age, Rwanda is known to be one of the safest and cleanest countries in the world, ranked second by the World Bank in ease of doing business, where a business can be registered in 48 hours. The local language is Kinyarwanda, with English and French as official languages. Etched into global consciousness by the brutality of the 1994 genocide against the Tutsi, the social and economic repair that has occurred since is nothing short of miraculous - the country is stable, and tourism is now a key contributor to its economy.",
+      "This Rwanda Primates itinerary encompasses some of the country's main iconic attractions: from the contemporary city vibe of Kigali, the sparkling streets of the rapidly growing capital, into the southwest at Nyungwe National Park - confirmed to be a source of the River Nile and a massive montane forest home to the famous Canopy Walkway 70 metres above the forest floor and thirteen species of primates, including chimpanzees, Ruwenzori colobus and L'Hoest's monkeys.",
+      "We then explore the jewel in the jungle-green crown of the country: the majestic Volcanoes, where populations of endangered mountain gorillas still roam, fiercely protected by passionate people, and attract discerning travellers from around the world.",
+      "Arrival in Kigali - please advise your flight details in advance. On arrival at Kigali International Airport, you're met and assisted through immigration and customs before a private transfer to your hotel (dinner is on your own). You'll stay at the Retreat, a 20-room luxury boutique hotel and spa set on one of Kigali's most charming boulevards, in the vibrant heart of the city. Overnight at the Retreat (Bed & Breakfast).",
+      "After breakfast and check-out, a 15-minute transfer to Kigali Airport connects onto a 30-minute helicopter flight to One & Only Nyungwe House, arriving in time for a hot lunch after check-in. One & Only Nyungwe House offers an exclusive window onto Africa's wildlife and culture. In the afternoon, explore the Canopy Walk 70 metres above the forest floor for a bird's-eye view of the biodiversity below - orchids, monkeys and more - on a roughly 45-minute hike each way to the bridge, Nyungwe's highest viewpoint, spotting multiple bird species and butterflies along the way. Overnight at One & Only Nyungwe House (Full Board: Breakfast, Lunch & Dinner).",
+      "An early breakfast, ready by 5:00am (which can be packed), precedes a roughly 1.5-hour drive to the Cyamudongo starting point along a mixed, rough 'African massage' road through hillsides and tea plantations. After a briefing from the Park Guide, you're allowed one hour with the chimpanzees - faster and more agile tree-climbers than gorillas, so an early start is essential before they disappear deeper into the forest. The rest of the day is at leisure amid Nyungwe House's tea plantations. Overnight at One & Only Nyungwe House (Full Board: Breakfast, Lunch & Dinner).",
+      "Breakfast and check-out are followed by a 45-minute helicopter transfer over the mountains and Lake Kivu to the Volcanoes, arriving in time for lunch and check-in at Singita Kwitonda Lodge - among the best-located luxury lodges in the area, bordering Volcanoes National Park itself, with breathtaking volcano views every morning. In the afternoon, visit the Ellen DeGeneres Campus for the Dian Fossey Fund, a research and conservation centre with a 3D pre-encounter experience and games to deepen your knowledge of the mountain gorillas before meeting them. Overnight at Singita Kwitonda Lodge (Full Board: Breakfast, Lunch & Dinner).",
+      "An early breakfast precedes a drive to Volcanoes National Park for a 7:00am group briefing ahead of your Gorilla Trek, then a drive to the trailhead (porters available). Tracking typically takes 3 to 6 hours round-trip; once you reach one of the park's 13-plus habituated families, you'll spend a full allowed hour watching them - the silverback leading the way, mothers tending their young, and juvenile black-backs play-fighting to show off. Afterwards, trek back to base for lunch at the lodge, with the afternoon open for an optional community village experience or lodge spa and massage treatments. Overnight at Singita Kwitonda Lodge (Full Board: Breakfast, Lunch & Dinner).",
+      "An early breakfast precedes the same process for a second Gorilla Trek with a different habituated family, learning even more about these gentle giants on your second encounter. After trekking back to base and lunch at the lodge, a 25-minute helicopter transfer returns you to Kigali International Airport, marking the end of your Rwanda tour."
+    ],
+    "highlights": [
+      "Two separate Mountain Gorilla treks with different habituated families, each with a full hour spent watching the group at close range.",
+      "The Canopy Walk at One & Only Nyungwe House crosses 70 metres above the forest floor - Nyungwe's highest viewpoint.",
+      "Every regional transfer is by helicopter - Kigali to Nyungwe, Nyungwe over Lake Kivu to the Volcanoes, and back to Kigali at the end.",
+      "A visit to the Ellen DeGeneres Campus for the Dian Fossey Fund offers a 3D pre-encounter experience before meeting the gorillas in person."
+    ],
+    "location": "Rwanda",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=rwanda-primates-corner-premium",
+    "heroImage": "/mountain-gorilla-1.jpg",
+    "gallery": [
+      "/mountain-gorilla-1.jpg",
+      "/mountain-gorilla-2.jpg",
+      "/chimpanzee-1.jpg",
+      "/chimpanzee-2.jpg",
+      "/colobus-monkey-baby.jpg",
+      "/gorilla-trek-muddy-boots.jpg",
+      "/weaver-bird-nyungwe.jpg"
+    ]
+  },
+  {
+    "id": "11-day-tanzania-rwanda-premium",
+    "slug": "11-day-tanzania-rwanda-premium",
+    "title": "11 Day Tanzania - Rwanda, Premium",
+    "category": "Tanzania",
+    "duration": "11 Days",
+    "image": "/experiences/featured/the-great-migration-adventure.webp",
+    "summary": "An 11-day premium journey linking Tanzania and Rwanda: private game drives and the wildebeest migration in the Serengeti, the Ngorongoro Crater, the Kigali Genocide Memorial, and a once-in-a-lifetime gorilla trekking encounter in the Volcanoes.",
+    "description": "An 11-day premium journey linking Tanzania and Rwanda: private game drives and the wildebeest migration in the Serengeti, the Ngorongoro Crater, the Kigali Genocide Memorial, and a once-in-a-lifetime gorilla trekking encounter in the Volcanoes.",
+    "fullStory": [
+      "This 11-day Tanzania-Rwanda Premium journey brings together the Serengeti's endless plains and the tens-of-thousands-strong wildebeest migration, the ultimate wildlife experience of the Ngorongoro Crater, walking safaris and exceptional private game drives, an interactive Maasai cultural and village experience, the Kigali Genocide Memorial told through survivors' own stories of Rwanda's history of success, reconciliation and resilience, a once-in-a-lifetime Gorilla Trekking encounter with first-hand stories from former poachers who became porters, park guides and gorilla conservationists, and a culinary experience built around self-harvested vegetables from the lodge's own botanical garden.",
+      "Arrival in Tanzania at Kilimanjaro Airport, Arusha - please advise your flight details in advance. You're met and greeted at the airport before a private transfer with your private guide to the hotel (approx. 1hr 30min drive). Overnight at Arusha Legendary Lodge (Bed & Breakfast) in a Luxury Garden Cottage.",
+      "An 8:30am safari breakfast and check-out are followed by a 10:45am private charter to Grumeti Airstrip on a Cessna Caravan 208EX (approx. 1hr flight), then a 15-minute animal-viewing drive to the lodge with your private Serengeti guide. Three nights bring morning and evening private game drives - the first from 6:30am, the second from 2:30pm, each lasting roughly 2 to 3 hours - with exceptional views of the wildebeest migration crossing the Grumeti River, sundowners with African delicacies curated by your dedicated chef, a Maasai cultural encounter visiting a Maasai village and its community, and a privately set outdoor picnic bush lunch (weather permitting). Optional lodge activities on a private basis include guided walking safaris, an authentic Maasai village experience and a hot air balloon safari. Three nights at AndBeyond Grumeti Serengeti River Lodge (Full Board) in a Serengeti Suite.",
+      "A 9:30am safari breakfast and check-out are followed by an 11:30am private charter to Lake Manyara Airstrip on a Cessna Caravan 208EX (approx. 45min flight), then a 1hr 30min drive to the lodge taking in village life along the road with your private Ngorongoro guide. Two nights bring morning and evening private game drives, from 6:30am and 3:30pm respectively, each roughly 2 to 3 hours, alongside a dedicated Maasai guide sharing the origins and cohabitation of the Hadzabe and Maasai tribes around what's believed to be the first crater to host a human being and the 7th World Wonder. A visit to Karatu Village - the area's first mixed-tribe agricultural neighborhood, now shifted from a game-meat subsistence diet to a mixed diet of plants and vegetables grown in fields under the Ministry of Agriculture's guidance - is also included. Optional lodge activities include guided walking and hiking safaris and an authentic Karatu Village experience. Two nights at Melia Ngorongoro Lodge (Full Board) in a Luxury Rim Room.",
+      "An 8:30am safari breakfast and check-out are followed by a 9:30am private charter to Kigali International Airport on a Cessna Caravan 208EX (approx. 2hr 10min flight), landing at 11:40am and meeting your private guide for a short 20-minute road transfer to the Retreat by Heaven in Kigali. The afternoon is left for leisure at the resort, including a private jacuzzi. Overnight at the Retreat by Heaven (Bed & Breakfast) in a Luxury Pool Villa.",
+      "An 8:00am Kigali breakfast and check-out are followed by a 9:00am short city tour with a guided visit to the Kigali Genocide Memorial - understanding the city's transformation alongside the historical context of Rwanda's rebirth as a nation, with reconciliation success stories told first-hand by young survivors, and laying a wreath at the mass grave of the 250,000 genocide victims. By 11:00am, an approximately 2hr 40min scenic, privately guided drive to the Volcanoes takes in mountain views, village life and transformation success stories along the way, arriving in time for a late lunch at 1:40pm and check-in at Singita Kwitonda Lodge. Overnight at Singita Kwitonda Lodge (Full Board) in a Luxury Two-Bedroom Suite.",
+      "A 6:20am early quick breakfast (a snack, juice or coffee) precedes a 6:45am departure to the park office for briefing and group assignment, then a 7:30am start to the Gorilla Trekking experience - 3 to 7 hours in total, including a full hour allowed with the gorilla family as the alpha silverback leads the way, mothers look after their young, and the juvenile black-backs fight and annoy everybody just like any other set of human siblings. The afternoon is open for leisure, an optional spa treatment, or a visit to the Dian Fossey Gorilla Conservation Campus - established by Dian Fossey and renovated with support from Ellen DeGeneres, now a global research and conservation hub offering a 360-degree theatre experience on mountain gorillas, insight into their individual characters and sounds, original Volcanoes National Park artifacts, and a room dedicated to Dian Fossey's own life and work. Back at Singita Kwitonda Lodge, a guided vegetable garden visit lets you harvest, with your dedicated chef, the very vegetables served at your privately set dinner. Overnight at Singita Kwitonda Lodge (Full Board) in a Luxury Two-Bedroom Suite.",
+      "A 10:00am Volcanoes breakfast and check-out are followed by a special farewell from Singita Lodge and a scenic approximately 2hr 40min drive back to Kigali, checking in at the Retreat for an afternoon of leisure at the resort. The evening brings a recommended dinner at an Afro-fusion fine dining restaurant, with a private set-up for a birthday celebration. Overnight at the Retreat by Heaven (Bed & Breakfast) in a Luxury Pool Villa.",
+      "Breakfast and check-out in Kigali are timed to your departure flight. With your private guide and the same Land Cruiser safari vehicle at your disposal, enjoy a Kigali souvenir-shopping expedition, subject to your outbound flight, before a private transfer to Kigali International Airport for departure - please advise your flight details. This marks the end of your East African tour."
+    ],
+    "highlights": [
+      "The Great Wildebeest Migration crossing the Grumeti River, witnessed from private morning and evening game drives out of AndBeyond Grumeti Serengeti River Lodge.",
+      "A dedicated Maasai guide shares the origins and cohabitation of the Hadzabe and Maasai tribes around the Ngorongoro Crater, believed to be the first crater to host a human being.",
+      "The Kigali Genocide Memorial visit includes first-hand reconciliation stories from young survivors and laying a wreath at the mass grave of 250,000 genocide victims.",
+      "The Gorilla Trek includes a full hour with a wild gorilla family, followed by an optional visit to the Dian Fossey Gorilla Conservation Campus, renovated with support from Ellen DeGeneres.",
+      "At Singita Kwitonda Lodge, a guided vegetable garden visit lets you harvest the produce served at your own privately set dinner."
+    ],
+    "location": "Tanzania",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=11-day-tanzania-rwanda-premium",
+    "heroImage": "/experiences/featured/the-great-migration-adventure.webp",
+    "gallery": [
+      "/experiences/featured/the-great-migration-adventure.webp",
+      "/experiences/featured/tanzania-classic.jpg",
+      "/mountain-gorilla-2.jpg"
+    ]
+  },
+  {
+    "id": "9-day-uganda-wildlife-adventure",
+    "slug": "9-day-uganda-wildlife-adventure",
+    "title": "9 Day Uganda Wildlife Adventure",
+    "category": "Uganda",
+    "duration": "9 Days",
+    "image": "/leopard-tree.jpg",
+    "summary": "A 9-day Uganda wildlife circuit: gorilla trekking in Bwindi, the tree-climbing lions of Ishasha, game drives and a Kazinga Channel boat cruise in Queen Elizabeth National Park, chimpanzee trekking in Kibale, and a Nile River cruise to the base of Murchison Falls.",
+    "description": "A 9-day Uganda wildlife circuit: gorilla trekking in Bwindi, the tree-climbing lions of Ishasha, game drives and a Kazinga Channel boat cruise in Queen Elizabeth National Park, chimpanzee trekking in Kibale, and a Nile River cruise to the base of Murchison Falls.",
+    "fullStory": [
+      "Arrival in Rwanda at Kigali International Airport - please advise your flight details in advance. You're met and greeted at the airport, assisted through immigration formalities and luggage, and escorted to your guide for a private transfer to the hotel (approx. 20 minutes). Overnight in Kigali (Bed & Breakfast).",
+      "After breakfast and check-out, a brief Kigali city tour precedes the drive to Bwindi via the northern Cyanika border, tracing the shores of Volcanoes National Park along the way (approx. 6 hours on the road), with the afternoon left for leisure at the lodge. Overnight in Bwindi (Full Board).",
+      "An early breakfast precedes the day's Gorilla Trekking experience in the Bwindi Impenetrable Forest - typically 3 to 6 hours and requiring a reasonable level of physical fitness - with the afternoon open for leisure, an optional spa treatment, or a community activity through the resort. Overnight in Bwindi (Full Board).",
+      "Breakfast and check-out are followed by the drive to Queen Elizabeth National Park via Ishasha, home to the park's famous tree-climbing lions (approx. 5 hours on the road), including a brief game drive at Ishasha before continuing on through the equator - marked along the route - to the lodge. Overnight at Queen Elizabeth National Park (Full Board).",
+      "Breakfast and check-out are followed by a morning safari game drive through Queen Elizabeth National Park in search of the big five and more, and an afternoon boat cruise on the Kazinga Channel for crocodiles, hippos, elephants and more. The drive continues via Fort Portal to Kibale (approx. 2.5 hours). Overnight by Kibale Forest Lodge (Full Board).",
+      "An early breakfast precedes a Chimpanzee Trekking experience, with the afternoon open for relaxation, optional community activities, or a nature walk through the lodge. Overnight by Kibale Forest Lodge (Full Board).",
+      "Breakfast and check-out are followed by the drive to Murchison Falls National Park (approx. 7.5 hours on the road), with an afternoon boat cruise on the Nile River to the base of the powerful Murchison Falls, where the river squeezes through a 7-metre gorge - watch for hippos, crocodiles and birdlife along the banks. Overnight by Murchison Falls (Full Board).",
+      "Breakfast precedes a visit to the Top of the Falls, witnessing the dramatic plunge of the Nile firsthand, followed by a game drive on the return route in search of elephants, leopards, giraffes, zebras, antelope and more. Overnight by Murchison Falls (Full Board).",
+      "Breakfast and check-out are followed by the drive to Entebbe (approx. 6 hours on the road), with a stop at the Ziwa Rhino Sanctuary - the only place in Uganda to see wild rhinos. An optional crafts and souvenir-shopping stop in Kampala is available, subject to departure flight timing, before a transfer to the airport and departure from Entebbe International Airport."
+    ],
+    "highlights": [
+      "Gorilla Trekking in the Bwindi Impenetrable Forest, a 3-to-6-hour trek requiring a reasonable level of physical fitness.",
+      "Ishasha's famous tree-climbing lions, spotted on the game drive route into Queen Elizabeth National Park.",
+      "A boat cruise on the Nile River to the base of Murchison Falls, where the river squeezes through a 7-metre gorge.",
+      "A stop at Ziwa Rhino Sanctuary on the way to Entebbe - the only place in Uganda to see wild rhinos."
+    ],
+    "location": "Uganda",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=9-day-uganda-wildlife-adventure",
+    "heroImage": "/leopard-tree.jpg",
+    "gallery": [
+      "/leopard-tree.jpg",
+      "/kob-antelope-savannah.jpg",
+      "/kob-antelope-sparring.jpg",
+      "/chimpanzee-3.jpg"
+    ]
+  },
+  {
+    "id": "6-day-rwanda-incentive-group-trip",
+    "slug": "6-day-rwanda-incentive-group-trip",
+    "title": "6 Day Rwanda Incentive Group Trip",
+    "category": "Special Expeditions",
+    "duration": "6 Days",
+    "image": "/giraffe-akagera.jpg",
+    "summary": "A 6-day Rwanda incentive group trip: historical Kigali, an exclusive Big Five and Akagera safari boat cruise, mountain gorilla trekking, and a farewell Gala Dinner with Intore cultural dancing at the Kigali Convention Center.",
+    "description": "A 6-day Rwanda incentive group trip: historical Kigali, an exclusive Big Five and Akagera safari boat cruise, mountain gorilla trekking, and a farewell Gala Dinner with Intore cultural dancing at the Kigali Convention Center.",
+    "fullStory": [
+      "Murakaza neza! Welcome to Rwanda, a magical landscape of a thousand hills and a million smiling faces. With 26,388 sq km of size and 14 million people, of which 70% are below 35 years of age, this small, young and yet ambitious country will give you the shock of a lifetime. Etched into global consciousness by the brutality of the 1994 genocide, the social and economic repair that has occurred since is nothing short of miraculous - the country is stable, with a track record as the fastest-growing in Africa, and tourism is once again a key contributor to the economy. Primate safaris may be the primary drawcard, but it's not all monkey business - go beyond the gorillas, step into an adventure playground waiting to be discovered by the active traveler, and experience a country breathtaking in its beauty and graced by a people generous in their welcome.",
+      "This Rwanda Incentive Group Trip brings together historical Kigali and Rwanda's success story of reconciliation and resilience, an exclusive Big Five and Akagera savannah animals experience, a safari boat cruise and exceptional game drives, sundowners, a mountain gorilla trekking experience, and a farewell Gala Dinner at the Kigali Convention Center - vibrant and deeply cultural.",
+      "On arrival at Kigali International Airport, use the Airport Bus Service to transfer from the aircraft to the terminal building, then follow the signs through to passport control, where the group's Airport Agent provides VIP Meet & Greet assistance through the rest of immigration and customs. After baggage collection, guests are escorted out to meet their private trip guides, who remain at the group's disposal from that point onward.",
+      "Arrival in Rwanda at Kigali International Airport - please advise flight details in advance. VIP Meet & Greet assistance is provided at the airport with immigration formalities (a free visa applies for Indian passport holders), before a private transfer to the hotel with your guides (approx. 20 minutes). A Welcome Dinner with one of Rwanda's private sector leaders, from a business field similar to the group's own, is included (excluding alcohol). Overnight at Kigali Marriott Hotel (Breakfast included).",
+      "Breakfast at the hotel from 8:00 to 9:00am precedes a 9:10am start to a full-day guided city tour, including a visit to the Kigali Genocide Memorial - a historical component of the trip offering an understanding of Rwanda's journey from a dark past to its glorious present, and its resilience and success stories of unity and reconciliation. A guided visit to Rwanda's Industrial Zone and sightseeing at some of Kigali's iconic structures and city life follows. Group lunch and dinner are included at a recommended Indian cuisine specialty restaurant (excluding alcohol). Overnight at Kigali Marriott Hotel (Breakfast included).",
+      "An early, packed breakfast precedes a 4:30am departure for the approximately 3-hour drive to Volcanoes National Park, arriving by 7:00am for the park briefing and assignment of the day's gorilla group. The Gorilla Trek takes 3 to 6 hours in total, including a full hour allowed with the gorillas as the alpha silverback leads the way, mothers look after their young, and the juvenile black-backs fight and annoy everybody just like any other set of human siblings. A group lunch follows at One & Only Gorilla's Nest (subject to availability at time of confirmation, excluding alcohol), before the drive back to Kigali for an evening at leisure. Overnight at Kigali Marriott Hotel (Breakfast included).",
+      "Breakfast and check-out from 8:00 to 9:25am are followed by a 9:30am departure on the approximately 2.5-hour scenic drive to Akagera National Park, arriving at the park entrance by 12:15pm for the briefing and check-in, in time for lunch. The afternoon brings a Safari Boat Cruise on Lake Ihema, spotting crocodiles, hippos, giraffes, elephants, birds and more, followed by an evening Boma Experience by the lake with a fire pit and pre-dinner cocktail, meeting the Park/Hotel Manager for a briefing on park development, the revenue-sharing park policy, and neighboring community impact and projects. Overnight at Mantis Akagera Game Lodge (Breakfast, Lunch & Dinner).",
+      "Breakfast at the resort from 6:30 to 7:25am precedes a 7:30am start to a half-day safari game drive with a picnic bush lunch, in search of savannah wildlife including lions, elephants, leopards, rhinos, buffalo, giraffes, antelope, zebras, warthogs, birdlife and more. The group exits the park by 3:00pm for the approximately 2.5-hour drive back to Kigali, arriving in time for a 6:00pm farewell Gala Dinner at the Kigali Convention Center, with Rwandan cultural performances including Intore dancing and Afrobeat music from a renowned Kigali DJ (dinner included, excluding alcohol). Overnight at Kigali Marriott Hotel (Breakfast included).",
+      "Breakfast and a morning at leisure precede check-out from the hotel, with the vehicle and guides remaining at the group's disposal based on the outbound departure flight, before a private transfer to the airport and departure from Rwanda - please advise flight details. This marks the end of the Rwanda tour."
+    ],
+    "highlights": [
+      "The Kigali Genocide Memorial visit is paired with a guided tour of Rwanda's Industrial Zone and the city's iconic landmarks, framing Rwanda's story of resilience, unity and reconciliation.",
+      "An exclusive Big Five and Akagera savannah animals experience, including a Safari Boat Cruise on Lake Ihema for crocodiles, hippos, giraffes and elephants.",
+      "A Mountain Gorilla Trek includes a full hour with the gorilla family, followed by a group lunch at One & Only Gorilla's Nest.",
+      "An evening Boma Experience by Lake Ihema includes a fire pit, pre-dinner cocktail, and a briefing from the Park/Hotel Manager on community impact and revenue-sharing projects.",
+      "The trip closes with a Gala Dinner at the Kigali Convention Center, featuring Intore cultural dancing and Afrobeat music from a renowned Kigali DJ."
+    ],
+    "location": "Special Expeditions",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=6-day-rwanda-incentive-group-trip",
+    "heroImage": "/giraffe-akagera.jpg",
+    "gallery": [
+      "/giraffe-akagera.jpg",
+      "/texp-akagera.jpg",
+      "/exp-akagera.jpg",
+      "/experiences/featured/gorilla-trekking-golden-monkeys.jpg"
+    ]
+  },
+  {
+    "id": "4-day-rwanda-experience",
+    "slug": "4-day-rwanda-experience",
+    "title": "4 Day Rwanda Experience",
+    "category": "Rwanda",
+    "duration": "4 Days",
+    "image": "/gorilla-trek-muddy-boots.jpg",
+    "summary": "A 4-day Rwanda essentials trip: a Kigali city tour with the Genocide Memorial, and a Gorilla Trekking experience in the Volcanoes National Park.",
+    "description": "A 4-day Rwanda essentials trip: a Kigali city tour with the Genocide Memorial, and a Gorilla Trekking experience in the Volcanoes National Park.",
+    "fullStory": [
+      "Murakaza neza! Welcome to Rwanda, a magical landscape of a thousand hills and a million smiling faces. With 26,388 sq km of size and 14 million people, of which 70% are below 35 years of age, this small, young and yet ambitious country will give you the shock of a lifetime. Etched into global consciousness by the brutality of the 1994 genocide, the social and economic repair that has occurred since is nothing short of miraculous - the country is stable, with a track record as the fastest-growing in Africa, and tourism is once again a key contributor to the economy. Primate safaris may be the primary drawcard, but it's not all monkey business - go beyond the gorillas, step into an adventure playground waiting to be discovered by the active traveler, and experience a country breathtaking in its beauty and graced by a people generous in their welcome.",
+      "All visas are obtained on arrival at Kigali International Airport - citizens of Commonwealth member countries do not require a visa to enter Rwanda, and no vaccines are required, including yellow fever. Travel with a passport valid for at least six months, and note that plastic bags are banned by law since 2008 and will be confiscated at the airport if found in your luggage.",
+      "Arrival in Kigali - flight details to be advised. You're met and greeted at the airport, assisted through immigration formalities and luggage, and escorted to your guide for a private transfer to the hotel (approx. 20 minutes). Overnight in Kigali at a four-to-five-star accommodation option.",
+      "Breakfast and check-out are followed by a Kigali city tour with a visit to the Genocide Memorial - a historical component of the trip, learning Rwanda's dark past and its journey to present-day unity and reconciliation. You'll then embark on a picturesque drive to the Volcanoes (approx. 3 hours total), with the evening left for leisure at the foothills. Overnight by the Volcanoes (Full Board) at a four-to-five-star accommodation option.",
+      "An early 5:00am breakfast precedes a trip to the park office for briefing and group assignment ahead of the day's Gorilla Trek - 3 to 6 hours, requiring a reasonable level of physical fitness, and open to travelers aged 15 and up. The afternoon is left for leisure, an optional spa treatment, or a community activity through the resort. Overnight by the Volcanoes (Full Board) at a four-to-five-star accommodation option.",
+      "Breakfast and check-out are followed by a scenic drive back to Kigali (approx. 3 hours total), with an optional stop for crafts and souvenir shopping in Kigali, subject to departure timing, before an airport transfer and departure from Rwanda - flight details to be advised. This marks the end of the tour."
+    ],
+    "highlights": [
+      "A Kigali city tour with the Genocide Memorial traces Rwanda's dark past and its journey to present-day unity and reconciliation.",
+      "The Gorilla Trek is a 3-to-6-hour experience requiring a reasonable level of physical fitness, open to travelers aged 15 and up.",
+      "All visas are obtained on arrival, with no vaccines required and no visa needed for Commonwealth citizens.",
+      "Overnights throughout are at four-to-five-star accommodation, both in Kigali and by the Volcanoes."
+    ],
+    "location": "Rwanda",
+    "url": "https://luxehorizonsafrica.com/experiences?exp=4-day-rwanda-experience",
+    "heroImage": "/gorilla-trek-muddy-boots.jpg",
+    "gallery": [
+      "/gorilla-trek-muddy-boots.jpg",
+      "/experiences/featured/7-day-rwandas-big-5-gorillas.png",
+      "/experiences/featured/gorilla-trekking-golden-monkeys.jpg"
     ]
   }
 ];
