@@ -1,0 +1,437 @@
+.itin-page {
+  background: var(--parchment, #f7f4ed);
+  padding: 160px 0 140px;
+  min-height: 100vh;
+}
+
+/* Head section */
+.itin-page .itin-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 70px;
+}
+.itin-head-copy h1 {
+  font-family: var(--serif, 'Cinzel', serif);
+  font-weight: 600;
+  font-size: clamp(38px, 5vw, 60px);
+  color: var(--ink, #1a1a1a);
+  margin: 12px 0 16px;
+  line-height: 1.05;
+}
+.itin-head-copy p {
+  font-family: var(--serif, 'Cinzel', serif);
+  font-style: italic;
+  font-size: 17px;
+  color: rgba(33, 29, 23, 0.65);
+  margin: 0;
+  max-width: 540px;
+}
+.itin-head-deck {
+  position: relative;
+  flex: none;
+  width: 96px;
+  height: 130px;
+}
+.itin-deck-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 14px 30px rgba(20, 20, 15, 0.14);
+}
+.itin-deck-card.back2 {
+  transform: rotate(8deg) translateY(6px);
+  background: #ebdccb;
+}
+.itin-deck-card.back1 {
+  transform: rotate(-5deg) translateY(3px);
+  background: #fdfbf6;
+}
+.itin-deck-card.front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px dashed rgba(33, 29, 23, 0.25);
+  font-family: var(--serif, serif);
+  font-size: 26px;
+  color: #c6a15b;
+}
+
+/* Layout Grid */
+.itin-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.itin-sidebar-inner {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.itin-sidebar-label {
+  font-family: var(--sans, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(33, 29, 23, 0.45);
+  margin-bottom: 10px;
+}
+.itin-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  background: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.25s ease;
+}
+.itin-filter:hover {
+  background: rgba(33, 29, 23, 0.05);
+}
+.itin-filter.active {
+  background: rgba(33, 29, 23, 0.08);
+}
+.itin-filter-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent, #c6a15b);
+  flex-shrink: 0;
+}
+.itin-filter-dot.all {
+  background: #211d17;
+}
+.itin-filter-name {
+  font-family: var(--sans, sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: #211d17;
+  flex: 1;
+}
+.itin-filter-count {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+/* Cards Grid */
+.itin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 32px;
+}
+
+.itin-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.itin-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.itin-card-media {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #111;
+}
+.itin-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.itin-card:hover .itin-card-media img {
+  transform: scale(1.08);
+}
+.itin-card-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(18, 18, 18, 0.78);
+  backdrop-filter: blur(8px);
+  color: #f7f4ed;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.itin-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.itin-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.itin-card-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(33, 29, 23, 0.3);
+}
+.itin-card-format {
+  color: rgba(33, 29, 23, 0.5);
+}
+
+.itin-card h3 {
+  font-family: var(--serif, serif);
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 0 0 10px;
+  color: #1a1a1a;
+}
+.itin-card p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(33, 29, 23, 0.7);
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.itin-card-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.itin-highlight-pill {
+  font-size: 11px;
+  background: #f4efe6;
+  color: #3d352b;
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.itin-card-link {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.2s ease;
+}
+.itin-card:hover .itin-card-link {
+  transform: translateX(4px);
+}
+
+/* Modal PDF Document Viewer */
+.ipm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.ipm-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 11, 10, 0.82);
+  backdrop-filter: blur(12px);
+}
+.ipm-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1100px;
+  height: 90vh;
+  display: flex;
+}
+.ipm-dialog {
+  width: 100%;
+  height: 100%;
+  background: #141414;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header */
+.ipm-header {
+  padding: 20px 28px;
+  background: #1c1c1c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.ipm-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 70%;
+}
+.ipm-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ipm-category-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+.ipm-duration-badge {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+.ipm-header-info h2 {
+  font-family: var(--serif, serif);
+  font-size: 20px;
+  color: #f7f4ed;
+  margin: 0;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ipm-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ipm-btn-action {
+  font-size: 13px;
+  font-weight: 600;
+  color: #141414;
+  background: #c6a15b;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+.ipm-btn-action:hover {
+  background: #d8b46e;
+  transform: translateY(-1px);
+}
+.ipm-btn-action.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f7f4ed;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.ipm-btn-action.secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.ipm-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+.ipm-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* PDF iFrame Container */
+.ipm-body {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #2a2a2a;
+}
+.ipm-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .itin-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .itin-sidebar-inner {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .ipm-header-info h2 {
+    font-size: 16px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 600px) {
+  .itin-page {
+    padding: 120px 0 80px;
+  }
+  .itin-page .itin-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .itin-head-deck {
+    display: none;
+  }
+  .ipm-overlay {
+    padding: 12px;
+  }
+  .ipm-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+  .ipm-header-info {
+    max-width: 100%;
+  }
+  .ipm-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
