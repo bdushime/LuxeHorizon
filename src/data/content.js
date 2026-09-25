@@ -10,7 +10,6 @@ export const navLinks = [
   { key: 'about', label: 'About', href: '/about' },
   { key: 'testimonials', label: 'Testimonials', href: '/testimonials' },
   { key: 'blog', label: 'Blog', href: '/blog' },
-  { key: 'itineraries', label: 'Itineraries', href: '/itineraries' },
   { key: 'contact', label: 'Contact', href: '/contact' },
   { key: 'consultancy', label: 'Consultancy & MICE', href: '/consultancy' }
 ]
