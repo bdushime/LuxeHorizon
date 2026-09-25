@@ -1,4 +1,4 @@
-/* Simple Vertical Menu Overlay - Luxe Horizons Africa */
+/* 2-Column Unnumbered Menu Overlay - Luxe Horizons Africa */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -11,8 +11,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow-y: auto;
-  padding: 100px 0 40px;
+  overflow: hidden;
+  padding: 80px 0 30px;
   box-sizing: border-box;
 }
 
@@ -25,31 +25,32 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 80vh;
-  max-width: 860px;
+  height: 100%;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 24px;
+  box-sizing: border-box;
 }
 
-/* Simple Navigation Links List */
+/* 2-Column Unnumbered Navigation Links Grid */
 .menu-simple-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 56px;
   margin: auto 0;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .menu-simple-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 0;
+  padding: 14px 0;
   border-bottom: 1px solid rgba(246, 241, 231, 0.1);
   text-decoration: none;
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.45s ease, transform 0.45s ease, padding 0.3s ease;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease, padding 0.25s ease, border-color 0.25s ease;
 }
 
 .menu-overlay.open .menu-simple-item {
@@ -58,27 +59,16 @@
 }
 
 .menu-simple-item:hover {
-  padding-left: 12px;
-  border-bottom-color: rgba(198, 161, 91, 0.4);
-}
-
-.msi-num {
-  font-family: var(--sans, sans-serif);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--gold, #c6a15b);
-  opacity: 0.75;
-  width: 40px;
+  padding-left: 8px;
+  border-bottom-color: rgba(198, 161, 91, 0.5);
 }
 
 .msi-label {
   font-family: var(--serif, 'Cinzel', serif);
-  font-size: clamp(1.4rem, 3.2vw, 2.3rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.85rem);
   font-weight: 500;
   color: var(--parchment, #fbf9f4);
-  line-height: 1.2;
-  flex: 1;
+  line-height: 1.25;
   transition: color 0.3s ease;
 }
 
@@ -87,10 +77,10 @@
 }
 
 .msi-arrow {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--gold, #c6a15b);
   opacity: 0;
-  transform: translateX(-10px);
+  transform: translateX(-8px);
   transition: all 0.3s ease;
 }
 
@@ -104,11 +94,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 28px;
+  padding-top: 20px;
   border-top: 1px solid rgba(246, 241, 231, 0.12);
   font-size: 12px;
   color: rgba(246, 241, 231, 0.5);
-  margin-top: 40px;
+  margin-top: 24px;
 }
 
 .menu-copy {
@@ -131,19 +121,24 @@
   color: var(--gold, #c6a15b);
 }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
+/* Responsive adjustments for mobile screens */
+@media (max-width: 680px) {
+  .menu-simple-list {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
   .menu-simple-item {
-    padding: 14px 0;
+    padding: 10px 0;
   }
-  
-  .msi-num {
-    display: none;
+
+  .msi-label {
+    font-size: 1.25rem;
   }
-  
+
   .menu-bottom-bar {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     align-items: flex-start;
   }
 }

@@ -17,7 +17,7 @@ export default function MenuOverlay({ open, onClose }) {
   return (
     <div className={`menu-overlay ${open ? 'open' : ''}`}>
       <div className="wrap menu-overlay-inner">
-        {/* Simple Vertical Navigation Links List */}
+        {/* 2-Column Unnumbered Navigation Links Grid */}
         <nav className="menu-simple-list">
           {MENU_NAV_LINKS.map((item, index) => (
             <SiteLink
@@ -25,9 +25,8 @@ export default function MenuOverlay({ open, onClose }) {
               href={item.href}
               onClick={onClose}
               className="menu-simple-item"
-              style={{ transitionDelay: `${0.05 + index * 0.04}s` }}
+              style={{ transitionDelay: `${0.04 + index * 0.03}s` }}
             >
-              <span className="msi-num">0{index + 1}</span>
               <span className="msi-label">{item.label}</span>
               <span className="msi-arrow">&rarr;</span>
             </SiteLink>
