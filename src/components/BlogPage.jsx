@@ -208,7 +208,7 @@ export default function BlogPage() {
                 transition={{ type: 'spring', stiffness: 260, damping: 24, delay: i * 0.045 }}
               >
                 <div className="bp-card-media">
-                  <img src={post.image} alt={post.title} />
+                  <img src={post.image} alt={post.title} loading="lazy" decoding="async" />
                 </div>
                 <div className="bp-card-body">
                   <div className="bp-card-meta">
@@ -264,7 +264,7 @@ export default function BlogPage() {
                 </button>
 
                 <div className="bpm-hero">
-                  <img src={selectedPost.image} alt={selectedPost.title} className="bpm-hero-img" />
+                  <img src={selectedPost.image} alt={selectedPost.title} className="bpm-hero-img" loading="lazy" decoding="async" />
                   <div className="bpm-hero-overlay" />
                   <div className="bpm-hero-content">
                     <div className="bpm-meta">

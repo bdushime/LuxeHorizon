@@ -64,7 +64,7 @@ export default function AdventureSection() {
               onTouchStart={activate(card.key)}
             >
               <div className="adv-card-media">
-                <img src={card.image} alt={card.title} />
+                <img src={card.image} alt={card.title} loading="lazy" decoding="async" />
                 <div className="adv-card-index">{String(i + 1).padStart(2, '0')}</div>
                 <div className="adv-card-overlay" />
                 <div className="adv-card-info">

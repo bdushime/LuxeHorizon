@@ -20,7 +20,7 @@ export default function DestinationCardGrid({ onHover, onLeave }) {
           onBlur={() => onLeave?.()}
           onTouchStart={() => onHover?.(dest.key)}
         >
-          <img src={dest.image} alt={dest.name} />
+          <img src={dest.image} alt={dest.name} loading="lazy" decoding="async" />
           <div className="dest-label">
             <div className="eyebrow">{dest.eyebrow}</div>
             <h3>{dest.name}</h3>

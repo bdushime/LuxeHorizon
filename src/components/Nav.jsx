@@ -27,10 +27,9 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [pathname])
 
-  // Away from the home page there's no other way back — the nav (and its
-  // hamburger menu) must be visible and legible immediately, not only after
-  // scrolling past the same 30px threshold the home hero uses.
-  const revealed = isHome ? revealedState : true
+  // The nav bar elements (brand, division switch, plan link, hamburger menu)
+  // should always be visible and legible across all pages.
+  const revealed = true
   const scrolled = hasDarkHero ? scrolledState : true
 
   // The brand is a real <Link to="/">, so it already navigates home on its
@@ -50,9 +49,12 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
           title={isHome ? 'Switch Brand Division (Portal Gate)' : 'Home - Luxe Horizons Africa'}
         >
           <img
-            src="/LuxeHorizon-removebg-preview.png"
+            src="/LuxeHorizon-removebg-preview.webp"
             alt="Luxe Horizons Africa"
             className="brand-logo"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
           />
         </Link>
         <div className="nav-right">

@@ -22,7 +22,7 @@
 .exp-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/experiences/7-day-rwandas-big-5-gorillas-3.jpg'), url('/exp-primates.jpg');
+  background-image: url('/experiences/7-day-rwandas-big-5-gorillas-3.webp'), url('/exp-primates.webp');
   background-size: cover;
   background-position: center 35%;
   z-index: 1;

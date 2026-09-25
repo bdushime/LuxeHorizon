@@ -6,9 +6,9 @@ import './AboutReel.css'
 // stages and the stats all live inside one pinned section. Scrolling down
 // advances a horizontal filmstrip instead of stacking panels vertically.
 
-const PHOTO_HERO = '/Mountain-Gorilla.jpg.jpeg'
-const PHOTO_PHILOSOPHY = '/Bird.jpg.jpeg'
-const STAGE_PHOTOS = ['/exp-primates.jpg', '/story-guide.jpg', '/exp-akagera.jpg']
+const PHOTO_HERO = '/Mountain-Gorilla.webp'
+const PHOTO_PHILOSOPHY = '/Bird.webp'
+const STAGE_PHOTOS = ['/exp-primates.webp', '/story-guide.webp', '/exp-akagera.webp']
 
 const STATS = [
   { value: 3, display: '03', suffix: '', label: 'Countries Covered' },
@@ -114,7 +114,7 @@ export default function AboutReel() {
       <div className="reel-viewport">
         <div className="reel-track" style={trackStyle}>
           <section className="reel-panel">
-            <img className="reel-panel-media" src={PHOTO_HERO} alt="Mountain gorilla in Rwanda" />
+            <img className="reel-panel-media" src={PHOTO_HERO} alt="Mountain gorilla in Rwanda" fetchpriority="high" loading="eager" decoding="async" />
             <div className="reel-panel-overlay dark" />
             <div className="reel-panel-content center">
               <div className="eyebrow on-dark">About Luxe Horizons</div>
@@ -130,7 +130,7 @@ export default function AboutReel() {
           </section>
 
           <section className="reel-panel">
-            <img className="reel-panel-media" src={PHOTO_PHILOSOPHY} alt="East African wildlife" />
+            <img className="reel-panel-media" src={PHOTO_PHILOSOPHY} alt="East African wildlife" loading="lazy" decoding="async" />
             <div className="reel-panel-overlay" />
             <div className="reel-panel-content align-left">
               <div className="eyebrow on-dark">Our Philosophy</div>
@@ -144,7 +144,7 @@ export default function AboutReel() {
 
           {aboutMethodology.stages.map((stage, i) => (
             <section className="reel-panel" key={stage.num}>
-              <img className="reel-panel-media" src={STAGE_PHOTOS[i]} alt={stage.title} />
+              <img className="reel-panel-media" src={STAGE_PHOTOS[i]} alt={stage.title} loading="lazy" decoding="async" />
               <div className="reel-panel-overlay" />
               <div className="reel-panel-content align-left">
                 <div className="reel-stage-num">{stage.num}</div>

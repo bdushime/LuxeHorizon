@@ -53,7 +53,7 @@ export default function DestinationsPage() {
                 if (isActive) navigate(`/destinations/${dest.key}`)
               }}
             >
-              <img className="dpx-panel-media" src={dest.image} alt={dest.name} />
+              <img className="dpx-panel-media" src={dest.image} alt={dest.name} loading="lazy" decoding="async" />
               <div className="dpx-panel-overlay" />
 
               <div className="dpx-panel-index">0{i + 1}</div>

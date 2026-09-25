@@ -60,7 +60,7 @@ export default function PartnersSection() {
               style={{ ...orbitPosition(p.ring, p.angle), transitionDelay: `${140 + i * 90}ms` }}
             >
               <div className="orbit-logo-bob" style={{ animationDelay: `${i * 0.4}s` }}>
-                <img src={p.logo} alt={p.name} title={p.name} />
+                <img src={p.logo} alt={p.name} title={p.name} loading="lazy" decoding="async" />
               </div>
             </div>
           ))}
@@ -69,7 +69,7 @@ export default function PartnersSection() {
         {/* Simple fallback row for narrow screens where the orbit can't fit */}
         <div className="partner-row-mobile">
           {partners.map((p) => (
-            <img key={p.name} src={p.logo} alt={p.name} />
+            <img key={p.name} src={p.logo} alt={p.name} loading="lazy" decoding="async" />
           ))}
         </div>
       </div>

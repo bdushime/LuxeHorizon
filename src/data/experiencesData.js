@@ -6,7 +6,7 @@ export const experiencesData = [
     "title": "Rwanda\u2019s Primates",
     "category": "Rwanda",
     "duration": "Custom Duration",
-    "image": "/experiences/featured/rwandas-primates.jpg",
+    "image": "/experiences/featured/rwandas-primates.webp",
     "summary": "Discover Rwanda's vibrant beauty, where lush forests unveil endangered mountain gorillas, offering an unforgettable Rwanda's primates encounter.",
     "description": "8-day Rwanda\u2019s Primates Experience includes: 2 nights in Kigali, 2 nights by Nyungwe National Park, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges.",
     "fullStory": [
@@ -24,12 +24,12 @@ export const experiencesData = [
     ],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=rwandas-primates",
-    "heroImage": "/experiences/featured/rwandas-primates.jpg",
+    "heroImage": "/experiences/featured/rwandas-primates.webp",
     "gallery": [
-      "/experiences/featured/rwandas-primates.jpg",
-      "/experiences/rwandas-primates-4.png",
-      "/experiences/rwandas-primates-5.jpg",
-      "/experiences/rwandas-primates-6.jpg"
+      "/experiences/featured/rwandas-primates.webp",
+      "/experiences/rwandas-primates-4.webp",
+      "/experiences/rwandas-primates-5.webp",
+      "/experiences/rwandas-primates-6.webp"
     ]
   },
   */
@@ -40,7 +40,7 @@ export const experiencesData = [
     "title": "7 Day Rwanda primates adventure",
     "category": "Rwanda",
     "duration": "7 Days",
-    "image": "/experiences/featured/7-day-rwanda-primates-adventure.png",
+    "image": "/experiences/featured/7-day-rwanda-primates-adventure.webp",
     "summary": "7 days of Rwandan primates adventure await: Explore Kigali, Nyungwe, Lake Kivu, and Volcanoes for Golden Monkey & Gorilla Treks.",
     "description": "7-Day Rwandan Odyssey: VIP Airport Arrival, Kigali night, Nyungwe\u2019s Canopy Walk, Chimpanzee Trek, Lake Kivu\u2019s community experiences, Volcanoes for Golden Monkey and Gorilla Treks, and a final night in Kigali. Your unforgettable journey begins now!",
     "fullStory": [
@@ -80,12 +80,12 @@ export const experiencesData = [
     ],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=7-day-rwanda-primates-adventure",
-    "heroImage": "/experiences/featured/7-day-rwanda-primates-adventure.png",
+    "heroImage": "/experiences/featured/7-day-rwanda-primates-adventure.webp",
     "gallery": [
-      "/experiences/featured/7-day-rwanda-primates-adventure.png",
-      "/experiences/7-day-rwanda-primates-adventure-4.png",
-      "/experiences/7-day-rwanda-primates-adventure-5.png",
-      "/experiences/7-day-rwanda-primates-adventure-6.png"
+      "/experiences/featured/7-day-rwanda-primates-adventure.webp",
+      "/experiences/7-day-rwanda-primates-adventure-4.webp",
+      "/experiences/7-day-rwanda-primates-adventure-5.webp",
+      "/experiences/7-day-rwanda-primates-adventure-6.webp"
     ]
   },
   */
@@ -95,7 +95,7 @@ export const experiencesData = [
     "title": "Pre/Post Conference Gorilla Experience",
     "category": "Special Expeditions",
     "duration": "3 Days",
-    "image": "/experiences/featured/kigalis-golf-experience-the-safari-the-city.jpg",
+    "image": "/experiences/featured/kigalis-golf-experience-the-safari-the-city.webp",
     "summary": "The Gorilla Experience, a must-do for avid travelers, starts with a 4:30 AM pick-up from Kigali. Upon arrival at the Park Headquarters at 7:00 AM, guests receive a briefing from the Park Guide and trackers before embarking on the Gorilla trek. The highlight is spending an hour observing these peaceful giants in their natural habitat, engaging in daily activities like feeding, playing, and caring for their young. Visitors also learn to communicate with the gorillas in their language, ensuring a unique and immersive experience. After the trek, lunch is served at the foothills of the Volcanoes before returning to Kigali.",
     "description": "The Gorilla Experience, a must-do for avid travelers, starts with a 4:30 AM pick-up from Kigali. Upon arrival at the Park Headquarters at 7:00 AM, guests receive a briefing from the Park Guide and trackers before embarking on the Gorilla trek. The highlight is spending an hour observing these peaceful giants in their natural habitat, engaging in daily activities like feeding, playing, and caring for their young. Visitors also learn to communicate with the gorillas in their language, ensuring a unique and immersive experience. After the trek, lunch is served at the foothills of the Volcanoes before returning to Kigali.",
     "fullStory": [
@@ -116,12 +116,12 @@ export const experiencesData = [
     ],
     "location": "Special Expeditions",
     "url": "https://luxehorizonsafrica.com/experiences?exp=pre-post-conference-gorilla-experience",
-    "heroImage": "/experiences/featured/kigalis-golf-experience-the-safari-the-city.jpg",
+    "heroImage": "/experiences/featured/kigalis-golf-experience-the-safari-the-city.webp",
     "gallery": [
-      "/experiences/featured/kigalis-golf-experience-the-safari-the-city.jpg",
-      "/experiences/pre-post-conference-gorilla-experience-4.jpg",
-      "/experiences/pre-post-conference-gorilla-experience-5.jpg",
-      "/experiences/pre-post-conference-gorilla-experience-6.jpeg"
+      "/experiences/featured/kigalis-golf-experience-the-safari-the-city.webp",
+      "/experiences/pre-post-conference-gorilla-experience-4.webp",
+      "/experiences/pre-post-conference-gorilla-experience-5.webp",
+      "/experiences/pre-post-conference-gorilla-experience-6.webp"
     ]
   },
   /*
@@ -152,9 +152,9 @@ export const experiencesData = [
     "heroImage": "/experiences/featured/the-great-migration-adventure.webp",
     "gallery": [
       "/experiences/featured/the-great-migration-adventure.webp",
-      "/experiences/the-great-migration-adventure-4.jpg",
-      "/experiences/the-great-migration-adventure-5.jpg",
-      "/experiences/the-great-migration-adventure-6.jpg"
+      "/experiences/the-great-migration-adventure-4.webp",
+      "/experiences/the-great-migration-adventure-5.webp",
+      "/experiences/the-great-migration-adventure-6.webp"
     ]
   },
   */
@@ -165,7 +165,7 @@ export const experiencesData = [
     "title": "5 Day Rwanda Trekking Experience",
     "category": "Rwanda",
     "duration": "5 Days",
-    "image": "/experiences/featured/5-day-rwanda-trekking-experience.png",
+    "image": "/experiences/featured/5-day-rwanda-trekking-experience.webp",
     "summary": "5 Day Rwanda Trekking Experience: VIP Airport Meet & Greet, Kigali tour, Volcanoes stay for Golden Monkeys & Gorillas.",
     "description": "On arrival at Kigali International Airport, you will be welcomed from the tarmac by our Meet & Greet Airport Agent and be assisted with the immigration process, your luggage and escorted through the exit gate where you will be met by your dedicated guide for a short introductory briefing, learn a few key words in our local language as you embark on a short 15min drive to the Retreat by Heaven. Dinner will be on your own arrangement, though we are happy to recommend a nearby restaurant depending on your arrival time.",
     "fullStory": [
@@ -199,12 +199,12 @@ export const experiencesData = [
     ],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=5-day-rwanda-trekking-experience",
-    "heroImage": "/experiences/featured/5-day-rwanda-trekking-experience.png",
+    "heroImage": "/experiences/featured/5-day-rwanda-trekking-experience.webp",
     "gallery": [
-      "/experiences/featured/5-day-rwanda-trekking-experience.png",
-      "/experiences/5-day-rwanda-trekking-experience-4.png",
-      "/experiences/5-day-rwanda-trekking-experience-5.png",
-      "/experiences/5-day-rwanda-trekking-experience-6.png"
+      "/experiences/featured/5-day-rwanda-trekking-experience.webp",
+      "/experiences/5-day-rwanda-trekking-experience-4.webp",
+      "/experiences/5-day-rwanda-trekking-experience-5.webp",
+      "/experiences/5-day-rwanda-trekking-experience-6.webp"
     ]
   },
   */
@@ -214,7 +214,7 @@ export const experiencesData = [
     "title": "Pre/Post Conference Safari Experience",
     "category": "Special Expeditions",
     "duration": "3 Days",
-    "image": "/experiences/featured/pre-post-conference-safari-experience.jpg",
+    "image": "/experiences/featured/pre-post-conference-safari-experience.webp",
     "summary": "Explore Rwanda\u2019s Akagera National Park, home to the big five, on a thrilling full-day adventure. The journey begins with a 5:00 AM pick-up from your hotel for a scenic 2.5-hour drive to the park. Upon arrival, you\u2019ll go through the registration process before starting your game drive.",
     "description": "Explore Rwanda\u2019s Akagera National Park, home to the big five, on a thrilling full-day adventure. The journey begins with a 5:00 AM pick-up from your hotel for a scenic 2.5-hour drive to the park. Upon arrival, you\u2019ll go through the registration process before starting your game drive.",
     "fullStory": [
@@ -235,12 +235,12 @@ export const experiencesData = [
     ],
     "location": "Special Expeditions",
     "url": "https://luxehorizonsafrica.com/experiences?exp=pre-post-conference-safari-experience",
-    "heroImage": "/experiences/featured/pre-post-conference-safari-experience.jpg",
+    "heroImage": "/experiences/featured/pre-post-conference-safari-experience.webp",
     "gallery": [
-      "/experiences/featured/pre-post-conference-safari-experience.jpg",
-      "/experiences/pre-post-conference-safari-experience-4.jpg",
-      "/experiences/pre-post-conference-safari-experience-5.jpg",
-      "/experiences/pre-post-conference-safari-experience-6.jpg"
+      "/experiences/featured/pre-post-conference-safari-experience.webp",
+      "/experiences/pre-post-conference-safari-experience-4.webp",
+      "/experiences/pre-post-conference-safari-experience-5.webp",
+      "/experiences/pre-post-conference-safari-experience-6.webp"
     ]
   },
   /*
@@ -250,7 +250,7 @@ export const experiencesData = [
     "title": "7 Day Rwanda\u2019s big 5 & gorillas",
     "category": "Rwanda",
     "duration": "7 Days",
-    "image": "/experiences/featured/7-day-rwandas-big-5-gorillas.png",
+    "image": "/experiences/featured/7-day-rwandas-big-5-gorillas.webp",
     "summary": "7 Day Rwanda's big 5 & gorillas: VIP Arrival in Kigali, explore the city and Genocide Memorial, embark on a thrilling safari in Akagera National Park.",
     "description": "7 Day Rwanda\u2019s big 5 & gorillas: VIP Arrival in Kigali, explore the city and Genocide Memorial, embark on a thrilling safari in Akagera National Park, and encounter the majestic Gorillas in Volcanoes National Park.",
     "fullStory": [
@@ -287,12 +287,12 @@ export const experiencesData = [
     ],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=7-day-rwandas-big-5-gorillas",
-    "heroImage": "/experiences/featured/7-day-rwandas-big-5-gorillas.png",
+    "heroImage": "/experiences/featured/7-day-rwandas-big-5-gorillas.webp",
     "gallery": [
-      "/experiences/featured/7-day-rwandas-big-5-gorillas.png",
-      "/experiences/7-day-rwandas-big-5-gorillas-4.png",
-      "/experiences/7-day-rwandas-big-5-gorillas-5.png",
-      "/experiences/7-day-rwandas-big-5-gorillas-6.png"
+      "/experiences/featured/7-day-rwandas-big-5-gorillas.webp",
+      "/experiences/7-day-rwandas-big-5-gorillas-4.webp",
+      "/experiences/7-day-rwandas-big-5-gorillas-5.webp",
+      "/experiences/7-day-rwandas-big-5-gorillas-6.webp"
     ]
   },
   */
@@ -303,7 +303,7 @@ export const experiencesData = [
     "title": "Tanzania Classic",
     "category": "Tanzania",
     "duration": "Custom Duration",
-    "image": "/experiences/featured/tanzania-classic.jpg",
+    "image": "/experiences/featured/tanzania-classic.webp",
     "summary": "Witness the awe-inspiring wildlife on a Tanzania classic adventure, Tarangire National Park & Ngorongoro Conservation Area.",
     "description": "7-Day expedition includes: 1 night Arusha, 2 nights Tarangire National Park, 2 Ngorongoro Conservation Area, 2 nights Serengeti National Park, Game drives, recommended Luxury tented camps and lodges.",
     "fullStory": [
@@ -321,12 +321,12 @@ export const experiencesData = [
     ],
     "location": "Tanzania",
     "url": "https://luxehorizonsafrica.com/experiences?exp=tanzania-classic",
-    "heroImage": "/experiences/featured/tanzania-classic.jpg",
+    "heroImage": "/experiences/featured/tanzania-classic.webp",
     "gallery": [
-      "/experiences/featured/tanzania-classic.jpg",
-      "/experiences/tanzania-classic-4.jpg",
-      "/experiences/tanzania-classic-5.jpg",
-      "/experiences/tanzania-classic-6.jpg"
+      "/experiences/featured/tanzania-classic.webp",
+      "/experiences/tanzania-classic-4.webp",
+      "/experiences/tanzania-classic-5.webp",
+      "/experiences/tanzania-classic-6.webp"
     ]
   },
   */
@@ -337,7 +337,7 @@ export const experiencesData = [
     "title": "Best of the Pearl of Africa",
     "category": "Uganda",
     "duration": "Custom Duration",
-    "image": "/experiences/featured/best-of-the-pearl-of-africa.jpg",
+    "image": "/experiences/featured/best-of-the-pearl-of-africa.webp",
     "summary": "Discover the Best of the Pearl of Africa, Roam lush forests, encounter rare wildlife & embrace vibrant culture in stunning national parks.",
     "description": "10-day Uganda\u2019s Wildlife includes: 1 night in Entebbe, 2 nights in Bwindi, 2 nights at Queen Elizabeth National Park, 2 nights at Kibale National Park, 2 nights at the Semliki Reserve at the recommended Luxury hotels and lodges.",
     "fullStory": [
@@ -355,12 +355,12 @@ export const experiencesData = [
     ],
     "location": "Uganda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=best-of-the-pearl-of-africa",
-    "heroImage": "/experiences/featured/best-of-the-pearl-of-africa.jpg",
+    "heroImage": "/experiences/featured/best-of-the-pearl-of-africa.webp",
     "gallery": [
-      "/experiences/featured/best-of-the-pearl-of-africa.jpg",
-      "/experiences/best-of-the-pearl-of-africa-4.jpg",
-      "/experiences/best-of-the-pearl-of-africa-5.jpg",
-      "/experiences/best-of-the-pearl-of-africa-6.jpg"
+      "/experiences/featured/best-of-the-pearl-of-africa.webp",
+      "/experiences/best-of-the-pearl-of-africa-4.webp",
+      "/experiences/best-of-the-pearl-of-africa-5.webp",
+      "/experiences/best-of-the-pearl-of-africa-6.webp"
     ]
   },
   */
@@ -371,7 +371,7 @@ export const experiencesData = [
     "title": "Rwanda Discovery",
     "category": "Rwanda",
     "duration": "Custom Duration",
-    "image": "/experiences/featured/rwanda-discovery.jpg",
+    "image": "/experiences/featured/rwanda-discovery.webp",
     "summary": "Trek through Volcanoes National Park, meet mountain gorillas & explore Kigali's vibrant charm. Unveil nature's wonders & urban delights.",
     "description": "11-Day Rwanda Holiday includes: 2 nights in Kigali, 2 nights at Akagera National Park, 2 nights by Nyungwe National Park, 1 night by Kivu Lake, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges.",
     "fullStory": [
@@ -389,12 +389,12 @@ export const experiencesData = [
     ],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=rwanda-discovery",
-    "heroImage": "/experiences/featured/rwanda-discovery.jpg",
+    "heroImage": "/experiences/featured/rwanda-discovery.webp",
     "gallery": [
-      "/experiences/featured/rwanda-discovery.jpg",
-      "/experiences/rwanda-discovery-4.jpg",
-      "/experiences/rwanda-discovery-5.jpg",
-      "/experiences/rwanda-discovery-6.jpg"
+      "/experiences/featured/rwanda-discovery.webp",
+      "/experiences/rwanda-discovery-4.webp",
+      "/experiences/rwanda-discovery-5.webp",
+      "/experiences/rwanda-discovery-6.webp"
     ]
   },
   */
@@ -405,7 +405,7 @@ export const experiencesData = [
     "title": "Gorillas in the Mist",
     "category": "Special Expeditions",
     "duration": "Custom Duration",
-    "image": "/experiences/featured/gorillas-in-the-mist.jpg",
+    "image": "/experiences/featured/gorillas-in-the-mist.webp",
     "summary": "Immerse in Volcanoes National Park's lush beauty, meet endangered mountain gorillas & explore Kigali's vibrant charm, Great adventure awaits.",
     "description": "4-Day Gorilla trekking includes: 1 night in Kigali, 2 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges.",
     "fullStory": [
@@ -423,12 +423,12 @@ export const experiencesData = [
     ],
     "location": "Special Expeditions",
     "url": "https://luxehorizonsafrica.com/experiences?exp=gorillas-in-the-mist",
-    "heroImage": "/experiences/featured/gorillas-in-the-mist.jpg",
+    "heroImage": "/experiences/featured/gorillas-in-the-mist.webp",
     "gallery": [
-      "/experiences/featured/gorillas-in-the-mist.jpg",
-      "/experiences/gorillas-in-the-mist-4.png",
-      "/experiences/gorillas-in-the-mist-5.jpg",
-      "/experiences/gorillas-in-the-mist-6.jpg"
+      "/experiences/featured/gorillas-in-the-mist.webp",
+      "/experiences/gorillas-in-the-mist-4.webp",
+      "/experiences/gorillas-in-the-mist-5.webp",
+      "/experiences/gorillas-in-the-mist-6.webp"
     ]
   },
   */
@@ -439,7 +439,7 @@ export const experiencesData = [
     "title": "11 Day Rwanda Holiday Experience",
     "category": "Rwanda",
     "duration": "11 Days",
-    "image": "/experiences/featured/11-day-rwanda-holiday-experience.png",
+    "image": "/experiences/featured/11-day-rwanda-holiday-experience.webp",
     "summary": "Discover Rwanda's best in 11 Day Rwanda Holiday Experience: Explore Kigali's culture, wildlife in Akagera, trek with chimpanzee and many more.",
     "description": "11-Day Rwandan Expedition: Begin with VIP Airport Welcome and two nights in Kigali. Explore the city and Genocide Memorial, then embark on thrilling safaris in Akagera National Park. Discover Nyungwe with a canopy walk, chimpanzee trek, and community experience. Relax at Lake Kivu and venture to the Volcanoes for Golden Monkey and Gorilla Treks. Your unforgettable journey ends in Kigali. Explore Rwanda\u2019s wonders with us",
     "fullStory": [
@@ -490,12 +490,12 @@ export const experiencesData = [
     ],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=11-day-rwanda-holiday-experience",
-    "heroImage": "/experiences/featured/11-day-rwanda-holiday-experience.png",
+    "heroImage": "/experiences/featured/11-day-rwanda-holiday-experience.webp",
     "gallery": [
-      "/experiences/featured/11-day-rwanda-holiday-experience.png",
-      "/experiences/11-day-rwanda-holiday-experience-4.png",
-      "/experiences/11-day-rwanda-holiday-experience-5.png",
-      "/experiences/11-day-rwanda-holiday-experience-6.png"
+      "/experiences/featured/11-day-rwanda-holiday-experience.webp",
+      "/experiences/11-day-rwanda-holiday-experience-4.webp",
+      "/experiences/11-day-rwanda-holiday-experience-5.webp",
+      "/experiences/11-day-rwanda-holiday-experience-6.webp"
     ]
   },
   */
@@ -505,7 +505,7 @@ export const experiencesData = [
     "title": "5 Day Rwanda Incentive Group Trip",
     "category": "Special Expeditions",
     "duration": "5 Days",
-    "image": "/experiences/featured/pre-colonial-era-the-big-5-the-city.jpg",
+    "image": "/experiences/featured/pre-colonial-era-the-big-5-the-city.webp",
     "summary": "A 5-day Rwanda incentive group trip beyond the gorillas: Akagera's Big Five game drives, a Kigali city tour with the Genocide Memorial, and a cultural day at Nyanza's King's Palace with the royal Inyambo cattle and traditional dance.",
     "description": "A 5-day Rwanda incentive group trip beyond the gorillas: Akagera's Big Five game drives, a Kigali city tour with the Genocide Memorial, and a cultural day at Nyanza's King's Palace with the royal Inyambo cattle and traditional dance.",
     "fullStory": [
@@ -525,13 +525,13 @@ export const experiencesData = [
     ],
     "location": "Special Expeditions",
     "url": "https://luxehorizonsafrica.com/experiences?exp=pre-colonial-era-the-big-5-the-city",
-    "heroImage": "/experiences/featured/pre-colonial-era-the-big-5-the-city.jpg",
+    "heroImage": "/experiences/featured/pre-colonial-era-the-big-5-the-city.webp",
     "gallery": [
-      "/experiences/featured/pre-colonial-era-the-big-5-the-city.jpg",
-      "/kob-antelope-savannah.jpg",
-      "/experiences/pre-colonial-era-the-big-5-the-city-4.jpg",
-      "/experiences/pre-colonial-era-the-big-5-the-city-5.jpg",
-      "/experiences/pre-colonial-era-the-big-5-the-city-6.png"
+      "/experiences/featured/pre-colonial-era-the-big-5-the-city.webp",
+      "/kob-antelope-savannah.webp",
+      "/experiences/pre-colonial-era-the-big-5-the-city-4.webp",
+      "/experiences/pre-colonial-era-the-big-5-the-city-5.webp",
+      "/experiences/pre-colonial-era-the-big-5-the-city-6.webp"
     ]
   },
   {
@@ -540,7 +540,7 @@ export const experiencesData = [
     "title": "City tour: Vibrant & Hopeful Kigali",
     "category": "Rwanda",
     "duration": "1 Day",
-    "image": "/experiences/featured/city-tour-vibrant-hopeful-kigali.png",
+    "image": "/experiences/featured/city-tour-vibrant-hopeful-kigali.webp",
     "summary": "This itinerary includes a visit to the Kigali Genocide Memorial, a lunch break at a local restaurant, and an optional half-day Kigali City Tour, offering a blend of historical exploration and cultural experiences.",
     "description": "This itinerary includes a visit to the Kigali Genocide Memorial, a lunch break at a local restaurant, and an optional half-day Kigali City Tour, offering a blend of historical exploration and cultural experiences.",
     "fullStory": [
@@ -561,12 +561,12 @@ export const experiencesData = [
     ],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=city-tour-vibrant-hopeful-kigali",
-    "heroImage": "/experiences/featured/city-tour-vibrant-hopeful-kigali.png",
+    "heroImage": "/experiences/featured/city-tour-vibrant-hopeful-kigali.webp",
     "gallery": [
-      "/experiences/featured/city-tour-vibrant-hopeful-kigali.png",
-      "/experiences/city-tour-vibrant-hopeful-kigali-4.png",
-      "/experiences/city-tour-vibrant-hopeful-kigali-5.jpg",
-      "/experiences/city-tour-vibrant-hopeful-kigali-6.jpeg"
+      "/experiences/featured/city-tour-vibrant-hopeful-kigali.webp",
+      "/experiences/city-tour-vibrant-hopeful-kigali-4.webp",
+      "/experiences/city-tour-vibrant-hopeful-kigali-5.webp",
+      "/experiences/city-tour-vibrant-hopeful-kigali-6.webp"
     ]
   },
   {
@@ -575,7 +575,7 @@ export const experiencesData = [
     "title": "Kigali\u2019s Golf Experience, The Safari & The City",
     "category": "Rwanda",
     "duration": "1 Day",
-    "image": "/experiences/featured/pre-post-conference-gorilla-experience.jpeg",
+    "image": "/experiences/featured/pre-post-conference-gorilla-experience.webp",
     "summary": "5 Day Rwanda\u2019s Golf Experience, The Safari & The City: Begin with VIP Airport Welcome and two nights in Kigali. Explore the city and Genocide Memorial, then embark on thrilling safari in Akagera National Park for a Game Drive Experience. Play Gold At The Kigali 18 Hole Golf Course and enjoy the land of a thousand hills.",
     "description": "5 Day Rwanda\u2019s Golf Experience, The Safari & The City: Begin with VIP Airport Welcome and two nights in Kigali. Explore the city and Genocide Memorial, then embark on thrilling safari in Akagera National Park for a Game Drive Experience. Play Gold At The Kigali 18 Hole Golf Course and enjoy the land of a thousand hills.",
     "fullStory": [
@@ -606,12 +606,12 @@ export const experiencesData = [
     ],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=kigalis-golf-experience-the-safari-the-city",
-    "heroImage": "/experiences/featured/pre-post-conference-gorilla-experience.jpeg",
+    "heroImage": "/experiences/featured/pre-post-conference-gorilla-experience.webp",
     "gallery": [
-      "/experiences/featured/pre-post-conference-gorilla-experience.jpeg",
-      "/experiences/kigalis-golf-experience-the-safari-the-city-4.jpg",
-      "/experiences/kigalis-golf-experience-the-safari-the-city-5.jpg",
-      "/experiences/kigalis-golf-experience-the-safari-the-city-6.jpg"
+      "/experiences/featured/pre-post-conference-gorilla-experience.webp",
+      "/experiences/kigalis-golf-experience-the-safari-the-city-4.webp",
+      "/experiences/kigalis-golf-experience-the-safari-the-city-5.webp",
+      "/experiences/kigalis-golf-experience-the-safari-the-city-6.webp"
     ]
   },
   {
@@ -620,7 +620,7 @@ export const experiencesData = [
     "title": "Ancient History & Culture",
     "category": "Special Expeditions",
     "duration": "Custom Duration",
-    "image": "/experiences/featured/ancient-history-culture.png",
+    "image": "/experiences/featured/ancient-history-culture.webp",
     "summary": "Experience Rwanda\u2019s rich culture with a 9:00 AM pick-up from your hotel. Visit the Nyanza King\u2019s Palace Museum to delve into Rwanda\u2019s ancient monarchy and learn about the esteemed role of Rwandan women. Witness the majestic Inyambo cows and enjoy a live traditional dance performance. Lunch at the Heritage Hotel is included before heading back to Kigali.",
     "description": "Experience Rwanda\u2019s rich culture with a 9:00 AM pick-up from your hotel. Visit the Nyanza King\u2019s Palace Museum to delve into Rwanda\u2019s ancient monarchy and learn about the esteemed role of Rwandan women. Witness the majestic Inyambo cows and enjoy a live traditional dance performance. Lunch at the Heritage Hotel is included before heading back to Kigali.",
     "fullStory": [
@@ -641,12 +641,12 @@ export const experiencesData = [
     ],
     "location": "Special Expeditions",
     "url": "https://luxehorizonsafrica.com/experiences?exp=ancient-history-culture",
-    "heroImage": "/experiences/featured/ancient-history-culture.png",
+    "heroImage": "/experiences/featured/ancient-history-culture.webp",
     "gallery": [
-      "/experiences/featured/ancient-history-culture.png",
-      "/experiences/ancient-history-culture-4.png",
-      "/experiences/ancient-history-culture-5.jpg",
-      "/experiences/ancient-history-culture-6.jpeg"
+      "/experiences/featured/ancient-history-culture.webp",
+      "/experiences/ancient-history-culture-4.webp",
+      "/experiences/ancient-history-culture-5.webp",
+      "/experiences/ancient-history-culture-6.webp"
     ]
   },
   /*
@@ -656,7 +656,7 @@ export const experiencesData = [
     "title": "Gorilla Trekking & Golden Monkeys",
     "category": "Special Expeditions",
     "duration": "Custom Duration",
-    "image": "/experiences/featured/gorilla-trekking-golden-monkeys.jpg",
+    "image": "/experiences/featured/gorilla-trekking-golden-monkeys.webp",
     "summary": "Immerse in Volcanoes National Park's lush beauty, meet rare mountain gorillas & golden monkeys, unveiling Rwanda's remarkable vibrant essence.",
     "description": "5-Day Volcanoes Experience includes: 1 night in Kigali, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges.",
     "fullStory": [
@@ -674,12 +674,12 @@ export const experiencesData = [
     ],
     "location": "Special Expeditions",
     "url": "https://luxehorizonsafrica.com/experiences?exp=gorilla-trekking-golden-monkeys",
-    "heroImage": "/experiences/featured/gorilla-trekking-golden-monkeys.jpg",
+    "heroImage": "/experiences/featured/gorilla-trekking-golden-monkeys.webp",
     "gallery": [
-      "/experiences/featured/gorilla-trekking-golden-monkeys.jpg",
-      "/experiences/gorilla-trekking-golden-monkeys-4.jpg",
-      "/experiences/gorilla-trekking-golden-monkeys-5.jpg",
-      "/experiences/gorilla-trekking-golden-monkeys-6.jpg"
+      "/experiences/featured/gorilla-trekking-golden-monkeys.webp",
+      "/experiences/gorilla-trekking-golden-monkeys-4.webp",
+      "/experiences/gorilla-trekking-golden-monkeys-5.webp",
+      "/experiences/gorilla-trekking-golden-monkeys-6.webp"
     ]
   },
   */
@@ -690,7 +690,7 @@ export const experiencesData = [
     "title": "Magical Kenya",
     "category": "Kenya",
     "duration": "7 Days",
-    "image": "/experiences/magical-kenya-5.jpg",
+    "image": "/experiences/magical-kenya-5.webp",
     "summary": "On a Magical Kenya adventure encounter the Big Five on safari, marvel at the Great Rift Valley's beauty & embrace Nairobi's vibrant culture.",
     "description": "7-Day safari includes: 1 night Karen, 2 nights Amboseli National Park, 2 nights Meru National Park, 2 nights Maasai Mara National Reserve, Nairobi tour, Game drives, recommended Luxury tented camps and lodges.",
     "fullStory": [
@@ -703,10 +703,10 @@ export const experiencesData = [
     ],
     "location": "Kenya",
     "url": "https://luxehorizonsafrica.com/experiences?exp=magical-kenya",
-    "heroImage": "/experiences/magical-kenya-5.jpg",
+    "heroImage": "/experiences/magical-kenya-5.webp",
     "gallery": [
-      "/experiences/magical-kenya-4.jpg",
-      "/experiences/magical-kenya-6.jpg"
+      "/experiences/magical-kenya-4.webp",
+      "/experiences/magical-kenya-6.webp"
     ]
   },
   */
@@ -716,7 +716,7 @@ export const experiencesData = [
     "title": "15 Day Rwanda - Kenya Classic Trip",
     "category": "Special Expeditions",
     "duration": "15 Days",
-    "image": "/experiences/featured/gorillas-in-the-mist.jpg",
+    "image": "/experiences/featured/gorillas-in-the-mist.webp",
     "summary": "A 15-day East African classic linking Rwanda and Kenya: Nyungwe chimpanzee trekking and a Lake Kivu boat ride, gorilla trekking in the Volcanoes, the Great Migration in the Maasai Mara, resident wildlife at Lake Naivasha, and a closing stay on Diani Beach.",
     "description": "A 15-day East African classic linking Rwanda and Kenya: Nyungwe chimpanzee trekking and a Lake Kivu boat ride, gorilla trekking in the Volcanoes, the Great Migration in the Maasai Mara, resident wildlife at Lake Naivasha, and a closing stay on Diani Beach.",
     "fullStory": [
@@ -742,14 +742,14 @@ export const experiencesData = [
     ],
     "location": "Special Expeditions",
     "url": "https://luxehorizonsafrica.com/experiences?exp=15-day-rwanda-kenya-classic-trip",
-    "heroImage": "/experiences/featured/gorillas-in-the-mist.jpg",
+    "heroImage": "/experiences/featured/gorillas-in-the-mist.webp",
     "gallery": [
-      "/experiences/featured/gorillas-in-the-mist.jpg",
-      "/mountain-gorilla-2.jpg",
-      "/kayaking-lake-kivu.jpg",
-      "/experiences/city-tour-vibrant-hopeful-kigali-4.png",
-      "/experiences/magical-kenya-4.jpg",
-      "/experiences/magical-kenya-6.jpg"
+      "/experiences/featured/gorillas-in-the-mist.webp",
+      "/mountain-gorilla-2.webp",
+      "/kayaking-lake-kivu.webp",
+      "/experiences/city-tour-vibrant-hopeful-kigali-4.webp",
+      "/experiences/magical-kenya-4.webp",
+      "/experiences/magical-kenya-6.webp"
     ]
   },
   {
@@ -758,7 +758,7 @@ export const experiencesData = [
     "title": "15 Day Uganda - Kenya Premium",
     "category": "Special Expeditions",
     "duration": "15 Days",
-    "image": "/experiences/featured/best-of-the-pearl-of-africa.jpg",
+    "image": "/experiences/featured/best-of-the-pearl-of-africa.webp",
     "summary": "A 15-day premium journey linking Uganda and Kenya: gorilla trekking in Bwindi, Nairobi's city highlights, a rhino sanctuary stay at Ol Pejeta, three nights in the Mara Triangle with an optional hot air balloon safari, and a closing private-villa stay on Diani Beach.",
     "description": "A 15-day premium journey linking Uganda and Kenya: gorilla trekking in Bwindi, Nairobi's city highlights, a rhino sanctuary stay at Ol Pejeta, three nights in the Mara Triangle with an optional hot air balloon safari, and a closing private-villa stay on Diani Beach.",
     "fullStory": [
@@ -780,12 +780,12 @@ export const experiencesData = [
     ],
     "location": "Special Expeditions",
     "url": "https://luxehorizonsafrica.com/experiences?exp=15-day-uganda-kenya-premium",
-    "heroImage": "/experiences/featured/best-of-the-pearl-of-africa.jpg",
+    "heroImage": "/experiences/featured/best-of-the-pearl-of-africa.webp",
     "gallery": [
-      "/experiences/featured/best-of-the-pearl-of-africa.jpg",
-      "/experiences/featured/gorilla-trekking-golden-monkeys.jpg",
-      "/experiences/magical-kenya-4.jpg",
-      "/experiences/magical-kenya-6.jpg"
+      "/experiences/featured/best-of-the-pearl-of-africa.webp",
+      "/experiences/featured/gorilla-trekking-golden-monkeys.webp",
+      "/experiences/magical-kenya-4.webp",
+      "/experiences/magical-kenya-6.webp"
     ]
   },
   {
@@ -794,7 +794,7 @@ export const experiencesData = [
     "title": "Rwanda Primates Corner, Premium",
     "category": "Rwanda",
     "duration": "6 Days",
-    "image": "/mountain-gorilla-1.jpg",
+    "image": "/mountain-gorilla-1.webp",
     "summary": "A 6-day premium Rwanda primates journey: Kigali, the Canopy Walk and chimpanzee trekking in Nyungwe Forest, and two separate mountain gorilla treks in the Volcanoes, connected by helicopter transfers throughout.",
     "description": "Murakaza neza! Welcome to Rwanda, a magical landscape of a thousand hills and a million smiling faces. With a size of 26,338 sq km and close to 14 million people, of which 70% are below 30 years of age, Rwanda is known to be one of the safest and cleanest countries in the world, ranked second by the World Bank in ease of doing business, where a business can be registered in 48 hours. The local language is Kinyarwanda, with English and French as official languages. Etched into global consciousness by the brutality of the 1994 genocide against the Tutsi, the social and economic repair that has occurred since is nothing short of miraculous - the country is stable, and tourism is now a key contributor to its economy.",
     "fullStory": [
@@ -816,15 +816,15 @@ export const experiencesData = [
     ],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=rwanda-primates-corner-premium",
-    "heroImage": "/mountain-gorilla-1.jpg",
+    "heroImage": "/mountain-gorilla-1.webp",
     "gallery": [
-      "/mountain-gorilla-1.jpg",
-      "/mountain-gorilla-2.jpg",
-      "/chimpanzee-1.jpg",
-      "/chimpanzee-2.jpg",
-      "/colobus-monkey-baby.jpg",
-      "/gorilla-trek-muddy-boots.jpg",
-      "/weaver-bird-nyungwe.jpg"
+      "/mountain-gorilla-1.webp",
+      "/mountain-gorilla-2.webp",
+      "/chimpanzee-1.webp",
+      "/chimpanzee-2.webp",
+      "/colobus-monkey-baby.webp",
+      "/gorilla-trek-muddy-boots.webp",
+      "/weaver-bird-nyungwe.webp"
     ]
   },
   {
@@ -859,8 +859,8 @@ export const experiencesData = [
     "heroImage": "/experiences/featured/the-great-migration-adventure.webp",
     "gallery": [
       "/experiences/featured/the-great-migration-adventure.webp",
-      "/experiences/featured/tanzania-classic.jpg",
-      "/mountain-gorilla-2.jpg"
+      "/experiences/featured/tanzania-classic.webp",
+      "/mountain-gorilla-2.webp"
     ]
   },
   {
@@ -869,7 +869,7 @@ export const experiencesData = [
     "title": "9 Day Uganda Wildlife Adventure",
     "category": "Uganda",
     "duration": "9 Days",
-    "image": "/leopard-tree.jpg",
+    "image": "/leopard-tree.webp",
     "summary": "A 9-day Uganda wildlife circuit: gorilla trekking in Bwindi, the tree-climbing lions of Ishasha, game drives and a Kazinga Channel boat cruise in Queen Elizabeth National Park, chimpanzee trekking in Kibale, and a Nile River cruise to the base of Murchison Falls.",
     "description": "A 9-day Uganda wildlife circuit: gorilla trekking in Bwindi, the tree-climbing lions of Ishasha, game drives and a Kazinga Channel boat cruise in Queen Elizabeth National Park, chimpanzee trekking in Kibale, and a Nile River cruise to the base of Murchison Falls.",
     "fullStory": [
@@ -891,12 +891,12 @@ export const experiencesData = [
     ],
     "location": "Uganda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=9-day-uganda-wildlife-adventure",
-    "heroImage": "/leopard-tree.jpg",
+    "heroImage": "/leopard-tree.webp",
     "gallery": [
-      "/leopard-tree.jpg",
-      "/kob-antelope-savannah.jpg",
-      "/kob-antelope-sparring.jpg",
-      "/chimpanzee-3.jpg"
+      "/leopard-tree.webp",
+      "/kob-antelope-savannah.webp",
+      "/kob-antelope-sparring.webp",
+      "/chimpanzee-3.webp"
     ]
   },
   {
@@ -905,7 +905,7 @@ export const experiencesData = [
     "title": "6 Day Rwanda Incentive Group Trip",
     "category": "Special Expeditions",
     "duration": "6 Days",
-    "image": "/giraffe-akagera.jpg",
+    "image": "/giraffe-akagera.webp",
     "summary": "A 6-day Rwanda incentive group trip: historical Kigali, an exclusive Big Five and Akagera safari boat cruise, mountain gorilla trekking, and a farewell Gala Dinner with Intore cultural dancing at the Kigali Convention Center.",
     "description": "A 6-day Rwanda incentive group trip: historical Kigali, an exclusive Big Five and Akagera safari boat cruise, mountain gorilla trekking, and a farewell Gala Dinner with Intore cultural dancing at the Kigali Convention Center.",
     "fullStory": [
@@ -928,12 +928,12 @@ export const experiencesData = [
     ],
     "location": "Special Expeditions",
     "url": "https://luxehorizonsafrica.com/experiences?exp=6-day-rwanda-incentive-group-trip",
-    "heroImage": "/giraffe-akagera.jpg",
+    "heroImage": "/giraffe-akagera.webp",
     "gallery": [
-      "/giraffe-akagera.jpg",
-      "/texp-akagera.jpg",
-      "/exp-akagera.jpg",
-      "/experiences/featured/gorilla-trekking-golden-monkeys.jpg"
+      "/giraffe-akagera.webp",
+      "/texp-akagera.webp",
+      "/exp-akagera.webp",
+      "/experiences/featured/gorilla-trekking-golden-monkeys.webp"
     ]
   },
   {
@@ -942,7 +942,7 @@ export const experiencesData = [
     "title": "4 Day Rwanda Experience",
     "category": "Rwanda",
     "duration": "4 Days",
-    "image": "/gorilla-trek-muddy-boots.jpg",
+    "image": "/gorilla-trek-muddy-boots.webp",
     "summary": "A 4-day Rwanda essentials trip: a Kigali city tour with the Genocide Memorial, and a Gorilla Trekking experience in the Volcanoes National Park.",
     "description": "A 4-day Rwanda essentials trip: a Kigali city tour with the Genocide Memorial, and a Gorilla Trekking experience in the Volcanoes National Park.",
     "fullStory": [
@@ -961,11 +961,11 @@ export const experiencesData = [
     ],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=4-day-rwanda-experience",
-    "heroImage": "/gorilla-trek-muddy-boots.jpg",
+    "heroImage": "/gorilla-trek-muddy-boots.webp",
     "gallery": [
-      "/gorilla-trek-muddy-boots.jpg",
-      "/experiences/featured/7-day-rwandas-big-5-gorillas.png",
-      "/experiences/featured/gorilla-trekking-golden-monkeys.jpg"
+      "/gorilla-trek-muddy-boots.webp",
+      "/experiences/featured/7-day-rwandas-big-5-gorillas.webp",
+      "/experiences/featured/gorilla-trekking-golden-monkeys.webp"
     ]
   }
 ];

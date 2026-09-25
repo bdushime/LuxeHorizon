@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import Reveal from './Reveal.jsx'
 import './AboutSection.css'
 
-const PHOTO_MAIN = '/Mountain-Gorilla.jpg.jpeg'
-const PHOTO_SECONDARY = '/Bird.jpg.jpeg'
+const PHOTO_MAIN = '/Mountain-Gorilla.webp'
+const PHOTO_SECONDARY = '/Bird.webp'
 
 // A stat is either non-numeric (value: null — e.g. "1:1", nothing sensible to
 // count up) or has a numeric `value` that animates from 0 up to itself once
@@ -113,10 +113,10 @@ export default function AboutSection() {
 
         <div className="intro-visual">
           <Reveal as="div" className="reveal-photo-main intro-photo intro-photo-main">
-            <img src={PHOTO_MAIN} alt="Mountain gorilla, Rwanda" />
+            <img src={PHOTO_MAIN} alt="Mountain gorilla, Rwanda" loading="lazy" decoding="async" />
           </Reveal>
           <Reveal as="div" className="reveal-photo-secondary intro-photo intro-photo-secondary">
-            <img src={PHOTO_SECONDARY} alt="Bird, East Africa" />
+            <img src={PHOTO_SECONDARY} alt="Bird, East Africa" loading="lazy" decoding="async" />
           </Reveal>
 
           <Reveal as="div" className="intro-path-wrap">

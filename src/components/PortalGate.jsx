@@ -152,7 +152,7 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
         className="relative z-0 flex-1 md:absolute md:inset-0 cursor-pointer overflow-hidden border-b border-[#F8F6F0]/15 md:border-b-0 group"
       >
         <motion.img
-          src="/Travel.jpeg"
+          src="/Travel.webp"
           alt="Luxe Horizons Travel"
           animate={{
             scale: !hovered && !selected ? [1, 1.1, 1] : hovered === 'tourism' ? 1.08 : hovered === 'consultancy' ? 0.96 : 1,
@@ -197,7 +197,7 @@ export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultanc
         className="relative z-10 flex-1 md:absolute md:inset-0 cursor-pointer overflow-hidden group"
       >
         <motion.img
-          src="/Consultancy.jpeg"
+          src="/Consultancy.webp"
           alt="Luxe Horizons Consultancy & MICE"
           animate={{
             scale: !hovered && !selected ? [1, 1.1, 1] : hovered === 'consultancy' ? 1.08 : hovered === 'tourism' ? 0.96 : 1,

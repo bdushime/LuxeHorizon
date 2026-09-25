@@ -43,7 +43,7 @@ export default function DestinationDetailPage() {
       />
 
       <section className="ddp-hero">
-        <img className="ddp-hero-media" src={dest.image} alt={dest.name} />
+        <img className="ddp-hero-media" src={dest.image} alt={dest.name} fetchpriority="high" loading="eager" decoding="async" />
         <div className="ddp-hero-overlay" />
         <div className="ddp-hero-content">
           <div className="eyebrow on-dark">{dest.eyebrow}</div>
@@ -76,7 +76,7 @@ export default function DestinationDetailPage() {
           </Reveal>
 
           <Reveal className="ddp-pinned-photo">
-            <img src={detail.secondaryPhoto} alt={`${dest.name} scenery`} />
+            <img src={detail.secondaryPhoto} alt={`${dest.name} scenery`} loading="lazy" decoding="async" />
           </Reveal>
         </div>
       </div>
@@ -97,7 +97,7 @@ export default function DestinationDetailPage() {
               </div>
             </div>
             <div className="ddp-continue-media">
-              <img src={relatedCard.image} alt={relatedCard.title} />
+              <img src={relatedCard.image} alt={relatedCard.title} loading="lazy" decoding="async" />
             </div>
           </div>
         </section>
