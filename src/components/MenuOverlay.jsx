@@ -4,7 +4,7 @@ import './MenuOverlay.css'
 
 const MENU_NAV_LINKS = [
   { label: 'Destinations', href: '/destinations' },
-  { label: 'Experiences & Itineraries', href: '/experiences' },
+  { label: 'Experiences', href: '/experiences' },
   { label: 'Safari Journal', href: '/blog' },
   { label: 'About Us', href: '/about' },
   { label: 'Guest Reviews', href: '/testimonials' },

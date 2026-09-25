@@ -23,6 +23,15 @@ const DEFAULT_PDF_MAP = {
   'Multi-Country': '/itineraries/15DAY-RWANDA---KENYA-CLASSIC-TRIP.docx.pdf'
 }
 
+function formatCardSummary(text, maxLength = 112) {
+  if (!text) return ''
+  const trimmed = text.trim()
+  if (trimmed.length <= maxLength) return trimmed
+  const sub = trimmed.slice(0, maxLength)
+  const lastSpace = sub.lastIndexOf(' ')
+  return (lastSpace > 50 ? sub.slice(0, lastSpace) : sub) + '...'
+}
+
 export default function ExperiencesPage() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()
@@ -38,7 +47,7 @@ export default function ExperiencesPage() {
     window.scrollTo(0, 0)
   }, [])
 
-  // Build unified experience items list
+  // Build unified experience items list with uniform equal-length descriptions
   const allExperiences = useMemo(() => {
     const combined = [
       ...itinerariesData.map((item) => ({
@@ -48,7 +57,7 @@ export default function ExperiencesPage() {
         title: item.title,
         category: item.category,
         duration: item.duration,
-        summary: item.summary,
+        summary: formatCardSummary(item.summary),
         description: item.summary,
         image: item.image,
         accent: item.accent || '#c6a15b',
@@ -63,7 +72,7 @@ export default function ExperiencesPage() {
           title: item.title,
           category: cat,
           duration: item.duration || 'Custom Duration',
-          summary: item.summary || item.description,
+          summary: formatCardSummary(item.summary || item.description),
           description: item.description || item.summary,
           image: item.image,
           highlights: item.highlights || [],
@@ -73,7 +82,7 @@ export default function ExperiencesPage() {
       })
     ]
 
-    // Deduplicate by title to ensure a clean list
+    // Deduplicate by title to ensure a clean, curated list
     const seen = new Set()
     return combined.filter((item) => {
       const normalizedTitle = item.title.toLowerCase().trim()
