@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom'
 import PortalGate from './components/PortalGate.jsx'
 import Nav from './components/Nav.jsx'
 import MenuOverlay from './components/MenuOverlay.jsx'
@@ -15,6 +15,7 @@ import ConsultancyPage from './components/ConsultancyPage.jsx'
 import TestimonialsPage from './components/TestimonialsPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import ExperiencesPage from './pages/ExperiencesPage.jsx'
+import ItinerariesPage from './pages/ItinerariesPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import Footer from './components/Footer.jsx'
 
@@ -32,7 +33,7 @@ function AppRoutes() {
   const isDestinations = location.pathname === '/destinations'
   const isAdmin = location.pathname.startsWith('/admin')
   const isNotFound =
-    ['/destinations', '/about', '/contact', '/consultancy', '/faq', '/testimonials', '/blog', '/experiences', '/'].includes(
+    ['/destinations', '/about', '/contact', '/consultancy', '/faq', '/testimonials', '/blog', '/itineraries', '/experiences', '/'].includes(
       location.pathname
     ) === false &&
     !location.pathname.startsWith('/destinations/') &&
@@ -65,6 +66,7 @@ function AppRoutes() {
         <Route path="/destinations" element={<DestinationsPage />} />
         <Route path="/destinations/:key" element={<DestinationDetailPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/itineraries" element={<Navigate to="/experiences?tab=itineraries" replace />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/consultancy" element={<ConsultancyPage />} />

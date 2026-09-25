@@ -279,7 +279,7 @@ export const blogPosts = [
     title: 'What Nobody Tells You Before Your First Gorilla Trek',
     excerpt:
       'The permit is the easy part. Here is what actually matters on the day — from altitude to the seven-metre rule.',
-    image: '/Mountain Gorilla.jpg.jpeg',
+    image: '/Mountain-Gorilla.jpg.jpeg',
     accent: '#5c6b4f',
     quote: 'The moment you break through the bamboo thicket and lock eyes with a 200-kilogram Silverback, every step up the volcano fades into background noise.',
     takeaway: 'Key Takeaway: Hire a local porter at Kinigi headquarters. Beyond lightening your load, it directly supports the local agricultural community surrounding Volcanoes National Park.',
@@ -533,7 +533,7 @@ export const testimonials = [
     quote:
       'We spent forty minutes six feet from a silverback and nobody said a word. Our guide read the family like he’d grown up beside them.',
     rating: 5,
-    photo: '/Mountain Gorilla.jpg.jpeg',
+    photo: '/Mountain-Gorilla.jpg.jpeg',
     rotate: -6
   },
   {

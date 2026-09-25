@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Reveal from './Reveal.jsx'
 import './AboutSection.css'
 
-const PHOTO_MAIN = '/Mountain Gorilla.jpg.jpeg'
+const PHOTO_MAIN = '/Mountain-Gorilla.jpg.jpeg'
 const PHOTO_SECONDARY = '/Bird.jpg.jpeg'
 
 // A stat is either non-numeric (value: null — e.g. "1:1", nothing sensible to

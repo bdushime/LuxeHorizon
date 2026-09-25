@@ -3,7 +3,7 @@
  * Production Domain: https://luxehorizonsafrica.com/
  */
 
-export const SITE_URL = 'https://luxehorizonsafrica.com';
+export const SITE_URL = (import.meta.env.VITE_SITE_URL || import.meta.env.VITE_BASE_URL || import.meta.env.VITE_APP_URL || 'https://luxehorizonsafrica.com').replace(/\/$/, '');
 export const SITE_NAME = 'Luxe Horizons Africa';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/texp-akagera.jpg`;
 
@@ -93,6 +93,13 @@ export const PAGE_SEO = {
     description:
       'Expert travel tips, gorilla trekking etiquette, conservation insights and seasonal guides for Rwanda, Uganda and Tanzania.',
     canonical: `${SITE_URL}/blog`,
+    ogImage: `${SITE_URL}/Mountain%20Gorilla.jpg.jpeg`
+  },
+  itineraries: {
+    title: 'Bespoke Safari Itineraries & PDF Guides | Luxe Horizons Africa',
+    description:
+      'Browse and view curated luxury safari itineraries for Rwanda, Uganda, and Tanzania. Preview full PDF documents online.',
+    canonical: `${SITE_URL}/itineraries`,
     ogImage: `${SITE_URL}/Mountain%20Gorilla.jpg.jpeg`
   },
   faq: {
