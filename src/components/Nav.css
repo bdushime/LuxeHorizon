@@ -7,15 +7,18 @@
   padding: 30px 0;
   transition: padding 0.4s ease;
 }
+
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .nav .brand {
   display: inline-flex;
   align-items: center;
 }
+
 .brand-logo {
   height: 40px;
   width: auto;
@@ -27,6 +30,7 @@
   align-items: center;
   gap: 22px;
 }
+
 .nav-plan {
   font-size: 11px;
   letter-spacing: 0.14em;
@@ -41,11 +45,13 @@
   transition: color 0.4s ease, border-color 0.4s ease, opacity 0.4s ease 0.05s,
     transform 0.4s ease 0.05s;
 }
+
 .nav.revealed .nav-plan {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
+
 .nav.scrolled .nav-plan {
   color: var(--ink);
   border-color: rgba(33, 29, 23, 0.4);
@@ -71,11 +77,13 @@
   transition: border-color 0.4s ease, background 0.4s ease, opacity 0.4s ease 0.05s,
     transform 0.4s ease 0.05s;
 }
+
 .nav.revealed .division-switch {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
+
 .nav.scrolled .division-switch {
   border-color: rgba(33, 29, 23, 0.22);
   background: rgba(33, 29, 23, 0.06);
@@ -93,6 +101,7 @@
   transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
   z-index: 0;
 }
+
 .division-switch.is-consultancy .ds-indicator {
   transform: translateX(100%);
 }
@@ -117,15 +126,19 @@
   color: rgba(246, 241, 231, 0.65);
   transition: color 0.35s ease;
 }
+
 .nav.scrolled .ds-option {
   color: rgba(33, 29, 23, 0.6);
 }
+
 .ds-option:hover {
   color: var(--parchment);
 }
+
 .nav.scrolled .ds-option:hover {
   color: var(--ink);
 }
+
 .ds-option.active {
   color: #141f19 !important;
   font-weight: 800;
@@ -147,25 +160,30 @@
   pointer-events: none;
   transition: border-color 0.4s ease, opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
 }
+
 .nav.revealed .menu-toggle {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
+
 .nav.scrolled .menu-toggle {
   border-color: rgba(33, 29, 23, 0.3);
 }
+
 .menu-toggle.open {
   border-color: rgba(246, 241, 231, 0.5) !important;
   opacity: 1 !important;
   transform: translateY(0) !important;
   pointer-events: auto !important;
 }
+
 .menu-toggle .bars {
   position: relative;
   width: 16px;
   height: 10px;
 }
+
 .menu-toggle .bars span {
   position: absolute;
   left: 0;
@@ -174,22 +192,28 @@
   background: var(--parchment);
   transition: transform 0.35s ease, top 0.35s ease, background 0.4s ease;
 }
+
 .nav.scrolled .menu-toggle .bars span {
   background: var(--ink);
 }
+
 .menu-toggle .bars span:nth-child(1) {
   top: 0;
 }
+
 .menu-toggle .bars span:nth-child(2) {
   top: 9px;
 }
+
 .menu-toggle.open .bars span {
   background: var(--parchment) !important;
 }
+
 .menu-toggle.open .bars span:nth-child(1) {
   top: 4px;
   transform: rotate(45deg);
 }
+
 .menu-toggle.open .bars span:nth-child(2) {
   top: 4px;
   transform: rotate(-45deg);

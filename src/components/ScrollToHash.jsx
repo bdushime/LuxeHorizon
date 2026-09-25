@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useLocation, useNavigationType } from 'react-router-dom'
 
 // Module-level, not state — survives across every route change for the
@@ -18,20 +18,10 @@ if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
   window.history.scrollRestoration = 'manual'
 }
 
-// Handles two jobs:
-//  1. react-router doesn't scroll to a URL's #hash the way a full page load
-//     does — this watches for one and scrolls to it once the page has mounted.
-//  2. Restores scroll position on browser back/forward ourselves. We can't
-//     capture "the position we're leaving" reactively in an unmount/cleanup
-//     — by the time that runs, React has already swapped the DOM to the new
-//     (often shorter) page, and the browser has already clamped window.scrollY
-//     down to fit it, corrupting the very value we're trying to save. Instead
-//     we track scroll position live, continuously, while the user is actually
-//     on each page, so whenever navigation eventually happens the last-known
-//     value is already accurate.
 export default function ScrollToHash() {
   const { hash, pathname, key } = useLocation()
   const navigationType = useNavigationType()
+  const prevPathname = useRef(pathname)
 
   useEffect(() => {
     let raf
@@ -60,10 +50,6 @@ export default function ScrollToHash() {
         }, 60)
       )
     } else if (navigationType === 'POP' && scrollPositions.has(key)) {
-      // A page with several images (like the homepage) can still be growing
-      // taller as they load in, clamping an early scroll attempt short of
-      // where it should land. Re-apply a couple of times as layout settles
-      // instead of trusting a single early attempt.
       const target = scrollPositions.get(key)
       const apply = () => window.scrollTo({ top: target })
       timers.push(setTimeout(apply, 60), setTimeout(apply, 350))
@@ -71,10 +57,11 @@ export default function ScrollToHash() {
       const target = lastHomeScrollY
       const apply = () => window.scrollTo({ top: target })
       timers.push(setTimeout(apply, 60), setTimeout(apply, 350))
-    } else {
+    } else if (prevPathname.current !== pathname) {
       window.scrollTo({ top: 0 })
     }
 
+    prevPathname.current = pathname
     return () => timers.forEach(clearTimeout)
   }, [hash, pathname, key, navigationType])
 

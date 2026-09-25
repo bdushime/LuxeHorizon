@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom'
 import PortalGate from './components/PortalGate.jsx'
 import Nav from './components/Nav.jsx'
 import MenuOverlay from './components/MenuOverlay.jsx'
@@ -66,7 +66,7 @@ function AppRoutes() {
         <Route path="/destinations" element={<DestinationsPage />} />
         <Route path="/destinations/:key" element={<DestinationDetailPage />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/itineraries" element={<ItinerariesPage />} />
+        <Route path="/itineraries" element={<Navigate to="/experiences?tab=itineraries" replace />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/consultancy" element={<ConsultancyPage />} />
