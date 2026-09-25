@@ -30,7 +30,7 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   // The nav bar elements (brand, division switch, plan link, hamburger menu)
   // should always be visible and legible across all pages.
   const revealed = true
-  const scrolled = hasDarkHero ? scrolledState : true
+  const scrolled = menuOpen ? false : (hasDarkHero ? scrolledState : true)
 
   // The brand is a real <Link to="/">, so it already navigates home on its
   // own — this only needs to additionally reopen the Portal Gate when we're
@@ -40,7 +40,7 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   }
 
   return (
-    <header className={`nav ${scrolled ? 'scrolled' : ''} ${revealed ? 'revealed' : ''}`}>
+    <header className={`nav ${scrolled ? 'scrolled' : ''} ${revealed ? 'revealed' : ''} ${menuOpen ? 'menu-open' : ''}`}>
       <div className="wrap nav-inner">
         <Link
           to="/"

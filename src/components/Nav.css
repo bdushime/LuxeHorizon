@@ -231,3 +231,34 @@
     display: none;
   }
 }
+
+/* Force light contrast and highest z-index when Menu Overlay is open */
+.nav.menu-open {
+  z-index: 100 !important;
+}
+
+.nav.menu-open .nav-plan {
+  color: var(--parchment) !important;
+  border-color: rgba(246, 241, 231, 0.5) !important;
+}
+
+.nav.menu-open .division-switch {
+  border-color: rgba(246, 241, 231, 0.35) !important;
+  background: rgba(246, 241, 231, 0.08) !important;
+}
+
+.nav.menu-open .ds-option {
+  color: rgba(246, 241, 231, 0.65) !important;
+}
+
+.nav.menu-open .ds-option.active {
+  color: #141f19 !important;
+}
+
+.nav.menu-open .menu-toggle {
+  border-color: rgba(246, 241, 231, 0.6) !important;
+}
+
+.nav.menu-open .menu-toggle .bars span {
+  background: var(--parchment) !important;
+}
