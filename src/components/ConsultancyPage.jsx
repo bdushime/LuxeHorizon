@@ -5,6 +5,7 @@ import Reveal from './Reveal.jsx'
 import CtaBand from './CtaBand.jsx'
 import PartnersSection from './PartnersSection.jsx'
 import Seo from './Seo.jsx'
+import { PAGE_SEO } from '../config/seo.js'
 import { consultancyIntro, consultancyPillars } from '../data/content.js'
 import { experiencesData } from '../data/experiencesData.js'
 import './ConsultancyPage.css'
@@ -108,10 +109,7 @@ export default function ConsultancyPage() {
 
   return (
     <div className="con-page">
-      <Seo
-        title="Consultancy & MICE — Corporate Travel Advisory | Luxe Horizons Africa"
-        description="Travel management consultancy, MICE and educational trip planning across Rwanda, Uganda and Tanzania — designed by Luxe Horizons Africa."
-      />
+      <Seo title={PAGE_SEO.consultancy.title} description={PAGE_SEO.consultancy.description} image={PAGE_SEO.consultancy.ogImage} />
 
       <section className="con-hero">
         <div className="con-hero-parallax" style={{ transform: `translateY(${scrollY * 0.22}px)` }}>

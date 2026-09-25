@@ -8,9 +8,9 @@ export const SITE_NAME = 'Luxe Horizons Africa';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/texp-akagera.jpg`;
 
 export const DEFAULT_SEO = {
-  title: 'Luxe Horizons Africa | Luxury Safaris & Gorilla Trekking East Africa',
+  title: 'Luxe Horizons Africa | Luxury Safaris & Gorilla Treks',
   description:
-    'Bespoke luxury safaris across Rwanda, Uganda, Tanzania and Kenya. Private mountain gorilla trekking, tailor-made itineraries, and Kigali-based trip specialists.',
+    'Bespoke luxury safaris and private gorilla trekking in Rwanda, Uganda, Tanzania and Kenya, crafted by Kigali-based trip designers.',
   canonical: `${SITE_URL}/`,
   ogType: 'website',
   ogImage: DEFAULT_OG_IMAGE
@@ -18,98 +18,108 @@ export const DEFAULT_SEO = {
 
 /**
  * Route-specific SEO Metadata Inventory
+ * Titles kept to ~60 chars, descriptions to 120-160 chars — the ranges
+ * SEOptimer (and most SEO tools) flag outside of, per the client's audit
+ * of the current live site.
  */
 export const PAGE_SEO = {
   home: {
-    title: 'Luxe Horizons Africa | Luxury Safaris & Gorilla Trekking in Rwanda & East Africa',
+    title: 'Luxe Horizons Africa | Luxury Safaris & Gorilla Treks',
     description:
-      'Bespoke luxury safaris and private gorilla trekking in Rwanda, Uganda, Tanzania, and Kenya. Kigali-based trip designers crafting tailor-made African expeditions.',
+      'Bespoke luxury safaris and private gorilla trekking in Rwanda, Uganda, Tanzania and Kenya, crafted by Kigali-based trip designers.',
     canonical: `${SITE_URL}/`,
     ogImage: `${SITE_URL}/texp-akagera.jpg`
   },
   destinations: {
-    title: 'East Africa Safari Destinations — Rwanda, Uganda, Tanzania & Kenya | Luxe Horizons Africa',
+    title: 'East Africa Safari Destinations | Luxe Horizons Africa',
     description:
-      'Explore East Africa\'s premier safari destinations. From Rwanda\'s misty volcanoes and Akagera plains to Uganda\'s Bwindi forest and the Serengeti.',
+      "Explore East Africa's top safari destinations, from Rwanda's misty volcanoes to Uganda's Bwindi forest and the Serengeti plains.",
     canonical: `${SITE_URL}/destinations`,
     ogImage: `${SITE_URL}/exp-tanzania.jpg`
   },
   destinationDetail: {
     rwanda: {
-      title: 'Rwanda Luxury Safaris & Gorilla Trekking Guide | Luxe Horizons Africa',
+      title: 'Rwanda Safaris & Gorilla Trekking Guide | Luxe Horizons',
       description:
-        'Experience Rwanda\'s mountain gorillas in Volcanoes National Park, chimpanzees in Nyungwe, and Big Five safaris in Akagera. Bespoke luxury Rwandan itineraries.',
+        'Mountain gorillas in Volcanoes National Park, chimpanzees in Nyungwe, and Big Five safaris in Akagera. Bespoke Rwandan itineraries.',
       canonical: `${SITE_URL}/destinations/rwanda`,
       ogImage: `${SITE_URL}/Mountain%20Gorilla.jpg.jpeg`
     },
     uganda: {
-      title: 'Uganda Safari Guide — Bwindi Gorillas & Queen Elizabeth NP | Luxe Horizons Africa',
+      title: 'Uganda Safari Guide — Bwindi Gorillas | Luxe Horizons',
       description:
-        'Discover the Pearl of Africa. Private gorilla trekking in Bwindi Impenetrable Forest, tree-climbing lions in Queen Elizabeth, and Kibale chimpanzee tracking.',
+        'Discover the Pearl of Africa: gorilla trekking in Bwindi, tree-climbing lions in Queen Elizabeth, and Kibale chimpanzee tracking.',
       canonical: `${SITE_URL}/destinations/uganda`,
       ogImage: `${SITE_URL}/Bird.jpg.jpeg`
     },
     tanzania: {
-      title: 'Tanzania Safari Guide — Great Migration, Serengeti & Ngorongoro | Luxe Horizons Africa',
+      title: 'Tanzania Safari Guide — Serengeti | Luxe Horizons Africa',
       description:
-        'Witness the Great Migration in the Serengeti and explore Ngorongoro Crater. Tailor-made luxury Tanzanian safaris and private wilderness tented camps.',
+        'Witness the wildebeest Great Migration in the Serengeti and explore Ngorongoro Crater on a tailor-made luxury Tanzanian safari.',
       canonical: `${SITE_URL}/destinations/tanzania`,
       ogImage: `${SITE_URL}/exp-tanzania.jpg`
     },
     kenya: {
-      title: 'Kenya Luxury Safari Guide — Maasai Mara & Amboseli | Luxe Horizons Africa',
+      title: 'Kenya Safari Guide — Maasai Mara | Luxe Horizons Africa',
       description:
-        'Classic Kenyan safaris across the Maasai Mara grasslands and Amboseli elephants framed against Mount Kilimanjaro. Tailor-made luxury travel.',
+        'Classic Kenyan safaris across the Maasai Mara and Amboseli, framed by elephants and Mount Kilimanjaro. Tailor-made luxury travel.',
       canonical: `${SITE_URL}/destinations/kenya`,
       ogImage: `${SITE_URL}/exp-akagera.jpg`
     }
   },
   experiences: {
-    title: 'Curated Safaris & Experiences | Gorilla Treks & Wildlife Expeditions',
+    title: 'Curated Safaris & Experiences | Luxe Horizons Africa',
     description:
-      'Handcrafted safari itineraries across Rwanda, Uganda, Tanzania, and Kenya. Mountain gorilla trekking, primate tracking, and luxury private expeditions.',
+      'Handcrafted safari itineraries across Rwanda, Uganda, Tanzania and Kenya — gorilla treks, primate tracking, private expeditions.',
     canonical: `${SITE_URL}/experiences`,
     ogImage: `${SITE_URL}/exp-primates.jpg`
   },
   about: {
-    title: 'About Us — Kigali Safari Specialists & Team | Luxe Horizons Africa',
+    title: 'About Us — Kigali Safari Specialists | Luxe Horizons',
     description:
-      'Meet the Kigali-based team of travel designers and wildlife specialists crafting bespoke African expeditions with unhurried, private, and considered luxury.',
+      'Meet the Kigali-based team of travel designers crafting bespoke African expeditions with unhurried, private, considered luxury.',
     canonical: `${SITE_URL}/about`,
     ogImage: `${SITE_URL}/story-guide.jpg`
   },
   testimonials: {
-    title: 'Client Reviews & Field Stories | Luxe Horizons Africa Safaris',
+    title: 'Client Reviews & Field Stories | Luxe Horizons Africa',
     description:
-      'Read genuine reviews and safari dispatches from luxury travellers who experienced gorilla trekking and East African safaris with Luxe Horizons Africa.',
+      'Genuine reviews and safari dispatches from travellers who experienced gorilla trekking and East African safaris with us.',
     canonical: `${SITE_URL}/testimonials`,
     ogImage: `${SITE_URL}/cta-sunset.jpg`
   },
   blog: {
-    title: 'Safari Journal & Field Notes — Gorilla Trekking Tips & Travel Guides',
+    title: 'Safari Journal & Field Notes | Luxe Horizons Africa',
     description:
-      'Expert travel tips, gorilla trekking etiquette, conservation insights, and seasonal guides for Rwanda, Uganda, and Tanzania safaris.',
+      'Expert travel tips, gorilla trekking etiquette, conservation insights and seasonal guides for Rwanda, Uganda and Tanzania.',
     canonical: `${SITE_URL}/blog`,
     ogImage: `${SITE_URL}/Mountain%20Gorilla.jpg.jpeg`
   },
   faq: {
-    title: 'Safari FAQ & Pre-Departure Travel Tips | Luxe Horizons Africa',
+    title: 'Safari FAQ & Travel Tips | Luxe Horizons Africa',
     description:
-      'Essential answers for planning an East African safari: best time to travel, packing lists, permits, yellow fever, laundry, and family travel.',
+      'Answers for planning an East African safari: best time to travel, packing lists, permits, yellow fever and family travel.',
     canonical: `${SITE_URL}/faq`,
     ogImage: `${SITE_URL}/texp-akagera.jpg`
   },
   contact: {
-    title: 'Contact Us — Plan Your Bespoke African Safari | Luxe Horizons Africa',
+    title: 'Contact Us — Plan Your Safari | Luxe Horizons Africa',
     description:
-      'Get in touch with our Kigali trip designers to start planning your custom gorilla trek or luxury East African safari. Phone, WhatsApp, email, or enquiry.',
+      'Get in touch with our Kigali-based trip designers to start planning your custom gorilla trek or luxury East African safari.',
     canonical: `${SITE_URL}/contact`,
     ogImage: `${SITE_URL}/cta-sunset.jpg`
+  },
+  consultancy: {
+    title: 'Consultancy & MICE | Luxe Horizons Africa',
+    description:
+      'Travel management consultancy, MICE and educational trip planning across Rwanda, Uganda and Tanzania, by Luxe Horizons Africa.',
+    canonical: `${SITE_URL}/consultancy`,
+    ogImage: `${SITE_URL}/Consultancy.jpeg`
   },
   notFound: {
     title: 'Page Not Found (404) | Luxe Horizons Africa',
     description:
-      'The requested page could not be found. Explore our luxury safari destinations, experiences, or return to the Luxe Horizons homepage.',
+      'The page you requested could not be found. Explore our luxury safari destinations, experiences, or return to the homepage.',
     canonical: `${SITE_URL}/404`,
     ogImage: DEFAULT_OG_IMAGE
   }
