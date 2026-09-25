@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Nav from '../components/Nav.jsx'
@@ -14,79 +14,102 @@ import { itinerariesData } from '../data/itinerariesData.js'
 import '../components/AdventureSection.css'
 import './ExperiencesPage.css'
 
-// Kenya is deliberately left out until there's a real Kenya tour to back it —
-// an empty filter tab looks broken to a visitor, not "coming soon". Add it
-// back once experiencesData.js has a real Kenya-category entry.
-const EXP_CATEGORIES = [
-  'All',
-  'Rwanda',
-  'Uganda',
-  'Tanzania',
-  'Special Expeditions'
-]
+const CATEGORIES = ['All', 'Rwanda', 'Uganda', 'Tanzania', 'Multi-Country']
 
-const ITIN_CATEGORIES = [
-  'All',
-  'Rwanda',
-  'Uganda',
-  'Multi-Country'
-]
+const DEFAULT_PDF_MAP = {
+  'Rwanda': '/itineraries/10DAY-RWANDA-DISCOVERY-EXPERIENCE.docx.pdf',
+  'Uganda': '/itineraries/9DAY-UGANDA-ADVENTURE.docx.pdf',
+  'Tanzania': '/itineraries/11-DAY-TANZANIA---RWANDA,-PREMIUM.docx.pdf',
+  'Multi-Country': '/itineraries/15DAY-RWANDA---KENYA-CLASSIC-TRIP.docx.pdf'
+}
 
 export default function ExperiencesPage() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()
-
-  // Primary Tab state: 'experiences' | 'itineraries'
-  const [activeTab, setActiveTab] = useState('experiences')
-
-  // Experiences states (Articles)
-  const [expCategory, setExpCategory] = useState('All')
+  const [activeCategory, setActiveCategory] = useState('All')
+  
+  // Selected experience for short description modal
   const [selectedExperience, setSelectedExperience] = useState(null)
-  const [activeGalleryImg, setActiveGalleryImg] = useState('')
-  const [hoveredKey, setHoveredKey] = useState(null)
-
-  // Itineraries states (PDF Documents)
-  const [itinCategory, setItinCategory] = useState('All')
-  const [selectedItinerary, setSelectedItinerary] = useState(null)
+  
+  // Selected PDF itinerary for direct inline PDF viewer modal
+  const [activePdfViewer, setActivePdfViewer] = useState(null)
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  // Deep-linking URL params handling
-  useEffect(() => {
-    const tab = searchParams.get('tab')
-    const itinKey = searchParams.get('itinerary')
-    const expSlug = searchParams.get('exp')
+  // Build unified experience items list
+  const allExperiences = useMemo(() => {
+    const combined = [
+      ...itinerariesData.map((item) => ({
+        id: item.key,
+        key: item.key,
+        slug: item.key,
+        title: item.title,
+        category: item.category,
+        duration: item.duration,
+        summary: item.summary,
+        description: item.summary,
+        image: item.image,
+        accent: item.accent || '#c6a15b',
+        pdfUrl: item.pdfUrl
+      })),
+      ...experiencesData.map((item) => {
+        const cat = item.category === 'Special Expeditions' ? 'Rwanda' : item.category
+        return {
+          id: item.slug || item.id,
+          key: item.slug || item.id,
+          slug: item.slug || item.id,
+          title: item.title,
+          category: cat,
+          duration: item.duration || 'Custom Duration',
+          summary: item.summary || item.description,
+          description: item.description || item.summary,
+          image: item.image,
+          highlights: item.highlights || [],
+          accent: '#c6a15b',
+          pdfUrl: item.pdfUrl || DEFAULT_PDF_MAP[cat] || '/itineraries/10DAY-RWANDA-DISCOVERY-EXPERIENCE.docx.pdf'
+        }
+      })
+    ]
 
-    if (itinKey || tab === 'itineraries') {
-      setActiveTab('itineraries')
-      if (itinKey) {
-        const match = itinerariesData.find((item) => item.key === itinKey)
-        if (match) setSelectedItinerary(match)
-      }
-    } else if (expSlug || tab === 'experiences') {
-      setActiveTab('experiences')
-      if (expSlug) {
-        const item = experiencesData.find((e) => e.slug === expSlug || e.id === expSlug)
-        if (item) {
-          setSelectedExperience(item)
-          setActiveGalleryImg(item.image)
+    // Deduplicate by title to ensure a clean list
+    const seen = new Set()
+    return combined.filter((item) => {
+      const normalizedTitle = item.title.toLowerCase().trim()
+      if (seen.has(normalizedTitle)) return false
+      seen.add(normalizedTitle)
+      return true
+    })
+  }, [])
+
+  // URL Deep-linking handling
+  useEffect(() => {
+    const expSlug = searchParams.get('exp') || searchParams.get('itinerary')
+    const pdfFlag = searchParams.get('pdf')
+
+    if (expSlug) {
+      const match = allExperiences.find((e) => e.slug === expSlug || e.key === expSlug || e.id === expSlug)
+      if (match) {
+        if (pdfFlag === 'true') {
+          setActivePdfViewer(match)
+        } else {
+          setSelectedExperience(match)
         }
       }
     }
-  }, [searchParams])
+  }, [searchParams, allExperiences])
 
-  // Manage modals open & close, keydown listeners, body scroll locks
+  // Body scroll locking and Escape key handling
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         closeExpModal()
-        closeItinModal()
+        closePdfViewer()
       }
     }
 
-    if (selectedExperience || selectedItinerary) {
+    if (selectedExperience || activePdfViewer) {
       window.addEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'hidden'
     } else {
@@ -97,98 +120,62 @@ export default function ExperiencesPage() {
       window.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = ''
     }
-  }, [selectedExperience, selectedItinerary])
+  }, [selectedExperience, activePdfViewer])
 
-  // Handlers for Experience Articles
-  const openExperience = (exp) => {
+  const openExperience = (exp, e) => {
+    if (e) e.preventDefault()
     setSelectedExperience(exp)
-    setActiveGalleryImg(exp.image)
-    setSearchParams({ tab: 'experiences', exp: exp.slug }, { replace: true })
+    setSearchParams({ exp: exp.slug }, { replace: true })
   }
 
   const closeExpModal = () => {
     setSelectedExperience(null)
-    setActiveGalleryImg('')
-    setSearchParams({ tab: 'experiences' }, { replace: true })
+    setSearchParams({}, { replace: true })
   }
 
-  // Handlers for PDF Itineraries
-  const openItinerary = (itin, e) => {
+  const openPdfViewer = (exp, e) => {
     if (e) e.preventDefault()
-    setSelectedItinerary(itin)
-    setSearchParams({ tab: 'itineraries', itinerary: itin.key }, { replace: true })
+    setActivePdfViewer(exp)
+    setSearchParams({ exp: exp.slug, pdf: 'true' }, { replace: true })
   }
 
-  const closeItinModal = () => {
-    setSelectedItinerary(null)
-    setSearchParams({ tab: 'itineraries' }, { replace: true })
+  const closePdfViewer = () => {
+    setActivePdfViewer(null)
+    if (selectedExperience) {
+      setSearchParams({ exp: selectedExperience.slug }, { replace: true })
+    } else {
+      setSearchParams({}, { replace: true })
+    }
   }
 
-  const switchTab = (tabName) => {
-    setActiveTab(tabName)
-    setSearchParams({ tab: tabName }, { replace: true })
-  }
-
-  // Filtered lists
-  const filteredExperiences =
-    expCategory === 'All'
-      ? experiencesData
-      : experiencesData.filter((exp) => exp.category === expCategory)
-
-  const filteredItineraries =
-    itinCategory === 'All'
-      ? itinerariesData
-      : itinerariesData.filter((item) => item.category === itinCategory)
+  const filteredItems = useMemo(() => {
+    if (activeCategory === 'All') return allExperiences
+    return allExperiences.filter((item) => item.category === activeCategory)
+  }, [allExperiences, activeCategory])
 
   const scrollToGrid = () => {
     const el = document.getElementById('experiences-content-section')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // Related pages calculation for Experience modal
-  const getRelatedExperiences = (current) => {
-    if (!current) return []
-    if (current.relatedSlugs && current.relatedSlugs.length > 0) {
-      const explicit = experiencesData.filter((e) =>
-        current.relatedSlugs.includes(e.slug) && e.id !== current.id
-      )
-      if (explicit.length >= 3) return explicit.slice(0, 3)
-    }
-    const sameCat = experiencesData.filter(
-      (e) => e.category === current.category && e.id !== current.id
-    )
-    if (sameCat.length >= 3) return sameCat.slice(0, 3)
-    const others = experiencesData.filter((e) => e.id !== current.id)
-    return others.slice(0, 3)
-  }
-
-  // Dynamic SEO calculation
-  const seoTitle = selectedExperience
-    ? `${selectedExperience.title} — ${selectedExperience.duration} | Luxe Horizons Africa`
-    : selectedItinerary
-    ? `${selectedItinerary.title} (PDF) — Luxe Horizons Africa`
+  // SEO calculation
+  const currentViewItem = selectedExperience || activePdfViewer
+  const seoTitle = currentViewItem
+    ? `${currentViewItem.title} — ${currentViewItem.duration} | Luxe Horizons Africa`
     : PAGE_SEO.experiences.title
 
-  const seoDescription = selectedExperience
-    ? (selectedExperience.summary || selectedExperience.description).slice(0, 160)
-    : selectedItinerary
-    ? selectedItinerary.summary
+  const seoDescription = currentViewItem
+    ? (currentViewItem.summary || currentViewItem.description).slice(0, 160)
     : PAGE_SEO.experiences.description
 
-  const seoImage = selectedExperience
-    ? selectedExperience.image
-    : selectedItinerary
-    ? selectedItinerary.image
-    : PAGE_SEO.experiences.ogImage
+  const seoImage = currentViewItem ? currentViewItem.image : PAGE_SEO.experiences.ogImage
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
-    { name: 'Experiences & Itineraries', url: '/experiences' }
+    { name: 'Experiences', url: '/experiences' }
   ]
-  if (selectedExperience) {
-    breadcrumbs.push({ name: selectedExperience.title, url: `/experiences?exp=${selectedExperience.slug}` })
-  } else if (selectedItinerary) {
-    breadcrumbs.push({ name: selectedItinerary.title, url: `/experiences?itinerary=${selectedItinerary.key}` })
+  if (currentViewItem) {
+    breadcrumbs.push({ name: currentViewItem.title, url: `/experiences?exp=${currentViewItem.slug}` })
   }
 
   return (
@@ -206,19 +193,19 @@ export default function ExperiencesPage() {
       />
       <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} />
 
-      {/* Fullscreen Hero Header */}
+      {/* Hero Header */}
       <section className="exp-hero-section">
         <div className="exp-hero-bg" />
         <div className="exp-hero-overlay" />
 
         <div className="wrap exp-hero-content text-center">
-          <div className="exp-hero-badge">CURATED PORTFOLIO</div>
+          <div className="exp-hero-badge">CURATED EXPERIENCES</div>
           <h1 className="exp-hero-headline">
-            Unforgettable Safaris, <br className="hero-br" />
-            <span className="gold-text">Experiences &amp; Itineraries</span>
+            Unforgettable Safaris &amp; <br className="hero-br" />
+            <span className="gold-text">East African Journeys</span>
           </h1>
           <p className="exp-hero-tagline">
-            Discover bespoke wildlife encounters, gorilla trekking articles, and complete day-by-day sample itinerary PDF documents.
+            Explore bespoke gorilla treks, wildlife safaris, and complete day-by-day itinerary PDF documents.
           </p>
         </div>
 
@@ -226,7 +213,7 @@ export default function ExperiencesPage() {
           type="button"
           className="exp-hero-scroll-btn"
           onClick={scrollToGrid}
-          aria-label="Scroll to portfolio"
+          aria-label="Scroll to experiences portfolio"
         >
           <div className="scroll-arrow-wrap">
             <svg
@@ -243,326 +230,165 @@ export default function ExperiencesPage() {
         </button>
       </section>
 
-      {/* Main Content Section */}
+      {/* Main Single-Page Grid Section */}
       <section className="exp-grid-section" id="experiences-content-section">
         <div className="wrap">
-          {/* Primary View Switcher: Articles vs PDF Itineraries */}
-          <div className="exp-primary-switcher-wrap">
-            <div className="exp-primary-switcher">
-              <button
-                type="button"
-                className={`exp-tab-btn ${activeTab === 'experiences' ? 'active' : ''}`}
-                onClick={() => switchTab('experiences')}
-              >
-                <span>Curated Experiences &amp; Articles</span>
-                <span className="tab-count">{experiencesData.length}</span>
-              </button>
+          <Reveal className="exp-section-header text-center">
+            <div className="eyebrow">BESPOKE EXPEDITIONS</div>
+            <h2>Explore Our Experiences &amp; Itineraries</h2>
+            <p className="exp-section-sub">
+              Click any card below to view details and read the full itinerary PDF.
+            </p>
+          </Reveal>
 
+          {/* Category Filter Tabs */}
+          <div className="exp-filter-bar">
+            {CATEGORIES.map((cat) => (
               <button
+                key={cat}
                 type="button"
-                className={`exp-tab-btn ${activeTab === 'itineraries' ? 'active' : ''}`}
-                onClick={() => switchTab('itineraries')}
+                className={`exp-filter-btn ${activeCategory === cat ? 'active' : ''}`}
+                onClick={() => setActiveCategory(cat)}
               >
-                <span>Sample Itineraries (PDF Documents)</span>
-                <span className="tab-count">{itinerariesData.length}</span>
+                {cat}
               </button>
-            </div>
+            ))}
           </div>
 
-          {/* TAB 1: Written Articles & Experiences */}
-          {activeTab === 'experiences' && (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35 }}
-            >
-              <Reveal className="exp-section-header text-center">
-                <div className="eyebrow">WRITTEN ARTICLES &amp; ENCOUNTERS</div>
-                <h2>Explore Handcrafted East African Experiences</h2>
-                <p className="exp-section-sub">
-                  Select an article to explore wildlife encounters, detailed itineraries, and high-resolution photo galleries.
-                </p>
-              </Reveal>
+          {/* Experience Cards Grid */}
+          <div className="itin-grid">
+            {filteredItems.map((item) => (
+              <div
+                key={item.key}
+                onClick={(e) => openExperience(item, e)}
+                className="itin-card cursor-pointer"
+              >
+                <div className="itin-card-media">
+                  <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
+                  <span className="itin-card-badge">{item.duration}</span>
+                </div>
 
-              {/* Category Filter Tabs */}
-              <div className="exp-filter-bar">
-                {EXP_CATEGORIES.map((cat) => (
-                  <button
-                    key={cat}
-                    type="button"
-                    className={`exp-filter-btn ${expCategory === cat ? 'active' : ''}`}
-                    onClick={() => setExpCategory(cat)}
-                  >
-                    {cat}
-                  </button>
-                ))}
+                <div className="itin-card-body">
+                  <div className="itin-card-meta">
+                    <span className="itin-card-category" style={{ color: item.accent }}>
+                      {item.category}
+                    </span>
+                    <span className="itin-card-dot" />
+                    <span className="itin-card-format">PDF Itinerary</span>
+                  </div>
+
+                  <h3>{item.title}</h3>
+                  <p>{item.summary}</p>
+
+                  <div className="exp-card-action-row" style={{ display: 'flex', gap: '12px', marginTop: 'auto', paddingTop: '12px' }}>
+                    <button
+                      type="button"
+                      className="btn-exp-outline"
+                      style={{ padding: '8px 16px', fontSize: '13px', borderRadius: '8px', background: '#142019', color: '#c9a15a', borderColor: '#c9a15a' }}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        openPdfViewer(item, e)
+                      }}
+                    >
+                      View PDF &#8599;
+                    </button>
+                  </div>
+                </div>
               </div>
-
-              {/* Cards Grid using exact Homepage Card Design (.adv-card) */}
-              <div className="exp-cards-grid">
-                {filteredExperiences.map((exp, i) => (
-                  <Reveal
-                    key={exp.id}
-                    className={`adv-card exp-adv-card ${
-                      hoveredKey && hoveredKey !== exp.id ? 'dimmed' : ''
-                    }`}
-                    onClick={() => openExperience(exp)}
-                    onMouseEnter={() => setHoveredKey(exp.id)}
-                    onMouseLeave={() => setHoveredKey(null)}
-                  >
-                    <div className="adv-card-media">
-                      <img
-                        src={exp.image}
-                        alt={exp.title}
-                        onError={(e) => {
-                          e.target.onerror = null
-                          e.target.src = '/exp-primates.webp'
-                        }}
-                      />
-                      <div className="adv-card-index">
-                        {String(i + 1).padStart(2, '0')}
-                      </div>
-                      <div className="adv-card-overlay" />
-                      <div className="adv-card-info">
-                        <div className="adv-card-route">
-                          {exp.location || exp.category}
-                        </div>
-                        <h3 className="adv-card-title">{exp.title}</h3>
-                        <div className="adv-card-meta">
-                          <span>{exp.duration}</span>
-                          <span className="adv-card-dot" />
-                          <span>{exp.category}</span>
-                        </div>
-                      </div>
-                      <span className="adv-card-arrow" aria-hidden="true">
-                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-                          <path
-                            d="M1 6H15M15 6L10 1M15 6L10 11"
-                            stroke="currentColor"
-                            strokeWidth="1.4"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
-            </motion.div>
-          )}
-
-          {/* TAB 2: Journey Itineraries & PDF Documents */}
-          {activeTab === 'itineraries' && (
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35 }}
-            >
-              <Reveal className="exp-section-header text-center">
-                <div className="eyebrow">PDF ITINERARY DOCUMENTS</div>
-                <h2>Sample Safari Itineraries</h2>
-                <p className="exp-section-sub">
-                  Browse day-by-day journey proposals. Click any card below to preview the complete PDF document directly online.
-                </p>
-              </Reveal>
-
-              {/* Itinerary Category Filter Tabs */}
-              <div className="exp-filter-bar">
-                {ITIN_CATEGORIES.map((cat) => (
-                  <button
-                    key={cat}
-                    type="button"
-                    className={`exp-filter-btn ${itinCategory === cat ? 'active' : ''}`}
-                    onClick={() => setItinCategory(cat)}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-
-              {/* Itineraries Card Grid */}
-              <div className="itin-grid">
-                {filteredItineraries.map((item) => (
-                  <a
-                    key={item.key}
-                    href={`?tab=itineraries&itinerary=${item.key}`}
-                    onClick={(e) => openItinerary(item, e)}
-                    className="itin-card cursor-pointer"
-                  >
-                    <div className="itin-card-media">
-                      <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
-                      <span className="itin-card-badge">{item.duration}</span>
-                    </div>
-
-                    <div className="itin-card-body">
-                      <div className="itin-card-meta">
-                        <span className="itin-card-category" style={{ color: item.accent }}>
-                          {item.category}
-                        </span>
-                        <span className="itin-card-dot" />
-                        <span className="itin-card-format">PDF Document</span>
-                      </div>
-
-                      <h3>{item.title}</h3>
-                      <p>{item.summary}</p>
-
-                      <span className="itin-card-link" style={{ color: item.accent }}>
-                        View Itinerary PDF &rarr;
-                      </span>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          )}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* MODAL 1: Interactive Experience Article Modal */}
-      {selectedExperience && (
-        <div className="exp-modal-backdrop" onClick={closeExpModal}>
-          <div className="exp-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              className="exp-modal-close"
-              onClick={closeExpModal}
-              aria-label="Close detail view"
+      {/* Experience Detail & Description Modal */}
+      <AnimatePresence>
+        {selectedExperience && (
+          <div className="exp-modal-backdrop" onClick={closeExpModal}>
+            <motion.div
+              className="exp-modal-content"
+              initial={{ opacity: 0, y: 25, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.97 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
             >
-              &times;
-            </button>
+              <button
+                type="button"
+                className="exp-modal-close"
+                onClick={closeExpModal}
+                aria-label="Close modal"
+              >
+                &times;
+              </button>
 
-            <div className="exp-modal-header">
-              <div className="exp-modal-meta">
-                <span className="exp-badge duration">{selectedExperience.duration}</span>
-                <span className="exp-badge category">{selectedExperience.category}</span>
-                <span className="exp-modal-location-text">{selectedExperience.location}</span>
+              <div className="exp-modal-header">
+                <div className="exp-modal-meta">
+                  <span className="exp-badge duration">{selectedExperience.duration}</span>
+                  <span className="exp-badge category">{selectedExperience.category}</span>
+                </div>
+                <h1 className="exp-modal-title">{selectedExperience.title}</h1>
               </div>
-              <h1 className="exp-modal-title">{selectedExperience.title}</h1>
-            </div>
 
-            {/* Gallery View */}
-            <div className="exp-modal-gallery">
-              <div className="exp-modal-hero-img">
+              {/* Cover Image */}
+              <div className="exp-modal-hero-img" style={{ height: '360px', marginBottom: '24px' }}>
                 <img
-                  src={activeGalleryImg || selectedExperience.image}
+                  src={selectedExperience.image}
                   alt={selectedExperience.title}
                   loading="lazy"
                   decoding="async"
-                  onError={(e) => {
-                    e.target.onerror = null
-                    e.target.src = '/exp-primates.webp'
-                  }}
                 />
               </div>
 
-              {selectedExperience.gallery && selectedExperience.gallery.length > 0 && (
-                <div className="exp-gallery-thumbs">
+              {/* Short Description */}
+              <div className="exp-modal-body">
+                <div className="exp-article-overview">
+                  <h3>Experience Description</h3>
+                  <p className="lead-text">{selectedExperience.summary || selectedExperience.description}</p>
+                </div>
+
+                {selectedExperience.highlights && selectedExperience.highlights.length > 0 && (
+                  <div className="exp-highlights-box">
+                    <h4>Highlights</h4>
+                    <ul>
+                      {selectedExperience.highlights.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Primary Action Buttons */}
+                <div className="exp-modal-cta-row" style={{ display: 'flex', gap: '16px', marginTop: '28px', flexWrap: 'wrap' }}>
                   <button
                     type="button"
-                    className={`exp-thumb-btn ${activeGalleryImg === selectedExperience.image ? 'active' : ''}`}
-                    onClick={() => setActiveGalleryImg(selectedExperience.image)}
+                    className="btn-exp-cta"
+                    style={{ cursor: 'pointer' }}
+                    onClick={(e) => {
+                      closeExpModal()
+                      openPdfViewer(selectedExperience, e)
+                    }}
                   >
-                    <img src={selectedExperience.image} alt="Hero thumb" loading="lazy" decoding="async" />
+                    View PDF Document &#8599;
                   </button>
-                  {selectedExperience.gallery.map((gImg, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      className={`exp-thumb-btn ${activeGalleryImg === gImg ? 'active' : ''}`}
-                      onClick={() => setActiveGalleryImg(gImg)}
-                    >
-                      <img src={gImg} alt={`Gallery thumb ${idx + 1}`} loading="lazy" decoding="async" />
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
 
-            {/* Content & Details */}
-            <div className="exp-modal-body">
-              <div className="exp-article-overview">
-                <h3>Overview</h3>
-                <p className="lead-text">{selectedExperience.description || selectedExperience.summary}</p>
-              </div>
-
-              {selectedExperience.highlights && selectedExperience.highlights.length > 0 && (
-                <div className="exp-highlights-box">
-                  <h4>Expedition Highlights</h4>
-                  <ul>
-                    {selectedExperience.highlights.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {selectedExperience.fullStory && selectedExperience.fullStory.length > 0 && (
-                <div className="exp-full-story">
-                  <h3>Full Itinerary &amp; Details</h3>
-                  {selectedExperience.fullStory.map((para, i) => (
-                    <p key={i}>{para}</p>
-                  ))}
-                </div>
-              )}
-
-              <div className="exp-modal-cta-row">
-                <Link
-                  to="/contact"
-                  className="btn-exp-cta"
-                  onClick={closeExpModal}
-                >
-                  Plan This Trip With Us
-                </Link>
-                <button
-                  type="button"
-                  className="btn-exp-outline"
-                  onClick={closeExpModal}
-                >
-                  Continue Browsing
-                </button>
-              </div>
-            </div>
-
-            {/* Related Pages Section inside Modal */}
-            <div className="exp-related-section">
-              <div className="exp-related-header">
-                <div className="eyebrow">EXPLORE MORE</div>
-                <h3>Related Experiences</h3>
-              </div>
-
-              <div className="exp-related-grid">
-                {getRelatedExperiences(selectedExperience).map((rel) => (
-                  <div
-                    key={rel.id}
-                    className="exp-related-card"
-                    onClick={() => openExperience(rel)}
+                  <Link
+                    to="/contact"
+                    className="btn-exp-outline"
+                    onClick={closeExpModal}
                   >
-                    <div className="exp-related-img">
-                      <img
-                        src={rel.image}
-                        alt={rel.title}
-                        onError={(e) => {
-                          e.target.onerror = null
-                          e.target.src = '/exp-primates.webp'
-                        }}
-                      />
-                    </div>
-                    <div className="exp-related-info">
-                      <span className="exp-related-tag">{rel.category}</span>
-                      <h4 className="exp-related-title">{rel.title}</h4>
-                      <span className="exp-related-dur">{rel.duration}</span>
-                    </div>
-                  </div>
-                ))}
+                    Plan This Trip With Us
+                  </Link>
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
-      )}
+        )}
+      </AnimatePresence>
 
-      {/* MODAL 2: Inline PDF Document Viewer Modal */}
+      {/* Inline PDF Viewer Modal */}
       <AnimatePresence>
-        {selectedItinerary && (
-          <div className="ipm-overlay" onClick={closeItinModal}>
+        {activePdfViewer && (
+          <div className="ipm-overlay" onClick={closePdfViewer}>
             <motion.div
               className="ipm-backdrop"
               initial={{ opacity: 0 }}
@@ -583,21 +409,21 @@ export default function ExperiencesPage() {
                 transition={{ type: 'spring', stiffness: 320, damping: 28 }}
                 onClick={(e) => e.stopPropagation()}
               >
-                {/* Modal Header */}
+                {/* Header */}
                 <div className="ipm-header">
                   <div className="ipm-header-info">
                     <div className="ipm-meta">
-                      <span className="ipm-category-badge" style={{ backgroundColor: selectedItinerary.accent }}>
-                        {selectedItinerary.category}
+                      <span className="ipm-category-badge" style={{ backgroundColor: activePdfViewer.accent || '#c6a15b' }}>
+                        {activePdfViewer.category}
                       </span>
-                      <span className="ipm-duration-badge">{selectedItinerary.duration}</span>
+                      <span className="ipm-duration-badge">{activePdfViewer.duration}</span>
                     </div>
-                    <h2 id="ipm-title">{selectedItinerary.title}</h2>
+                    <h2 id="ipm-title">{activePdfViewer.title}</h2>
                   </div>
 
                   <div className="ipm-header-actions">
                     <a
-                      href={selectedItinerary.pdfUrl}
+                      href={activePdfViewer.pdfUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="ipm-btn-action"
@@ -606,37 +432,28 @@ export default function ExperiencesPage() {
                       <span>Open in New Tab &#8599;</span>
                     </a>
 
-                    <a
-                      href={selectedItinerary.pdfUrl}
-                      download
-                      className="ipm-btn-action secondary"
-                      title="Download PDF file"
-                    >
-                      <span>Download</span>
-                    </a>
-
                     <button
                       type="button"
                       className="ipm-close"
-                      onClick={closeItinModal}
-                      aria-label="Close modal"
+                      onClick={closePdfViewer}
+                      aria-label="Close viewer"
                     >
                       &#10005;
                     </button>
                   </div>
                 </div>
 
-                {/* Modal PDF Viewer Body */}
+                {/* PDF Viewer Body */}
                 <div className="ipm-body">
                   <iframe
-                    src={`${selectedItinerary.pdfUrl}#toolbar=1&navpanes=0&view=FitH`}
-                    title={selectedItinerary.title}
+                    src={`${activePdfViewer.pdfUrl}#toolbar=1&navpanes=0&view=FitH`}
+                    title={activePdfViewer.title}
                     className="ipm-iframe"
                   >
                     <p>
                       Your browser does not support inline PDF viewing.{' '}
-                      <a href={selectedItinerary.pdfUrl} target="_blank" rel="noopener noreferrer">
-                        Click here to view or download the PDF file.
+                      <a href={activePdfViewer.pdfUrl} target="_blank" rel="noopener noreferrer">
+                        Click here to view the PDF file.
                       </a>
                     </p>
                   </iframe>
