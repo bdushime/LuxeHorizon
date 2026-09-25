@@ -153,7 +153,7 @@ export default function ItinerariesPage() {
                 transition={{ type: 'spring', stiffness: 260, damping: 24, delay: i * 0.045 }}
               >
                 <div className="itin-card-media">
-                  <img src={item.image} alt={item.title} />
+                  <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
                   <span className="itin-card-badge">{item.duration}</span>
                 </div>
 

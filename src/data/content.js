@@ -24,7 +24,7 @@ export const heroSections = [
     key: 'experiences',
     eyebrow: 'Explore',
     label: 'EXPERIENCES',
-    image: '/exp-primates.jpg',
+    image: '/exp-primates.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 30% 20%, rgba(139,168,120,0.28), transparent 60%), linear-gradient(160deg, #2E4A38 0%, #142019 100%)'
   },
@@ -32,7 +32,7 @@ export const heroSections = [
     key: 'destinations',
     eyebrow: 'Where To',
     label: 'DESTINATIONS',
-    image: '/exp-tanzania.jpg',
+    image: '/exp-tanzania.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 70% 20%, rgba(201,161,90,0.30), transparent 60%), linear-gradient(160deg, #4A3A22 0%, #1C150D 100%)'
   },
@@ -40,7 +40,7 @@ export const heroSections = [
     key: 'about',
     eyebrow: 'Who We Are',
     label: 'ABOUT',
-    image: '/story-guide.jpg',
+    image: '/story-guide.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 50% 15%, rgba(156,74,50,0.28), transparent 60%), linear-gradient(160deg, #3A2A2A 0%, #16100F 100%)'
   },
@@ -48,21 +48,21 @@ export const heroSections = [
     key: 'contact',
     eyebrow: 'Get In Touch',
     label: 'CONTACT',
-    image: '/cta-sunset.jpg',
+    image: '/cta-sunset.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 40% 25%, rgba(191,219,214,0.22), transparent 60%), linear-gradient(160deg, #234A44 0%, #0D1F1C 100%)'
   }
 ]
 
-export const heroBaseImage = '/Travel.jpeg'
+export const heroBaseImage = '/Travel.webp'
 export const heroBaseGradient =
-  "linear-gradient(180deg, rgba(8,16,13,0.12) 0%, rgba(8,16,13,0.28) 100%), url('/Travel.jpeg')"
+  "linear-gradient(180deg, rgba(8,16,13,0.12) 0%, rgba(8,16,13,0.28) 100%), url('/Travel.webp')"
 
 export const adventureCards = [
   {
     key: 'rwanda',
     href: '/experiences?exp=rwanda-primates-corner-premium',
-    image: '/mountain-gorilla-1.jpg',
+    image: '/mountain-gorilla-1.webp',
     badge: '6 Days',
     title: 'Rwanda Primates Corner, Premium',
     route: 'Kigali · Nyungwe · Volcanoes NP',
@@ -72,7 +72,7 @@ export const adventureCards = [
   {
     key: 'uganda',
     href: '/experiences?exp=9-day-uganda-wildlife-adventure',
-    image: '/leopard-tree.jpg',
+    image: '/leopard-tree.webp',
     badge: '9 Days',
     title: 'Uganda Wildlife Adventure',
     route: 'Bwindi · Queen Elizabeth · Murchison Falls',
@@ -92,7 +92,7 @@ export const adventureCards = [
   {
     key: 'custom',
     href: '/contact',
-    image: '/experiences/featured/rwanda-discovery.jpg',
+    image: '/experiences/featured/rwanda-discovery.webp',
     badge: 'Custom',
     title: 'Build Your Own',
     route: 'Rwanda · Uganda · Tanzania',
@@ -106,28 +106,28 @@ export const destinations = [
     key: 'rwanda',
     eyebrow: '01 — Volcanoes & Nyungwe',
     name: 'Rwanda',
-    image: '/experiences/featured/gorillas-in-the-mist.jpg',
+    image: '/experiences/featured/gorillas-in-the-mist.webp',
     accent: '#5c6b4f'
   },
   {
     key: 'uganda',
     eyebrow: '02 — Bwindi & Queen Elizabeth',
     name: 'Uganda',
-    image: '/Uganda.jpeg',
+    image: '/Uganda.webp',
     accent: '#b9772e'
   },
   {
     key: 'tanzania',
     eyebrow: '03 — Serengeti & Ngorongoro',
     name: 'Tanzania',
-    image: '/Tanzania.jpeg',
+    image: '/Tanzania.webp',
     accent: '#3f6b63'
   },
   {
     key: 'kenya',
     eyebrow: '04 — Maasai Mara & Amboseli',
     name: 'Kenya',
-    image: '/Kenya.jpeg',
+    image: '/Kenya.webp',
     accent: '#9c4a32'
   }
 ]
@@ -150,7 +150,7 @@ export const destinationDetails = {
       { label: 'Signature Wildlife', value: 'Mountain Gorillas' },
       { label: 'Best Known For', value: 'Gorilla Trekking Permits' }
     ],
-    secondaryPhoto: '/experiences/featured/gorillas-in-the-mist.jpg'
+    secondaryPhoto: '/experiences/featured/gorillas-in-the-mist.webp'
   },
   uganda: {
     paragraphs: [
@@ -164,7 +164,7 @@ export const destinationDetails = {
       { label: 'Signature Wildlife', value: 'Bwindi Gorillas' },
       { label: 'Also Notable', value: 'Source of the Nile' }
     ],
-    secondaryPhoto: '/Uganda.jpeg'
+    secondaryPhoto: '/Uganda.webp'
   },
   tanzania: {
     paragraphs: [
@@ -179,7 +179,7 @@ export const destinationDetails = {
       { label: 'Also Notable', value: 'Lake Tanganyika' },
       { label: 'Culture', value: 'Maasai Communities' }
     ],
-    secondaryPhoto: '/Tanzania.jpeg'
+    secondaryPhoto: '/Tanzania.webp'
   },
   kenya: {
     paragraphs: [
@@ -193,7 +193,7 @@ export const destinationDetails = {
       { label: 'Key Parks', value: 'Maasai Mara & Amboseli' },
       { label: 'Great Migration', value: 'Peaks August – October' }
     ],
-    secondaryPhoto: '/Kenya.jpeg'
+    secondaryPhoto: '/Kenya.webp'
   }
 }
 
@@ -210,7 +210,7 @@ export const consultancyPillars = [
     tagline: 'Strategic guidance from a team who knows the region.',
     description:
       "We believe that each trip is as unique as each client, we will therefore guide you every step of the way as we craft together one-of-a-kind experiences that will bring your specific travel dreams to life and make your memories last a lifetime.",
-    image: '/story-guide.jpg',
+    image: '/story-guide.webp',
     accent: '#5c6b4f'
   },
   {
@@ -219,7 +219,7 @@ export const consultancyPillars = [
     tagline: 'Full-service MICE planning, from Kigali and beyond.',
     description:
       "What are you traveling for? Is it a business trip or do you want to meet in Rwanda? Whether it's a conference space to brainstorm from, an Incentive trip designed to re-energize and motivate the team or even a travel initiative to educate and inspire, we'll organise something that's guaranteed to exactly respond to your wishes.",
-    image: '/experiences/featured/city-tour-vibrant-hopeful-kigali.png',
+    image: '/experiences/featured/city-tour-vibrant-hopeful-kigali.webp',
     accent: '#b9772e'
   },
   {
@@ -228,7 +228,7 @@ export const consultancyPillars = [
     tagline: 'Ideas and case studies from journeys we have designed.',
     description:
       'Not sure where to start? Explore ideas and case studies from journeys we have designed for past clients — a starting point for shaping the trip or event that is right for you.',
-    image: '/cta-sunset.jpg',
+    image: '/cta-sunset.webp',
     accent: '#9c4a32'
   }
 ]
@@ -240,10 +240,10 @@ export const consultancyPillars = [
 // with local files if/when available; for now the orbit uses only the four
 // logos that have local, verified-working assets.
 export const partners = [
-  { name: 'Rwanda Development Board', logo: '/RwandaDevelopmentBoard-removebg-preview.png', ring: 2, angle: 25 },
-  { name: 'RTTA', logo: '/RTTA-removebg-preview.png', ring: 1, angle: 60 },
-  { name: 'Akagera Aviation', logo: '/AkageraAviation-removebg-preview.png', ring: 1, angle: 120 },
-  { name: 'East Africa Tourism Platform', logo: '/EastAfrica-removebg-preview.png', ring: 2, angle: 155 }
+  { name: 'Rwanda Development Board', logo: '/RwandaDevelopmentBoard-removebg-preview.webp', ring: 2, angle: 25 },
+  { name: 'RTTA', logo: '/RTTA-removebg-preview.webp', ring: 1, angle: 60 },
+  { name: 'Akagera Aviation', logo: '/AkageraAviation-removebg-preview.webp', ring: 1, angle: 120 },
+  { name: 'East Africa Tourism Platform', logo: '/EastAfrica-removebg-preview.webp', ring: 2, angle: 155 }
 ]
 
 // Pixel radius for each ring, measured from the center mark at the base of the orbit.
@@ -279,7 +279,7 @@ export const blogPosts = [
     title: 'What Nobody Tells You Before Your First Gorilla Trek',
     excerpt:
       'The permit is the easy part. Here is what actually matters on the day — from altitude to the seven-metre rule.',
-    image: '/Mountain-Gorilla.jpg.jpeg',
+    image: '/Mountain-Gorilla.webp',
     accent: '#5c6b4f',
     quote: 'The moment you break through the bamboo thicket and lock eyes with a 200-kilogram Silverback, every step up the volcano fades into background noise.',
     takeaway: 'Key Takeaway: Hire a local porter at Kinigi headquarters. Beyond lightening your load, it directly supports the local agricultural community surrounding Volcanoes National Park.',
@@ -304,7 +304,7 @@ export const blogPosts = [
     title: 'The Best Time to Visit Rwanda, Uganda and Tanzania',
     excerpt:
       'Peak season means peak crowds. We break down what each month actually looks like on the ground.',
-    image: '/story-guide.jpg',
+    image: '/story-guide.webp',
     accent: '#b9772e',
     quote: 'Green season is East Africa’s best-kept secret—dramatic skies, newborn wildlife, and empty luxury lodges.',
     takeaway: 'Insider Tip: June through September offers optimal dry conditions for gorilla trekking and the Serengeti river crossings, but November and April offer lush photography and uncrowded parks.',
@@ -329,7 +329,7 @@ export const blogPosts = [
     title: 'Inside the Community Projects Funded by Your Park Fees',
     excerpt:
       'Where the money from your trekking permit actually goes, and the villages you can visit to see it firsthand.',
-    image: '/Bird.jpg.jpeg',
+    image: '/Bird.webp',
     accent: '#3f6b63',
     quote: 'Conservation only succeeds when local communities are its primary beneficiaries and proud custodians.',
     takeaway: 'Impact Notice: 10% of all Rwanda park entry fee revenue is reinvested into community infrastructure, funding over 800 local schools, health clinics, and clean water points.',
@@ -354,7 +354,7 @@ export const blogPosts = [
     title: 'The Only Packing List You Need for a Gorilla Trek',
     excerpt:
       'What actually earns a place in your daypack for the trailhead, and what to leave at the lodge.',
-    image: '/exp-primates.jpg',
+    image: '/exp-primates.webp',
     accent: '#b9772e',
     quote: 'Pack light, pack smart, and remember: neutral tones keep you cool while respecting wild animal instincts.',
     takeaway: 'Must-Have Item: Sturdy leather or suede gardening gloves protect your hands when pulling through thick stinging nettles on steep inclines.',
@@ -379,7 +379,7 @@ export const blogPosts = [
     title: 'Meet the Habituated Families of Volcanoes National Park',
     excerpt:
       'A field guide to the named troops you might spend an hour with, and the rangers who know them by name.',
-    image: '/exp-akagera.jpg',
+    image: '/exp-akagera.webp',
     accent: '#5c6b4f',
     quote: 'Each gorilla family possesses a distinct social culture—from gentle playful troops to powerful multi-silverback dynasties.',
     takeaway: 'Family Highlight: The Sabyinyo group is known for Guhonda, one of the largest silverbacks ever recorded in the Virungas.',
@@ -404,7 +404,7 @@ export const blogPosts = [
     title: 'A Day With the Rangers Who Guard the Volcanoes',
     excerpt:
       'Before dawn patrols, snare removal, and the quiet work that keeps the parks standing for the next generation.',
-    image: '/cta-sunset.jpg',
+    image: '/cta-sunset.webp',
     accent: '#3f6b63',
     quote: 'We don’t just guard animals; we protect our national inheritance and the future of African wilderness.',
     takeaway: 'Daily Duty: Rangers track each gorilla family 365 days a year from sunrise to sunset, recording health metrics and maintaining 24/7 security.',
@@ -429,7 +429,7 @@ export const blogPosts = [
     title: 'Visas, Permits and Paperwork: A No-Stress Guide',
     excerpt:
       'Everything to sort before you fly, laid out in the order you actually need to do it.',
-    image: '/story-guide.jpg',
+    image: '/story-guide.webp',
     accent: '#b9772e',
     quote: 'Seamless logistics transform travel from a stressful puzzle into a smooth, unforgettable sanctuary experience.',
     takeaway: 'Pro Tip: The East Africa Tourist Visa ($100 USD) permits multi-entry travel between Rwanda, Uganda, and Kenya for up to 90 days.',
@@ -533,7 +533,7 @@ export const testimonials = [
     quote:
       'We spent forty minutes six feet from a silverback and nobody said a word. Our guide read the family like he’d grown up beside them.',
     rating: 5,
-    photo: '/Mountain-Gorilla.jpg.jpeg',
+    photo: '/Mountain-Gorilla.webp',
     rotate: -6
   },
   {
@@ -543,7 +543,7 @@ export const testimonials = [
     quote:
       'Every lodge, every transfer, every small detail was arranged before we even thought to ask. It felt less like a tour and more like being hosted.',
     rating: 5,
-    photo: '/Bird.jpg.jpeg',
+    photo: '/Bird.webp',
     rotate: 5
   },
   {
@@ -553,7 +553,7 @@ export const testimonials = [
     quote:
       'Our guide noticed I loved birdlife more than the big cats and quietly rebuilt two days of the itinerary around it. Nobody made me feel like an inconvenience.',
     rating: 5,
-    photo: '/story-guide.jpg',
+    photo: '/story-guide.webp',
     rotate: -3
   },
   {
@@ -563,7 +563,7 @@ export const testimonials = [
     quote:
       'The kind of trip you replay in your head for months afterward. Kigali to the volcanoes felt effortless, and every night ended with a view worth the drive.',
     rating: 5,
-    photo: '/cta-sunset.jpg',
+    photo: '/cta-sunset.webp',
     rotate: 7
   },
   {
@@ -573,7 +573,7 @@ export const testimonials = [
     quote:
       'They designed the whole trip around my grandmother joining us at seventy-eight. Slower mornings, softer roads, and she still talks about the chimps.',
     rating: 5,
-    photo: '/exp-primates.jpg',
+    photo: '/exp-primates.webp',
     rotate: -8
   }
 ]
@@ -611,7 +611,7 @@ export const teamMembers = [
     name: 'David Rutikanga',
     title: 'Founder & Managing Director',
     badge: 'Leadership',
-    image: '/team/david.jpg',
+    image: '/team/david.webp',
     summary: '15+ years in luxury East African safaris. Cornell & SITE Africa alumnus.',
     bio: 'David boasts a comprehensive background in tourism and hospitality, accumulating over 15 years of invaluable experience in the field. Certified by Cornell University and SITE Africa in incentive travel and safari planning.',
     fullBio: [
@@ -626,7 +626,7 @@ export const teamMembers = [
     name: 'Emile Gashumba',
     title: 'Operations Manager',
     badge: 'Operations',
-    image: '/team/emile.jpg',
+    image: '/team/emile.webp',
     summary: 'Master’s in Finance recipient directing daily travel & air logistics.',
     bio: 'Emile, with over a decade of experience in banking operations and finances, has a remarkable journey that echoes resilience and triumph over adversity.',
     fullBio: [
@@ -640,7 +640,7 @@ export const teamMembers = [
     name: 'Honorine Uwase',
     title: 'Accounts Manager',
     badge: 'Finance',
-    image: '/team/honorine.jpg',
+    image: '/team/honorine.webp',
     summary: 'Senior financial strategist overseeing corporate assets & accounts.',
     bio: 'A mother of two, Honorine Uwase has always harbored a passion for numbers, ensuring accounts are meticulously balanced and transparent.',
     fullBio: [
@@ -654,7 +654,7 @@ export const teamMembers = [
     name: 'Eduige Mbabazi',
     title: 'Senior Travel Designer',
     badge: 'Design',
-    image: '/team/eduige.jpg',
+    image: '/team/eduige.webp',
     summary: 'Decade of hospitality experience crafting custom wilderness journeys.',
     bio: 'Meet Eduige, the heart and soul of our social activities and the epitome of kindness at the Luxe Horizons Africa family.',
     fullBio: [
@@ -668,7 +668,7 @@ export const teamMembers = [
     name: 'Davinah Uwera',
     title: 'Travel Designer',
     badge: 'Design',
-    image: '/team/davinah.jpg',
+    image: '/team/davinah.webp',
     summary: 'Law graduate delivering precise itinerary execution & consultation.',
     bio: 'Meet Davinah, the epitome of boundless energy in the realm of travel consultancy and designated proofreader for travel itineraries.',
     fullBio: [
@@ -682,7 +682,7 @@ export const teamMembers = [
     name: 'Sheila Tuti Mpairwe',
     title: 'Travel & Lifestyle Specialist',
     badge: 'Sustainability',
-    image: '/team/sheila.png',
+    image: '/team/sheila.webp',
     summary: 'MBA holder advocating sustainable, community-centered travel.',
     bio: 'Also known as "Doctor," Sheila has an extraordinary ability to turn the seemingly impossible into a reality with a focus on responsible travel.',
     fullBio: [
@@ -695,7 +695,7 @@ export const teamMembers = [
     name: 'Tona Lauria Rutayisire',
     title: 'Assistant Operations',
     badge: 'Operations',
-    image: '/team/tona.jpg',
+    image: '/team/tona.webp',
     summary: 'Field coordinator managing guide communications & supplier liaisons.',
     bio: 'We call her, baby girl! Always after a soft life, Tona loves to travel and connects effortlessly with people and nature everywhere she goes.',
     fullBio: [

@@ -72,6 +72,8 @@ export default function AboutPage() {
                   <img
                     src={member.image}
                     alt={member.name}
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       e.target.onerror = null
                       e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=2E4A38&color=D4AF37&size=256`
@@ -117,6 +119,8 @@ export default function AboutPage() {
                 <img
                   src={activeBio.image}
                   alt={activeBio.name}
+                  loading="lazy"
+                  decoding="async"
                   onError={(e) => {
                     e.target.onerror = null
                     e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(activeBio.name)}&background=2E4A38&color=D4AF37&size=256`

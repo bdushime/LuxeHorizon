@@ -18,7 +18,7 @@ const DEMO_POST = {
   date: 'Coming Soon',
   title: 'Add Your Next Story Here',
   excerpt: 'A preview of how a freshly published post slides out of the stack and into the lineup.',
-  image: '/exp-akagera.jpg',
+  image: '/exp-akagera.webp',
   accent: '#9c4a32'
 }
 
@@ -93,7 +93,7 @@ export default function BlogSection() {
               >
                 <Link className="blog-trail-card" to="/blog">
                   <div className="blog-trail-card-media">
-                    <img src={post.image} alt={post.title} />
+                    <img src={post.image} alt={post.title} loading="lazy" decoding="async" />
                   </div>
                   <div className="blog-trail-card-body">
                     <div className="blog-card-meta">

@@ -316,7 +316,7 @@ export default function ExperiencesPage() {
                         alt={exp.title}
                         onError={(e) => {
                           e.target.onerror = null
-                          e.target.src = '/exp-primates.jpg'
+                          e.target.src = '/exp-primates.webp'
                         }}
                       />
                       <div className="adv-card-index">
@@ -389,7 +389,7 @@ export default function ExperiencesPage() {
                     className="itin-card cursor-pointer"
                   >
                     <div className="itin-card-media">
-                      <img src={item.image} alt={item.title} />
+                      <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
                       <span className="itin-card-badge">{item.duration}</span>
                     </div>
 
@@ -445,9 +445,11 @@ export default function ExperiencesPage() {
                 <img
                   src={activeGalleryImg || selectedExperience.image}
                   alt={selectedExperience.title}
+                  loading="lazy"
+                  decoding="async"
                   onError={(e) => {
                     e.target.onerror = null
-                    e.target.src = '/exp-primates.jpg'
+                    e.target.src = '/exp-primates.webp'
                   }}
                 />
               </div>
@@ -459,7 +461,7 @@ export default function ExperiencesPage() {
                     className={`exp-thumb-btn ${activeGalleryImg === selectedExperience.image ? 'active' : ''}`}
                     onClick={() => setActiveGalleryImg(selectedExperience.image)}
                   >
-                    <img src={selectedExperience.image} alt="Hero thumb" />
+                    <img src={selectedExperience.image} alt="Hero thumb" loading="lazy" decoding="async" />
                   </button>
                   {selectedExperience.gallery.map((gImg, idx) => (
                     <button
@@ -468,7 +470,7 @@ export default function ExperiencesPage() {
                       className={`exp-thumb-btn ${activeGalleryImg === gImg ? 'active' : ''}`}
                       onClick={() => setActiveGalleryImg(gImg)}
                     >
-                      <img src={gImg} alt={`Gallery thumb ${idx + 1}`} />
+                      <img src={gImg} alt={`Gallery thumb ${idx + 1}`} loading="lazy" decoding="async" />
                     </button>
                   ))}
                 </div>
@@ -540,7 +542,7 @@ export default function ExperiencesPage() {
                         alt={rel.title}
                         onError={(e) => {
                           e.target.onerror = null
-                          e.target.src = '/exp-primates.jpg'
+                          e.target.src = '/exp-primates.webp'
                         }}
                       />
                     </div>

@@ -1,6 +1,16 @@
 import { supabase } from '../lib/supabase.js'
 import { blogPosts as defaultPosts } from '../data/content.js'
 
+function normalizeImage(url) {
+  if (!url) return '/story-guide.webp'
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
+    return url
+  }
+  let clean = url.replace(/ /g, '-')
+  clean = clean.replace(/\.(jpg\.jpeg|jpeg|jpg|png|HEIC|heic)$/i, '.webp')
+  return clean
+}
+
 /**
  * Normalizes database snake_case fields to camelCase for UI consumption.
  */
@@ -16,7 +26,7 @@ export function formatPostFromDb(p) {
     author: p.author || 'Luxe Horizons Team',
     authorRole: p.author_role || p.authorRole || 'Travel Specialist',
     excerpt: p.excerpt || '',
-    image: p.image || '/story-gorilla.jpg',
+    image: normalizeImage(p.image),
     accent: p.accent || '#5c6b4f',
     quote: p.quote || '',
     takeaway: p.takeaway || '',
@@ -40,7 +50,7 @@ export function formatPostForDb(post) {
     author: post.author || 'Luxe Horizons Team',
     author_role: post.authorRole || 'Travel Specialist',
     excerpt: post.excerpt || '',
-    image: post.image || '/story-gorilla.jpg',
+    image: normalizeImage(post.image),
     accent: post.accent || '#5c6b4f',
     quote: post.quote || null,
     takeaway: post.takeaway || null,

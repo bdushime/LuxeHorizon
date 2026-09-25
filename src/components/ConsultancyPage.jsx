@@ -113,7 +113,7 @@ export default function ConsultancyPage() {
 
       <section className="con-hero">
         <div className="con-hero-parallax" style={{ transform: `translateY(${scrollY * 0.22}px)` }}>
-          <img className="con-hero-media" src="/Consultancy.jpeg" alt="Luxe Horizons Africa Consultancy" />
+          <img className="con-hero-media" src="/Consultancy.webp" alt="Luxe Horizons Africa Consultancy" fetchpriority="high" loading="eager" decoding="async" />
         </div>
         <div className="con-hero-overlay" />
         <div className="con-hero-content">
@@ -156,7 +156,7 @@ export default function ConsultancyPage() {
               onBlur={() => setHovered(null)}
               onClick={() => openPillar(pillar)}
             >
-              <img className="con-panel-media" src={pillar.image} alt={pillar.title} />
+              <img className="con-panel-media" src={pillar.image} alt={pillar.title} loading="lazy" decoding="async" />
               <div className="con-panel-overlay" />
               <div className="con-panel-content">
                 <h3>{pillar.title}</h3>
@@ -191,7 +191,7 @@ export default function ConsultancyPage() {
               animate={{ scale: 1 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              <img src={activePillar.image} alt={activePillar.title} />
+              <img src={activePillar.image} alt={activePillar.title} loading="lazy" decoding="async" />
             </motion.div>
             <motion.div
               className="con-split-panel"
@@ -255,7 +255,7 @@ export default function ConsultancyPage() {
                     onFocus={() => setInspireHovered(item.slug)}
                     onBlur={() => setInspireHovered(null)}
                   >
-                    <img className="con-inspire-tile-media" src={item.image} alt={item.title} />
+                    <img className="con-inspire-tile-media" src={item.image} alt={item.title} loading="lazy" decoding="async" />
                     <div className="con-inspire-tile-overlay" />
                     <div className="con-inspire-tile-content">
                       <h3>{item.title}</h3>
