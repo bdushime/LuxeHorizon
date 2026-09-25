@@ -3,7 +3,7 @@
  * Production Domain: https://luxehorizonsafrica.com/
  */
 
-export const SITE_URL = 'https://luxehorizonsafrica.com';
+export const SITE_URL = (import.meta.env.VITE_SITE_URL || import.meta.env.VITE_BASE_URL || import.meta.env.VITE_APP_URL || 'https://luxehorizonsafrica.com').replace(/\/$/, '');
 export const SITE_NAME = 'Luxe Horizons Africa';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/texp-akagera.jpg`;
 
