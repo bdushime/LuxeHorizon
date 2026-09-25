@@ -6,7 +6,7 @@ import './AboutReel.css'
 // stages and the stats all live inside one pinned section. Scrolling down
 // advances a horizontal filmstrip instead of stacking panels vertically.
 
-const PHOTO_HERO = '/Mountain Gorilla.jpg.jpeg'
+const PHOTO_HERO = '/Mountain-Gorilla.jpg.jpeg'
 const PHOTO_PHILOSOPHY = '/Bird.jpg.jpeg'
 const STAGE_PHOTOS = ['/exp-primates.jpg', '/story-guide.jpg', '/exp-akagera.jpg']
 

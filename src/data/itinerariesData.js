@@ -6,9 +6,9 @@ export const itinerariesData = [
     category: 'Rwanda',
     duration: '4 Days',
     summary: 'A focused luxury gorilla trekking extension in Volcanoes National Park, perfect for a short immersive Rwanda trip.',
-    image: '/Mountain Gorilla.jpg.jpeg',
+    image: '/Mountain-Gorilla.jpg.jpeg',
     accent: '#c6a15b',
-    pdfUrl: '/itineraries/4DAY RWANDA GORILLA EXTENSION.docx.pdf'
+    pdfUrl: '/itineraries/4DAY-RWANDA-GORILLA-EXTENSION.docx.pdf'
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const itinerariesData = [
     summary: 'Tailor-made incentive travel itinerary for corporate and private groups exploring Kigali and gorilla country.',
     image: '/texp-akagera.jpg',
     accent: '#3b5e48',
-    pdfUrl: '/itineraries/5 DAY RWANDA INCETIVE GROUP TRIP.docx.pdf'
+    pdfUrl: '/itineraries/5-DAY-RWANDA-INCETIVE-GROUP-TRIP.docx.pdf'
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ export const itinerariesData = [
     summary: 'Premium primate tracking across Nyungwe chimpanzees and Volcanoes mountain gorillas in pure luxury.',
     image: '/exp-primates.jpg',
     accent: '#5c6b4f',
-    pdfUrl: '/itineraries/6 DAY RWANDA PRIMATES CORNER, PREMIUM .docx.pdf'
+    pdfUrl: '/itineraries/6-DAY-RWANDA-PRIMATES-CORNER,-PREMIUM-.docx.pdf'
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ export const itinerariesData = [
     summary: 'An action-packed Ugandan expedition featuring wildlife safaris, Nile river cruises, and gorilla trekking.',
     image: '/Bird.jpg.jpeg',
     accent: '#8c6b47',
-    pdfUrl: '/itineraries/9DAY UGANDA ADVENTURE.docx.pdf'
+    pdfUrl: '/itineraries/9DAY-UGANDA-ADVENTURE.docx.pdf'
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ export const itinerariesData = [
     summary: 'Comprehensive discovery journey through Kigali, Akagera National Park safaris, Lake Kivu, and gorilla trekking.',
     image: '/story-guide.jpg',
     accent: '#c6a15b',
-    pdfUrl: '/itineraries/10DAY RWANDA DISCOVERY EXPERIENCE.docx.pdf'
+    pdfUrl: '/itineraries/10DAY-RWANDA-DISCOVERY-EXPERIENCE.docx.pdf'
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ export const itinerariesData = [
     summary: 'Combine Serengeti Big Five wilderness safaris with Rwanda\'s mountain gorillas in one seamless journey.',
     image: '/exp-tanzania.jpg',
     accent: '#a87532',
-    pdfUrl: '/itineraries/11 DAY TANZANIA - RWANDA, PREMIUM.docx.pdf'
+    pdfUrl: '/itineraries/11-DAY-TANZANIA---RWANDA,-PREMIUM.docx.pdf'
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ export const itinerariesData = [
     summary: 'Grand classic East African voyage linking Maasai Mara savannahs, Great Rift Valley, and Rwanda mountain primates.',
     image: '/cta-sunset.jpg',
     accent: '#9c4a2f',
-    pdfUrl: '/itineraries/15DAY RWANDA - KENYA CLASSIC TRIP.docx.pdf'
+    pdfUrl: '/itineraries/15DAY-RWANDA---KENYA-CLASSIC-TRIP.docx.pdf'
   },
   {
     id: 8,
@@ -85,6 +85,6 @@ export const itinerariesData = [
     summary: 'Ultimate cross-border East African safari joining Kenya\'s iconic game reserves with Uganda\'s rainforest primates.',
     image: '/exp-akagera.jpg',
     accent: '#4a6b5c',
-    pdfUrl: '/itineraries/15DAY UGANDA - KENYA, PREMIUM.docx.pdf'
+    pdfUrl: '/itineraries/15DAY-UGANDA---KENYA,-PREMIUM.docx.pdf'
   }
 ]
