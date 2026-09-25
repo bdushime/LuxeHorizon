@@ -48,7 +48,7 @@ VALUES
   'Head Safari Specialist & Trek Leader',
   'What Nobody Tells You Before Your First Gorilla Trek',
   'The permit is the easy part. Here is what actually matters on the day — from altitude to the seven-metre rule.',
-  '/Mountain Gorilla.jpg.jpeg',
+  '/Mountain-Gorilla.jpg.jpeg',
   '#5c6b4f',
   'The moment you break through the bamboo thicket and lock eyes with a 200-kilogram Silverback, every step up the volcano fades into background noise.',
   'Key Takeaway: Hire a local porter at Kinigi headquarters. Beyond lightening your load, it directly supports the local agricultural community surrounding Volcanoes National Park.',
