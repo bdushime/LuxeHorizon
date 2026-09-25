@@ -104,7 +104,8 @@ export default function AdminLoginPage() {
         }
       } else if (mode === 'forgot') {
         // Forgot Password Mode
-        const redirectUrl = `${window.location.origin}/admin/reset-password`
+        const baseUrl = (import.meta.env.VITE_SITE_URL || import.meta.env.VITE_BASE_URL || import.meta.env.VITE_APP_URL || window.location.origin).replace(/\/$/, '')
+        const redirectUrl = `${baseUrl}/admin/reset-password`
         const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
           redirectTo: redirectUrl
         })
