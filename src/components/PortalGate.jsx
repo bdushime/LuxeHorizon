@@ -1,261 +1,87 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
-const letterContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.045, delayChildren: 0.35 } }
-}
-const letterVariant = {
-  hidden: { y: 26, opacity: 0, filter: 'blur(8px)' },
-  visible: {
-    y: 0,
-    opacity: 1,
-    filter: 'blur(0px)',
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
-  }
-}
-
-// Renders text as individually-animated letters so it can cascade in on mount.
-function KineticHeading({ text, className }) {
-  return (
-    <motion.h2 variants={letterContainer} initial="hidden" animate="visible" className={className}>
-      {text.split('').map((ch, i) => (
-        <motion.span key={i} variants={letterVariant} style={{ display: 'inline-block' }}>
-          {ch === ' ' ? ' ' : ch}
-        </motion.span>
-      ))}
-    </motion.h2>
-  )
-}
-
-// Single clean diagonal seam — top point leans one way, bottom point leans
-// the other, so the split reads as one oblique cut rather than a straight line.
-const SLANT = 220
-
-function obliquePoints(baseX, h) {
-  return {
-    top: { x: baseX + SLANT / 2, y: 0 },
-    bottom: { x: baseX - SLANT / 2, y: h }
-  }
-}
-
-function obliqueLineD(baseX, h) {
-  const { top, bottom } = obliquePoints(baseX, h)
-  return `M${top.x},${top.y} L${bottom.x},${bottom.y}`
-}
-
-// Clip-path polygon covering everything to the RIGHT of the diagonal seam —
-// this is what masks the Consultancy layer so it only shows past the line.
-function obliqueClipPath(baseX, w, h) {
-  const { top, bottom } = obliquePoints(baseX, h)
-  return `polygon(${top.x}px ${top.y}px, ${w}px 0px, ${w}px ${h}px, ${bottom.x}px ${bottom.y}px)`
-}
-
-export default function PortalGate({ isOpen, onSelectTourism, onSelectConsultancy }) {
-  const [hovered, setHovered] = useState(null)
-  const [dragging, setDragging] = useState(false)
-  const [dividerX, setDividerX] = useState(50)
-  const [selected, setSelected] = useState(null)
+export default function PortalGate({ isOpen, onSelectTourism }) {
+  const [selected, setSelected] = useState(false)
   const [exiting, setExiting] = useState(false)
   const [flash, setFlash] = useState(false)
-  const [isDesktop, setIsDesktop] = useState(false)
-  const [size, setSize] = useState({ w: 1440, h: 900 })
-  const containerRef = useRef(null)
-
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)')
-    const update = () => setIsDesktop(mq.matches)
-    update()
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
-  }, [])
-
-  useEffect(() => {
-    const onResize = () => setSize({ w: window.innerWidth, h: window.innerHeight })
-    onResize()
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [])
-
-  useEffect(() => {
-    if (!dragging) return undefined
-    const onMove = (e) => {
-      const rect = containerRef.current.getBoundingClientRect()
-      const pct = ((e.clientX - rect.left) / rect.width) * 100
-      setDividerX(Math.min(70, Math.max(30, pct)))
-    }
-    const onUp = () => setDragging(false)
-    window.addEventListener('pointermove', onMove)
-    window.addEventListener('pointerup', onUp)
-    return () => {
-      window.removeEventListener('pointermove', onMove)
-      window.removeEventListener('pointerup', onUp)
-    }
-  }, [dragging])
-
-  useEffect(() => {
-    if (dragging || selected) return
-    if (hovered === 'tourism') setDividerX(60)
-    else if (hovered === 'consultancy') setDividerX(40)
-    else setDividerX(50)
-  }, [hovered, dragging, selected])
 
   if (!isOpen) return null
 
-  const startDrag = (e) => {
-    e.stopPropagation()
-    setDragging(true)
-  }
-
-  const handleSelect = (key) => {
-    if (dragging || selected) return
+  const handleEnter = () => {
+    if (selected) return
     setFlash(true)
-    setTimeout(() => setFlash(false), 400)
-    setSelected(key)
-    setDividerX(key === 'tourism' ? 100 : 0)
-    setTimeout(() => setExiting(true), 1700)
+    setTimeout(() => setFlash(false), 300)
+    setSelected(true)
+    setTimeout(() => setExiting(true), 400)
     setTimeout(() => {
-      if (key === 'tourism') onSelectTourism()
-      else onSelectConsultancy()
-    }, 2300)
+      onSelectTourism()
+    }, 900)
   }
-
-  const baseX = (dividerX / 100) * size.w
-  const clipPath = obliqueClipPath(baseX, size.w, size.h)
-  const lineD = obliqueLineD(baseX, size.h)
-  const clipTransition = dragging
-    ? 'none'
-    : `clip-path ${selected ? '1.7s' : '0.6s'} cubic-bezier(0.16,1,0.3,1)`
 
   return (
     <motion.div
-      ref={containerRef}
       animate={{ opacity: exiting ? 0 : 1 }}
-      transition={{ duration: 0.6 }}
-      className="fixed inset-0 z-[200] flex flex-col md:block select-none bg-[#0B0C0E] text-[#F8F6F0] overflow-hidden"
+      transition={{ duration: 0.5 }}
+      className="fixed inset-0 z-[200] flex flex-col select-none bg-[#0B0C0E] text-[#F8F6F0] overflow-hidden"
     >
-      {/* Shutter flash on selection, right before the wipe-open transition */}
+      {/* Shutter flash on selection */}
       {flash && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.85, 0] }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.3 }}
           className="pointer-events-none absolute inset-0 z-[205] bg-white"
         />
       )}
 
-      {/* DIVISION 01: TOURISM — full-bleed base layer (mobile: normal stacked block) */}
+      {/* Single Opening Landing Screen — Medium Text Headline */}
       <div
-        onMouseEnter={() => isDesktop && !dragging && setHovered('tourism')}
-        onMouseLeave={() => isDesktop && setHovered(null)}
-        onClick={() => handleSelect('tourism')}
-        className="relative z-0 flex-1 md:absolute md:inset-0 cursor-pointer overflow-hidden border-b border-[#F8F6F0]/15 md:border-b-0 group"
+        onClick={handleEnter}
+        className="relative z-0 flex-1 cursor-pointer overflow-hidden group flex flex-col justify-between p-8 sm:p-12 md:p-16"
       >
         <motion.img
           src="/Travel.webp"
-          alt="Luxe Horizons Travel"
+          alt="Luxe Horizons Africa"
           animate={{
-            scale: !hovered && !selected ? [1, 1.1, 1] : hovered === 'tourism' ? 1.08 : hovered === 'consultancy' ? 0.96 : 1,
-            filter: hovered === 'consultancy' ? 'brightness(0.5) saturate(0.55)' : 'brightness(1) saturate(1)'
+            scale: selected ? 1.08 : [1, 1.05, 1]
           }}
           transition={{
-            scale: !hovered && !selected ? { duration: 18, repeat: Infinity, ease: 'easeInOut' } : { duration: 1 },
-            filter: { duration: 1 }
+            scale: selected ? { duration: 0.8 } : { duration: 18, repeat: Infinity, ease: 'easeInOut' }
           }}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E]/45 via-[#0B0C0E]/15 to-transparent transition-opacity duration-500 group-hover:opacity-50" />
 
-        <motion.div
-          animate={{ opacity: selected === 'tourism' ? 0 : hovered === 'consultancy' ? 0.55 : 1 }}
-          transition={{ duration: selected ? 0.9 : 0.4 }}
-          className="relative z-10 flex h-full flex-col justify-between p-8 md:p-14"
-        >
-          <div className="my-auto py-8 max-w-md">
-            <KineticHeading
-              text="Travel"
-              className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#F8F6F0] group-hover:text-[#c6a15b] transition-colors duration-500"
-            />
-            <p className="mt-3 font-serif text-xl sm:text-2xl text-[#F8F6F0]/90 italic font-light">
-              Private Journeys &amp; Primate Expeditions
-            </p>
-          </div>
+        {/* Top Header Logo */}
+        <div className="relative z-10 flex items-center justify-between w-full">
+          <img
+            src="/LuxeHorizon-removebg-preview.webp"
+            alt="Luxe Horizons Africa"
+            className="h-12 sm:h-16 w-auto object-contain drop-shadow-md"
+          />
+        </div>
 
-          <div className="flex w-full max-w-md items-center justify-between text-xs text-[#F8F6F0]/50 border-t border-[#F8F6F0]/15 pt-4">
-            <span>Rwanda · Uganda · Tanzania · Kenya</span>
-            <span className="text-[#c6a15b]">Explore Safaris →</span>
-          </div>
-        </motion.div>
+        {/* Center Main Headline - Bigger Size */}
+        <div className="relative z-10 my-auto py-12 max-w-4xl text-left">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#F8F6F0] leading-snug font-normal tracking-wide [text-shadow:_0_2px_12px_rgba(0,0,0,0.8)]"
+          >
+            Luxury Private Journeys &amp; <br />
+            <span className="text-[#c6a15b] italic font-normal drop-shadow">Primate Expeditions</span>
+          </motion.h1>
+        </div>
+
+        {/* Bottom subtle indicator */}
+        <div className="relative z-10 flex w-full items-center justify-end text-xs text-[#F8F6F0] pt-4">
+          <span className="flex items-center gap-2 text-[#c6a15b] font-medium tracking-wider text-base drop-shadow-md">
+            <span>Explore</span>
+            <span className="text-xl">&rarr;</span>
+          </span>
+        </div>
       </div>
-
-      {/* DIVISION 02: CONSULTANCY — clipped by the diagonal seam on desktop, plain stacked block on mobile */}
-      <div
-        onMouseEnter={() => isDesktop && !dragging && setHovered('consultancy')}
-        onMouseLeave={() => isDesktop && setHovered(null)}
-        onClick={() => handleSelect('consultancy')}
-        style={isDesktop ? { clipPath, transition: clipTransition } : undefined}
-        className="relative z-10 flex-1 md:absolute md:inset-0 cursor-pointer overflow-hidden group"
-      >
-        <motion.img
-          src="/Consultancy.webp"
-          alt="Luxe Horizons Consultancy & MICE"
-          animate={{
-            scale: !hovered && !selected ? [1, 1.1, 1] : hovered === 'consultancy' ? 1.08 : hovered === 'tourism' ? 0.96 : 1,
-            filter: hovered === 'tourism' ? 'brightness(0.5) saturate(0.55)' : 'brightness(1) saturate(1)'
-          }}
-          transition={{
-            scale: !hovered && !selected ? { duration: 18, repeat: Infinity, ease: 'easeInOut' } : { duration: 1 },
-            filter: { duration: 1 }
-          }}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E]/45 via-[#0B0C0E]/15 to-transparent transition-opacity duration-500 group-hover:opacity-50" />
-
-        <motion.div
-          animate={{ opacity: selected === 'consultancy' ? 0 : hovered === 'tourism' ? 0.55 : 1 }}
-          transition={{ duration: selected ? 0.9 : 0.4 }}
-          className="relative z-10 flex h-full flex-col justify-between p-8 md:p-14 md:items-end md:text-right"
-        >
-          <div className="my-auto py-8 max-w-md">
-            <KineticHeading
-              text="Consultancy"
-              className="font-serif text-4xl sm:text-6xl md:text-7xl text-[#F8F6F0] group-hover:text-[#c6a15b] transition-colors duration-500"
-            />
-            <p className="mt-3 font-serif text-xl sm:text-2xl text-[#F8F6F0]/90 italic font-light">
-              Travel Advisory &amp; MICE Management
-            </p>
-          </div>
-
-          <div className="flex w-full max-w-md items-center justify-between text-xs text-[#F8F6F0]/50 border-t border-[#F8F6F0]/15 pt-4">
-            <span>Corporate · MICE · Conferences</span>
-            <span className="text-[#c6a15b]">Explore Advisory →</span>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Diagonal seam outline + drag handle (desktop only) */}
-      {isDesktop && (
-        <svg
-          className="pointer-events-none absolute inset-0 z-20"
-          width={size.w}
-          height={size.h}
-          style={{ transition: clipTransition }}
-        >
-          <path d={lineD} fill="none" stroke="#c6a15b" strokeOpacity="0.7" strokeWidth="1.5" />
-        </svg>
-      )}
-      {isDesktop && (
-        <div
-          onPointerDown={startDrag}
-          className="absolute inset-y-0 z-30 w-6 cursor-ew-resize"
-          style={{
-            left: baseX,
-            transform: 'translateX(-50%)',
-            opacity: selected ? 0 : 1,
-            transition: `opacity 0.3s ease, left ${dragging ? '0s' : selected ? '1.7s' : '0.6s'} cubic-bezier(0.16,1,0.3,1)`
-          }}
-        />
-      )}
     </motion.div>
   )
 }

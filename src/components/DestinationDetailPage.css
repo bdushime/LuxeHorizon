@@ -5,8 +5,9 @@
 /* ---------- Hero ---------- */
 .ddp-hero {
   position: relative;
-  height: 85vh;
-  min-height: 560px;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 .ddp-hero-media {
@@ -19,22 +20,76 @@
 .ddp-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8, 16, 13, 0.15) 0%, rgba(8, 16, 13, 0.35) 60%, rgba(8, 16, 13, 0.7) 100%);
+  background: linear-gradient(180deg, rgba(8, 16, 13, 0.25) 0%, rgba(8, 16, 13, 0.45) 60%, rgba(8, 16, 13, 0.8) 100%);
 }
 .ddp-hero-content {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 44px;
+  inset: 0;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: 0 24px;
 }
 .ddp-hero-content h1 {
   font-family: var(--serif);
   font-weight: 600;
-  font-size: clamp(42px, 6vw, 76px);
+  font-size: clamp(48px, 8.5vw, 96px);
   color: var(--parchment);
-  margin: 10px 0 0;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+.ddp-scroll-indicator {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--parchment);
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  padding: 8px 16px;
+}
+.ddp-scroll-indicator:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+.ddp-scroll-text {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(248, 246, 240, 0.85);
+}
+.ddp-scroll-arrow {
+  font-size: 20px;
+  line-height: 1;
+  color: #c6a15b;
+  animation: ddpBounce 2s infinite ease-in-out;
+}
+
+@keyframes ddpBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(8px);
+  }
+  60% {
+    transform: translateY(4px);
+  }
 }
 
 /* ---------- Layout: sticky fact stamps + story column ---------- */
@@ -90,6 +145,21 @@
   color: var(--ink);
   line-height: 1.25;
 }
+.ddp-stamp-list {
+  list-style-type: disc;
+  margin: 6px 0 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ddp-stamp-list li {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink);
+}
 
 /* ---------- Story ---------- */
 .ddp-story {
@@ -129,7 +199,7 @@
 /* ---------- Continue the journey ---------- */
 .ddp-continue {
   background: var(--canopy);
-  margin-top: 60px;
+  padding-top: 60px;
 }
 .ddp-continue-inner {
   display: grid;
@@ -182,30 +252,67 @@
 
 @media (max-width: 900px) {
   .ddp-hero {
-    height: 44vh;
-    min-height: 320px;
+    height: 100vh;
+    min-height: 100vh;
   }
-  .ddp-layout {
+  .ddp-page .ddp-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 60px 0 20px;
+    gap: 36px;
+    padding: 40px 20px 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .ddp-facts-inner {
     position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    width: 100%;
+  }
+  .ddp-facts-label {
+    grid-column: 1 / -1;
+    margin-bottom: 2px;
   }
   .ddp-stamp {
-    flex: 1 1 45%;
+    transform: none !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .ddp-stamp.ddp-stamp-wide {
+    grid-column: 1 / -1;
+  }
+  .ddp-story {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .ddp-story-text p {
+    font-size: 15.5px;
+    line-height: 1.75;
   }
   .ddp-pinned-photo {
     max-width: 100%;
+    transform: none;
   }
   .ddp-continue-inner {
     grid-template-columns: 1fr;
-    padding: 60px 26px;
+    padding: 50px 20px;
   }
   .ddp-continue-media {
     order: -1;
+  }
+}
+
+@media (max-width: 580px) {
+  .ddp-page .ddp-layout {
+    padding: 30px 16px 20px;
+    gap: 28px;
+  }
+  .ddp-facts-inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .ddp-stamp.ddp-stamp-wide {
+    grid-column: 1;
   }
 }

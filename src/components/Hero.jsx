@@ -51,10 +51,10 @@ export default function Hero({ revealed = true }) {
         {heroSections.map((section) => {
           const layerStyle = section.image
             ? {
-                backgroundImage: `linear-gradient(180deg, rgba(8,16,13,0.12) 0%, rgba(8,16,13,0.28) 100%), url('${section.image}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center 42%'
-              }
+              backgroundImage: `linear-gradient(180deg, rgba(8,16,13,0.12) 0%, rgba(8,16,13,0.28) 100%), url('${section.image}')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center 42%'
+            }
             : { background: section.gradient }
 
           return (
