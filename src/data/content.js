@@ -192,7 +192,7 @@ export const destinationDetails = {
     facts: [
       { label: 'Great Migration', value: 'July – September' },
       { label: 'Key Parks', value: 'Serengeti & Ngorongoro' },
-      { label: 'Also Notable', value: 'Lake Tanganyika' },
+      { label: 'Also Notable', value: 'Combination with Zanzibar Beach' },
       { label: 'Culture', value: 'Maasai Communities' }
     ],
     secondaryPhoto: '/Tanzania.webp'
