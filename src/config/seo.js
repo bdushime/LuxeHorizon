@@ -93,9 +93,9 @@ export const PAGE_SEO = {
     ogImage: `${SITE_URL}/Mountain%20Gorilla.jpg.jpeg`
   },
   itineraries: {
-    title: 'Bespoke Safari Itineraries & PDF Guides | Luxe Horizons Africa',
+    title: 'Bespoke Safari Itineraries & Articles | Luxe Horizons Africa',
     description:
-      'Browse and view curated luxury safari itineraries for Rwanda, Uganda, and Tanzania. Preview full PDF documents online.',
+      'Browse and read curated luxury safari itinerary articles and guides for Rwanda, Uganda, and Tanzania.',
     canonical: `${SITE_URL}/itineraries`,
     ogImage: `${SITE_URL}/Mountain%20Gorilla.jpg.jpeg`
   },

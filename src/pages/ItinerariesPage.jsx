@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, Link } from 'react-router-dom'
 import { itinerariesData as initialItineraries } from '../data/itinerariesData.js'
 import Seo from '../components/Seo.jsx'
 import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
@@ -13,19 +13,27 @@ export default function ItinerariesPage() {
   const [itineraries] = useState(initialItineraries)
   const [activeCategory, setActiveCategory] = useState('All')
   const [selectedItinerary, setSelectedItinerary] = useState(null)
+  const [modalMainImage, setModalMainImage] = useState(null)
 
-  const categories = useMemo(() => Array.from(new Set(itineraries.map((item) => item.category))), [itineraries])
+  const categories = useMemo(() => {
+    const list = Array.from(new Set(itineraries.map((item) => item.category)))
+    if (!list.includes('Kenya')) list.splice(3, 0, 'Kenya')
+    return list
+  }, [itineraries])
 
   // Open modal if URL has ?itinerary=slug
   useEffect(() => {
     const itineraryKey = searchParams.get('itinerary')
     if (itineraryKey) {
       const match = itineraries.find((item) => item.key === itineraryKey)
-      if (match) setSelectedItinerary(match)
+      if (match) {
+        setSelectedItinerary(match)
+        setModalMainImage(match.image)
+      }
     }
   }, [searchParams, itineraries])
 
-  // Lock scroll when viewing PDF modal
+  // Lock scroll when viewing article modal
   useEffect(() => {
     if (selectedItinerary) {
       document.body.style.overflow = 'hidden'
@@ -37,7 +45,7 @@ export default function ItinerariesPage() {
     }
   }, [selectedItinerary])
 
-  // ESC key listener to close PDF modal
+  // ESC key listener to close article modal
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') closeModal()
@@ -49,26 +57,33 @@ export default function ItinerariesPage() {
   const openItinerary = (itinerary, e) => {
     if (e) e.preventDefault()
     setSelectedItinerary(itinerary)
+    setModalMainImage(itinerary.image)
     setSearchParams({ itinerary: itinerary.key }, { replace: true })
   }
 
   const closeModal = () => {
     setSelectedItinerary(null)
+    setModalMainImage(null)
     setSearchParams({}, { replace: true })
   }
 
-  const filteredItineraries =
-    activeCategory === 'All'
-      ? itineraries
-      : itineraries.filter((item) => item.category === activeCategory)
+  const filteredItineraries = useMemo(() => {
+    if (activeCategory === 'All') return itineraries
+    if (activeCategory === 'Kenya') {
+      return itineraries.filter(
+        (item) => item.category === 'Kenya' || item.title.toLowerCase().includes('kenya') || item.key.includes('kenya')
+      )
+    }
+    return itineraries.filter((item) => item.category === activeCategory)
+  }, [itineraries, activeCategory])
 
   const seoTitle = selectedItinerary
-    ? `${selectedItinerary.title} (PDF) — Luxe Horizons Africa`
-    : (PAGE_SEO.itineraries?.title || 'Bespoke Safari Itineraries & PDF Guides | Luxe Horizons Africa')
+    ? `${selectedItinerary.title} — Luxe Horizons Africa`
+    : (PAGE_SEO.itineraries?.title || 'Bespoke Safari Itineraries & Articles | Luxe Horizons Africa')
 
   const seoDescription = selectedItinerary
     ? selectedItinerary.summary
-    : (PAGE_SEO.itineraries?.description || 'Browse & view detailed luxury safari itineraries for Rwanda, Uganda, and Tanzania.')
+    : (PAGE_SEO.itineraries?.description || 'Browse & read detailed luxury safari itineraries for Rwanda, Uganda, and Tanzania.')
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
@@ -93,7 +108,7 @@ export default function ItinerariesPage() {
           <h1>Curated Safari Itineraries</h1>
           <p>
             Explore tailor-made travel plans across Rwanda, Uganda, and Tanzania.
-            Click any itinerary card below to preview the complete PDF document directly online.
+            Click any itinerary card below to read the complete article and view photos.
           </p>
         </div>
         <div className="itin-head-deck" aria-hidden="true">
@@ -163,15 +178,11 @@ export default function ItinerariesPage() {
                       {item.category}
                     </span>
                     <span className="itin-card-dot" />
-                    <span className="itin-card-format">PDF Document</span>
+                    <span className="itin-card-format">Full Article</span>
                   </div>
 
                   <h3>{item.title}</h3>
                   <p>{item.summary}</p>
-
-                  <span className="itin-card-link" style={{ color: item.accent }}>
-                    View Itinerary PDF &rarr;
-                  </span>
                 </div>
               </motion.a>
             ))}
@@ -179,7 +190,7 @@ export default function ItinerariesPage() {
         </div>
       </div>
 
-      {/* PDF Document Viewer Modal */}
+      {/* Article Detail Viewer Modal */}
       <AnimatePresence>
         {selectedItinerary && (
           <div className="ipm-overlay" onClick={closeModal}>
@@ -194,6 +205,7 @@ export default function ItinerariesPage() {
             <div className="ipm-wrapper">
               <motion.div
                 className="ipm-dialog"
+                style={{ maxWidth: '1280px', width: '96%', maxHeight: '90vh', overflowY: 'auto', background: '#ffffff', color: '#111827', borderRadius: '16px', border: '1px solid rgba(0, 0, 0, 0.1)', padding: '36px' }}
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="ipm-title"
@@ -204,62 +216,140 @@ export default function ItinerariesPage() {
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Modal Header */}
-                <div className="ipm-header">
+                <div className="ipm-header" style={{ paddingBottom: '20px', borderBottom: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                   <div className="ipm-header-info">
-                    <div className="ipm-meta">
-                      <span className="ipm-category-badge" style={{ backgroundColor: selectedItinerary.accent }}>
+                    <div className="ipm-meta" style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+                      <span className="ipm-category-badge" style={{ backgroundColor: selectedItinerary.accent, padding: '4px 10px', borderRadius: '4px', fontSize: '12px', fontWeight: '600', color: '#fff' }}>
                         {selectedItinerary.category}
                       </span>
-                      <span className="ipm-duration-badge">{selectedItinerary.duration}</span>
+                      <span className="ipm-duration-badge" style={{ background: '#f1f5f9', color: '#334155', padding: '4px 10px', borderRadius: '4px', fontSize: '12px', fontWeight: '600' }}>
+                        {selectedItinerary.duration}
+                      </span>
                     </div>
-                    <h2 id="ipm-title">{selectedItinerary.title}</h2>
+                    <h2 id="ipm-title" style={{ fontSize: '26px', margin: 0, color: '#142019', fontWeight: '700' }}>{selectedItinerary.title}</h2>
                   </div>
 
-                  <div className="ipm-header-actions">
-                    <a
-                      href={selectedItinerary.pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ipm-btn-action"
-                      title="Open PDF in new tab"
-                    >
-                      <span>Open in New Tab &#8599;</span>
-                    </a>
-
-                    <a
-                      href={selectedItinerary.pdfUrl}
-                      download
-                      className="ipm-btn-action secondary"
-                      title="Download PDF file"
-                    >
-                      <span>Download</span>
-                    </a>
-
-                    <button
-                      type="button"
-                      className="ipm-close"
-                      onClick={closeModal}
-                      aria-label="Close modal"
-                    >
-                      &#10005;
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    className="ipm-close"
+                    onClick={closeModal}
+                    aria-label="Close modal"
+                    style={{ background: '#f1f5f9', border: 'none', color: '#1e293b', width: '36px', height: '36px', borderRadius: '50%', fontSize: '18px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  >
+                    &#10005;
+                  </button>
                 </div>
 
-                {/* Modal PDF Viewer Body */}
-                <div className="ipm-body">
-                  <iframe
-                    src={`${selectedItinerary.pdfUrl}#toolbar=1&navpanes=0&view=FitH`}
-                    title={selectedItinerary.title}
-                    className="ipm-iframe"
-                  >
-                    <p>
-                      Your browser does not support inline PDF viewing.{' '}
-                      <a href={selectedItinerary.pdfUrl} target="_blank" rel="noopener noreferrer">
-                        Click here to view or download the PDF file.
-                      </a>
-                    </p>
-                  </iframe>
+                {/* Cover Image & Extracted Photo Gallery */}
+                <div style={{ paddingTop: '20px' }}>
+                  <div style={{ height: '360px', borderRadius: '12px', overflow: 'hidden', marginBottom: '16px' }}>
+                    <img
+                      src={modalMainImage || selectedItinerary.image}
+                      alt={selectedItinerary.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
+
+                  {selectedItinerary.gallery && selectedItinerary.gallery.length > 1 && (
+                    <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '12px', marginBottom: '24px' }}>
+                      {selectedItinerary.gallery.map((imgUrl, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={() => setModalMainImage(imgUrl)}
+                          style={{
+                            border: modalMainImage === imgUrl ? '2px solid #c9a15a' : '2px solid transparent',
+                            borderRadius: '6px',
+                            overflow: 'hidden',
+                            padding: 0,
+                            background: 'none',
+                            cursor: 'pointer',
+                            flexShrink: 0
+                          }}
+                        >
+                          <img
+                            src={imgUrl}
+                            alt={`Photo ${idx + 1}`}
+                            style={{ width: '80px', height: '60px', objectFit: 'cover', display: 'block' }}
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Article Overview */}
+                  {selectedItinerary.overview && (
+                    <div style={{ marginBottom: '32px' }}>
+                      <h3 style={{ color: '#8c6b27', fontSize: '20px', marginBottom: '12px', fontWeight: '700' }}>Overview</h3>
+                      {selectedItinerary.overview.split('\n\n').map((para, i) => (
+                        <p key={i} style={{ marginBottom: '12px', fontSize: '15px', color: '#1e293b', lineHeight: '1.7' }}>
+                          {para}
+                        </p>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Day-by-Day Itinerary */}
+                  {selectedItinerary.days && selectedItinerary.days.length > 0 && (
+                    <div style={{ marginBottom: '32px' }}>
+                      <h3 style={{ color: '#8c6b27', fontSize: '20px', marginBottom: '18px', fontWeight: '700' }}>Day-by-Day Itinerary</h3>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                        {selectedItinerary.days.map((day, dIdx) => (
+                          <div
+                            key={dIdx}
+                            style={{
+                              background: '#f8fafc',
+                              border: '1px solid #e2e8f0',
+                              borderRadius: '10px',
+                              padding: '20px'
+                            }}
+                          >
+                            <h4 style={{ color: '#142019', margin: '0 0 10px 0', fontSize: '16px', fontWeight: '700' }}>
+                              {day.dayTitle}
+                            </h4>
+                            {day.content && day.content.map((line, lIdx) => (
+                              <p key={lIdx} style={{ margin: '4px 0', fontSize: '14px', color: '#1e293b', lineHeight: '1.6' }}>
+                                {line}
+                              </p>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Actions Row */}
+                  <div style={{ display: 'flex', gap: '16px', marginTop: '32px' }}>
+                    <Link
+                      to="/contact"
+                      onClick={closeModal}
+                      style={{
+                        background: '#c9a15a',
+                        color: '#000',
+                        fontWeight: '600',
+                        padding: '12px 24px',
+                        borderRadius: '8px',
+                        textDecoration: 'none',
+                        display: 'inline-block'
+                      }}
+                    >
+                      Plan This Trip With Us &rarr;
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={closeModal}
+                      style={{
+                        background: '#142019',
+                        border: '1px solid #142019',
+                        color: '#ffffff',
+                        padding: '12px 24px',
+                        borderRadius: '8px',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      Close Article
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             </div>

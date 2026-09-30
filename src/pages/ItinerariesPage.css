@@ -133,6 +133,7 @@
 .itin-card {
   display: flex;
   flex-direction: column;
+  height: 420px;
   background: #ffffff;
   border-radius: 18px;
   overflow: hidden;
@@ -150,7 +151,8 @@
 .itin-card-media {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 200px;
+  flex-shrink: 0;
   overflow: hidden;
   background: #111;
 }
@@ -182,6 +184,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  overflow: hidden;
 }
 .itin-card-meta {
   display: flex;
@@ -205,17 +208,26 @@
 
 .itin-card h3 {
   font-family: var(--serif, serif);
-  font-size: 20px;
+  font-size: 19px;
   line-height: 1.3;
   margin: 0 0 10px;
   color: #1a1a1a;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 50px;
 }
 .itin-card p {
   font-size: 14px;
-  line-height: 1.55;
+  line-height: 1.5;
   color: rgba(33, 29, 23, 0.7);
-  margin: 0 0 16px;
-  flex: 1;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 63px;
 }
 
 .itin-card-highlights {

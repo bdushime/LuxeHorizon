@@ -14,14 +14,7 @@ import { itinerariesData } from '../data/itinerariesData.js'
 import '../components/AdventureSection.css'
 import './ExperiencesPage.css'
 
-const CATEGORIES = ['All', 'Rwanda', 'Uganda', 'Tanzania', 'Multi-Country']
-
-const DEFAULT_PDF_MAP = {
-  'Rwanda': '/itineraries/10DAY-RWANDA-DISCOVERY-EXPERIENCE.docx.pdf',
-  'Uganda': '/itineraries/9DAY-UGANDA-ADVENTURE.docx.pdf',
-  'Tanzania': '/itineraries/11-DAY-TANZANIA---RWANDA,-PREMIUM.docx.pdf',
-  'Multi-Country': '/itineraries/15DAY-RWANDA---KENYA-CLASSIC-TRIP.docx.pdf'
-}
+const CATEGORIES = ['All', 'Rwanda', 'Uganda', 'Tanzania', 'Kenya', 'Multi-Country']
 
 function formatCardSummary(text, maxLength = 112) {
   if (!text) return ''
@@ -37,17 +30,17 @@ export default function ExperiencesPage() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [activeCategory, setActiveCategory] = useState('All')
   
-  // Selected experience for short description modal
+  // Selected experience article modal
   const [selectedExperience, setSelectedExperience] = useState(null)
-  
-  // Selected PDF itinerary for direct inline PDF viewer modal
-  const [activePdfViewer, setActivePdfViewer] = useState(null)
+
+  // Currently displayed main gallery image inside modal
+  const [modalMainImage, setModalMainImage] = useState(null)
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  // Build unified experience items list with uniform equal-length descriptions
+  // Build unified experience article items list with exact PDF content
   const allExperiences = useMemo(() => {
     const combined = [
       ...itinerariesData.map((item) => ({
@@ -58,10 +51,12 @@ export default function ExperiencesPage() {
         category: item.category,
         duration: item.duration,
         summary: formatCardSummary(item.summary),
-        description: item.summary,
+        overview: item.overview,
+        days: item.days || [],
+        rawText: item.rawText,
         image: item.image,
-        accent: item.accent || '#c6a15b',
-        pdfUrl: item.pdfUrl
+        gallery: item.gallery && item.gallery.length > 0 ? item.gallery : [item.image],
+        accent: item.accent || '#c6a15b'
       })),
       ...experiencesData.map((item) => {
         const cat = item.category === 'Special Expeditions' ? 'Rwanda' : item.category
@@ -73,11 +68,12 @@ export default function ExperiencesPage() {
           category: cat,
           duration: item.duration || 'Custom Duration',
           summary: formatCardSummary(item.summary || item.description),
-          description: item.description || item.summary,
+          overview: item.description || item.summary,
+          fullStory: item.fullStory || [],
           image: item.image,
+          gallery: item.gallery || [item.image],
           highlights: item.highlights || [],
-          accent: '#c6a15b',
-          pdfUrl: item.pdfUrl || DEFAULT_PDF_MAP[cat] || '/itineraries/10DAY-RWANDA-DISCOVERY-EXPERIENCE.docx.pdf'
+          accent: '#c6a15b'
         }
       })
     ]
@@ -95,16 +91,11 @@ export default function ExperiencesPage() {
   // URL Deep-linking handling
   useEffect(() => {
     const expSlug = searchParams.get('exp') || searchParams.get('itinerary')
-    const pdfFlag = searchParams.get('pdf')
-
     if (expSlug) {
       const match = allExperiences.find((e) => e.slug === expSlug || e.key === expSlug || e.id === expSlug)
       if (match) {
-        if (pdfFlag === 'true') {
-          setActivePdfViewer(match)
-        } else {
-          setSelectedExperience(match)
-        }
+        setSelectedExperience(match)
+        setModalMainImage(match.image)
       }
     }
   }, [searchParams, allExperiences])
@@ -114,11 +105,10 @@ export default function ExperiencesPage() {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         closeExpModal()
-        closePdfViewer()
       }
     }
 
-    if (selectedExperience || activePdfViewer) {
+    if (selectedExperience) {
       window.addEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'hidden'
     } else {
@@ -129,36 +119,28 @@ export default function ExperiencesPage() {
       window.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = ''
     }
-  }, [selectedExperience, activePdfViewer])
+  }, [selectedExperience])
 
   const openExperience = (exp, e) => {
     if (e) e.preventDefault()
     setSelectedExperience(exp)
+    setModalMainImage(exp.image)
     setSearchParams({ exp: exp.slug }, { replace: true })
   }
 
   const closeExpModal = () => {
     setSelectedExperience(null)
+    setModalMainImage(null)
     setSearchParams({}, { replace: true })
-  }
-
-  const openPdfViewer = (exp, e) => {
-    if (e) e.preventDefault()
-    setActivePdfViewer(exp)
-    setSearchParams({ exp: exp.slug, pdf: 'true' }, { replace: true })
-  }
-
-  const closePdfViewer = () => {
-    setActivePdfViewer(null)
-    if (selectedExperience) {
-      setSearchParams({ exp: selectedExperience.slug }, { replace: true })
-    } else {
-      setSearchParams({}, { replace: true })
-    }
   }
 
   const filteredItems = useMemo(() => {
     if (activeCategory === 'All') return allExperiences
+    if (activeCategory === 'Kenya') {
+      return allExperiences.filter(
+        (item) => item.category === 'Kenya' || item.title.toLowerCase().includes('kenya') || item.key.includes('kenya')
+      )
+    }
     return allExperiences.filter((item) => item.category === activeCategory)
   }, [allExperiences, activeCategory])
 
@@ -168,23 +150,22 @@ export default function ExperiencesPage() {
   }
 
   // SEO calculation
-  const currentViewItem = selectedExperience || activePdfViewer
-  const seoTitle = currentViewItem
-    ? `${currentViewItem.title} — ${currentViewItem.duration} | Luxe Horizons Africa`
+  const seoTitle = selectedExperience
+    ? `${selectedExperience.title} — ${selectedExperience.duration} | Luxe Horizons Africa`
     : PAGE_SEO.experiences.title
 
-  const seoDescription = currentViewItem
-    ? (currentViewItem.summary || currentViewItem.description).slice(0, 160)
+  const seoDescription = selectedExperience
+    ? (selectedExperience.summary || selectedExperience.overview || '').slice(0, 160)
     : PAGE_SEO.experiences.description
 
-  const seoImage = currentViewItem ? currentViewItem.image : PAGE_SEO.experiences.ogImage
+  const seoImage = selectedExperience ? selectedExperience.image : PAGE_SEO.experiences.ogImage
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
     { name: 'Experiences', url: '/experiences' }
   ]
-  if (currentViewItem) {
-    breadcrumbs.push({ name: currentViewItem.title, url: `/experiences?exp=${currentViewItem.slug}` })
+  if (selectedExperience) {
+    breadcrumbs.push({ name: selectedExperience.title, url: `/experiences?exp=${selectedExperience.slug}` })
   }
 
   return (
@@ -214,7 +195,7 @@ export default function ExperiencesPage() {
             <span className="gold-text">East African Journeys</span>
           </h1>
           <p className="exp-hero-tagline">
-            Explore bespoke gorilla treks, wildlife safaris, and complete day-by-day itinerary PDF documents.
+            Explore bespoke gorilla treks, wildlife safaris, and complete day-by-day itinerary articles.
           </p>
         </div>
 
@@ -246,7 +227,7 @@ export default function ExperiencesPage() {
             <div className="eyebrow">BESPOKE EXPEDITIONS</div>
             <h2>Explore Our Experiences &amp; Itineraries</h2>
             <p className="exp-section-sub">
-              Click any card below to view details and read the full itinerary PDF.
+              Click any card below to read the complete itinerary article and view photos.
             </p>
           </Reveal>
 
@@ -283,25 +264,11 @@ export default function ExperiencesPage() {
                       {item.category}
                     </span>
                     <span className="itin-card-dot" />
-                    <span className="itin-card-format">PDF Itinerary</span>
+                    <span className="itin-card-format">Full Article</span>
                   </div>
 
                   <h3>{item.title}</h3>
                   <p>{item.summary}</p>
-
-                  <div className="exp-card-action-row" style={{ display: 'flex', gap: '12px', marginTop: 'auto', paddingTop: '12px' }}>
-                    <button
-                      type="button"
-                      className="btn-exp-outline"
-                      style={{ padding: '8px 16px', fontSize: '13px', borderRadius: '8px', background: '#142019', color: '#c9a15a', borderColor: '#c9a15a' }}
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        openPdfViewer(item, e)
-                      }}
-                    >
-                      View PDF &#8599;
-                    </button>
-                  </div>
                 </div>
               </div>
             ))}
@@ -309,12 +276,13 @@ export default function ExperiencesPage() {
         </div>
       </section>
 
-      {/* Experience Detail & Description Modal */}
+      {/* Experience Article Modal */}
       <AnimatePresence>
         {selectedExperience && (
           <div className="exp-modal-backdrop" onClick={closeExpModal}>
             <motion.div
               className="exp-modal-content"
+              style={{ maxWidth: '1280px', width: '96%' }}
               initial={{ opacity: 0, y: 25, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.97 }}
@@ -338,137 +306,134 @@ export default function ExperiencesPage() {
                 <h1 className="exp-modal-title">{selectedExperience.title}</h1>
               </div>
 
-              {/* Cover Image */}
-              <div className="exp-modal-hero-img" style={{ height: '360px', marginBottom: '24px' }}>
+              {/* Cover Image & Extracted Photo Gallery */}
+              <div className="exp-modal-hero-img" style={{ height: '380px', marginBottom: '16px', overflow: 'hidden', borderRadius: '12px', position: 'relative' }}>
                 <img
-                  src={selectedExperience.image}
+                  src={modalMainImage || selectedExperience.image}
                   alt={selectedExperience.title}
                   loading="lazy"
                   decoding="async"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
 
-              {/* Short Description */}
-              <div className="exp-modal-body">
-                <div className="exp-article-overview">
-                  <h3>Experience Description</h3>
-                  <p className="lead-text">{selectedExperience.summary || selectedExperience.description}</p>
+              {selectedExperience.gallery && selectedExperience.gallery.length > 1 && (
+                <div className="exp-modal-gallery-row" style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '12px', marginBottom: '24px' }}>
+                  {selectedExperience.gallery.map((imgUrl, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setModalMainImage(imgUrl)}
+                      style={{
+                        border: modalMainImage === imgUrl ? '2px solid #c9a15a' : '2px solid transparent',
+                        borderRadius: '6px',
+                        overflow: 'hidden',
+                        padding: 0,
+                        background: 'none',
+                        cursor: 'pointer',
+                        flexShrink: 0
+                      }}
+                    >
+                      <img
+                        src={imgUrl}
+                        alt={`Photo ${idx + 1}`}
+                        style={{ width: '80px', height: '60px', objectFit: 'cover', display: 'block' }}
+                      />
+                    </button>
+                  ))}
                 </div>
+              )}
 
+              {/* Article Content Body */}
+              <div className="exp-modal-body" style={{ color: '#111827', lineHeight: '1.75' }}>
+                
+                {/* Overview Paragraphs */}
+                {selectedExperience.overview && (
+                  <div className="exp-article-overview" style={{ marginBottom: '32px' }}>
+                    <h3 style={{ color: '#8c6b27', fontSize: '20px', marginBottom: '12px', fontWeight: '700' }}>Overview</h3>
+                    {selectedExperience.overview.split('\n\n').map((para, i) => (
+                      <p key={i} style={{ marginBottom: '12px', fontSize: '15px', color: '#1e293b', lineHeight: '1.7' }}>
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                )}
+
+                {/* Day by Day Breakdown */}
+                {selectedExperience.days && selectedExperience.days.length > 0 && (
+                  <div className="exp-article-days" style={{ marginBottom: '32px' }}>
+                    <h3 style={{ color: '#8c6b27', fontSize: '20px', marginBottom: '18px', fontWeight: '700' }}>Day-by-Day Itinerary</h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                      {selectedExperience.days.map((day, dIdx) => (
+                        <div
+                          key={dIdx}
+                          style={{
+                            background: '#f8fafc',
+                            border: '1px solid #e2e8f0',
+                            borderRadius: '10px',
+                            padding: '20px'
+                          }}
+                        >
+                          <h4 style={{ color: '#142019', margin: '0 0 10px 0', fontSize: '16px', fontWeight: '700' }}>
+                            {day.dayTitle}
+                          </h4>
+                          {day.content && day.content.map((line, lIdx) => (
+                            <p key={lIdx} style={{ margin: '4px 0', fontSize: '14px', color: '#1e293b', lineHeight: '1.6' }}>
+                              {line}
+                            </p>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Full Story Paragraphs (for experiencesData items) */}
+                {selectedExperience.fullStory && selectedExperience.fullStory.length > 0 && (
+                  <div className="exp-article-story" style={{ marginBottom: '32px' }}>
+                    <h3 style={{ color: '#8c6b27', fontSize: '20px', marginBottom: '12px', fontWeight: '700' }}>Full Experience Story</h3>
+                    {selectedExperience.fullStory.map((para, i) => (
+                      <p key={i} style={{ marginBottom: '10px', fontSize: '14px', color: '#1e293b', lineHeight: '1.7' }}>
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                )}
+
+                {/* Highlights */}
                 {selectedExperience.highlights && selectedExperience.highlights.length > 0 && (
-                  <div className="exp-highlights-box">
-                    <h4>Highlights</h4>
+                  <div className="exp-highlights-box" style={{ marginBottom: '32px', color: '#1e293b' }}>
+                    <h4 style={{ color: '#8c6b27', fontSize: '18px', marginBottom: '10px', fontWeight: '700' }}>Highlights</h4>
                     <ul>
                       {selectedExperience.highlights.map((item, i) => (
-                        <li key={i}>{item}</li>
+                        <li key={i} style={{ color: '#1e293b' }}>{item}</li>
                       ))}
                     </ul>
                   </div>
                 )}
 
                 {/* Primary Action Buttons */}
-                <div className="exp-modal-cta-row" style={{ display: 'flex', gap: '16px', marginTop: '28px', flexWrap: 'wrap' }}>
-                  <button
-                    type="button"
-                    className="btn-exp-cta"
-                    style={{ cursor: 'pointer' }}
-                    onClick={(e) => {
-                      closeExpModal()
-                      openPdfViewer(selectedExperience, e)
-                    }}
-                  >
-                    View PDF Document &#8599;
-                  </button>
-
+                <div className="exp-modal-cta-row" style={{ display: 'flex', gap: '16px', marginTop: '36px', flexWrap: 'wrap' }}>
                   <Link
                     to="/contact"
+                    className="btn-exp-cta"
+                    onClick={closeExpModal}
+                    style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  >
+                    Plan This Trip With Us &rarr;
+                  </Link>
+
+                  <button
+                    type="button"
                     className="btn-exp-outline"
                     onClick={closeExpModal}
+                    style={{ padding: '12px 24px', fontSize: '14px', borderRadius: '8px', cursor: 'pointer', background: '#142019', color: '#f8fafc', borderColor: '#142019' }}
                   >
-                    Plan This Trip With Us
-                  </Link>
+                    Close Article
+                  </button>
                 </div>
               </div>
             </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-
-      {/* Inline PDF Viewer Modal */}
-      <AnimatePresence>
-        {activePdfViewer && (
-          <div className="ipm-overlay" onClick={closePdfViewer}>
-            <motion.div
-              className="ipm-backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-            />
-
-            <div className="ipm-wrapper">
-              <motion.div
-                className="ipm-dialog"
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="ipm-title"
-                initial={{ opacity: 0, y: 35, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 25, scale: 0.96 }}
-                transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Header */}
-                <div className="ipm-header">
-                  <div className="ipm-header-info">
-                    <div className="ipm-meta">
-                      <span className="ipm-category-badge" style={{ backgroundColor: activePdfViewer.accent || '#c6a15b' }}>
-                        {activePdfViewer.category}
-                      </span>
-                      <span className="ipm-duration-badge">{activePdfViewer.duration}</span>
-                    </div>
-                    <h2 id="ipm-title">{activePdfViewer.title}</h2>
-                  </div>
-
-                  <div className="ipm-header-actions">
-                    <a
-                      href={activePdfViewer.pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ipm-btn-action"
-                      title="Open PDF in new tab"
-                    >
-                      <span>Open in New Tab &#8599;</span>
-                    </a>
-
-                    <button
-                      type="button"
-                      className="ipm-close"
-                      onClick={closePdfViewer}
-                      aria-label="Close viewer"
-                    >
-                      &#10005;
-                    </button>
-                  </div>
-                </div>
-
-                {/* PDF Viewer Body */}
-                <div className="ipm-body">
-                  <iframe
-                    src={`${activePdfViewer.pdfUrl}#toolbar=1&navpanes=0&view=FitH`}
-                    title={activePdfViewer.title}
-                    className="ipm-iframe"
-                  >
-                    <p>
-                      Your browser does not support inline PDF viewing.{' '}
-                      <a href={activePdfViewer.pdfUrl} target="_blank" rel="noopener noreferrer">
-                        Click here to view the PDF file.
-                      </a>
-                    </p>
-                  </iframe>
-                </div>
-              </motion.div>
-            </div>
           </div>
         )}
       </AnimatePresence>
