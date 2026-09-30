@@ -29,7 +29,7 @@ function AppRoutes() {
   const location = useLocation()
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
-  const [portalOpen, setPortalOpen] = useState(false)
+  const [portalOpen, setPortalOpen] = useState(() => location.pathname === '/')
   const isDestinations = location.pathname === '/destinations'
   const isAdmin = location.pathname.startsWith('/admin')
   const isNotFound =
@@ -47,10 +47,6 @@ function AppRoutes() {
         <PortalGate
           isOpen={portalOpen}
           onSelectTourism={() => setPortalOpen(false)}
-          onSelectConsultancy={() => {
-            setPortalOpen(false)
-            navigate('/consultancy')
-          }}
         />
       )}
       {!isNotFound && !isAdmin && (
