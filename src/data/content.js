@@ -169,8 +169,16 @@ export const destinationDetails = {
     facts: [
       { label: 'Known As', value: 'Pearl of Africa' },
       { label: 'Gateway', value: 'Kampala / Entebbe' },
-      { label: 'Signature Wildlife', value: 'Bwindi Gorillas' },
-      { label: 'Also Notable', value: 'Source of the Nile' }
+      { label: 'Signature Highlight', value: 'Murchison Falls' },
+      {
+        label: 'Best Known For',
+        value: [
+          'Bwindi Gorillas',
+          "Queen Elizabeth and Ishasha's Tree Climbing lions",
+          "Kibale's chimps",
+          'Nile Cruise of Murchison National Park'
+        ]
+      }
     ],
     secondaryPhoto: '/Uganda.webp'
   },
