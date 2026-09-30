@@ -90,6 +90,21 @@
   color: var(--ink);
   line-height: 1.25;
 }
+.ddp-stamp-list {
+  list-style-type: disc;
+  margin: 6px 0 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ddp-stamp-list li {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink);
+}
 
 /* ---------- Story ---------- */
 .ddp-story {
@@ -129,7 +144,7 @@
 /* ---------- Continue the journey ---------- */
 .ddp-continue {
   background: var(--canopy);
-  margin-top: 60px;
+  padding-top: 60px;
 }
 .ddp-continue-inner {
   display: grid;

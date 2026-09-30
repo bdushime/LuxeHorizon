@@ -46,7 +46,6 @@ export default function DestinationDetailPage() {
         <img className="ddp-hero-media" src={dest.image} alt={dest.name} fetchpriority="high" loading="eager" decoding="async" />
         <div className="ddp-hero-overlay" />
         <div className="ddp-hero-content">
-          <div className="eyebrow on-dark">{dest.eyebrow}</div>
           <h1>{dest.name}</h1>
         </div>
       </section>
@@ -55,16 +54,30 @@ export default function DestinationDetailPage() {
         <aside className="ddp-facts">
           <div className="ddp-facts-inner">
             <div className="ddp-facts-label">At A Glance</div>
-            {detail.facts.map((fact) => (
-              <div
-                className={`ddp-stamp ${fact.value.length > 40 ? 'ddp-stamp-wide' : ''}`}
-                key={fact.label}
-                style={{ '--accent': dest.accent }}
-              >
-                <div className="ddp-stamp-label">{fact.label}</div>
-                <div className="ddp-stamp-value">{fact.value}</div>
-              </div>
-            ))}
+            {detail.facts.map((fact) => {
+              const isArray = Array.isArray(fact.value)
+              const isLong = isArray || (typeof fact.value === 'string' && fact.value.length > 40)
+              return (
+                <div
+                  className={`ddp-stamp ${isLong ? 'ddp-stamp-wide' : ''}`}
+                  key={fact.label}
+                  style={{ '--accent': dest.accent }}
+                >
+                  <div className="ddp-stamp-label">{fact.label}</div>
+                  <div className="ddp-stamp-value">
+                    {isArray ? (
+                      <ul className="ddp-stamp-list">
+                        {fact.value.map((item, idx) => (
+                          <li key={idx}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      fact.value
+                    )}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </aside>
 

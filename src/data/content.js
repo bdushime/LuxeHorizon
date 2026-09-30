@@ -148,7 +148,15 @@ export const destinationDetails = {
       { label: 'Capital', value: 'Kigali' },
       { label: 'Known As', value: 'Land of a Thousand Hills' },
       { label: 'Signature Wildlife', value: 'Mountain Gorillas' },
-      { label: 'Best Known For', value: 'Akagera National Park (home to Big5), Volcanoes National Park (home to Gorillas & Golden Monkeys), Nyungwe National Park (home to Chimps and Canopy walkway), and Lake Kivu (Boat Cruise, watersports & fishing Community).' }
+      {
+        label: 'Best Known For',
+        value: [
+          'Akagera National Park (home to Big5)',
+          'Volcanoes National Park (home to Gorillas & Golden Monkeys)',
+          'Nyungwe National Park (home to Chimps and Canopy walkway)',
+          'Lake Kivu (Boat Cruise, watersports & fishing Community)'
+        ]
+      }
     ],
     secondaryPhoto: '/experiences/featured/gorillas-in-the-mist.webp'
   },
