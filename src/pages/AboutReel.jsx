@@ -133,7 +133,7 @@ export default function AboutReel() {
             <div className="reel-panel-overlay" />
             <div className="reel-panel-content align-left">
               <div className="eyebrow on-dark">Our Philosophy</div>
-              <h2>Unhurried. Private. Considered.</h2>
+              <h2>Unhurried. Private. Detailed.</h2>
               <p className="reel-lead on-dark">
                 We design custom luxury safaris and gorilla treks tailored entirely to your version of
                 luxury — with handpicked lodges and dedicated specialist guides throughout.
@@ -146,7 +146,7 @@ export default function AboutReel() {
               <img className="reel-panel-media" src={STAGE_PHOTOS[i]} alt={stage.title} loading="lazy" decoding="async" />
               <div className="reel-panel-overlay" />
               <div className="reel-panel-content align-left">
-                <div className="reel-stage-num">{stage.num}</div>
+                
                 <h2>{stage.title}</h2>
                 <p className="reel-lead on-dark">{stage.description}</p>
               </div>

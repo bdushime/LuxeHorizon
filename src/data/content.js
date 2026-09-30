@@ -140,8 +140,7 @@ export const destinations = [
 export const destinationDetails = {
   rwanda: {
     paragraphs: [
-      "Endless emerald-green hills and soaring mountainsides, Rwanda is the phoenix that has risen from the ashes after great suffering. It is now this peaceful little country that has so much to offer. Also known as the land of a thousand hills, Rwanda's stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world. Rwanda is famous for being home to almost a half of the world's mountain gorillas, these amazing animals are greatly endangered and a visit with them will leave an impression on any traveler fortunate enough to snag one of the highly demanded tracking permits dispensed by the Rwanda government each day.",
-      "The dramatic rainforested mountains also count volcanoes, several primate species and incredible birdlife among their inhabitants, and all this is easily accessed from the capital, Kigali. In addition to its natural beauty, Rwanda is a country with a rich culture and history that goes beyond the tragic 1994 Genocide against the Tutsi. This tiny but yet ambitious country offers a unique experience with its vibrant cities, villages, and fascinating landmarks."
+      "‘Murakaza neza’ Welcome to Rwanda, a breathtaking landscape of a thousand hills with a million smiling faces. With 26,388Km2 of size, 14 million people of which 70% are below 35 years of age, this small young and yet ambitious country would give you a shock of life. Etched into global consciousness by the brutality of the 1994 genocide, the social and economic repair that has occurred since is nothing short of miraculous, the country is stable, with a track record as the fastest growing in Africa and tourism once again a key contributor to the economy. Primate safaris may be the primary drawcard for the country, but it’s not all monkey business – go beyond the gorillas, step into an adventure playground waiting to be discovered by the active traveler and experience a country breathtaking in its beauty and graced by a people generous in their welcome."
     ],
     pullQuote: 'Rwanda is famous for being home to almost half of the world\'s mountain gorillas.',
     facts: [
@@ -267,7 +266,7 @@ export const partnerRingRadii = { 1: 130, 2: 235 }
 
 export const contact = {
   address: 'KN5, Kigali — Rwanda',
-  phone: '+250 78',
+  phone: '+250 788 615 233',
   phoneHref: 'tel:+250788615233',
   email: 'info@luxehorizonsafrica.com',
   instagram: 'https://www.instagram.com/luxehorizonsafrica',
