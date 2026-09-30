@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 
 export default function PortalGate({ isOpen, onSelectTourism }) {
@@ -11,18 +11,18 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
   const handleEnter = () => {
     if (selected) return
     setFlash(true)
-    setTimeout(() => setFlash(false), 400)
+    setTimeout(() => setFlash(false), 350)
     setSelected(true)
-    setTimeout(() => setExiting(true), 500)
+    setTimeout(() => setExiting(true), 400)
     setTimeout(() => {
       onSelectTourism()
-    }, 1000)
+    }, 850)
   }
 
   return (
     <motion.div
       animate={{ opacity: exiting ? 0 : 1 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.5 }}
       className="fixed inset-0 z-[200] flex flex-col select-none bg-[#0B0C0E] text-[#F8F6F0] overflow-hidden"
     >
       {/* Shutter flash on selection */}
@@ -30,12 +30,12 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.85, 0] }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.35 }}
           className="pointer-events-none absolute inset-0 z-[205] bg-white"
         />
       )}
 
-      {/* Single Opening Page Screen */}
+      {/* Single Opening Landing Screen — Tourism / Safaris Division Only */}
       <div
         onClick={handleEnter}
         className="relative z-0 flex-1 cursor-pointer overflow-hidden group flex flex-col justify-between p-8 sm:p-12 md:p-16"
@@ -47,7 +47,7 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
             scale: selected ? 1.08 : [1, 1.05, 1]
           }}
           transition={{
-            scale: selected ? { duration: 1 } : { duration: 18, repeat: Infinity, ease: 'easeInOut' }
+            scale: selected ? { duration: 0.9 } : { duration: 18, repeat: Infinity, ease: 'easeInOut' }
           }}
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -62,9 +62,7 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
             alt="Luxe Horizons Africa"
             className="h-10 sm:h-12 w-auto object-contain"
           />
-          <span className="text-xs uppercase tracking-[0.2em] text-[#c6a15b] font-semibold bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-[#c6a15b]/30">
-            East Africa Safaris
-          </span>
+         
         </div>
 
         {/* Center Main Headline */}

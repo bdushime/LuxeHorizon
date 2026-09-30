@@ -47,6 +47,10 @@ function AppRoutes() {
         <PortalGate
           isOpen={portalOpen}
           onSelectTourism={() => setPortalOpen(false)}
+          onSelectConsultancy={() => {
+            setPortalOpen(false)
+            navigate('/consultancy')
+          }}
         />
       )}
       {!isNotFound && !isAdmin && (
