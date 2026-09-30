@@ -151,7 +151,7 @@ export default function BlogPage() {
         <div className="bp-head-copy">
           <div className="eyebrow">The Journal</div>
           <h1>Stories &amp; Field Notes</h1>
-          <p>Guides, culture and conservation dispatches from Rwanda, Uganda and Tanzania.</p>
+          <p>Guides, culture and conservation dispatches from Rwanda, Uganda, Tanzania and Kenya.</p>
         </div>
         <div className="bp-head-deck" aria-hidden="true">
           <span className="bp-deck-card back2" />
