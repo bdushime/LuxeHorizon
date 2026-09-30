@@ -94,7 +94,7 @@ export default function Hero({ revealed = true }) {
           needs exactly one real <h1> for SEO/accessibility — this carries
           the actual keyword-rich page title without changing how it looks. */}
       <h1 className="sr-only">
-        Luxe Horizons Africa — Luxury Rwanda, Uganda &amp; Tanzania Safari Tourism
+        Luxe Horizons Africa — Luxury Rwanda, Uganda, Tanzania &amp; Kenya Safari Tourism
       </h1>
 
       {/* <div className="hero-word-block">

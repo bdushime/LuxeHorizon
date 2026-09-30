@@ -140,11 +140,14 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .bp-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 420px;
   border-radius: 20px;
   overflow: hidden;
   background: #fff;
@@ -157,6 +160,7 @@
 }
 .bp-card-media {
   height: 190px;
+  flex: none;
 }
 .bp-card-media img {
   width: 100%;
@@ -168,6 +172,9 @@
   transform: scale(1.06);
 }
 .bp-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 24px 22px 26px;
 }
 .bp-card-body h3 {
@@ -183,6 +190,7 @@
   line-height: 1.6;
   color: rgba(33, 29, 23, 0.62);
   margin: 0 0 16px;
+  flex: 1;
 }
 .bp-card-meta {
   display: flex;

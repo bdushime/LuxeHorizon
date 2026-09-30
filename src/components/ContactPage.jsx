@@ -48,8 +48,16 @@ const ROWS = [
     href: null
   },
   {
-    key: 'whatsapp',
+    key: 'phone',
     gate: '02',
+    channel: 'PHONE',
+    detail: contact.phone,
+    status: 'DIRECT CALL',
+    href: contact.phoneHref
+  },
+  {
+    key: 'whatsapp',
+    gate: '03',
     channel: 'WHATSAPP',
     detail: 'MESSAGE US DIRECTLY',
     status: 'ONLINE',
@@ -58,7 +66,7 @@ const ROWS = [
   },
   {
     key: 'email',
-    gate: '03',
+    gate: '04',
     channel: 'EMAIL',
     detail: contact.email.toUpperCase(),
     status: 'OPEN',

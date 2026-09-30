@@ -4,6 +4,7 @@
   background-size: cover;
   background-position: center;
   text-align: center;
+  margin-top: 20px;
 }
 .cta-band::before {
   content: '';

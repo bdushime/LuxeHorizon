@@ -60,26 +60,9 @@ export default function FaqPage() {
       <div className="wrap faq-head">
         <div className="eyebrow">Good To Know</div>
         <h1>Travel Tips &amp; FAQ</h1>
-        <p>Everything you need to know before your first day in the field.</p>
+        <p>What you need to know before your first day in the field.</p>
 
-        <div className="faq-search">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="11" cy="11" r="7" />
-            <path d="M21 21l-4.3-4.3" />
-          </svg>
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="What do you want to know?"
-            aria-label="Search travel tips and FAQ"
-          />
-          {query && (
-            <button type="button" className="faq-search-clear" onClick={() => setQuery('')} aria-label="Clear search">
-              &times;
-            </button>
-          )}
-        </div>
+        
       </div>
 
       <div className="wrap faq-layout">

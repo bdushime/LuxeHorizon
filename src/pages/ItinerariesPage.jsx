@@ -91,7 +91,7 @@ export default function ItinerariesPage() {
 
   const seoDescription = selectedItinerary
     ? selectedItinerary.summary
-    : (PAGE_SEO.itineraries?.description || 'Browse & read detailed luxury safari itineraries for Rwanda, Uganda, and Tanzania.')
+    : (PAGE_SEO.itineraries?.description || 'Browse & read detailed luxury safari itineraries for Rwanda, Uganda, Tanzania, and Kenya.')
 
   const breadcrumbs = [
     { name: 'Home', url: '/' },
@@ -115,7 +115,7 @@ export default function ItinerariesPage() {
           <div className="eyebrow">Bespoke Journeys</div>
           <h1>Curated Safari Itineraries</h1>
           <p>
-            Explore tailor-made travel plans across Rwanda, Uganda, and Tanzania.
+            Explore tailor-made travel plans across Rwanda, Uganda, Tanzania, and Kenya.
             Click any itinerary card below to read the complete article and view photos.
           </p>
         </div>
