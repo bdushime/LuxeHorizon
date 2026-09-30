@@ -56,7 +56,11 @@ export default function DestinationDetailPage() {
           <div className="ddp-facts-inner">
             <div className="ddp-facts-label">At A Glance</div>
             {detail.facts.map((fact) => (
-              <div className="ddp-stamp" key={fact.label} style={{ '--accent': dest.accent }}>
+              <div
+                className={`ddp-stamp ${fact.value.length > 40 ? 'ddp-stamp-wide' : ''}`}
+                key={fact.label}
+                style={{ '--accent': dest.accent }}
+              >
                 <div className="ddp-stamp-label">{fact.label}</div>
                 <div className="ddp-stamp-value">{fact.value}</div>
               </div>
