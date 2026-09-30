@@ -48,6 +48,15 @@ export default function DestinationDetailPage() {
         <div className="ddp-hero-content">
           <h1>{dest.name}</h1>
         </div>
+        <button
+          type="button"
+          className="ddp-scroll-indicator"
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+          aria-label="Scroll down to explore"
+        >
+          <span className="ddp-scroll-text">Scroll Down</span>
+          <span className="ddp-scroll-arrow">&darr;</span>
+        </button>
       </section>
 
       <div className="wrap ddp-layout">
