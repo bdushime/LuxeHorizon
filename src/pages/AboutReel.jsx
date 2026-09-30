@@ -120,11 +120,10 @@ export default function AboutReel() {
               <div className="eyebrow on-dark">About Luxe Horizons</div>
               <h1>
                 Architects of <br />
-                <span className="gold-text">African Expeditions</span>
+                <span className="gold-text">Luxury African Travel Experiences</span>
               </h1>
               <p className="reel-lead on-dark">
-                Privately guided safaris, gorilla treks, and bespoke travel across Rwanda, Uganda &amp;
-                Tanzania.
+                Privately guided safaris, gorilla treks, and bespoke travel across Rwanda, Uganda, Tanzania &amp; Kenya.
               </p>
             </div>
           </section>

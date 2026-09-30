@@ -43,7 +43,7 @@ export default function AdventureSection() {
               <path d="M2,8 C40,2 80,10 120,5 C150,1 180,9 218,4" />
             </svg>
             <p>
-              Three starting points across Rwanda, Uganda and Tanzania. Every night, lodge
+              Four starting points across Rwanda, Uganda, Tanzania and Kenya. Every night, lodge
               and route can be redrawn around you.
             </p>
           </Reveal>

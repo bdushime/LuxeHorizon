@@ -15,7 +15,7 @@ export default function Footer() {
             </div>
             <p>
               A Kigali-based travel studio designing bespoke safaris and gorilla treks
-              across Rwanda, Uganda and Tanzania.
+              across Rwanda, Uganda, Tanzania &amp; Kenya.
             </p>
           </div>
           <div>
