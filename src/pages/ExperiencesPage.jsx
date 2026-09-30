@@ -36,6 +36,9 @@ export default function ExperiencesPage() {
   // Currently displayed main gallery image inside modal
   const [modalMainImage, setModalMainImage] = useState(null)
 
+  // Fullscreen image lightbox modal
+  const [lightboxImage, setLightboxImage] = useState(null)
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -104,11 +107,15 @@ export default function ExperiencesPage() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
-        closeExpModal()
+        if (lightboxImage) {
+          setLightboxImage(null)
+        } else {
+          closeExpModal()
+        }
       }
     }
 
-    if (selectedExperience) {
+    if (selectedExperience || lightboxImage) {
       window.addEventListener('keydown', handleKeyDown)
       document.body.style.overflow = 'hidden'
     } else {
@@ -119,7 +126,7 @@ export default function ExperiencesPage() {
       window.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = ''
     }
-  }, [selectedExperience])
+  }, [selectedExperience, lightboxImage])
 
   const openExperience = (exp, e) => {
     if (e) e.preventDefault()
@@ -131,6 +138,7 @@ export default function ExperiencesPage() {
   const closeExpModal = () => {
     setSelectedExperience(null)
     setModalMainImage(null)
+    setLightboxImage(null)
     setSearchParams({}, { replace: true })
   }
 
@@ -307,7 +315,7 @@ export default function ExperiencesPage() {
               </div>
 
               {/* Cover Image & Extracted Photo Gallery */}
-              <div className="exp-modal-hero-img" style={{ height: '380px', marginBottom: '16px', overflow: 'hidden', borderRadius: '12px', position: 'relative' }}>
+              <div className="exp-modal-hero-img" style={{ height: '440px', marginBottom: '16px', overflow: 'hidden', borderRadius: '12px', position: 'relative' }}>
                 <img
                   src={modalMainImage || selectedExperience.image}
                   alt={selectedExperience.title}
@@ -315,6 +323,37 @@ export default function ExperiencesPage() {
                   decoding="async"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
+
+                {/* View Full Screen Icon Button in Bottom Right Corner */}
+                <button
+                  type="button"
+                  onClick={() => setLightboxImage(modalMainImage || selectedExperience.image)}
+                  style={{
+                    position: 'absolute',
+                    bottom: '14px',
+                    right: '14px',
+                    background: 'rgba(18, 18, 18, 0.75)',
+                    backdropFilter: 'blur(8px)',
+                    color: '#ffffff',
+                    border: '1px solid rgba(255, 255, 255, 0.25)',
+                    borderRadius: '8px',
+                    padding: '8px 14px',
+                    fontSize: '13px',
+                    fontWeight: '600',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    cursor: 'pointer',
+                    zIndex: 5,
+                    transition: 'all 0.2s ease'
+                  }}
+                  title="View image in full screen"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+                  </svg>
+                  <span>Full Screen</span>
+                </button>
               </div>
 
               {selectedExperience.gallery && selectedExperience.gallery.length > 1 && (
@@ -433,6 +472,73 @@ export default function ExperiencesPage() {
                   </button>
                 </div>
               </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Fullscreen Image Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxImage && (
+          <div
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 99999,
+              background: 'rgba(0, 0, 0, 0.93)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '24px'
+            }}
+            onClick={() => setLightboxImage(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.25 }}
+              style={{ position: 'relative', maxWidth: '94vw', maxHeight: '92vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setLightboxImage(null)}
+                style={{
+                  position: 'absolute',
+                  top: '-18px',
+                  right: '-18px',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  background: '#ffffff',
+                  color: '#000000',
+                  border: 'none',
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  zIndex: 10
+                }}
+                aria-label="Close fullscreen image"
+              >
+                &#10005;
+              </button>
+
+              <img
+                src={lightboxImage}
+                alt="Full screen preview"
+                style={{
+                  maxWidth: '92vw',
+                  maxHeight: '88vh',
+                  objectFit: 'contain',
+                  borderRadius: '12px',
+                  boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8)'
+                }}
+              />
             </motion.div>
           </div>
         )}

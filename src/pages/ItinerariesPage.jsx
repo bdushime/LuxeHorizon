@@ -14,6 +14,7 @@ export default function ItinerariesPage() {
   const [activeCategory, setActiveCategory] = useState('All')
   const [selectedItinerary, setSelectedItinerary] = useState(null)
   const [modalMainImage, setModalMainImage] = useState(null)
+  const [lightboxImage, setLightboxImage] = useState(null)
 
   const categories = useMemo(() => {
     const list = Array.from(new Set(itineraries.map((item) => item.category)))
@@ -33,9 +34,9 @@ export default function ItinerariesPage() {
     }
   }, [searchParams, itineraries])
 
-  // Lock scroll when viewing article modal
+  // Lock scroll when viewing article modal or lightbox
   useEffect(() => {
-    if (selectedItinerary) {
+    if (selectedItinerary || lightboxImage) {
       document.body.style.overflow = 'hidden'
     } else {
       document.body.style.overflow = ''
@@ -43,16 +44,22 @@ export default function ItinerariesPage() {
     return () => {
       document.body.style.overflow = ''
     }
-  }, [selectedItinerary])
+  }, [selectedItinerary, lightboxImage])
 
-  // ESC key listener to close article modal
+  // ESC key listener to close article modal or lightbox
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') closeModal()
+      if (e.key === 'Escape') {
+        if (lightboxImage) {
+          setLightboxImage(null)
+        } else {
+          closeModal()
+        }
+      }
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [])
+  }, [lightboxImage])
 
   const openItinerary = (itinerary, e) => {
     if (e) e.preventDefault()
@@ -64,6 +71,7 @@ export default function ItinerariesPage() {
   const closeModal = () => {
     setSelectedItinerary(null)
     setModalMainImage(null)
+    setLightboxImage(null)
     setSearchParams({}, { replace: true })
   }
 
@@ -242,12 +250,43 @@ export default function ItinerariesPage() {
 
                 {/* Cover Image & Extracted Photo Gallery */}
                 <div style={{ paddingTop: '20px' }}>
-                  <div style={{ height: '360px', borderRadius: '12px', overflow: 'hidden', marginBottom: '16px' }}>
+                  <div style={{ height: '440px', borderRadius: '12px', overflow: 'hidden', marginBottom: '16px', position: 'relative' }}>
                     <img
                       src={modalMainImage || selectedItinerary.image}
                       alt={selectedItinerary.title}
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
+
+                    {/* View Full Screen Icon Button in Bottom Right Corner */}
+                    <button
+                      type="button"
+                      onClick={() => setLightboxImage(modalMainImage || selectedItinerary.image)}
+                      style={{
+                        position: 'absolute',
+                        bottom: '14px',
+                        right: '14px',
+                        background: 'rgba(18, 18, 18, 0.75)',
+                        backdropFilter: 'blur(8px)',
+                        color: '#ffffff',
+                        border: '1px solid rgba(255, 255, 255, 0.25)',
+                        borderRadius: '8px',
+                        padding: '8px 14px',
+                        fontSize: '13px',
+                        fontWeight: '600',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        cursor: 'pointer',
+                        zIndex: 5,
+                        transition: 'all 0.2s ease'
+                      }}
+                      title="View image in full screen"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+                      </svg>
+                      <span>Full Screen</span>
+                    </button>
                   </div>
 
                   {selectedItinerary.gallery && selectedItinerary.gallery.length > 1 && (
@@ -353,6 +392,73 @@ export default function ItinerariesPage() {
                 </div>
               </motion.div>
             </div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Fullscreen Image Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxImage && (
+          <div
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 99999,
+              background: 'rgba(0, 0, 0, 0.93)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '24px'
+            }}
+            onClick={() => setLightboxImage(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.25 }}
+              style={{ position: 'relative', maxWidth: '94vw', maxHeight: '92vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setLightboxImage(null)}
+                style={{
+                  position: 'absolute',
+                  top: '-18px',
+                  right: '-18px',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  background: '#ffffff',
+                  color: '#000000',
+                  border: 'none',
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  zIndex: 10
+                }}
+                aria-label="Close fullscreen image"
+              >
+                &#10005;
+              </button>
+
+              <img
+                src={lightboxImage}
+                alt="Full screen preview"
+                style={{
+                  maxWidth: '92vw',
+                  maxHeight: '88vh',
+                  objectFit: 'contain',
+                  borderRadius: '12px',
+                  boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8)'
+                }}
+              />
+            </motion.div>
           </div>
         )}
       </AnimatePresence>
