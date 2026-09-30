@@ -544,53 +544,83 @@ export const faqs = [
 export const testimonials = [
   {
     key: 't1',
-    name: 'Emily Carter',
-    origin: 'Traveled from London',
+    name: 'Verified Explorer',
+    origin: 'Mountain Gorilla Expedition',
     quote:
-      'We spent forty minutes six feet from a silverback and nobody said a word. Our guide read the family like he’d grown up beside them.',
+      'David was incredibly helpful in quickly securing a permit so that I could have the once in a lifetime experience of trekking to the mountain gorillas while in Rwanda. Him and the team were very responsive and dedicated to ensuring that his clients are able to experience Rwanda to the fullest!',
     rating: 5,
     photo: '/Mountain-Gorilla.webp',
-    rotate: -6
+    rotate: -4
   },
   {
     key: 't2',
-    name: 'James Okoro',
-    origin: 'Traveled from Lagos',
+    name: 'Verified Explorer',
+    origin: 'Akagera & Volcanoes Safari',
     quote:
-      'Every lodge, every transfer, every small detail was arranged before we even thought to ask. It felt less like a tour and more like being hosted.',
+      'I highly recommend Luxe Horizons Africa. They took me to Akagera National Park and also to the mountains to see the gorillas. Both were unforgettable experiences. Rwanda is a wonderful country and David is the nicest person you could meet!',
     rating: 5,
-    photo: '/Bird.webp',
-    rotate: 5
+    photo: '/exp-akagera.webp',
+    rotate: 4
   },
   {
     key: 't3',
-    name: 'Sofia Alvarez',
-    origin: 'Traveled from Madrid',
+    name: 'Verified Explorer',
+    origin: '30-Day Rwanda Odyssey',
     quote:
-      'Our guide noticed I loved birdlife more than the big cats and quietly rebuilt two days of the itinerary around it. Nobody made me feel like an inconvenience.',
+      'Wow! What a wonderful time, I enjoyed in Rwanda these past 30days. Everyday was an adventure and a real treat to my soul. I will never forget how David and his team masterfully put together my stimulating itinerary along with recommendations for the month. I truly experienced all of Rwanda.',
     rating: 5,
     photo: '/story-guide.webp',
     rotate: -3
   },
   {
     key: 't4',
-    name: 'Daniel Kim',
-    origin: 'Traveled from Seoul',
+    name: 'Verified Explorer',
+    origin: '10-Day Private Guided Experience',
     quote:
-      'The kind of trip you replay in your head for months afterward. Kigali to the volcanoes felt effortless, and every night ended with a view worth the drive.',
+      'I had the most amazing 10-day private guided experience in Rwanda including trekking to see gorillas, game safari and golden monkeys. Our Rwandan travel expert was Luxe Horizons Africa. Highly recommended.',
     rating: 5,
-    photo: '/cta-sunset.webp',
-    rotate: 7
+    photo: '/experiences/featured/gorillas-in-the-mist.webp',
+    rotate: 5
   },
   {
     key: 't5',
-    name: 'Amara Diallo',
-    origin: 'Traveled from Dakar',
+    name: 'Verified Explorer',
+    origin: 'Rwanda Discovery Journey',
     quote:
-      'They designed the whole trip around my grandmother joining us at seventy-eight. Slower mornings, softer roads, and she still talks about the chimps.',
+      'An absolute pleasure to travel and discover beautiful Rwanda under Luxe Horizons Africa-experienced guides, personalised curated tours, seamless travel, vip treatment. The best!',
     rating: 5,
-    photo: '/exp-primates.webp',
-    rotate: -8
+    photo: '/cta-sunset.webp',
+    rotate: -5
+  },
+  {
+    key: 't6',
+    name: 'Verified Explorer',
+    origin: 'Private Curated Tour',
+    quote:
+      "David is extremely knowledgeable, very personable, and the perfect person to organize and accompany you on a Rwanda trip. The few days we spent with him were highly memorable as he ensured we saw all the most important and interesting sights with perfect explanations. And we didn't ask a single question he couldn't answer! We recommend Luxe Horizons Africa, 100%",
+    rating: 5,
+    photo: '/team/david.webp',
+    rotate: 3
+  },
+  {
+    key: 't7',
+    name: 'Verified Explorer',
+    origin: 'Rwanda Wilderness Journey',
+    quote:
+      "David and his team planned a wonderful trip in Rwanda for us. He is very informative and answers any questions we had. Super friendly and I couldn't wait to tell him about my daily adventures that he had arranged. I learned so much from David and had the experience of a lifetime and that was in part to Luxe Horizons Africa’ team and their knowledge of Rwanda.",
+    rating: 5,
+    photo: '/experiences/featured/rwandas-primates.webp',
+    rotate: -4
+  },
+  {
+    key: 't8',
+    name: 'Verified Explorer',
+    origin: 'Gorilla & Golden Monkey Expedition',
+    quote:
+      "In the run up to my trip to Kigali, David & the team were absolutely super. They took my calls and helped me arrange a wonderful, albeit very last minute gorilla expedition. They also accommodated one of my colleagues once we were in Kigali, seamlessly accommodating us between seminar breaks. The drive through the Rwandan countryside and the magnificent sunrise was spectacular. Seeing the gorillas and the golden monkeys was magnificent. The whole experience, including the hike and the drive was unforgettable. I’ll be back. Thank you Luxe Horizons Africa!",
+    rating: 5,
+    photo: '/mountain-gorilla-1.webp',
+    rotate: 4
   }
 ]
 
