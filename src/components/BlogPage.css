@@ -233,6 +233,9 @@
     gap: 24px;
     margin-bottom: 40px;
   }
+  .bp-head-deck {
+    display: none !important;
+  }
   .bp-layout {
     grid-template-columns: 1fr;
     gap: 30px;

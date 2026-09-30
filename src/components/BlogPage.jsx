@@ -151,7 +151,7 @@ export default function BlogPage() {
         <div className="bp-head-copy">
           <div className="eyebrow">The Journal</div>
           <h1>Stories &amp; Field Notes</h1>
-          <p>Guides, culture and conservation dispatches from Rwanda, Uganda and Tanzania.</p>
+          <p>Guides, culture and conservation dispatches from Rwanda, Uganda, Tanzania and Kenya.</p>
         </div>
         <div className="bp-head-deck" aria-hidden="true">
           <span className="bp-deck-card back2" />
@@ -271,10 +271,6 @@ export default function BlogPage() {
                       <span className="bpm-category" style={{ backgroundColor: selectedPost.accent }}>
                         {selectedPost.category}
                       </span>
-                      <span className="bpm-dot" />
-                      <span className="bpm-date">{selectedPost.date}</span>
-                      <span className="bpm-dot" />
-                      <span className="bpm-time">{selectedPost.readTime || '5 min read'}</span>
                     </div>
                     <h2 id="bpm-title">{selectedPost.title}</h2>
                   </div>

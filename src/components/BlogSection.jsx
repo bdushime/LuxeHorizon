@@ -74,7 +74,7 @@ export default function BlogSection() {
           <h2>Stories &amp; Field Notes</h2>
         </Reveal>
         <Reveal className="reveal-right">
-          <p>Guides, culture and conservation dispatches from Rwanda, Uganda and Tanzania.</p>
+          <p>Guides, culture and conservation dispatches from Rwanda, Uganda, Tanzania and Kenya.</p>
         </Reveal>
       </div>
 

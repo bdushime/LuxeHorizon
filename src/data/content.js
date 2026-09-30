@@ -71,8 +71,8 @@ export const adventureCards = [
   },
   {
     key: 'uganda',
-    href: '/experiences?exp=9-day-uganda-wildlife-adventure',
-    image: '/leopard-tree.webp',
+    href: '/experiences?exp=9day-uganda-adventure',
+    image: '/experiences/featured/best-of-the-pearl-of-africa.webp',
     badge: '9 Days',
     title: 'Uganda Wildlife Adventure',
     route: 'Bwindi · Queen Elizabeth · Murchison Falls',
@@ -113,7 +113,7 @@ export const destinations = [
     key: 'uganda',
     eyebrow: '02 — Bwindi & Queen Elizabeth',
     name: 'Uganda',
-    image: '/Uganda.webp',
+    image: '/experiences/featured/best-of-the-pearl-of-africa.webp',
     accent: '#b9772e'
   },
   {
@@ -169,10 +169,18 @@ export const destinationDetails = {
     facts: [
       { label: 'Known As', value: 'Pearl of Africa' },
       { label: 'Gateway', value: 'Kampala / Entebbe' },
-      { label: 'Signature Wildlife', value: 'Bwindi Gorillas' },
-      { label: 'Also Notable', value: 'Source of the Nile' }
+      { label: 'Signature Highlight', value: 'Murchison Falls' },
+      {
+        label: 'Best Known For',
+        value: [
+          'Bwindi Gorillas',
+          "Queen Elizabeth and Ishasha's Tree Climbing lions",
+          "Kibale's chimps",
+          'Nile Cruise of Murchison National Park'
+        ]
+      }
     ],
-    secondaryPhoto: '/Uganda.webp'
+    secondaryPhoto: '/experiences/featured/best-of-the-pearl-of-africa.webp'
   },
   tanzania: {
     paragraphs: [
@@ -184,7 +192,7 @@ export const destinationDetails = {
     facts: [
       { label: 'Great Migration', value: 'July – September' },
       { label: 'Key Parks', value: 'Serengeti & Ngorongoro' },
-      { label: 'Also Notable', value: 'Lake Tanganyika' },
+      { label: 'Also Notable', value: 'Combination with Zanzibar Beach' },
       { label: 'Culture', value: 'Maasai Communities' }
     ],
     secondaryPhoto: '/Tanzania.webp'
