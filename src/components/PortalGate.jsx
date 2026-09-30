@@ -35,7 +35,7 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
         />
       )}
 
-      {/* Single Opening Landing Screen — Tourism Only */}
+      {/* Single Opening Landing Screen — Medium Text Headline */}
       <div
         onClick={handleEnter}
         className="relative z-0 flex-1 cursor-pointer overflow-hidden group flex flex-col justify-between p-8 sm:p-12 md:p-16"
@@ -62,43 +62,27 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
             alt="Luxe Horizons Africa"
             className="h-10 sm:h-12 w-auto object-contain"
           />
-          <span className="text-xs uppercase tracking-[0.2em] text-[#c6a15b] font-semibold bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-[#c6a15b]/30">
-            East Africa Safaris
-          </span>
         </div>
 
-        {/* Center Main Headline */}
-        <div className="relative z-10 my-auto py-12 max-w-3xl text-left">
+        {/* Center Main Headline - Medium Size */}
+        <div className="relative z-10 my-auto py-12 max-w-2xl text-left">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-[#F8F6F0] leading-tight font-normal tracking-tight"
+            className="font-serif text-xl sm:text-2xl md:text-3xl text-[#F8F6F0] leading-relaxed font-normal tracking-wide"
           >
             Luxury Private Journeys &amp; <br />
-            <span className="text-[#c6a15b] italic font-light">Primate Expeditions</span>
+            <span className="text-[#c6a15b] italic font-normal">Primate Expeditions</span>
           </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.35 }}
-            className="mt-6 text-sm sm:text-base md:text-lg text-[#F8F6F0]/85 tracking-[0.15em] uppercase font-medium"
-          >
-            Rwanda &bull; Uganda &bull; Tanzania &bull; Kenya
-          </motion.p>
         </div>
 
-        {/* Bottom Action Bar */}
-        <div className="relative z-10 flex w-full items-center justify-between text-xs sm:text-sm text-[#F8F6F0]/70 border-t border-[#F8F6F0]/20 pt-6">
-          <span className="tracking-widest uppercase text-xs">Tap anywhere to enter</span>
-          <button
-            type="button"
-            className="flex items-center gap-2 text-[#c6a15b] font-semibold tracking-wider hover:underline text-sm"
-          >
-            <span>Explore Safaris</span>
+        {/* Bottom subtle indicator */}
+        <div className="relative z-10 flex w-full items-center justify-end text-xs text-[#F8F6F0]/60 pt-4">
+          <span className="flex items-center gap-2 text-[#c6a15b] font-medium tracking-wider text-sm">
+            <span>Explore</span>
             <span className="text-lg">&rarr;</span>
-          </button>
+          </span>
         </div>
       </div>
     </motion.div>
