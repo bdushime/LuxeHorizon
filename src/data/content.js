@@ -71,8 +71,8 @@ export const adventureCards = [
   },
   {
     key: 'uganda',
-    href: '/experiences?exp=9-day-uganda-wildlife-adventure',
-    image: '/leopard-tree.webp',
+    href: '/experiences?exp=9day-uganda-adventure',
+    image: '/experiences/featured/best-of-the-pearl-of-africa.webp',
     badge: '9 Days',
     title: 'Uganda Wildlife Adventure',
     route: 'Bwindi · Queen Elizabeth · Murchison Falls',
@@ -113,7 +113,7 @@ export const destinations = [
     key: 'uganda',
     eyebrow: '02 — Bwindi & Queen Elizabeth',
     name: 'Uganda',
-    image: '/Uganda.webp',
+    image: '/experiences/featured/best-of-the-pearl-of-africa.webp',
     accent: '#b9772e'
   },
   {
@@ -180,7 +180,7 @@ export const destinationDetails = {
         ]
       }
     ],
-    secondaryPhoto: '/Uganda.webp'
+    secondaryPhoto: '/experiences/featured/best-of-the-pearl-of-africa.webp'
   },
   tanzania: {
     paragraphs: [

@@ -282,10 +282,10 @@ export const itinerariesData = [
     "duration": "9 Days",
     "accent": "#8c6b47",
     "summary": "9 DAY UGANDA WILDLIFE ADVENTURE",
-    "image": "/Uganda.webp",
-    "coverImage": "/Uganda.webp",
+    "image": "/experiences/featured/best-of-the-pearl-of-africa.webp",
+    "coverImage": "/experiences/featured/best-of-the-pearl-of-africa.webp",
     "gallery": [
-      "/Uganda.webp",
+      "/experiences/featured/best-of-the-pearl-of-africa.webp",
       "/Bird.webp",
       "/experiences/featured/best-of-the-pearl-of-africa.webp",
       "/weaver-bird-nyungwe.webp",
