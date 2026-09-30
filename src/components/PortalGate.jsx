@@ -52,36 +52,33 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* Ambient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E]/90 via-[#0B0C0E]/40 to-[#0B0C0E]/50 transition-opacity duration-500 group-hover:opacity-75" />
-
         {/* Top Header Logo */}
         <div className="relative z-10 flex items-center justify-between w-full">
           <img
             src="/LuxeHorizon-removebg-preview.webp"
             alt="Luxe Horizons Africa"
-            className="h-10 sm:h-12 w-auto object-contain"
+            className="h-12 sm:h-16 w-auto object-contain drop-shadow-md"
           />
         </div>
 
-        {/* Center Main Headline - Medium Size */}
-        <div className="relative z-10 my-auto py-12 max-w-2xl text-left">
+        {/* Center Main Headline - Bigger Size */}
+        <div className="relative z-10 my-auto py-12 max-w-4xl text-left">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="font-serif text-xl sm:text-2xl md:text-3xl text-[#F8F6F0] leading-relaxed font-normal tracking-wide"
+            className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#F8F6F0] leading-snug font-normal tracking-wide [text-shadow:_0_2px_12px_rgba(0,0,0,0.8)]"
           >
             Luxury Private Journeys &amp; <br />
-            <span className="text-[#c6a15b] italic font-normal">Primate Expeditions</span>
+            <span className="text-[#c6a15b] italic font-normal drop-shadow">Primate Expeditions</span>
           </motion.h1>
         </div>
 
         {/* Bottom subtle indicator */}
-        <div className="relative z-10 flex w-full items-center justify-end text-xs text-[#F8F6F0]/60 pt-4">
-          <span className="flex items-center gap-2 text-[#c6a15b] font-medium tracking-wider text-sm">
+        <div className="relative z-10 flex w-full items-center justify-end text-xs text-[#F8F6F0] pt-4">
+          <span className="flex items-center gap-2 text-[#c6a15b] font-medium tracking-wider text-base drop-shadow-md">
             <span>Explore</span>
-            <span className="text-lg">&rarr;</span>
+            <span className="text-xl">&rarr;</span>
           </span>
         </div>
       </div>
