@@ -271,10 +271,6 @@ export default function BlogPage() {
                       <span className="bpm-category" style={{ backgroundColor: selectedPost.accent }}>
                         {selectedPost.category}
                       </span>
-                      <span className="bpm-dot" />
-                      <span className="bpm-date">{selectedPost.date}</span>
-                      <span className="bpm-dot" />
-                      <span className="bpm-time">{selectedPost.readTime || '5 min read'}</span>
                     </div>
                     <h2 id="bpm-title">{selectedPost.title}</h2>
                   </div>
