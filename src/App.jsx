@@ -29,7 +29,7 @@ function AppRoutes() {
   const location = useLocation()
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
-  const [portalOpen, setPortalOpen] = useState(() => location.pathname === '/')
+  const [portalOpen, setPortalOpen] = useState(false)
   const isDestinations = location.pathname === '/destinations'
   const isAdmin = location.pathname.startsWith('/admin')
   const isNotFound =

@@ -93,19 +93,16 @@ export default function Hero({ revealed = true }) {
       {/* The visible wordmark is switched off below, but every page still
           needs exactly one real <h1> for SEO/accessibility — this carries
           the actual keyword-rich page title without changing how it looks. */}
-      <h1 className="sr-only">
-        Luxe Horizons Africa — Luxury Rwanda, Uganda &amp; Tanzania Safari Tourism
-      </h1>
-
-      {/* <div className="hero-word-block">
-        <h1 className="hero-giant">
-          {'LUXE HORIZONS'.split('').map((ch, i) => (
-            <span key={i} className="hero-giant-letter" style={{ transitionDelay: `${0.35 + i * 0.07}s` }}>
-              {ch === ' ' ? ' ' : ch}
-            </span>
-          ))}
+      <div className="hero-word-block">
+        <div className="hero-badge">BESPOKE EAST AFRICAN SAFARIS</div>
+        <h1 className="hero-headline">
+          Luxury Private Journeys &amp; <br className="hero-br" />
+          <span className="gold-text">Primate Expeditions</span>
         </h1>
-      </div> */}
+        <p className="hero-tagline-destinations">
+          Rwanda &bull; Uganda &bull; Tanzania &bull; Kenya
+        </p>
+      </div>
 
       <div className="hero-bar">
         {heroSections.map((section) => {
