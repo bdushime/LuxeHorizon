@@ -11,12 +11,12 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
   const handleEnter = () => {
     if (selected) return
     setFlash(true)
-    setTimeout(() => setFlash(false), 350)
+    setTimeout(() => setFlash(false), 300)
     setSelected(true)
     setTimeout(() => setExiting(true), 400)
     setTimeout(() => {
       onSelectTourism()
-    }, 850)
+    }, 900)
   }
 
   return (
@@ -30,12 +30,12 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.85, 0] }}
-          transition={{ duration: 0.35 }}
+          transition={{ duration: 0.3 }}
           className="pointer-events-none absolute inset-0 z-[205] bg-white"
         />
       )}
 
-      {/* Single Opening Landing Screen — Tourism / Safaris Division Only */}
+      {/* Single Opening Landing Screen — Tourism Only */}
       <div
         onClick={handleEnter}
         className="relative z-0 flex-1 cursor-pointer overflow-hidden group flex flex-col justify-between p-8 sm:p-12 md:p-16"
@@ -47,22 +47,24 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
             scale: selected ? 1.08 : [1, 1.05, 1]
           }}
           transition={{
-            scale: selected ? { duration: 0.9 } : { duration: 18, repeat: Infinity, ease: 'easeInOut' }
+            scale: selected ? { duration: 0.8 } : { duration: 18, repeat: Infinity, ease: 'easeInOut' }
           }}
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* Ambient Dark Overlay */}
+        {/* Ambient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0C0E]/90 via-[#0B0C0E]/40 to-[#0B0C0E]/50 transition-opacity duration-500 group-hover:opacity-75" />
 
-        {/* Top Header Badge */}
+        {/* Top Header Logo */}
         <div className="relative z-10 flex items-center justify-between w-full">
           <img
             src="/LuxeHorizon-removebg-preview.webp"
             alt="Luxe Horizons Africa"
             className="h-10 sm:h-12 w-auto object-contain"
           />
-         
+          <span className="text-xs uppercase tracking-[0.2em] text-[#c6a15b] font-semibold bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-[#c6a15b]/30">
+            East Africa Safaris
+          </span>
         </div>
 
         {/* Center Main Headline */}
@@ -70,7 +72,7 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
             className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-[#F8F6F0] leading-tight font-normal tracking-tight"
           >
             Luxury Private Journeys &amp; <br />
@@ -80,19 +82,19 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-6 text-sm sm:text-base md:text-lg text-[#F8F6F0]/80 tracking-[0.15em] uppercase font-medium"
+            transition={{ duration: 0.8, delay: 0.35 }}
+            className="mt-6 text-sm sm:text-base md:text-lg text-[#F8F6F0]/85 tracking-[0.15em] uppercase font-medium"
           >
             Rwanda &bull; Uganda &bull; Tanzania &bull; Kenya
           </motion.p>
         </div>
 
-        {/* Bottom Action Row */}
+        {/* Bottom Action Bar */}
         <div className="relative z-10 flex w-full items-center justify-between text-xs sm:text-sm text-[#F8F6F0]/70 border-t border-[#F8F6F0]/20 pt-6">
-          <span className="tracking-widest uppercase">Tap anywhere to enter</span>
+          <span className="tracking-widest uppercase text-xs">Tap anywhere to enter</span>
           <button
             type="button"
-            className="flex items-center gap-2 text-[#c6a15b] font-semibold tracking-wider hover:underline"
+            className="flex items-center gap-2 text-[#c6a15b] font-semibold tracking-wider hover:underline text-sm"
           >
             <span>Explore Safaris</span>
             <span className="text-lg">&rarr;</span>
