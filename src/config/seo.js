@@ -89,7 +89,7 @@ export const PAGE_SEO = {
     ogImage: `${SITE_URL}/cta-sunset.jpg`
   },
   blog: {
-    title: 'Safari Journal & Field Notes | Luxe Horizons Africa',
+    title: 'Blog & Field Notes — Gorilla Trekking Tips & Travel Guides',
     description:
       'Expert travel tips, gorilla trekking etiquette, conservation insights and seasonal guides for Rwanda, Uganda and Tanzania.',
     canonical: `${SITE_URL}/blog`,

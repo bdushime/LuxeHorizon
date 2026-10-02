@@ -3,12 +3,13 @@ import SiteLink from './SiteLink.jsx'
 import './MenuOverlay.css'
 
 const MENU_NAV_LINKS = [
+  { label: 'Home', href: '/' },
   { label: 'Destinations', href: '/destinations' },
   { label: 'Experiences', href: '/experiences' },
-  { label: 'Safari Journal', href: '/blog' },
+  { label: 'Blog', href: '/blog' },
   { label: 'About Us', href: '/about' },
-  { label: 'Guest Reviews', href: '/testimonials' },
-  { label: 'Safari FAQ', href: '/faq' },
+  { label: 'Testimonials', href: '/testimonials' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Consultancy & MICE', href: '/consultancy' },
   { label: 'Contact Us', href: '/contact' }
 ]

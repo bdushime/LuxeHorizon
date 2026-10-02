@@ -95,7 +95,7 @@ export default function Footer() {
                 <Link to="/about">About Us</Link>
               </li>
               <li>
-                <Link to="/faq">Safari FAQ</Link>
+                <Link to="/faq">FAQ</Link>
               </li>
               <li>
                 <SiteLink href="#plan">Plan Your Trip</SiteLink>
