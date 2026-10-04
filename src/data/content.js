@@ -458,6 +458,84 @@ export const blogPosts = [
       'Yellow fever vaccination required when crossing regional land borders.',
       'Complimentary airport meet-and-greet service included in all Luxe itineraries.'
     ]
+  },
+  {
+    key: 'akagera-savanna-at-the-edge',
+    category: 'Wildlife & Safari',
+    date: 'October 2026',
+    readTime: '5 min read',
+    author: 'Luxe Horizons Africa',
+    authorRole: 'Travel Editorial Team',
+    title: 'Akagera National Park: Savanna at the Edge',
+    excerpt:
+      "Rwanda's only Big Five park is nearly 1,200 square kilometers of savanna, woodland and wetland — and one of Africa's great conservation comebacks.",
+    image: '/leopard-tree.webp',
+    accent: '#9c4a32',
+    quote: "Below, a pod of hippos wallows in the shallows while a family of elephants moves along the lake's far shore.",
+    takeaway: "Key Takeaway: Combine a boat safari on Lake Ihema with a night drive — together they cover Akagera's hippos, crocodiles and shoebill storks by day, and hyenas, bush babies and better leopard odds after dark.",
+    paragraphs: [
+      "This is Akagera, Rwanda's only Big Five park: nearly 1,200 square kilometers of savanna, woodland and wetland, worlds away from the misty volcanoes two hundred kilometers northwest. The Land Cruiser stops on a rise above Lake Ihema. Below, a pod of hippos wallows in the shallows while a family of elephants moves along the lake's far shore.",
+      "Akagera is one of Africa's great conservation comebacks, recently named among National Geographic's best places to visit in 2026 for its wide-open, uncrowded terrain.",
+      "Game drives across grassland and woodland bring chances at lions, elephants, leopards and more. A boat safari on Lake Ihema offers close views of hippos, crocodiles, and the elusive shoebill stork, while night drives bring out hyenas, bush babies, and better odds of spotting leopards."
+    ],
+    highlights: [
+      'Where to sleep: from the ultra-exclusive Wilderness Magashi camp to mid-range Mantis Akagera Game Lodge and Ruzizi Tented Camp, the renovated Karenge Bush Camp, or budget campsites.',
+      'A boat safari on Lake Ihema is the best way to see hippos, crocodiles and the elusive shoebill stork up close.',
+      'Night drives bring out hyenas, bush babies and better odds of spotting leopards.'
+    ]
+  },
+  {
+    key: 'nyungwe-forest-canopy-calls',
+    category: 'Wildlife & Safari',
+    date: 'October 2026',
+    readTime: '5 min read',
+    author: 'Luxe Horizons Africa',
+    authorRole: 'Travel Editorial Team',
+    title: 'Nyungwe Forest: Forest & Canopy Calls',
+    excerpt:
+      "One of Africa's oldest montane rainforests holds thirteen primate species and over three hundred bird species, reached by a swaying canopy walkway sixty meters above the forest floor.",
+    image: '/colobus-monkey-baby.webp',
+    accent: '#3f6b63',
+    quote: 'A troop of black-and-white colobus monkeys leaps silently through the upper branches nearby.',
+    takeaway: "Key Takeaway: Pair the canopy walk with chimpanzee trekking on the same visit — the walkway is the signature view, but the early-morning chimp search is where Nyungwe's thirteen primate species actually reveal themselves.",
+    paragraphs: [
+      "You're sixty meters above the forest floor on a swaying metal walkway, rainforest spread beneath you in every shade of green. A troop of black-and-white colobus monkeys leaps silently through the upper branches nearby. This is Nyungwe, one of Africa's oldest montane rainforests, tucked into Rwanda's southwest along the Congo-Nile watershed.",
+      'It holds thirteen primate species, including chimpanzees, and over three hundred bird species, many found nowhere else.',
+      'The canopy walk, a suspended bridge unique in East Africa, is the park\'s signature activity, and can be paired with the nearby rope course and zipline for more treetop thrills. Add chimpanzee trekking — an early, sometimes strenuous search rewarded by close encounters with a wild community — colobus and primate tracking, guided birding for Albertine Rift endemics, and waterfall or ridge hikes.',
+      'One&Only Nyungwe House sits above a working tea plantation for real luxury; Munazi Lodge, a mid-range ecolodge, offers A-frame cabins deep in the forest.'
+    ],
+    highlights: [
+      'One of Africa\'s oldest rainforests, estimated at over 25,000 years old, having survived past ice ages.',
+      'Sits on the Congo-Nile Divide, splitting rainfall between the Atlantic and Mediterranean-bound river systems, and home to one of the deepest sources of the Nile.',
+      'East Africa\'s first canopy walkway, built in 2010 using repurposed tea-industry cable technology.',
+      'Hosts thirteen primate species, including Angolan colobus troops of up to 300 — among the largest arboreal primate groups on Earth — and is a UNESCO World Heritage Site.'
+    ]
+  },
+  {
+    key: 'kigali-city-of-a-thousand-hills',
+    category: 'Travel Tips',
+    date: 'October 2026',
+    readTime: '5 min read',
+    author: 'Luxe Horizons Africa',
+    authorRole: 'Travel Editorial Team',
+    title: 'Kigali: A City of a Thousand Hills',
+    excerpt:
+      'Clean, safe to walk at night, and home to a growing food and art scene — Rwanda\'s capital carries real historical weight too, felt most directly at the Genocide Memorial.',
+    image: '/experiences/featured/city-tour-vibrant-hopeful-kigali.webp',
+    accent: '#b9772e',
+    quote: "A moto-taxi winds through the hills as golden afternoon light spills over Kigali's rooftops, glass towers, red-roofed neighborhoods, and roadside markets, each hill with its own character.",
+    takeaway: "Key Takeaway: Build in at least one full day in Kigali rather than treating it as an airport layover — it's the start and end point for nearly every itinerary, and the city itself, plus the Genocide Memorial, deserves real time.",
+    paragraphs: [
+      "A moto-taxi winds through the hills as golden afternoon light spills over Kigali's rooftops, glass towers, red-roofed neighborhoods, and roadside markets, each hill with its own character. Kigali has become one of Africa's most talked-about capitals: clean, safe to walk at night, and home to a growing food and art scene. But it also carries real historical weight, felt most directly at the Kigali Genocide Memorial, where a visit is less sightseeing than an act of witness.",
+      "Begin at the Kigali Genocide Memorial for essential context on the country's history. Then wander Kimironko Market for fabric, coffee, and produce, or spend an afternoon at Inema Arts Center, a gallery and studio space for contemporary Rwandan artists. Kigali's café culture is a highlight of this coffee country, and local roasteries take real pride in their craft. In the evening, Repub Lounge and the rooftop bars along KG streets are favorites for sundowners with hillside views.",
+      "As Rwanda's transport hub, Kigali is the start and end point for nearly every itinerary — gorilla trekking, Akagera, Nyungwe, Lake Kivu — so it's worth building in at least one full day rather than treating it as just an airport layover.",
+      'Where to stay: Kigali spans the full range, from the Kigali Marriott and Radisson Blu for business-standard comfort, to the ultra-luxury Pinnacle Kigali, boutique picks like The Retreat by Hemingways for something more personal, and a growing number of well-reviewed, more affordable boutique hotels such as The Nest Kigali.'
+    ],
+    highlights: [
+      'Visa on arrival is available to all nationalities — citizens of African Union, Commonwealth and La Francophonie member states get it fee-free for 30 days, and East African Community citizens enter visa-free for up to 6 months.',
+      'Yellow fever vaccination is required if arriving from a country with risk of transmission (carry your certificate) — otherwise a good idea regardless.',
+      'Where to stay ranges from the Kigali Marriott and Radisson Blu to the ultra-luxury Pinnacle Kigali and boutique picks like The Retreat by Hemingways.'
+    ]
   }
 ]
 
