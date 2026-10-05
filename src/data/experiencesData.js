@@ -543,22 +543,8 @@ export const experiencesData = [
     "image": "/experiences/featured/city-tour-vibrant-hopeful-kigali.webp",
     "summary": "This itinerary includes a visit to the Kigali Genocide Memorial, a lunch break at a local restaurant, and an optional half-day Kigali City Tour, offering a blend of historical exploration and cultural experiences.",
     "description": "This itinerary includes a visit to the Kigali Genocide Memorial, a lunch break at a local restaurant, and an optional half-day Kigali City Tour, offering a blend of historical exploration and cultural experiences.",
-    "fullStory": [
-      "This itinerary includes a visit to the Kigali Genocide Memorial, a lunch break at a local restaurant, and an optional half-day Kigali City Tour, offering a blend of historical exploration and cultural experiences.",
-      "EXCURSION STARTS with a Pick up from the Hotel at 9:30AM & Embark on a 20min drive heading to the Kigali Genocide Memorial for an approx 1.5hrs Guided Tour to be concluded with laying of the Wreath onto the Mass Grave of over 250,000 victims. Don\u2019t miss a Group Photo Opportunity here!",
-      "After an almost 2hour journey of Rwanda\u2019s dark history discovery, you would have a moment together for Lunch, an opportunity during which you would digest the just heard stories of disgrace as well as chewing the understanding of Rwanda\u2019s impeccable story of rebirth, resilience and Hope.",
-      "Please do connect, exchange and enjoy your Lunch at the Repub Lounge known on Rwandan Cuisine or the Milles Collines known for the Hotel Rwanda movie (Recommended not included), renowned on their exceptional Rwandan Local cuisine delicacies! After Lunch you have an option of carrying on with another Half day Kigali City Tour, driving through the cleanest, safest but also one of the most Innovative and Digitalized Cities in Africa & then Drop off at the Hotel.",
-      "Explore the city and Genocide Memorial, then embark on thrilling safaris in Akagera National Park for a Game Drive Experience. Play Gold At The Kigali 18 Hole Golf Course and enjoy the land of a thousand hills.",
-      "5-Day Volcanoes Experience includes: 1 night in Kigali, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels.",
-      "4-Day Gorilla trekking includes: 1 night in Kigali, 2 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels and lodges.",
-      "2 nights in Kigali, 2 nights by Nyungwe National Park, 3 nights in Musanze/Volcanoes National Park at the recommended Luxury hotels",
-      "Follow us for travel experiences and updates"
-    ],
-    "highlights": [
-      "EXCURSION STARTS with a Pick up from the Hotel at 9:30AM & Embark on a 20min drive heading to the Kigali Genocide Memorial for an approx 1.5hrs Guided Tour to be concluded with laying of the Wreath onto the Mass Grave of over 250,000 victims. Don\u2019t miss a Group Photo Opportunity here!",
-      "After an almost 2hour journey of Rwanda\u2019s dark history discovery, you would have a moment together for Lunch, an opportunity during which you would digest the just heard stories of disgrace as well as chewing the understanding of Rwanda\u2019s impeccable story of rebirth, resilience and Hope.",
-      "Please do connect, exchange and enjoy your Lunch at the Repub Lounge known on Rwandan Cuisine or the Milles Collines known for the Hotel Rwanda movie (Recommended not included), renowned on their exceptional Rwandan Local cuisine delicacies! After Lunch you have an option of carrying on with another Half day Kigali City Tour, driving through the cleanest, safest but also one of the most Innovative and Digitalized Cities in Africa & then Drop off at the Hotel."
-    ],
+    "fullStory": [],
+    "highlights": [],
     "location": "Rwanda",
     "url": "https://luxehorizonsafrica.com/experiences?exp=city-tour-vibrant-hopeful-kigali",
     "heroImage": "/experiences/featured/city-tour-vibrant-hopeful-kigali.webp",
