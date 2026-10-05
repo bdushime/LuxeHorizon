@@ -3,7 +3,6 @@ import SiteLink from './SiteLink.jsx'
 import './MenuOverlay.css'
 
 const MENU_NAV_LINKS = [
-  { label: 'Home', href: '/' },
   { label: 'Destinations', href: '/destinations' },
   { label: 'Experiences', href: '/experiences' },
   { label: 'Blog', href: '/blog' },
