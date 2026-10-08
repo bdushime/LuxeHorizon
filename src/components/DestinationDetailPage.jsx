@@ -13,6 +13,7 @@ export default function DestinationDetailPage() {
   if (!dest || !detail) return <Navigate to="/destinations" replace />
 
   const relatedCard = adventureCards.find((c) => c.key === key) || adventureCards.find((c) => c.key === 'custom')
+  const otherDestinations = destinations.filter((d) => d.key !== key)
   const specificSeo = PAGE_SEO.destinationDetail[key] || {}
 
   const title = specificSeo.title || `${dest.name} Safari Guide — Luxe Horizons Africa`
@@ -106,6 +107,33 @@ export default function DestinationDetailPage() {
           </Reveal>
         </div>
       </div>
+
+      {otherDestinations.length > 0 && (
+        <section className="ddp-other">
+          <div className="wrap">
+            <div className="eyebrow">Keep Exploring</div>
+            <h2>Other Destinations</h2>
+            <div className="ddp-other-grid">
+              {otherDestinations.map((d) => (
+                <Link
+                  key={d.key}
+                  to={`/destinations/${d.key}`}
+                  className="ddp-other-card"
+                  style={{ '--accent': d.accent }}
+                >
+                  <img className="ddp-other-media" src={d.image} alt={d.name} loading="lazy" decoding="async" />
+                  <div className="ddp-other-overlay" />
+                  <div className="ddp-other-content">
+                    <span className="ddp-other-eyebrow">{d.eyebrow}</span>
+                    <h3>{d.name}</h3>
+                    <span className="ddp-other-cta">View Destination &rarr;</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {relatedCard && (
         <section className="ddp-continue">

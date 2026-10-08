@@ -122,7 +122,7 @@ export default function ConsultancyPage() {
         <div className="con-hero-overlay" />
         <div className="con-hero-content">
           <Reveal>
-            <div className="eyebrow on-dark">Consultancy &amp; MICE</div>
+            <div className="eyebrow on-dark">Consultancy &amp; Incentive Travel</div>
           </Reveal>
           <h1>
             <KineticLine text="Discover Our Unique" delay={0.2} />
@@ -203,7 +203,7 @@ export default function ConsultancyPage() {
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="con-modal-eyebrow on-dark">Consultancy &amp; MICE</div>
+              <div className="con-modal-eyebrow on-dark">Consultancy &amp; Incentive Travel</div>
               <h2 className="con-split-title">
                 <KineticLine text={activePillar.title} delay={0.35} />
               </h2>
@@ -244,7 +244,7 @@ export default function ConsultancyPage() {
                 &times;
               </button>
               <div className="con-inspire-header">
-                <div className="con-modal-eyebrow">Consultancy &amp; MICE</div>
+                <div className="con-modal-eyebrow">Consultancy &amp; Incentive Travel</div>
                 <h2 className="con-modal-title">Get Inspired</h2>
                 <div className="con-divider" />
               </div>

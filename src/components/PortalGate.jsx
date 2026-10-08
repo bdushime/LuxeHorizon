@@ -76,7 +76,7 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
 
         {/* Bottom subtle indicator */}
         <div className="relative z-10 flex w-full items-center justify-end text-xs text-[#F8F6F0] pt-4">
-          <span className="flex items-center gap-2 text-[#c6a15b] font-medium tracking-wider text-base drop-shadow-md">
+          <span className="flex items-center gap-2 text-[#c6a15b] font-bold tracking-wider text-base drop-shadow-md">
             <span>Explore</span>
             <span className="text-xl">&rarr;</span>
           </span>

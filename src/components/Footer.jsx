@@ -101,7 +101,7 @@ export default function Footer() {
                 <SiteLink href="#plan">Plan Your Trip</SiteLink>
               </li>
               <li>
-                <Link to="/consultancy">Consultancy &amp; MICE</Link>
+                <Link to="/consultancy">Consultancy &amp; Incentive Travel</Link>
               </li>
             </ul>
           </div>

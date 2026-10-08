@@ -9,7 +9,7 @@ const MENU_NAV_LINKS = [
   { label: 'About Us', href: '/about' },
   { label: 'Guest Reviews', href: '/testimonials' },
   { label: 'Safari FAQ', href: '/faq' },
-  { label: 'Consultancy & MICE', href: '/consultancy' },
+  { label: 'Consultancy & Incentive Travel', href: '/consultancy' },
   { label: 'Contact Us', href: '/contact' }
 ]
 

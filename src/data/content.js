@@ -11,7 +11,7 @@ export const navLinks = [
   { key: 'testimonials', label: 'Testimonials', href: '/testimonials' },
   { key: 'blog', label: 'Blog', href: '/blog' },
   { key: 'contact', label: 'Contact', href: '/contact' },
-  { key: 'consultancy', label: 'Consultancy & MICE', href: '/consultancy' }
+  { key: 'consultancy', label: 'Consultancy & Incentive Travel', href: '/consultancy' }
 ]
 
 // Each hero section has its own gradient "scene" — self-contained CSS,
@@ -212,7 +212,7 @@ export const destinationDetails = {
   }
 }
 
-// Consultancy & MICE homepage content — real copy carried over from the old
+// Consultancy & Incentive Travel homepage content — real copy carried over from the old
 // WordPress site's Consultancy division. Photos are existing site placeholders
 // (no real conference/office photography is in the asset library yet).
 export const consultancyIntro =
@@ -221,7 +221,7 @@ export const consultancyIntro =
 export const consultancyPillars = [
   {
     key: 'advisory',
-    title: 'Consultancy & Advisory',
+    title: 'Consultancy and Incentives',
     tagline: 'Strategic guidance from a team who knows the region.',
     description:
       "We believe that each trip is as unique as each client, we will therefore guide you every step of the way as we craft together one-of-a-kind experiences that will bring your specific travel dreams to life and make your memories last a lifetime.",
@@ -230,7 +230,7 @@ export const consultancyPillars = [
   },
   {
     key: 'mice',
-    title: 'Conferences, Incentives & Educational Trips',
+    title: 'Incentives and Educational Trips',
     tagline: 'Full-service MICE planning, from Kigali and beyond.',
     description:
       "What are you traveling for? Is it a business trip or do you want to meet in Rwanda? Whether it's a conference space to brainstorm from, an Incentive trip designed to re-energize and motivate the team or even a travel initiative to educate and inspire, we'll organise something that's guaranteed to exactly respond to your wishes.",
@@ -248,21 +248,16 @@ export const consultancyPillars = [
   }
 ]
 
-// ring: 1 (inner) or 2 (outer) — radius for each is defined in partnerRingRadii below
-// angle: degrees, 0 = right, 90 = straight up, 180 = left (spread across the top arc)
 // Using local /public files here — the previous hotlinked WordPress URLs
-// (ILTM, ITB, OTM) were unreliable and rendered tiny/broken. Add those back
-// with local files if/when available; for now the orbit uses only the four
-// logos that have local, verified-working assets.
+// (ITB, OTM) were unreliable and rendered tiny/broken. Add those back
+// with local files if/when available.
 export const partners = [
-  { name: 'Rwanda Development Board', logo: '/RwandaDevelopmentBoard-removebg-preview.webp', ring: 2, angle: 25 },
-  { name: 'RTTA', logo: '/RTTA-removebg-preview.webp', ring: 1, angle: 60 },
-  { name: 'Akagera Aviation', logo: '/AkageraAviation-removebg-preview.webp', ring: 1, angle: 120 },
-  { name: 'East Africa Tourism Platform', logo: '/EastAfrica-removebg-preview.webp', ring: 2, angle: 155 }
+  { name: 'Rwanda Development Board', logo: '/RwandaDevelopmentBoard-removebg-preview.webp' },
+  { name: 'RTTA', logo: '/RTTA-removebg-preview.webp' },
+  { name: 'International Luxury Travel Market', logo: '/International-Luxury-Travel-Market-1.png' },
+  { name: 'Akagera Aviation', logo: '/AkageraAviation-removebg-preview.webp' },
+  { name: 'East Africa Tourism Platform', logo: '/EastAfrica-removebg-preview.webp' }
 ]
-
-// Pixel radius for each ring, measured from the center mark at the base of the orbit.
-export const partnerRingRadii = { 1: 130, 2: 235 }
 
 export const contact = {
   address: 'KN5, Kigali — Rwanda',
