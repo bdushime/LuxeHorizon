@@ -5,10 +5,10 @@ import './MenuOverlay.css'
 const MENU_NAV_LINKS = [
   { label: 'Destinations', href: '/destinations' },
   { label: 'Experiences', href: '/experiences' },
-  { label: 'Safari Journal', href: '/blog' },
+  { label: 'Blog', href: '/blog' },
   { label: 'About Us', href: '/about' },
-  { label: 'Guest Reviews', href: '/testimonials' },
-  { label: 'Safari FAQ', href: '/faq' },
+  { label: 'Testimonials', href: '/testimonials' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Consultancy & Incentive Travel', href: '/consultancy' },
   { label: 'Contact Us', href: '/contact' }
 ]

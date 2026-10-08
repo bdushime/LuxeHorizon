@@ -7,11 +7,12 @@ export const navLinks = [
   { key: 'home', label: 'Home', href: '/' },
   { key: 'destinations', label: 'Destinations', href: '/destinations' },
   { key: 'experiences', label: 'Experiences', href: '/experiences' },
-  { key: 'about', label: 'About', href: '/about' },
-  { key: 'testimonials', label: 'Testimonials', href: '/testimonials' },
   { key: 'blog', label: 'Blog', href: '/blog' },
-  { key: 'contact', label: 'Contact', href: '/contact' },
-  { key: 'consultancy', label: 'Consultancy & Incentive Travel', href: '/consultancy' }
+  { key: 'about', label: 'About Us', href: '/about' },
+  { key: 'testimonials', label: 'Testimonials', href: '/testimonials' },
+  { key: 'faq', label: 'FAQ', href: '/faq' },
+  { key: 'consultancy', label: 'Consultancy & Incentive Travel', href: '/consultancy' },
+  { key: 'contact', label: 'Contact Us', href: '/contact' }
 ]
 
 // Each hero section has its own gradient "scene" — self-contained CSS,
