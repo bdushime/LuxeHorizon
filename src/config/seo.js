@@ -117,7 +117,7 @@ export const PAGE_SEO = {
     ogImage: `${SITE_URL}/cta-sunset.jpg`
   },
   consultancy: {
-    title: 'Consultancy & MICE | Luxe Horizons Africa',
+    title: 'Consultancy & Incentive Travel | Luxe Horizons Africa',
     description:
       'Travel management consultancy, MICE and educational trip planning across Rwanda, Uganda and Tanzania, by Luxe Horizons Africa.',
     canonical: `${SITE_URL}/consultancy`,

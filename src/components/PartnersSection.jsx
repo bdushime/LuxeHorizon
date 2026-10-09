@@ -1,16 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { partners, partnerRingRadii } from '../data/content.js'
+import { partners } from '../data/content.js'
 import './PartnersSection.css'
-
-// Converts a { ring, angle } into a pixel offset from the orbit's center mark.
-// angle: 0 = right, 90 = straight up, 180 = left — so 0..180 sweeps the top arc.
-function orbitPosition(ring, angleDeg) {
-  const radius = partnerRingRadii[ring]
-  const rad = (angleDeg * Math.PI) / 180
-  const dx = Math.cos(rad) * radius
-  const dy = -Math.sin(rad) * radius
-  return { left: `calc(50% + ${dx}px)`, top: `calc(100% + ${dy}px)` }
-}
 
 export default function PartnersSection() {
   const ref = useRef(null)
@@ -27,8 +17,6 @@ export default function PartnersSection() {
     return () => io.disconnect()
   }, [])
 
-  const ringRadii = Object.values(partnerRingRadii)
-
   return (
     <section className="partners" ref={ref}>
       <div className="wrap">
@@ -36,40 +24,12 @@ export default function PartnersSection() {
           Trusted &amp; Affiliated With
         </span>
 
-        <div className={`orbit ${inView ? 'in' : ''}`}>
-          {ringRadii.map((r, i) => (
-            <div
-              key={r}
-              className="orbit-ring"
-              style={{
-                width: r * 2,
-                height: r * 2,
-                transitionDelay: `${i * 120}ms`
-              }}
-            />
-          ))}
-
-          <div className="orbit-center" style={{ transitionDelay: '0ms' }}>
-            <span>LH</span>
-          </div>
-
+        <div className={`partner-row ${inView ? 'in' : ''}`}>
           {partners.map((p, i) => (
-            <div
-              key={p.name}
-              className="orbit-logo"
-              style={{ ...orbitPosition(p.ring, p.angle), transitionDelay: `${140 + i * 90}ms` }}
-            >
-              <div className="orbit-logo-bob" style={{ animationDelay: `${i * 0.4}s` }}>
-                <img src={p.logo} alt={p.name} title={p.name} loading="lazy" decoding="async" />
-              </div>
+            <div key={p.name} className="partner-item" style={{ transitionDelay: `${i * 90}ms` }}>
+              <img src={p.logo} alt={p.name} title={p.name} loading="lazy" decoding="async" />
+              <span className="partner-underline" />
             </div>
-          ))}
-        </div>
-
-        {/* Simple fallback row for narrow screens where the orbit can't fit */}
-        <div className="partner-row-mobile">
-          {partners.map((p) => (
-            <img key={p.name} src={p.logo} alt={p.name} loading="lazy" decoding="async" />
           ))}
         </div>
       </div>

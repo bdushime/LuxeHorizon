@@ -7,8 +7,8 @@ import './AboutReel.css'
 // advances a horizontal filmstrip instead of stacking panels vertically.
 
 const PHOTO_HERO = '/Mountain-Gorilla.webp'
-const PHOTO_PHILOSOPHY = '/Bird.webp'
-const STAGE_PHOTOS = ['/exp-primates.webp', '/story-guide.webp', '/exp-akagera.webp']
+const PHOTO_PHILOSOPHY = '/weaver-bird-nyungwe.webp'
+const STAGE_PHOTOS = ['/kob-antelope-sparring.webp', '/gorilla-trek-muddy-boots.webp', '/chimpanzee-1.webp']
 
 const STATS = [
   { value: 3, display: '03', suffix: '', label: 'Countries Covered' },

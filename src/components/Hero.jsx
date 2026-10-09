@@ -6,14 +6,6 @@ import './Hero.css'
 export default function Hero({ revealed = true }) {
   const [loaded, setLoaded] = useState(false)
   const [activeKey, setActiveKey] = useState(null)
-  const [scrolledHero, setScrolledHero] = useState(false)
-
-  // Track page scroll to reveal hero section menu on scroll
-  useEffect(() => {
-    const onScroll = () => setScrolledHero(window.scrollY > 30)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   // Trigger the staggered entrance once the hero is actually visible — it
   // mounts immediately behind the Portal Gate, so firing this on mount would
@@ -34,7 +26,7 @@ export default function Hero({ revealed = true }) {
   const deactivate = () => setActiveKey(null)
 
   return (
-    <section className={`hero ${loaded ? 'loaded' : ''} ${scrolledHero ? 'scrolled-hero' : ''}`}>
+    <section className={`hero ${loaded ? 'loaded' : ''} ${revealed ? 'explored' : ''}`}>
       <div
         className="hero-photo-stack"
         role="img"
@@ -87,8 +79,6 @@ export default function Hero({ revealed = true }) {
         Enquire
         <span className="stem" />
       </Link>
-
-      <div className="hero-credit">Luxe Horizons Africa</div>
 
       {/* The visible wordmark is switched off below, but every page still
           needs exactly one real <h1> for SEO/accessibility — this carries
