@@ -34,7 +34,6 @@ export default function TestimonialsPage() {
                   </div>
                   <p className="tm-card-quote">&ldquo;{t.quote}&rdquo;</p>
                   <div className="tm-card-name">{t.name}</div>
-                  <div className="tm-card-origin">{t.origin}</div>
                 </div>
               </div>
             </Reveal>
