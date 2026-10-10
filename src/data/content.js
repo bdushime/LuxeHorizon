@@ -25,7 +25,7 @@ export const heroSections = [
     key: 'experiences',
     eyebrow: 'Explore',
     label: 'EXPERIENCES',
-    image: '/exp-primates.webp',
+    image: '/experiences/featured/7-day-rwandas-big-5-gorillas.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 30% 20%, rgba(139,168,120,0.28), transparent 60%), linear-gradient(160deg, #2E4A38 0%, #142019 100%)'
   },
@@ -33,7 +33,7 @@ export const heroSections = [
     key: 'destinations',
     eyebrow: 'Where To',
     label: 'DESTINATIONS',
-    image: '/exp-tanzania.webp',
+    image: '/experiences/featured/tanzania-classic.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 70% 20%, rgba(201,161,90,0.30), transparent 60%), linear-gradient(160deg, #4A3A22 0%, #1C150D 100%)'
   },
@@ -41,7 +41,7 @@ export const heroSections = [
     key: 'about',
     eyebrow: 'Who We Are',
     label: 'ABOUT',
-    image: '/story-guide.webp',
+    image: '/gorilla-trek-muddy-boots.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 50% 15%, rgba(156,74,50,0.28), transparent 60%), linear-gradient(160deg, #3A2A2A 0%, #16100F 100%)'
   },
@@ -49,7 +49,7 @@ export const heroSections = [
     key: 'contact',
     eyebrow: 'Get In Touch',
     label: 'CONTACT',
-    image: '/cta-sunset.webp',
+    image: '/kayaking-lake-kivu.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 40% 25%, rgba(191,219,214,0.22), transparent 60%), linear-gradient(160deg, #234A44 0%, #0D1F1C 100%)'
   }
@@ -467,7 +467,7 @@ export const faqs = [
 export const testimonials = [
   {
     key: 't1',
-    name: 'Verified Explorer',
+    name: 'Maggie Roache',
     origin: 'Mountain Gorilla Expedition',
     quote:
       'David was incredibly helpful in quickly securing a permit so that I could have the once in a lifetime experience of trekking to the mountain gorillas while in Rwanda. Him and the team were very responsive and dedicated to ensuring that his clients are able to experience Rwanda to the fullest!',
@@ -477,27 +477,27 @@ export const testimonials = [
   },
   {
     key: 't2',
-    name: 'Verified Explorer',
+    name: 'Dan Glendenning',
     origin: 'Akagera & Volcanoes Safari',
     quote:
       'I highly recommend Luxe Horizons Africa. They took me to Akagera National Park and also to the mountains to see the gorillas. Both were unforgettable experiences. Rwanda is a wonderful country and David is the nicest person you could meet!',
     rating: 5,
-    photo: '/exp-akagera.webp',
+    photo: '/kob-antelope-sparring.webp',
     rotate: 4
   },
   {
     key: 't3',
-    name: 'Verified Explorer',
+    name: 'Venida Hudley',
     origin: '30-Day Rwanda Odyssey',
     quote:
       'Wow! What a wonderful time, I enjoyed in Rwanda these past 30days. Everyday was an adventure and a real treat to my soul. I will never forget how David and his team masterfully put together my stimulating itinerary along with recommendations for the month. I truly experienced all of Rwanda.',
     rating: 5,
-    photo: '/story-guide.webp',
+    photo: '/weaver-bird-nyungwe.webp',
     rotate: -3
   },
   {
     key: 't4',
-    name: 'Verified Explorer',
+    name: 'Paul Aitken',
     origin: '10-Day Private Guided Experience',
     quote:
       'I had the most amazing 10-day private guided experience in Rwanda including trekking to see gorillas, game safari and golden monkeys. Our Rwandan travel expert was Luxe Horizons Africa. Highly recommended.',
@@ -507,17 +507,17 @@ export const testimonials = [
   },
   {
     key: 't5',
-    name: 'Verified Explorer',
+    name: 'Rachel Mbai',
     origin: 'Rwanda Discovery Journey',
     quote:
       'An absolute pleasure to travel and discover beautiful Rwanda under Luxe Horizons Africa-experienced guides, personalised curated tours, seamless travel, vip treatment. The best!',
     rating: 5,
-    photo: '/cta-sunset.webp',
+    photo: '/kayaking-lake-kivu.webp',
     rotate: -5
   },
   {
     key: 't6',
-    name: 'Verified Explorer',
+    name: 'Peter & Dana Perino',
     origin: 'Private Curated Tour',
     quote:
       "David is extremely knowledgeable, very personable, and the perfect person to organize and accompany you on a Rwanda trip. The few days we spent with him were highly memorable as he ensured we saw all the most important and interesting sights with perfect explanations. And we didn't ask a single question he couldn't answer! We recommend Luxe Horizons Africa, 100%",
@@ -527,7 +527,7 @@ export const testimonials = [
   },
   {
     key: 't7',
-    name: 'Verified Explorer',
+    name: 'Angie',
     origin: 'Rwanda Wilderness Journey',
     quote:
       "David and his team planned a wonderful trip in Rwanda for us. He is very informative and answers any questions we had. Super friendly and I couldn't wait to tell him about my daily adventures that he had arranged. I learned so much from David and had the experience of a lifetime and that was in part to Luxe Horizons Africa’ team and their knowledge of Rwanda.",
@@ -537,7 +537,7 @@ export const testimonials = [
   },
   {
     key: 't8',
-    name: 'Verified Explorer',
+    name: 'Tamara Essau',
     origin: 'Gorilla & Golden Monkey Expedition',
     quote:
       "In the run up to my trip to Kigali, David & the team were absolutely super. They took my calls and helped me arrange a wonderful, albeit very last minute gorilla expedition. They also accommodated one of my colleagues once we were in Kigali, seamlessly accommodating us between seminar breaks. The drive through the Rwandan countryside and the magnificent sunrise was spectacular. Seeing the gorillas and the golden monkeys was magnificent. The whole experience, including the hike and the drive was unforgettable. I’ll be back. Thank you Luxe Horizons Africa!",
