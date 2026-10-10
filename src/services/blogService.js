@@ -2,7 +2,7 @@ import { supabase } from '../lib/supabase.js'
 import { blogPosts as defaultPosts } from '../data/content.js'
 
 function normalizeImage(url) {
-  if (!url) return '/story-guide.webp'
+  if (!url) return '/Mountain-Gorilla.webp'
   if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
     return url
   }

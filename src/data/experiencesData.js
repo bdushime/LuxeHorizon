@@ -917,8 +917,8 @@ export const experiencesData = [
     "heroImage": "/giraffe-akagera.webp",
     "gallery": [
       "/giraffe-akagera.webp",
-      "/texp-akagera.webp",
-      "/exp-akagera.webp",
+      "/kob-antelope-savannah.webp",
+      "/kob-antelope-sparring.webp",
       "/experiences/featured/gorilla-trekking-golden-monkeys.webp"
     ]
   },

@@ -18,7 +18,7 @@ const DEMO_POST = {
   date: 'Coming Soon',
   title: 'Add Your Next Story Here',
   excerpt: 'A preview of how a freshly published post slides out of the stack and into the lineup.',
-  image: '/exp-akagera.webp',
+  image: '/giraffe-akagera.webp',
   accent: '#9c4a32'
 }
 
