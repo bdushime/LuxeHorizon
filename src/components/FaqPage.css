@@ -193,6 +193,24 @@
 .faq-item-answer p + p {
   padding-top: 0;
 }
+.faq-item-answer strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+.faq-item-answer ul.faq-item-list {
+  padding: 0 24px 22px 48px;
+  margin: 0;
+  list-style-type: disc;
+}
+.faq-item-answer ul.faq-item-list li {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: rgba(33, 29, 23, 0.7);
+  margin-bottom: 8px;
+}
+.faq-item-answer ul.faq-item-list li:last-child {
+  margin-bottom: 0;
+}
 
 .faq-empty {
   text-align: center;
@@ -250,4 +268,8 @@
   .faq-item-answer p {
     padding: 0 18px 18px;
   }
+  .faq-item-answer ul.faq-item-list {
+    padding: 0 18px 18px 36px;
+  }
 }
+

@@ -5,6 +5,16 @@ import { PAGE_SEO, generateBreadcrumbSchema } from '../config/seo.js'
 import CtaBand from './CtaBand.jsx'
 import './FaqPage.css'
 
+function renderFormattedText(text) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g)
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={index}>{part.slice(2, -2)}</strong>
+    }
+    return part
+  })
+}
+
 export default function FaqPage() {
   const [activeCategory, setActiveCategory] = useState('all')
   const [query, setQuery] = useState('')
@@ -134,9 +144,20 @@ export default function FaqPage() {
                   </button>
                   <div className="faq-item-answer-wrap">
                     <div className="faq-item-answer">
-                      {f.answer.split('\n\n').map((para, i) => (
-                        <p key={i}>{para}</p>
-                      ))}
+                      {f.answer.split('\n\n').map((block, i) => {
+                        const lines = block.split('\n').map((l) => l.trim()).filter(Boolean)
+                        const isList = lines.length > 0 && lines.every((l) => l.startsWith('•') || l.startsWith('-'))
+                        if (isList) {
+                          return (
+                            <ul key={i} className="faq-item-list">
+                              {lines.map((item, idx) => (
+                                <li key={idx}>{renderFormattedText(item.replace(/^[•-]\s*/, ''))}</li>
+                              ))}
+                            </ul>
+                          )
+                        }
+                        return <p key={i}>{renderFormattedText(block)}</p>
+                      })}
                     </div>
                   </div>
                 </div>
