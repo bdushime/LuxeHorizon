@@ -451,7 +451,14 @@ export const faqs = [
     category: 'health-logistics',
     question: 'Do I need travel insurance or vaccinations?',
     answer:
-      'Comprehensive travel insurance covering medical evacuation is required for all our itineraries, and Yellow Fever vaccination is mandatory for entry to Rwanda, Uganda and Tanzania. We will send a full pre-departure health checklist once your trip is booked.'
+      "Comprehensive travel insurance covering medical evacuation is strongly recommended for all our itineraries. For Rwanda specifically, citizens of Commonwealth member countries do not need any vaccinations, including Yellow Fever, to enter. Requirements can differ by nationality and if your trip also covers Uganda, Tanzania or Kenya — we will confirm exactly what applies to you once we know your passport and full route."
+  },
+  {
+    key: 'visa-entry',
+    category: 'before-you-go',
+    question: 'Do I need a visa to enter Rwanda?',
+    answer:
+      'Visas are issued on arrival at Kigali International Airport, and citizens of Commonwealth member countries do not need a visa to enter Rwanda at all. Travel with a passport valid for at least six months. One more thing worth knowing before you pack: Rwanda has banned plastic bags since 2008, and any found in your luggage will be confiscated at the airport.'
   },
   {
     key: 'wifi',
