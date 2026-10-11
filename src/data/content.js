@@ -469,7 +469,14 @@ export const faqs = [
     category: 'health-logistics',
     question: 'Any medical advice/precautions before I travel?',
     answer:
-      'We recommend all our guests visit their medical local clinic before travelling. Seek medical advice from your medical doctor, such as what specific precautions for malaria and any personal medication you may require. For malaria, you may be required to take some anti-malaria tablets or bring with you mosquito repellent, among other essential travel requirements. Some countries require Yellow Fever inoculation cards. We provide you with specific travel requirements including health conditions and updates, but insist you also seek medical advice before travel.'
+      "Comprehensive travel insurance covering medical evacuation is strongly recommended for all our itineraries. For Rwanda specifically, citizens of Commonwealth member countries do not need any vaccinations, including Yellow Fever, to enter. Requirements can differ by nationality and if your trip also covers Uganda, Tanzania or Kenya — we will confirm exactly what applies to you once we know your passport and full route."
+  },
+  {
+    key: 'visa-entry',
+    category: 'before-you-go',
+    question: 'Do I need a visa to enter Rwanda?',
+    answer:
+      'Visas are issued on arrival at Kigali International Airport, and citizens of Commonwealth member countries do not need a visa to enter Rwanda at all. Travel with a passport valid for at least six months. One more thing worth knowing before you pack: Rwanda has banned plastic bags since 2008, and any found in your luggage will be confiscated at the airport.'
   },
   {
     key: 'visa-requirements',

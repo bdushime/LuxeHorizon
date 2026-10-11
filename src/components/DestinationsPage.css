@@ -158,6 +158,11 @@
   white-space: nowrap;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
 }
+/* ---------- Mobile: swipeable row instead of a tall stacked column ---------- */
+.dpx-mobile-dots {
+  display: none;
+}
+
 @media (max-width: 780px) {
   .dpx-page {
     height: 100dvh;
@@ -177,41 +182,93 @@
     font-size: clamp(22px, 5.2vw, 30px);
     margin: 4px 0 6px;
   }
+
+  /* Edge-to-edge panels become a snap-scrolling row of cards, each one
+     showing ~88% of its width so the next card's edge peeks into view —
+     the visual cue that there's more to swipe to. */
   .dpx-panels {
     position: relative;
     inset: auto;
-    flex-direction: column;
+    flex-direction: row;
     flex: 1;
-    height: calc(100dvh - 180px);
+    height: calc(100dvh - 216px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    padding: 0 20px 0 20px;
+  }
+  .dpx-panels::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dpx-panel {
+    flex: 0 0 88%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    border-radius: 16px;
   }
   .dpx-panel + .dpx-panel {
     border-left: none;
-    border-top: 1px solid rgba(246, 241, 231, 0.15);
   }
+
+  /* Every card always shows its name + CTA on mobile — swiping (not
+     tap-to-reveal) is the whole interaction, and a card you've just
+     swiped to shouldn't need a tap first to become legible. */
   .dpx-panel-vertical {
-    writing-mode: horizontal-tb;
-    transform: none;
-    left: 20px;
-    bottom: 16px;
-    font-size: 18px;
-    font-weight: 600;
-  }
-  .dpx-panel.active .dpx-panel-vertical {
-    transform: translateY(-6px);
-  }
-  .dpx-panel-index {
-    top: 12px;
-    left: 20px;
+    display: none;
   }
   .dpx-panel-detail {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
     left: 20px;
     right: 20px;
-    bottom: 14px;
+    bottom: 22px;
   }
   .dpx-panel-detail h3 {
     white-space: normal;
-    font-size: 22px;
+    font-size: 24px;
     margin: 2px 0 4px;
+  }
+  .dpx-panel-index {
+    top: 16px;
+    left: 20px;
+  }
+
+  /* Neighbor-dimming only makes sense when panels share an edge on
+     desktop — on mobile the other cards are mostly off-screen anyway. */
+  .dpx-panels.has-active .dpx-panel:not(.active) .dpx-panel-media {
+    filter: none;
+  }
+  .dpx-panels.has-active .dpx-panel:not(.active) .dpx-panel-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 14, 11, 0.35) 0%,
+      rgba(8, 12, 10, 0.2) 40%,
+      rgba(6, 9, 7, 0.88) 100%
+    );
+  }
+
+  .dpx-mobile-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 0 10px;
+  }
+  .dpx-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(246, 241, 231, 0.3);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .dpx-dot.active {
+    background: var(--gold-soft, #d9c293);
+    transform: scale(1.4);
   }
 }
 
