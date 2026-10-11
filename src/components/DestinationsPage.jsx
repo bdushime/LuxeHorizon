@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { destinations } from '../data/content.js'
 import Seo from './Seo.jsx'
@@ -7,13 +7,34 @@ import './DestinationsPage.css'
 
 export default function DestinationsPage() {
   const [activeKey, setActiveKey] = useState(null)
+  const [mobileIndex, setMobileIndex] = useState(0)
   const navigate = useNavigate()
+  const panelsRef = useRef(null)
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = ''
     }
+  }, [])
+
+  // Tracks which card is centered in the mobile swipe row so the dot
+  // indicator below it stays in sync — desktop ignores this entirely.
+  useEffect(() => {
+    const el = panelsRef.current
+    if (!el) return undefined
+    let raf = null
+    const onScroll = () => {
+      if (raf) return
+      raf = requestAnimationFrame(() => {
+        const step = el.scrollWidth / destinations.length
+        const idx = Math.round(el.scrollLeft / step)
+        setMobileIndex(Math.min(destinations.length - 1, Math.max(0, idx)))
+        raf = null
+      })
+    }
+    el.addEventListener('scroll', onScroll, { passive: true })
+    return () => el.removeEventListener('scroll', onScroll)
   }, [])
 
   const breadcrumbs = [
@@ -35,7 +56,7 @@ export default function DestinationsPage() {
         <h1>Four Countries, One Extraordinary Story</h1>
       </div>
 
-      <div className={`dpx-panels ${activeKey ? 'has-active' : ''}`}>
+      <div className={`dpx-panels ${activeKey ? 'has-active' : ''}`} ref={panelsRef}>
         {destinations.map((dest, i) => {
           const isActive = activeKey === dest.key
           return (
@@ -70,6 +91,12 @@ export default function DestinationsPage() {
             </div>
           )
         })}
+      </div>
+
+      <div className="dpx-mobile-dots" aria-hidden="true">
+        {destinations.map((d, i) => (
+          <span key={d.key} className={`dpx-dot ${i === mobileIndex ? 'active' : ''}`} />
+        ))}
       </div>
     </section>
   )

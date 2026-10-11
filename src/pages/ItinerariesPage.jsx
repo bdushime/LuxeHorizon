@@ -316,18 +316,6 @@ export default function ItinerariesPage() {
                     </div>
                   )}
 
-                  {/* Article Overview */}
-                  {selectedItinerary.overview && (
-                    <div style={{ marginBottom: '32px' }}>
-                      <h3 style={{ color: '#8c6b27', fontSize: '20px', marginBottom: '12px', fontWeight: '700' }}>Overview</h3>
-                      {selectedItinerary.overview.split('\n\n').map((para, i) => (
-                        <p key={i} style={{ marginBottom: '12px', fontSize: '15px', color: '#1e293b', lineHeight: '1.7' }}>
-                          {para}
-                        </p>
-                      ))}
-                    </div>
-                  )}
-
                   {/* Day-by-Day Itinerary */}
                   {selectedItinerary.days && selectedItinerary.days.length > 0 && (
                     <div style={{ marginBottom: '32px' }}>
