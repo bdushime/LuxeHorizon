@@ -392,73 +392,91 @@ export const faqCategories = [
   { key: 'health-logistics', label: 'Health & Logistics' }
 ]
 
-// FAQ copy — "When is the best time to travel?" is the real answer carried
-// over from the client's existing WordPress FAQ page. Every other answer is
-// a reasonable placeholder and should be swapped for the client's actual
-// wording before launch.
+// Real FAQ copy carried over directly from https://luxehorizonsafrica.com/tips-to-travel/
 export const faqs = [
   {
     key: 'best-time',
     category: 'before-you-go',
     question: 'When is the best time to travel?',
     answer:
-      'Ideally, the best time to visit Africa should consider more than just the weather. Your journey could be culture-focused or to partake in a specific traditional festival. You might be looking for a particular occasion to see the savannah animals, tracking gorillas, hiking a mountain or chimpanzee trekking in the rainforest. Whatever the "why" of your safari, Luxe Horizons Africa will guide you through every step of the way.\n\nGenerally speaking, an East African safari can be enjoyed all year round. There are, however, distinct seasons that suit some travelers more than others — we will always share specific weather conditions by month for the areas or country you wish to visit.'
-  },
-  {
-    key: 'luggage',
-    category: 'before-you-go',
-    question: 'What luggage should I take?',
-    answer:
-      'A soft-sided duffel packs down easier than a hard-shell case, especially for light-aircraft transfers between parks where hold space is limited. We will confirm the exact weight allowance for your itinerary once internal flights are booked.'
-  },
-  {
-    key: 'essentials',
-    category: 'before-you-go',
-    question: 'What are essential items and clothes for a safari?',
-    answer:
-      'Neutral-toned clothing, a warm layer for early morning game drives, sturdy closed shoes for forest treks, and a good pair of binoculars. We send every guest a tailored packing list once their itinerary is confirmed.'
-  },
-  {
-    key: 'laundry',
-    category: 'before-you-go',
-    question: 'Will I have laundry facilities?',
-    answer:
-      'Most of our partner lodges offer same-day or next-day laundry, which means you can comfortably pack lighter than you might expect for a multi-day trip.'
+      'Ideally, the best time to visit Africa should consider more than just the weather. Your journey could be culture-focused or to partake in a specific traditional festival. You might be looking for a particular occasion to see the savannah animals, tracking Gorillas, hiking a mountain or Chimpanzee trekking in the rainforest. Whatever the “why” of your safari, Luxe Horizons Africa will guide you through every step of the way.\n\nGenerally speaking an East African safari will be enjoyed all year-round. There are however distinct seasons and time periods which are preferable to some and not others. Ideally it is best to travel to areas outside of the rainy or wet seasons. We will provide you with specific weather conditions by month and other travel tips based on the areas or country you wish to visit.'
   },
   {
     key: 'private-guided',
     category: 'trip-design',
     question: 'What is a Private Guided Tour?',
     answer:
-      'Your own vehicle, driver-guide and pace — no joining a shared group. Every stop, detour and late start is entirely up to you and whoever you are traveling with.'
-  },
-  {
-    key: 'why-luxe-horizons',
-    category: 'trip-design',
-    question: 'Why choose to travel with Luxe Horizons Africa?',
-    answer:
-      'Every itinerary is designed from scratch around you, not chosen from a catalogue, and a dedicated specialist guide stays with you throughout — not a rotating cast of drivers.'
+      'Private guided touring means no set departure dates, no minimum spend and no existing groups for you to join. You travel where you want and when you want, simply bring us the number of travelers, the ideal dates and the ‘must-haves’ for the trip, and our Destination Experts will create your itinerary to fit your specific needs.'
   },
   {
     key: 'families',
     category: 'families-groups',
     question: 'Is Rwanda / East Africa a good destination for families and how old must children be?',
     answer:
-      'Yes — with the right itinerary. Gorilla trekking permits require a minimum age of 15, but plenty of other experiences (game drives, cultural visits, lake excursions) suit younger children. We will help you build a trip around your family\'s ages and pace.'
+      'Yes, Rwanda and East Africa in general are family friendly destinations with spectacular offerings for families or friends travelling together. By nature, Africa allows engaging and inspiring experiences, which provide unrivalled bonding opportunities and quality time together as a family. Most places promote family and multi-generational travel, however some safari lodges and tented camps do have a minimum age requirement of 5 years old. Walking, trekking and canoeing trails normally stipulate a minimum age of 12. Chimpanzee and Gorilla trekking require a 15 years of age and above.'
   },
   {
-    key: 'insurance',
-    category: 'health-logistics',
-    question: 'Do I need travel insurance or vaccinations?',
+    key: 'why-luxe-horizons',
+    category: 'trip-design',
+    question: 'Why choose to travel with Luxe Horizons Africa',
     answer:
-      'Comprehensive travel insurance covering medical evacuation is required for all our itineraries, and Yellow Fever vaccination is mandatory for entry to Rwanda, Uganda and Tanzania. We will send a full pre-departure health checklist once your trip is booked.'
+      '• For an extraordinary travel experience full of inspiration and opportunities to create your own memories by partaking in your safari experience.\n• For a personalized and private travel experience. We always ensure your safari will particularly respond to your specific needs and travel interests.\n• For a life changing and involving safari. We want to make sure your money does not only benefit the Company but also the communities around places we visit.\n• We use only the best guides, accommodations and most comfortable means of transport. We selectively work with best on-ground operating teams with knowledge and first hand experience of everything we suggest for your safari. We only offer what we have experienced.\n• We pride ourselves on the relationships we have built with our industry partners which allows us to always go one extra mile to delivering exceptional experiences to our guests.'
   },
   {
-    key: 'wifi',
-    category: 'health-logistics',
-    question: 'Is Wi-Fi available at the lodges?',
+    key: 'luggage',
+    category: 'before-you-go',
+    question: 'What luggage should I take?',
     answer:
-      'Most lodges offer Wi-Fi in communal areas, though it can be slow or intermittent in more remote locations — part of what makes a safari a genuine break.'
+      'We always recommend to limit the number of hard suitcases while on a safari whenever possible. Soft or duffle-type bags are best to carry your luggage, especially when you have to fly more than once and on regional flights/aircrafts. There will be specific weight and size limitations for baggage depending on which countries you will be visiting and the Luxe Horizons Africa team will always provide the full packing list prior to your travel dates including what to carry and wear during your safari. Consider travelling with a backpack for wipes, insect repellent, water and/or snacks especially when your safari includes trekking.'
+  },
+  {
+    key: 'essentials',
+    category: 'before-you-go',
+    question: 'What are essential items and clothes for a safari?',
+    answer:
+      'Travel in Africa is generally casual. Natural colours are recommended, particularly on safari and essential on walking trails in the bush.\n\n**Dress codes** are basically informal yet respectful. Men tend to wear trousers but shorts are fine, although walking around without a shirt is frowned upon. Women will feel more comfortable in knee-length or longer.\n\n**Daytime** temperatures are generally warm, so bring lots of light clothing and think about sun protection, including a hat and sunglasses. The **evenings** tend to be cool, and a light sweater appreciated.\n\nIn **Volcanoes National Park** and **Nyungwe National Park** slightly heavier clothing is useful. A lightweight waterproof jacket may come in handy in the moist mountains.\n\nWhen **tracking gorillas**, wear sturdier clothing to protect against stinging nettles, and solid walking shoes. Consider bringing a lightweight waterproof jacket and gardening or leather gloves as well as gaiters. Some properties offer gaiters complimentary.\n\nFor those who wear **contact lenses**, cleaning fluid is not readily available and dust or sun could prove an irritation, so it’s best to bring a pair of glasses along for peace of mind.\n\nYou may also consider packing long sleeve cotton shirts, walking shoes or hiking shoes for trekkers, waterproof jacket especially while travelling in rainy season, suncream, insect repellent, personal toiletries, tissues and wet wipes.'
+  },
+  {
+    key: 'laundry',
+    category: 'before-you-go',
+    question: 'Will I have laundry facilities?',
+    answer:
+      'Laundry facilities are offered at all the properties at an extra cost, except some Hotels where it is complimentary.'
+  },
+  {
+    key: 'tipping',
+    category: 'health-logistics',
+    question: 'What would you recommend on tipping/gratuities?',
+    answer:
+      'Tipping is not compulsory but always enthusiastically received if you are happy with the service and would like to tip. There are no set percentages for tips. Local culture believes the level of tips should be at the discretion of the client and any token of appreciation is gladly received. We recommend that you tip your driver guide direct at the end of your tour US $20 per guest, per day.\n\nIn restaurants; at lodges/camps US $10 - $15 per guest per stay/night. Obviously this is very much a rough guide and you are completely free to give whatever you feel is appropriate.'
+  },
+  {
+    key: 'money',
+    category: 'health-logistics',
+    question: 'What do I need to know about money in your country?',
+    answer:
+      'US dollars are widely accepted in Rwanda/East Africa. Bills should be in excellent condition with no stains or tears. MasterCard and Visa credit cards are most commonly accepted at restaurants, hotels or lodges. Ensure you have a good amount of cash as only cash is accepted by some places. ATM machines are available in most cities/Airports to withdraw local currency.'
+  },
+  {
+    key: 'food-water',
+    category: 'health-logistics',
+    question: 'How safe is food and drinking water?',
+    answer:
+      'At all the lodges/hotels you visit, food is prepared by well trained chefs and is all hygienic. Bottled water will be given to you at all of the lodges/hotels. Do not drink tap water. We provide bottled water for the clients on all of the excursions.'
+  },
+  {
+    key: 'medical-advice',
+    category: 'health-logistics',
+    question: 'Any medical advice/precautions before I travel?',
+    answer:
+      'We recommend all our guests visit their medical local clinic before travelling. Seek medical advice from your medical doctor, such as what specific precautions for malaria and any personal medication you may require. For malaria, you may be required to take some anti-malaria tablets or bring with you mosquito repellent, among other essential travel requirements. Some countries require Yellow Fever inoculation cards. We provide you with specific travel requirements including health conditions and updates, but insist you also seek medical advice before travel.'
+  },
+  {
+    key: 'visa-requirements',
+    category: 'before-you-go',
+    question: 'What are the Visa requirements?',
+    answer:
+      'Rwanda offers Visa on arrival to all travellers. There is also an East African Visa that can be obtained once you wish to combine two or more East African countries. We will provide more specific information on Visa requirements at the time of your booking.'
   }
 ]
 
