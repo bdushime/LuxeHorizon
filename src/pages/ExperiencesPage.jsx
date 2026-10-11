@@ -386,18 +386,6 @@ export default function ExperiencesPage() {
               {/* Article Content Body */}
               <div className="exp-modal-body" style={{ color: '#111827', lineHeight: '1.75' }}>
                 
-                {/* Overview Paragraphs */}
-                {selectedExperience.overview && (
-                  <div className="exp-article-overview" style={{ marginBottom: '32px' }}>
-                    <h3 style={{ color: '#8c6b27', fontSize: '20px', marginBottom: '12px', fontWeight: '700' }}>Overview</h3>
-                    {selectedExperience.overview.split('\n\n').map((para, i) => (
-                      <p key={i} style={{ marginBottom: '12px', fontSize: '15px', color: '#1e293b', lineHeight: '1.7' }}>
-                        {para}
-                      </p>
-                    ))}
-                  </div>
-                )}
-
                 {/* Day by Day Breakdown */}
                 {selectedExperience.days && selectedExperience.days.length > 0 && (
                   <div className="exp-article-days" style={{ marginBottom: '32px' }}>
