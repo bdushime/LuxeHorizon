@@ -22,7 +22,7 @@
 .exp-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/hiking-boots-trail.webp');
+  background-image: url('/images/experiences/experiences-hero-hiking-boots.webp');
   background-size: cover;
   background-position: center 55%;
   z-index: 1;
