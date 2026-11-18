@@ -35,6 +35,40 @@ swaps in its own background photo on hover or tap.
 |---|---|---|---|
 | `experiences-hero-hiking-boots.webp` | Experiences page: opening banner | Homepage hero: "Experiences" hover | `src/pages/ExperiencesPage.css` (`.exp-hero-bg`), `src/data/content.js` → `heroSections` |
 
+### experiences/&lt;tour-slug&gt;/ (one folder per tour, 18 in total)
+The tours are copied from the client's live site (https://luxehorizonsafrica.com/experiences/),
+and so are their photos. All paths are set in `src/data/toursData.js`.
+
+| File | Used in |
+|---|---|
+| `card.webp` | The tour's card on the Experiences page and in "Related Experiences", plus the banner at the top of the tour page (the live site uses one photo for both) |
+| `gallery-1.webp` … `gallery-4.webp` | The 4-photo grid in the tour page's Overview tab |
+
+Where the live site repeated the same gallery photo on two tours, the second tour got a different
+photo that was already in the project:
+
+| Tour | Live photo that was repeated | Replaced with |
+|---|---|---|
+| gorillas-in-the-mist | Virunga-Mountains | `/mountain-gorilla-1.webp` |
+| rwandas-primates | destination.png | `/Mountain-Gorilla.webp` |
+| rwandas-primates | Singita-Kwitonda-Lodge | `/chimpanzee-3.webp` |
+| rwandas-primates | Bird-in-Volcanoes-NP | `/weaver-bird-nyungwe.webp` |
+| 7-day-rwanda-primates-adventure | The-Ellen-Degeneres-Campus | `/chimpanzee-2.webp` |
+| 11-day-rwanda-holiday-experience | Lions | `/leopard-tree.webp` |
+| pre-colonial-era-the-big-5-the-city | Rwanda-Cultural-heritage-1 | `/kob-antelope-savannah.webp` |
+| the-great-migration-adventure | Food-to-taste-during-Tanzania-Safari | `/Tanzania.webp` |
+| the-great-migration-adventure | camp-overlooking-the-masai-mara | `home-hero/home-hero-destinations-giraffe.webp` |
+
+The four homepage "Adventure" cards for Rwanda, Uganda and Tanzania reuse the matching tour's `card.webp`.
+
+### experiences/itinerary-photos/
+Lodge and activity photos shown inside the day-by-day "Itinerary" tab (78 photos, named after
+the live site's original files). Several tours share the same lodge photos, so they live in one
+shared folder. Set in `src/data/toursData.js` (`itinerary[].blocks`).
+
+The older `public/experiences/` folder holds the photos for the previous version of the page,
+now archived in `src/archive/experiences-before-live-copy/`. It was kept so that archive can still be restored.
+
 ## destinations/
 Each country has two photos:
 - **main**: homepage "Explore Captivating Destinations" (hover background and card) and the top banner of the country page (`/destinations/<country>`). Set in `src/data/content.js` → `destinations` (`image`).

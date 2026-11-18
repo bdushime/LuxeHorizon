@@ -4,14 +4,15 @@
  * links straight to /experiences instead of opening this gallery.
  *
  * This file is NOT imported anywhere, so it isn't bundled into the site.
- * The six itineraries themselves still live (and are still shown) in
- * src/data/experiencesData.js — only the Consultancy-page gallery and its
- * story-reader popup were removed. The matching styles (.con-inspire-*,
- * .con-modal-*) were left in src/components/ConsultancyPage.css.
+ * The six itineraries' data now lives in the archive too:
+ * src/archive/experiences-before-live-copy/experiencesData.js (the live
+ * Experiences page uses src/data/toursData.js instead). The matching styles
+ * (.con-inspire-*, .con-modal-*) were left in src/components/ConsultancyPage.css.
  *
  * HOW TO RESTORE in src/components/ConsultancyPage.jsx:
- *   1. Add back the imports:
- *        import { experiencesData } from '../data/experiencesData.js'
+ *   1. Add back the import (either move experiencesData.js back to src/data/,
+ *      or import it from the archive folder):
+ *        import { experiencesData } from '../archive/experiences-before-live-copy/experiencesData.js'
  *   2. Paste INSPIRE_SLUGS + inspireItems (below) above the component.
  *   3. Add back the three useState hooks (inspireOpen, inspireHovered,
  *      selectedInspireStory) and include inspireOpen / selectedInspireStory
@@ -25,7 +26,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { experiencesData } from '../data/experiencesData.js'
+import { experiencesData } from './experiences-before-live-copy/experiencesData.js'
 
 // The old site's "Get Inspired" grid pointed at these six itineraries —
 // they already exist as real tours with real copy and photos, so we pull

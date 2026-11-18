@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './Nav.css'
 
+// Routes that start with a full-screen photo at the top of the page.
+const DARK_HERO_ROUTES = new Set(['/', '/destinations', '/about', '/contact', '/consultancy', '/experiences'])
+
 export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   const { pathname } = useLocation()
   const isHome = pathname === '/'
@@ -18,12 +21,16 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [pathname])
 
-  // The nav now always sits on its own solid parchment bar, so the logo and
-  // controls stay legible on every page and never blend into the content
-  // scrolling underneath. The dark "on-photo" styling is only used while
-  // the full-screen menu overlay is open.
+  // Pages that open on a full-bleed photo hero: at the very top the nav is
+  // see-through (white logo + light controls) so it doesn't sit as a pale
+  // band over the photo. As soon as the visitor scrolls, it switches to the
+  // solid parchment bar with dark controls, so it never blends into content.
+  // Pages without a photo hero always use the solid bar.
+  const hasPhotoHero =
+    DARK_HERO_ROUTES.has(pathname) || pathname.startsWith('/destinations/') || pathname.startsWith('/experiences/')
   const revealed = true
-  const scrolled = !menuOpen
+  const overHero = hasPhotoHero && !revealedState
+  const scrolled = !menuOpen && !overHero
   const lifted = revealedState && !menuOpen
 
   // The brand is a real <Link to="/">, so it already navigates home on its
@@ -34,7 +41,9 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   }
 
   return (
-    <header className={`nav ${scrolled ? 'scrolled' : ''} ${lifted ? 'lifted' : ''} ${revealed ? 'revealed' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+    <header
+      className={`nav ${scrolled ? 'scrolled' : ''} ${overHero && !menuOpen ? 'over-hero' : ''} ${lifted ? 'lifted' : ''} ${revealed ? 'revealed' : ''} ${menuOpen ? 'menu-open' : ''}`}
+    >
       <div className="wrap nav-inner">
         <Link
           to="/"
