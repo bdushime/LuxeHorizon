@@ -127,9 +127,9 @@ export default function ContactPage() {
 
       const adminParams = {
         ...baseParams,
-        title: `New Boarding Pass Enquiry from ${userName} - Luxe Horizons Africa`,
-        subject: `New Boarding Pass Enquiry from ${userName} - Luxe Horizons Africa`,
-        email_subject: `New Boarding Pass Enquiry from ${userName} - Luxe Horizons Africa`
+        title: `New Inquiry from ${userName} - Luxe Horizons Africa`,
+        subject: `New Inquiry from ${userName} - Luxe Horizons Africa`,
+        email_subject: `New Inquiry from ${userName} - Luxe Horizons Africa`
       }
 
       const clientParams = {
@@ -247,18 +247,18 @@ export default function ContactPage() {
                 <h2>Your enquiry is in.</h2>
                 <p>A trip designer will be in touch shortly - usually within a day.</p>
                 <button type="button" onClick={handleReset} className="pass-reset-btn">
-                  Send Another Enquiry
+                  Send Another Inquiry
                 </button>
               </div>
             </div>
           ) : (
             <form ref={formRef} className="boarding-pass" onSubmit={handleSubmit}>
               <div className="pass-main">
-                <div className="pass-eyebrow">Boarding Pass - Full Enquiry</div>
+                <div className="pass-eyebrow">Inquiry</div>
                 {errorMessage && <div className="pass-error-alert">{errorMessage}</div>}
                 <div className="pass-grid">
                   <label>
-                    <span>Passenger Name</span>
+                    <span>Full Name</span>
                     <input type="text" name="name" required />
                   </label>
                   <label>

@@ -25,7 +25,7 @@ export const heroSections = [
     key: 'experiences',
     eyebrow: 'Explore',
     label: 'EXPERIENCES',
-    image: '/experiences/featured/7-day-rwandas-big-5-gorillas.webp',
+    image: '/hiking-boots-trail.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 30% 20%, rgba(139,168,120,0.28), transparent 60%), linear-gradient(160deg, #2E4A38 0%, #142019 100%)'
   },
@@ -33,7 +33,7 @@ export const heroSections = [
     key: 'destinations',
     eyebrow: 'Where To',
     label: 'DESTINATIONS',
-    image: '/experiences/featured/tanzania-classic.webp',
+    image: '/giraffe-savanna.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 70% 20%, rgba(201,161,90,0.30), transparent 60%), linear-gradient(160deg, #4A3A22 0%, #1C150D 100%)'
   },
@@ -41,7 +41,7 @@ export const heroSections = [
     key: 'about',
     eyebrow: 'Who We Are',
     label: 'ABOUT',
-    image: '/gorilla-trek-muddy-boots.webp',
+    image: '/team-laughing.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 50% 15%, rgba(156,74,50,0.28), transparent 60%), linear-gradient(160deg, #3A2A2A 0%, #16100F 100%)'
   },
@@ -49,7 +49,7 @@ export const heroSections = [
     key: 'contact',
     eyebrow: 'Get In Touch',
     label: 'CONTACT',
-    image: '/kayaking-lake-kivu.webp',
+    image: '/lakeside-dinner.webp',
     gradient:
       'radial-gradient(ellipse 70% 55% at 40% 25%, rgba(191,219,214,0.22), transparent 60%), linear-gradient(160deg, #234A44 0%, #0D1F1C 100%)'
   }
@@ -114,21 +114,21 @@ export const destinations = [
     key: 'uganda',
     eyebrow: '02 — Bwindi & Queen Elizabeth',
     name: 'Uganda',
-    image: '/experiences/featured/best-of-the-pearl-of-africa.webp',
+    image: '/uganda-tree-lion.webp',
     accent: '#b9772e'
   },
   {
     key: 'tanzania',
     eyebrow: '03 — Serengeti & Ngorongoro',
     name: 'Tanzania',
-    image: '/Tanzania.webp',
+    image: '/tanzania-hyenas-vultures.webp',
     accent: '#3f6b63'
   },
   {
     key: 'kenya',
     eyebrow: '04 — Maasai Mara & Amboseli',
     name: 'Kenya',
-    image: '/Kenya.webp',
+    image: '/kenya-lions-zebra.webp',
     accent: '#9c4a32'
   }
 ]
@@ -158,7 +158,7 @@ export const destinationDetails = {
         ]
       }
     ],
-    secondaryPhoto: '/experiences/featured/gorillas-in-the-mist.webp'
+    secondaryPhoto: '/rwanda-helicopter-transfer.webp'
   },
   uganda: {
     paragraphs: [
@@ -180,7 +180,7 @@ export const destinationDetails = {
         ]
       }
     ],
-    secondaryPhoto: '/experiences/featured/best-of-the-pearl-of-africa.webp'
+    secondaryPhoto: '/uganda-landcruiser-giraffes.webp'
   },
   tanzania: {
     paragraphs: [
@@ -195,7 +195,7 @@ export const destinationDetails = {
       { label: 'Also Notable', value: 'Combination with Zanzibar Beach' },
       { label: 'Culture', value: 'Maasai Communities' }
     ],
-    secondaryPhoto: '/Tanzania.webp'
+    secondaryPhoto: '/tanzania-giraffe-acacia.webp'
   },
   kenya: {
     paragraphs: [
@@ -209,7 +209,7 @@ export const destinationDetails = {
       { label: 'Key Parks', value: 'Maasai Mara & Amboseli' },
       { label: 'Great Migration', value: 'Peaks August – October' }
     ],
-    secondaryPhoto: '/Kenya.webp'
+    secondaryPhoto: '/kenya-lion-pair.webp'
   }
 }
 
@@ -222,20 +222,20 @@ export const consultancyIntro =
 export const consultancyPillars = [
   {
     key: 'advisory',
-    title: 'Consultancy and Incentives',
+    title: 'Consultancy',
     tagline: 'Strategic guidance from a team who knows the region.',
     description:
       "We believe that each trip is as unique as each client, we will therefore guide you every step of the way as we craft together one-of-a-kind experiences that will bring your specific travel dreams to life and make your memories last a lifetime.",
-    image: '/Consultancy-Advisory.png',
+    image: '/giraffe-portrait-hills.webp',
     accent: '#5c6b4f'
   },
   {
     key: 'mice',
-    title: 'Incentives and Educational Trips',
+    title: 'Incentive and Educational Trips',
     tagline: 'Full-service MICE planning, from Kigali and beyond.',
     description:
       "What are you traveling for? Is it a business trip or do you want to meet in Rwanda? Whether it's a conference space to brainstorm from, an Incentive trip designed to re-energize and motivate the team or even a travel initiative to educate and inspire, we'll organise something that's guaranteed to exactly respond to your wishes.",
-    image: '/Conferences-Incentives.png',
+    image: '/lake-kivu-viewpoint-group.webp',
     accent: '#b9772e'
   },
   {
@@ -244,7 +244,7 @@ export const consultancyPillars = [
     tagline: 'Ideas and case studies from journeys we have designed.',
     description:
       'Not sure where to start? Explore ideas and case studies from journeys we have designed for past clients — a starting point for shaping the trip or event that is right for you.',
-    image: '/Get-Inspired.png',
+    image: '/lakeside-dinner.webp',
     accent: '#9c4a32'
   }
 ]

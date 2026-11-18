@@ -22,9 +22,9 @@
 .exp-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('/experiences/7-day-rwandas-big-5-gorillas-3.webp'), url('/experiences/featured/7-day-rwandas-big-5-gorillas.webp');
+  background-image: url('/hiking-boots-trail.webp');
   background-size: cover;
-  background-position: center 35%;
+  background-position: center 55%;
   z-index: 1;
   transform: scale(1.02);
   transition: transform 12s ease-out;

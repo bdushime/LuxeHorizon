@@ -4,8 +4,28 @@
   left: 0;
   right: 0;
   z-index: 70;
-  padding: 30px 0;
-  transition: padding 0.4s ease;
+  padding: 14px 0;
+  /* Solid parchment bar: keeps the logo visible on every page and stops
+     page content showing through / colliding with it while scrolling. */
+  background: rgba(246, 241, 231, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(33, 29, 23, 0.08);
+  transition: padding 0.4s ease, background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Soft shadow once the page has scrolled, to separate bar from content */
+.nav.lifted {
+  box-shadow: 0 6px 24px rgba(20, 31, 25, 0.08);
+}
+
+/* When the full-screen menu is open, let the dark overlay show through */
+.nav.menu-open {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .nav-inner {
@@ -20,7 +40,7 @@
 }
 
 .brand-logo {
-  height: 40px;
+  height: 44px;
   width: auto;
   display: block;
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Reveal from './Reveal.jsx'
 import CtaBand from './CtaBand.jsx'
@@ -7,21 +7,10 @@ import PartnersSection from './PartnersSection.jsx'
 import Seo from './Seo.jsx'
 import { PAGE_SEO } from '../config/seo.js'
 import { consultancyIntro, consultancyPillars } from '../data/content.js'
-import { experiencesData } from '../data/experiencesData.js'
 import './ConsultancyPage.css'
 
-// The old site's "Get Inspired" grid pointed at these six itineraries —
-// they already exist as real tours with real copy and photos, so we pull
-// them straight from the Experiences catalog instead of duplicating them.
-const INSPIRE_SLUGS = [
-  'kigalis-golf-experience-the-safari-the-city',
-  'pre-post-conference-gorilla-experience',
-  'city-tour-vibrant-hopeful-kigali',
-  'pre-post-conference-safari-experience',
-  'ancient-history-culture',
-  'pre-colonial-era-the-big-5-the-city'
-]
-const inspireItems = INSPIRE_SLUGS.map((slug) => experiencesData.find((e) => e.slug === slug)).filter(Boolean)
+// The "Get Inspired" itinerary gallery that used to open here is archived in
+// src/archive/ConsultancyGetInspired.archive.jsx — the card now links to /experiences.
 
 const wordVariant = {
   hidden: { y: 34, opacity: 0, filter: 'blur(10px)', rotateX: 35 },
@@ -67,9 +56,7 @@ export default function ConsultancyPage() {
   const [hovered, setHovered] = useState(null)
   const [scrollY, setScrollY] = useState(0)
   const [activeKey, setActiveKey] = useState(null)
-  const [inspireOpen, setInspireOpen] = useState(false)
-  const [inspireHovered, setInspireHovered] = useState(null)
-  const [selectedInspireStory, setSelectedInspireStory] = useState(null)
+  const navigate = useNavigate()
   const activePillar = consultancyPillars.find((p) => p.key === activeKey) || null
 
   useEffect(() => {
@@ -81,31 +68,25 @@ export default function ConsultancyPage() {
 
   // Lock page scroll while any modal is open, and let Escape close it
   useEffect(() => {
-    if (!activeKey && !inspireOpen && !selectedInspireStory) return
+    if (!activeKey) return
     const prevOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     const onKey = (e) => {
       if (e.key !== 'Escape') return
-      if (selectedInspireStory) {
-        setSelectedInspireStory(null)
-        return
-      }
       setActiveKey(null)
-      setInspireOpen(false)
     }
     window.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = prevOverflow
       window.removeEventListener('keydown', onKey)
     }
-  }, [activeKey, inspireOpen, selectedInspireStory])
+  }, [activeKey])
 
-  // "Get Inspired" doesn't describe itself the way the other two pillars
-  // do — it opens a separate gallery of real itineraries instead of the
-  // single-topic split modal.
+  // "Get Inspired" doesn't open a modal like the other two pillars — it
+  // takes the visitor straight to the full Experiences catalog.
   const openPillar = (pillar) => {
     if (pillar.key === 'inspire') {
-      setInspireOpen(true)
+      navigate('/experiences')
       return
     }
     setActiveKey(pillar.key)
@@ -212,149 +193,6 @@ export default function ConsultancyPage() {
               <Link to="/contact" className="btn btn-light con-modal-cta">
                 Talk To Us →
               </Link>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {inspireOpen && (
-          <motion.div
-            className="con-modal-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            onClick={() => setInspireOpen(false)}
-          >
-            <motion.div
-              className="con-modal-card con-inspire-card"
-              initial={{ opacity: 0, scale: 0.92, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 12 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                type="button"
-                className="con-modal-close"
-                aria-label="Close"
-                onClick={() => setInspireOpen(false)}
-              >
-                &times;
-              </button>
-              <div className="con-inspire-header">
-                <div className="con-modal-eyebrow">Consultancy &amp; Incentive Travel</div>
-                <h2 className="con-modal-title">Get Inspired</h2>
-                <div className="con-divider" />
-              </div>
-              <div className={`con-inspire-mosaic ${inspireHovered ? 'has-active' : ''}`}>
-                {inspireItems.map((item) => (
-                  <div
-                    key={item.slug}
-                    className={`con-inspire-tile ${inspireHovered === item.slug ? 'active' : ''}`}
-                    onMouseEnter={() => setInspireHovered(item.slug)}
-                    onMouseLeave={() => setInspireHovered(null)}
-                    onFocus={() => setInspireHovered(item.slug)}
-                    onBlur={() => setInspireHovered(null)}
-                    onClick={() => setSelectedInspireStory(item)}
-                  >
-                    <img className="con-inspire-tile-media" src={item.image} alt={item.title} loading="lazy" decoding="async" />
-                    <div className="con-inspire-tile-overlay" />
-                    <div className="con-inspire-tile-content">
-                      <h3>{item.title}</h3>
-                      <p className="con-inspire-tile-meta">{item.duration} · {item.category}</p>
-                      <span className="con-inspire-tile-cta">Read Story →</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Inline Article Reader Modal for Consultancy Inspired Stories */}
-      <AnimatePresence>
-        {selectedInspireStory && (
-          <motion.div
-            className="con-modal-backdrop con-story-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            onClick={() => setSelectedInspireStory(null)}
-          >
-            <motion.div
-              className="con-modal-card con-story-card"
-              initial={{ opacity: 0, scale: 0.94, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 12 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                type="button"
-                className="con-modal-close con-story-close"
-                aria-label="Close story"
-                onClick={() => setSelectedInspireStory(null)}
-              >
-                &times;
-              </button>
-
-              <div className="con-story-hero">
-                <img src={selectedInspireStory.image} alt={selectedInspireStory.title} className="con-story-hero-media" />
-                <div className="con-story-hero-overlay" />
-                <div className="con-story-hero-content">
-                  <div className="con-modal-eyebrow on-dark">{selectedInspireStory.category || 'MICE & Expeditions'}</div>
-                  <h2 className="con-story-title">{selectedInspireStory.title}</h2>
-                  <div className="con-story-meta">{selectedInspireStory.duration || 'Custom Expedition'}</div>
-                </div>
-              </div>
-
-              <div className="con-story-body">
-                <p className="con-story-lead">
-                  {selectedInspireStory.description || selectedInspireStory.summary}
-                </p>
-
-                {selectedInspireStory.fullStory && selectedInspireStory.fullStory.length > 0 && (
-                  <div className="con-story-paragraphs">
-                    {selectedInspireStory.fullStory.map((para, i) => (
-                      <p key={i}>{para}</p>
-                    ))}
-                  </div>
-                )}
-
-                {selectedInspireStory.highlights && selectedInspireStory.highlights.length > 0 && (
-                  <div className="con-story-highlights">
-                    <h4>Key Highlights &amp; Inclusions</h4>
-                    <ul>
-                      {selectedInspireStory.highlights.map((h, i) => (
-                        <li key={i}>{h}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                <div className="con-divider" />
-
-                <div className="con-story-cta-box">
-                  <div>
-                    <h4>Interested in this itinerary for your group or organization?</h4>
-                    <p>Our travel management &amp; consultancy specialists can tailor every detail for your conference, retreat, or executive delegation.</p>
-                  </div>
-                  <Link
-                    to="/contact"
-                    className="btn btn-dark con-story-cta-btn"
-                    onClick={() => {
-                      setSelectedInspireStory(null)
-                      setInspireOpen(false)
-                    }}
-                  >
-                    Plan With Our Consultancy Team &rarr;
-                  </Link>
-                </div>
-              </div>
             </motion.div>
           </motion.div>
         )}

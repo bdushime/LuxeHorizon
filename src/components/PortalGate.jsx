@@ -41,16 +41,19 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
         className="relative z-0 flex-1 cursor-pointer overflow-hidden group flex flex-col justify-between p-8 sm:p-12 md:p-16"
       >
         <motion.img
-          src="/Travel.webp"
-          alt="Luxe Horizons Africa"
+          src="/team-walk.webp"
+          alt="The Luxe Horizons Africa team walking along a bamboo-lined path"
           animate={{
             scale: selected ? 1.08 : [1, 1.05, 1]
           }}
           transition={{
             scale: selected ? { duration: 0.8 } : { duration: 18, repeat: Infinity, ease: 'easeInOut' }
           }}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-[center_60%]"
         />
+        {/* Darken the bamboo canopy at the top so the headline reads clearly
+            without covering the team's faces in the middle of the frame. */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-black/40" />
 
         {/* Top Header Logo */}
         <div className="relative z-10 flex items-center justify-between w-full">
@@ -62,15 +65,23 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
         </div>
 
         {/* Center Main Headline - Bigger Size */}
-        <div className="relative z-10 my-auto py-12 max-w-4xl text-left">
+        <div className="relative z-10 mb-auto pt-8 sm:pt-12 max-w-4xl text-left">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.05 }}
+            className="mb-2 font-serif text-2xl sm:text-4xl md:text-5xl uppercase leading-snug font-normal tracking-wide text-[#c6a15b] [text-shadow:_0_2px_12px_rgba(0,0,0,0.8)]"
+          >
+            Expert Local DMC
+          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#F8F6F0] leading-snug font-normal tracking-wide [text-shadow:_0_2px_12px_rgba(0,0,0,0.8)]"
           >
-            Luxury Private Journeys &amp; <br />
-            <span className="text-[#c6a15b] italic font-normal drop-shadow">Primate Expeditions</span>
+            We Love What We Do. <br />
+            <span className="text-[#c6a15b] italic font-normal drop-shadow">You Will Love Where <br />We Take You.</span>
           </motion.h1>
         </div>
 
