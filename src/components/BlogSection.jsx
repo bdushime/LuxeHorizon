@@ -70,8 +70,7 @@ export default function BlogSection() {
     <section className="blog-trail-section" id="blog">
       <div className="wrap blog-head">
         <Reveal className="reveal-left">
-          <div className="eyebrow">From The Field</div>
-          <h2>What Our Guests Say</h2>
+          <h2>Blogs</h2>
         </Reveal>
         <Reveal className="reveal-right">
           <p>Guides, culture and conservation dispatches from Rwanda, Uganda, Tanzania and Kenya.</p>

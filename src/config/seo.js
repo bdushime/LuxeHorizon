@@ -91,14 +91,14 @@ export const PAGE_SEO = {
   blog: {
     title: 'Blog & Field Notes — Gorilla Trekking Tips & Travel Guides',
     description:
-      'Expert travel tips, gorilla trekking etiquette, conservation insights and seasonal guides for Rwanda, Uganda and Tanzania.',
+      'Expert travel tips, gorilla trekking etiquette, conservation insights and seasonal guides for Rwanda, Uganda, Tanzania and Kenya.',
     canonical: `${SITE_URL}/blog`,
     ogImage: `${SITE_URL}/Mountain-Gorilla.webp`
   },
   itineraries: {
     title: 'Bespoke Safari Itineraries & Articles | Luxe Horizons Africa',
     description:
-      'Browse and read curated luxury safari itinerary articles and guides for Rwanda, Uganda, and Tanzania.',
+      'Browse and read curated luxury safari itinerary articles and guides for Rwanda, Uganda, Tanzania, and Kenya.',
     canonical: `${SITE_URL}/itineraries`,
     ogImage: `${SITE_URL}/Mountain-Gorilla.webp`
   },
@@ -119,7 +119,7 @@ export const PAGE_SEO = {
   consultancy: {
     title: 'Consultancy & Incentive Travel | Luxe Horizons Africa',
     description:
-      'Travel management consultancy, MICE and educational trip planning across Rwanda, Uganda and Tanzania, by Luxe Horizons Africa.',
+      'Travel management consultancy, MICE and educational trip planning across Rwanda, Uganda, Tanzania and Kenya, by Luxe Horizons Africa.',
     canonical: `${SITE_URL}/consultancy`,
     ogImage: `${SITE_URL}/Consultancy.webp`
   },

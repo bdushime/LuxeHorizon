@@ -96,7 +96,7 @@ export const adventureCards = [
     image: '/experiences/featured/rwanda-discovery.webp',
     badge: 'Custom',
     title: 'Build Your Own',
-    route: 'Rwanda · Uganda · Tanzania',
+    route: 'Rwanda · Uganda · Tanzania · Kenya',
     price: 'Speak to a designer',
     accent: '#9c4a32'
   }
