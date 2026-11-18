@@ -41,7 +41,7 @@ export default function PortalGate({ isOpen, onSelectTourism }) {
         className="relative z-0 flex-1 cursor-pointer overflow-hidden group flex flex-col justify-between p-8 sm:p-12 md:p-16"
       >
         <motion.img
-          src="/team-walk.webp"
+          src="/images/opening-screen/opening-screen-team-walk.webp"
           alt="The Luxe Horizons Africa team walking along a bamboo-lined path"
           animate={{
             scale: selected ? 1.08 : [1, 1.05, 1]

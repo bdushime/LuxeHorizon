@@ -6,7 +6,7 @@ import './AboutReel.css'
 // stages and the stats all live inside one pinned section. Scrolling down
 // advances a horizontal filmstrip instead of stacking panels vertically.
 
-const PHOTO_HERO = '/team-laughing.webp'
+const PHOTO_HERO = '/images/about/about-hero-team-laughing.webp'
 const PHOTO_PHILOSOPHY = '/weaver-bird-nyungwe.webp'
 const STAGE_PHOTOS = ['/kob-antelope-sparring.webp', '/gorilla-trek-muddy-boots.webp', '/chimpanzee-1.webp']
 

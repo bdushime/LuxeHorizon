@@ -15,7 +15,7 @@ import ConsultancyPage from './components/ConsultancyPage.jsx'
 import TestimonialsPage from './components/TestimonialsPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import ExperiencesPage from './pages/ExperiencesPage.jsx'
-import ItinerariesPage from './pages/ItinerariesPage.jsx'
+import TourDetailPage from './pages/TourDetailPage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import Footer from './components/Footer.jsx'
 
@@ -37,6 +37,7 @@ function AppRoutes() {
       location.pathname
     ) === false &&
     !location.pathname.startsWith('/destinations/') &&
+    !location.pathname.startsWith('/experiences/') &&
     !isAdmin
 
   return (
@@ -62,13 +63,14 @@ function AppRoutes() {
         <Route path="/destinations" element={<DestinationsPage />} />
         <Route path="/destinations/:key" element={<DestinationDetailPage />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/itineraries" element={<Navigate to="/experiences?tab=itineraries" replace />} />
+        <Route path="/itineraries" element={<Navigate to="/experiences" replace />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/consultancy" element={<ConsultancyPage />} />
         <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/experiences" element={<ExperiencesPage />} />
+        <Route path="/experiences/:slug" element={<TourDetailPage />} />
 
         {/* Protected Admin Routes */}
         <Route path="/admin/login" element={<AdminLoginPage />} />
