@@ -19,7 +19,6 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="footer-brand">
             <div className="brand">
-              <span className="mark" />
               Luxe Horizons Africa
             </div>
             <p>

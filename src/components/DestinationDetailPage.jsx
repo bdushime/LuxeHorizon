@@ -1,5 +1,7 @@
+import { useRef } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import Reveal from './Reveal.jsx'
+import SwipeDots from './SwipeDots.jsx'
 import Seo from './Seo.jsx'
 import { destinations, destinationDetails, adventureCards } from '../data/content.js'
 import { PAGE_SEO, generateDestinationSchema, generateBreadcrumbSchema } from '../config/seo.js'
@@ -7,6 +9,7 @@ import './DestinationDetailPage.css'
 
 export default function DestinationDetailPage() {
   const { key } = useParams()
+  const otherRef = useRef(null)
   const dest = destinations.find((d) => d.key === key)
   const detail = destinationDetails[key]
 
@@ -113,7 +116,7 @@ export default function DestinationDetailPage() {
           <div className="wrap">
             <div className="eyebrow">Keep Exploring</div>
             <h2>Other Destinations</h2>
-            <div className="ddp-other-grid">
+            <div className="ddp-other-grid m-swipe" ref={otherRef}>
               {otherDestinations.map((d) => (
                 <Link
                   key={d.key}
@@ -131,6 +134,7 @@ export default function DestinationDetailPage() {
                 </Link>
               ))}
             </div>
+            <SwipeDots trackRef={otherRef} label="destinations" />
           </div>
         </section>
       )}

@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Reveal from './Reveal.jsx'
+import SwipeDots from './SwipeDots.jsx'
 import CtaBand from './CtaBand.jsx'
 import PartnersSection from './PartnersSection.jsx'
 import Seo from './Seo.jsx'
@@ -57,6 +58,7 @@ export default function ConsultancyPage() {
   const [scrollY, setScrollY] = useState(0)
   const [activeKey, setActiveKey] = useState(null)
   const navigate = useNavigate()
+  const triptychRef = useRef(null)
   const activePillar = consultancyPillars.find((p) => p.key === activeKey) || null
 
   useEffect(() => {
@@ -128,7 +130,7 @@ export default function ConsultancyPage() {
       </section>
 
       <section className="con-triptych">
-        <div className={`con-triptych-row ${hovered ? 'has-active' : ''}`}>
+        <div className={`con-triptych-row m-swipe ${hovered ? 'has-active' : ''}`} ref={triptychRef}>
           {consultancyPillars.map((pillar) => (
             <button
               key={pillar.key}
@@ -151,6 +153,7 @@ export default function ConsultancyPage() {
             </button>
           ))}
         </div>
+        <SwipeDots trackRef={triptychRef} label="services" />
       </section>
 
       <AnimatePresence>

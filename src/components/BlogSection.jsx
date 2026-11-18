@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Reveal from './Reveal.jsx'
+import SwipeDots from './SwipeDots.jsx'
 import { blogPosts as initialPosts } from '../data/content.js'
 import { supabase } from '../lib/supabase.js'
 import './BlogSection.css'
@@ -63,6 +64,7 @@ export default function BlogSection() {
     loadPosts()
   }, [])
 
+  const trackRef = useRef(null)
   const featuredPosts = posts.slice(0, 3)
   const visiblePosts = dealt ? [...featuredPosts, DEMO_POST] : featuredPosts
 
@@ -78,7 +80,7 @@ export default function BlogSection() {
       </div>
 
       <div className="wrap blog-trail">
-        <div className="blog-trail-row">
+        <div className="blog-trail-row m-swipe" ref={trackRef}>
           <AnimatePresence initial={false}>
             {visiblePosts.map((post, i) => (
               <motion.div
@@ -129,6 +131,7 @@ export default function BlogSection() {
             </span>
           </motion.button>
         </div>
+        <SwipeDots trackRef={trackRef} label="stories" />
       </div>
     </section>
   )

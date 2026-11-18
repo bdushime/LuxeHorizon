@@ -289,12 +289,16 @@
   transform: translateY(0);
 }
 
+/* Phones + small tablets: "Other Destinations" is a swipe row
+   (.m-swipe in styles/index.css). */
 @media (max-width: 760px) {
-  .ddp-other-grid {
-    grid-template-columns: 1fr;
-  }
   .ddp-other-card {
-    height: 240px;
+    height: 300px;
+  }
+  /* no hover on touch screens, so always show the "View Destination" link */
+  .ddp-other-cta {
+    opacity: 1;
+    transform: none;
   }
 }
 

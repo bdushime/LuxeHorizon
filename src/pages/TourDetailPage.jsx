@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import TourCard from '../components/TourCard.jsx'
+import SwipeDots from '../components/SwipeDots.jsx'
 import CtaBand from '../components/CtaBand.jsx'
 import Seo from '../components/Seo.jsx'
 import { generateBreadcrumbSchema } from '../config/seo.js'
@@ -52,6 +53,7 @@ export default function TourDetailPage() {
   const tour = toursData.find((t) => t.slug === slug)
   const [tab, setTab] = useState('overview')
   const [lightbox, setLightbox] = useState(null)
+  const relatedRef = useRef(null)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -220,11 +222,12 @@ export default function TourDetailPage() {
         <section className="tour-related">
           <div className="wrap">
             <h2>Related Experiences</h2>
-            <div className="tour-grid tour-grid-related">
+            <div className="tour-grid tour-grid-related m-swipe" ref={relatedRef}>
               {related.map((r) => (
                 <TourCard key={r.slug} tour={r} />
               ))}
             </div>
+            <SwipeDots trackRef={relatedRef} label="related experiences" />
           </div>
         </section>
       )}
