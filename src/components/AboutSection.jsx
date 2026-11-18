@@ -85,9 +85,6 @@ export default function AboutSection() {
     <section className="intro" id="about">
       <div className="wrap intro-grid-v2">
         <Reveal className="reveal-left intro-copy-col">
-          <div className="eyebrow" style={{ marginBottom: 18 }}>
-            Our Approach
-          </div>
           <h2>
             A journey,
             <br />
@@ -95,15 +92,14 @@ export default function AboutSection() {
           </h2>
           <div className="intro-copy">
             <p>
-              We are a small team based in Kigali, working exclusively across Rwanda,
-              Uganda and Tanzania. That focus means we know which lodge has the better
-              view of the volcanoes, which guide reads gorilla behaviour best, and which
-              road to avoid after rain — details a wider itinerary can't afford to chase.
-            </p>
-            <p>
               Every trip we build is designed around one traveller's version of luxury,
               whether that's silence at altitude, a private vehicle, or a community
               project worth detouring for. Nothing is templated; nothing is rushed.
+            </p>
+            <p>
+              That focus means we know which lodge has the better view of the volcanoes,
+              which guide reads gorilla behaviour best, and which road to avoid after
+              rain — details a wider itinerary can't afford to chase.
             </p>
           </div>
           <Link to="/about" className="intro-cta">

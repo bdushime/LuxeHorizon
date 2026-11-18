@@ -14,7 +14,7 @@ export default function CtaBand() {
     >
       <Reveal as="div" className="wrap cta-inner">
         <div className="eyebrow">Start Planning</div>
-        <h2>Your itinerary starts with a conversation, not a form.</h2>
+        <h2>Your itinerary starts with a conversation, not just a form.</h2>
         <Link to="/contact" className="btn btn-light">
           Plan Your Trip
         </Link>

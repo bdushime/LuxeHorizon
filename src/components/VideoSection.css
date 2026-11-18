@@ -45,9 +45,37 @@
   flex-wrap: wrap;
 }
 
+/* Player controls overlaid on the video, just above the scrubber */
+.video-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+/* On devices with a mouse, reveal controls on hover / keyboard focus */
+@media (hover: hover) {
+  .video-controls {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  .video-frame:hover .video-controls,
+  .video-controls:focus-within {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+.video-section-media {
+  cursor: pointer;
+}
+
 .video-sound-toggle {
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
   flex: none;
   border-radius: 50%;
   border: 1px solid rgba(246, 241, 231, 0.4);
@@ -103,7 +131,17 @@
   height: 3px;
   border-radius: 999px;
   background: rgba(246, 241, 231, 0.25);
-  overflow: hidden;
+  cursor: pointer;
+  z-index: 2;
+}
+/* Invisible taller hit area so the thin bar is easy to click */
+.video-frame-scrubber::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  bottom: -10px;
 }
 .video-frame-scrubber-fill {
   height: 100%;
