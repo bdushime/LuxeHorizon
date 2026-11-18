@@ -202,23 +202,30 @@
   padding: 0 10px;
 }
 
+@media (max-width: 980px) {
+  /* tighter spacing on phones / small tablets (desktop keeps 120px / 130px) */
+  .blog-trail-section {
+    padding: 72px 0 40px;
+  }
+}
+
 @media (max-width: 900px) {
   .blog-head {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  /* The row is a swipe row on small screens (.m-swipe in styles/index.css). */
   .blog-trail-row {
-    flex-direction: column;
-    gap: 40px;
+    align-items: stretch;
   }
   .blog-trail-col {
     margin-top: 0 !important;
-    width: 100%;
   }
-  .blog-trail-stack {
+  .m-swipe > .blog-trail-stack {
+    flex: 0 0 140px !important;
+    max-width: 140px;
     align-self: center;
-    flex-basis: auto;
-    width: 128px;
+    scroll-snap-align: end;
   }
   .blog-trail-stem {
     display: none;

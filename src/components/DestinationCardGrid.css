@@ -39,8 +39,15 @@
   color: var(--parchment);
 }
 
+/* Phones + small tablets: the grid becomes a swipe row (.m-swipe in
+   styles/index.css); tiles get a shorter portrait shape instead of 520px. */
 @media (max-width: 980px) {
-  .dest-grid {
-    grid-template-columns: 1fr;
+  .dest-tile {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+  .dest-label {
+    left: 22px;
+    bottom: 22px;
   }
 }

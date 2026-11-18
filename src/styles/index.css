@@ -156,3 +156,90 @@ h3 {
     padding: 0 22px;
   }
 }
+
+/* ==========================================================================
+   Mobile swipe rows (phones + small tablets only, <= 980px).
+   Add className "m-swipe" to a card row to turn it into a left-to-right
+   swipe carousel on small screens; above 980px the row keeps its normal
+   layout untouched. Pair it with <SwipeDots trackRef={...} /> for the dots.
+   ========================================================================== */
+.swipe-dots {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .m-swipe {
+    --swipe-gutter: 40px;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
+    gap: 14px !important;
+    height: auto !important;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--swipe-gutter);
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* bleed to the screen edges so the next card peeks in from the side */
+    margin-left: calc(var(--swipe-gutter) * -1) !important;
+    margin-right: calc(var(--swipe-gutter) * -1) !important;
+    padding: 4px var(--swipe-gutter) 10px !important;
+  }
+  .m-swipe::-webkit-scrollbar {
+    display: none;
+  }
+  .m-swipe > * {
+    flex: 0 0 46% !important;
+    max-width: 46%;
+    min-width: 0;
+    scroll-snap-align: start;
+    margin-top: 0 !important;
+  }
+  /* Cards that fade in on scroll would stay hidden while only peeking in
+     from the side, so inside a swipe row they are simply always visible. */
+  .m-swipe > .reveal,
+  .m-swipe .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .swipe-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .swipe-dots button {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(20, 31, 25, 0.22);
+    cursor: pointer;
+    transition: width 0.3s ease, background 0.3s ease;
+  }
+  .swipe-dots button.active {
+    width: 22px;
+    background: var(--gold);
+  }
+  .swipe-dots.on-dark button {
+    background: rgba(246, 241, 231, 0.35);
+  }
+  .swipe-dots.on-dark button.active {
+    background: var(--gold);
+  }
+}
+
+@media (max-width: 680px) {
+  .m-swipe {
+    --swipe-gutter: 22px;
+  }
+  .m-swipe > * {
+    flex-basis: 84% !important;
+    max-width: 84%;
+  }
+}

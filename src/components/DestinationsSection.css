@@ -153,13 +153,18 @@
 }
 
 @media (max-width: 980px) {
+  /* tighter bottom spacing on phones / small tablets (desktop keeps 100px) */
+  .destinations {
+    padding-bottom: 40px;
+  }
   .dest-head {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+  /* The vertical country list repeats the swipe cards below, so it's hidden
+     on phones and small tablets. */
   .dest-route {
-    min-height: 0;
-    justify-content: flex-start;
+    display: none;
   }
   .dest-route-list {
     gap: 18px;
