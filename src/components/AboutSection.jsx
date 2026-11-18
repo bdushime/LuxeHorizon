@@ -10,7 +10,7 @@ const PHOTO_SECONDARY = '/Bird.webp'
 // count up) or has a numeric `value` that animates from 0 up to itself once
 // the stats row scrolls into view.
 const STATS = [
-  { value: 3, display: '03', suffix: '', label: 'Countries Covered' },
+  { value: 4, display: '04', suffix: '', label: 'Countries Covered' },
   { value: 100, display: '100', suffix: '%', label: 'Bespoke Itineraries' },
   { value: null, display: '1:1', suffix: '', label: 'Dedicated Trip Designer' }
 ]

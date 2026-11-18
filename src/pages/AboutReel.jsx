@@ -6,12 +6,12 @@ import './AboutReel.css'
 // stages and the stats all live inside one pinned section. Scrolling down
 // advances a horizontal filmstrip instead of stacking panels vertically.
 
-const PHOTO_HERO = '/Mountain-Gorilla.webp'
+const PHOTO_HERO = '/team-laughing.webp'
 const PHOTO_PHILOSOPHY = '/weaver-bird-nyungwe.webp'
 const STAGE_PHOTOS = ['/kob-antelope-sparring.webp', '/gorilla-trek-muddy-boots.webp', '/chimpanzee-1.webp']
 
 const STATS = [
-  { value: 3, display: '03', suffix: '', label: 'Countries Covered' },
+  { value: 4, display: '04', suffix: '', label: 'Countries Covered' },
   { value: 100, display: '100', suffix: '%', label: 'Bespoke Journeys' },
   { value: null, display: '1:1', suffix: '', label: 'Private Specialist Guide' }
 ]
@@ -114,7 +114,7 @@ export default function AboutReel() {
       <div className="reel-viewport">
         <div className="reel-track" style={trackStyle}>
           <section className="reel-panel">
-            <img className="reel-panel-media" src={PHOTO_HERO} alt="Mountain gorilla in Rwanda" fetchpriority="high" loading="eager" decoding="async" />
+            <img className="reel-panel-media" src={PHOTO_HERO} alt="The Luxe Horizons Africa team laughing together on a bamboo-lined path" fetchpriority="high" loading="eager" decoding="async" />
             <div className="reel-panel-overlay dark" />
             <div className="reel-panel-content center">
               <div className="eyebrow on-dark">About Luxe Horizons</div>

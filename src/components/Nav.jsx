@@ -2,24 +2,15 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './Nav.css'
 
-// Only routes that open on a full-bleed dark photo hero should start with
-// light, on-dark nav styling and wait for scroll to darken. Every other page
-// (e.g. "/testimonials") has a light background from the very top, so the
-// nav needs to be dark and legible immediately.
-const DARK_HERO_ROUTES = new Set(['/', '/destinations', '/about', '/contact', '/consultancy'])
-
 export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   const { pathname } = useLocation()
   const isHome = pathname === '/'
   const isConsultancy = pathname.startsWith('/consultancy')
-  const hasDarkHero = DARK_HERO_ROUTES.has(pathname) || pathname.startsWith('/destinations/')
 
-  const [scrolledState, setScrolledState] = useState(false)
   const [revealedState, setRevealedState] = useState(false)
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolledState(window.scrollY > window.innerHeight * 0.85)
       setRevealedState(window.scrollY > 30)
     }
     onScroll()
@@ -27,10 +18,13 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [pathname])
 
-  // The nav bar elements (brand, division switch, plan link, hamburger menu)
-  // should always be visible and legible across all pages.
+  // The nav now always sits on its own solid parchment bar, so the logo and
+  // controls stay legible on every page and never blend into the content
+  // scrolling underneath. The dark "on-photo" styling is only used while
+  // the full-screen menu overlay is open.
   const revealed = true
-  const scrolled = menuOpen ? false : (hasDarkHero ? scrolledState : true)
+  const scrolled = !menuOpen
+  const lifted = revealedState && !menuOpen
 
   // The brand is a real <Link to="/">, so it already navigates home on its
   // own — this only needs to additionally reopen the Portal Gate when we're
@@ -40,7 +34,7 @@ export default function Nav({ menuOpen, onToggleMenu, onOpenPortal }) {
   }
 
   return (
-    <header className={`nav ${scrolled ? 'scrolled' : ''} ${revealed ? 'revealed' : ''} ${menuOpen ? 'menu-open' : ''}`}>
+    <header className={`nav ${scrolled ? 'scrolled' : ''} ${lifted ? 'lifted' : ''} ${revealed ? 'revealed' : ''} ${menuOpen ? 'menu-open' : ''}`}>
       <div className="wrap nav-inner">
         <Link
           to="/"

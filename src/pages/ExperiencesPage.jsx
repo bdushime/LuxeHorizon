@@ -14,8 +14,6 @@ import { itinerariesData } from '../data/itinerariesData.js'
 import '../components/AdventureSection.css'
 import './ExperiencesPage.css'
 
-const CATEGORIES = ['All', 'Rwanda', 'Uganda', 'Tanzania', 'Kenya', 'Multi-Country']
-
 function formatCardSummary(text, maxLength = 112) {
   if (!text) return ''
   const trimmed = text.trim()
@@ -28,7 +26,6 @@ function formatCardSummary(text, maxLength = 112) {
 export default function ExperiencesPage() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()
-  const [activeCategory, setActiveCategory] = useState('All')
   
   // Selected experience article modal
   const [selectedExperience, setSelectedExperience] = useState(null)
@@ -142,15 +139,6 @@ export default function ExperiencesPage() {
     setSearchParams({}, { replace: true })
   }
 
-  const filteredItems = useMemo(() => {
-    if (activeCategory === 'All') return allExperiences
-    if (activeCategory === 'Kenya') {
-      return allExperiences.filter(
-        (item) => item.category === 'Kenya' || item.title.toLowerCase().includes('kenya') || item.key.includes('kenya')
-      )
-    }
-    return allExperiences.filter((item) => item.category === activeCategory)
-  }, [allExperiences, activeCategory])
 
   const scrollToGrid = () => {
     const el = document.getElementById('experiences-content-section')
@@ -239,23 +227,9 @@ export default function ExperiencesPage() {
             </p>
           </Reveal>
 
-          {/* Category Filter Tabs */}
-          <div className="exp-filter-bar">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                className={`exp-filter-btn ${activeCategory === cat ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat)}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
           {/* Experience Cards Grid */}
           <div className="itin-grid">
-            {filteredItems.map((item) => (
+            {allExperiences.map((item) => (
               <div
                 key={item.key}
                 onClick={(e) => openExperience(item, e)}

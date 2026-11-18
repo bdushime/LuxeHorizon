@@ -7,12 +7,13 @@ export default function QuoteBand() {
     <section className="quote-band">
       <Reveal as="div" className="wrap">
         <blockquote>
-          "They didn't sell us a package. They asked what we actually wanted from the
-          trip, then built the whole thing around the answer."
+          "An absolute pleasure to travel and discover beautiful Rwanda under Luxe
+          Horizons Africa-experienced guides, personalised curated tours, seamless
+          travel, vip treatment. The best!"
         </blockquote>
-        <cite>Guest, Rwanda's Primates Itinerary</cite>
+        <cite>Rachel Mbai</cite>
         <Link to="/testimonials" className="quote-band-link">
-          Read more stories →
+          Read more Testimonials →
         </Link>
       </Reveal>
     </section>
