@@ -67,6 +67,7 @@ export default function AboutReel() {
   const wrapperRef = useRef(null)
   const [progress, setProgress] = useState(0)
   const [statsPlayed, setStatsPlayed] = useState(false)
+  const [inReel, setInReel] = useState(true)
 
   useEffect(() => {
     const wrapper = wrapperRef.current
@@ -80,6 +81,16 @@ export default function AboutReel() {
         const scrolled = -rect.top
         const next = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 0
         setProgress(next)
+
+        if (window.innerWidth <= 900) {
+          const inside = rect.bottom > window.innerHeight * 0.4 && rect.top < window.innerHeight * 0.6
+          setInReel(inside)
+          if (inside) {
+            document.documentElement.classList.add('about-snap-enabled')
+          } else {
+            document.documentElement.classList.remove('about-snap-enabled')
+          }
+        }
       })
     }
     onScroll()
@@ -89,6 +100,7 @@ export default function AboutReel() {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
       cancelAnimationFrame(raf)
+      document.documentElement.classList.remove('about-snap-enabled')
     }
   }, [])
 
@@ -166,7 +178,7 @@ export default function AboutReel() {
           </section>
         </div>
 
-        <div className="reel-dots">
+        <div className={`reel-dots ${!inReel ? 'hide-mobile' : ''}`}>
           {Array.from({ length: PANEL_COUNT }).map((_, i) => (
             <button
               key={i}

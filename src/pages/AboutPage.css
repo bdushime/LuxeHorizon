@@ -352,6 +352,12 @@
   }
 }
 
+@media (max-width: 900px) {
+  .about-team-section {
+    scroll-snap-align: start;
+  }
+}
+
 @media (max-width: 560px) {
   .about-team-grid {
     grid-template-columns: 1fr;
