@@ -55,7 +55,7 @@ export default function AboutPage() {
       <AboutReel />
 
       {/* Minimal Team Section */}
-      <section className="about-team-section">
+      <section className="about-team-section" id="about-team">
         <div className="wrap">
           <Reveal className="about-section-header text-center">
             <div className="eyebrow">Our Team</div>
