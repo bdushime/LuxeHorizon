@@ -30,7 +30,7 @@ export default function Hero({ revealed = true }) {
       <div
         className="hero-photo-stack"
         role="img"
-        aria-label="Luxe Horizons Africa guests and guides walking beside a safari vehicle"
+        aria-label="The Luxe Horizons Africa team walking along a bamboo-lined path"
       >
         <div
           className="hero-photo-layer base"
