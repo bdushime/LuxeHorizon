@@ -14,7 +14,7 @@ The full-screen welcome page shown before entering the site.
 
 | File | Used in | Set in |
 |---|---|---|
-| `opening-screen-team-walk.webp` | Opening screen background ("We Love What We Do...") | `src/components/PortalGate.jsx` |
+| `opening-screen-team-walk.webp` | Opening screen background ("We Love What We Do...") **and** the homepage hero background behind Experiences / Destinations / About / Contact | `src/components/PortalGate.jsx`, `src/data/content.js` → `heroBaseImage` / `heroBaseGradient` |
 
 ## home-hero/
 The homepage hero. Each item in the bottom bar (Experiences / Destinations / About / Contact)

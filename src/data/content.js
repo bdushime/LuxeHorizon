@@ -55,9 +55,9 @@ export const heroSections = [
   }
 ]
 
-export const heroBaseImage = '/Travel.webp'
+export const heroBaseImage = '/images/opening-screen/opening-screen-team-walk.webp'
 export const heroBaseGradient =
-  "linear-gradient(180deg, rgba(8,16,13,0.12) 0%, rgba(8,16,13,0.28) 100%), url('/Travel.webp')"
+  "linear-gradient(180deg, rgba(8,16,13,0.12) 0%, rgba(8,16,13,0.28) 100%), url('/images/opening-screen/opening-screen-team-walk.webp')"
 
 export const adventureCards = [
   {

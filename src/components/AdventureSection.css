@@ -254,7 +254,7 @@
 @media (max-width: 980px) {
   /* tighter spacing on phones / small tablets (desktop keeps 130px / 140px) */
   .adventure-section {
-    padding: 56px 0 72px;
+    padding: 56px 0 50px;
   }
   .adventure-head {
     margin-bottom: 36px;

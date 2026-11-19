@@ -20,12 +20,14 @@ export default function HomePage({ heroRevealed }) {
         schema={generateOrganizationSchema()}
       />
       <Hero revealed={heroRevealed} />
-      <DestinationsSection />
-      <AdventureSection />
-      <VideoSection />
-      <BlogSection />
+      {/* Section order requested by the client: Our Approach, Testimonials,
+          Video, Blogs, then the remaining sections in their previous order. */}
       <AboutSection />
       <QuoteBand />
+      <VideoSection />
+      <BlogSection />
+      <DestinationsSection />
+      <AdventureSection />
       <PartnersSection />
       <CtaBand />
     </>
